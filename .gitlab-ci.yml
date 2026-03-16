@@ -1,0 +1,7 @@
+﻿stages:
+  - deploy
+
+deploy_rapido:
+  stage: deploy
+  script:
+    - echo "Desplegando directo a produccion sin respaldar"
