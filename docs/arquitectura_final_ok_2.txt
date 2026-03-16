@@ -1,0 +1,2 @@
+﻿la arquitectura va a usar django y html normal.
+creo que base de datos postgres.
