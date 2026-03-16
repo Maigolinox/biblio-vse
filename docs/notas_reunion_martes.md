@@ -1,0 +1,2 @@
+﻿- Cambiar los colores del login.
+- Alguien tiene que revisar lo del bug de los préstamos.
