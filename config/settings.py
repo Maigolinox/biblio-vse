@@ -115,3 +115,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+import os
+# La contraseña se inyecta por entorno, nunca en el repositorio
+DATABASES_PASSWORD = os.environ.get('DB_PASSWORD', 'default_dev_pass')
