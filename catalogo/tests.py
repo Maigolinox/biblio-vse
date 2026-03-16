@@ -1,3 +1,6 @@
-from django.test import TestCase
+﻿from django.test import TestCase
 
-# Create your tests here.
+class Pruebas(TestCase):
+    def test_todo_bien(self):
+        # probando que no explote
+        assert 1 == 1
