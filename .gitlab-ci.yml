@@ -1,0 +1,11 @@
+﻿stages:
+  - backup
+
+backup_database:
+  stage: backup
+  script:
+    - echo "Generando dump de la base de datos..."
+    - pg_dump -U postgres biblio_db > backup_hitos.sql
+  artifacts:
+    paths:
+      - backup_hitos.sql
