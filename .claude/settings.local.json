@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda run *)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('d:/biblio_vse/dataset_isomorfico.json','r',encoding='utf-8'\\)\\); print\\(f'N={len\\(d\\)}'\\); print\\('Fields:', list\\(d[0].keys\\(\\)\\)\\); [print\\(f\\\\\"  {x['id_muestra']}: meta_regla={x['meta_regla']}, tipo={x['tipo_artefacto']}, label={x['etiqueta_clase']}\\\\\"\\) for x in d]\")",
+      "Bash(python -c ' *)",
+      "Bash(pip show *)",
+      "Bash(uv pip *)",
+      "Bash(uv run *)",
+      "Bash(pip list *)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\begin{tabular}{llccc}\" \"D:/biblio_vse/article.tex\")",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\label{\" \"D:/biblio_vse/article.tex\")",
+      "Bash(python -c \"import platform; print\\('OS:', platform.platform\\(\\)\\)\")",
+      "PowerShell(Get-WmiObject Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum | ForEach-Object { \"RAM: {0:N1} GB\" -f \\($_.Sum / 1GB\\) })",
+      "Bash(where python *)",
+      "Bash(python -c \"import sys; print\\('\\\\n'.join\\(sys.path\\)\\)\")",
+      "Bash(C:\\\\Users\\\\terron\\\\anaconda3\\\\python.exe -c \"import torch, transformers, bitsandbytes, sklearn; print\\('torch:', torch.__version__\\); print\\('transformers:', transformers.__version__\\); print\\('bitsandbytes:', bitsandbytes.__version__\\); print\\('sklearn:', sklearn.__version__\\)\")",
+      "PowerShell(& \"C:\\\\Users\\\\terron\\\\anaconda3\\\\Scripts\\\\conda.exe\" env list 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\terron\\\\anaconda3\\\\envs\\\\aud_llm\\\\python.exe\" --version)",
+      "PowerShell(& \"C:\\\\Users\\\\terron\\\\anaconda3\\\\envs\\\\aud_llm\\\\python.exe\" -c \"import radon, textstat; print\\('radon: ok'\\); print\\('textstat: ok'\\)\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\terron\\\\anaconda3\\\\envs\\\\aud_llm\\\\python.exe\" \"D:\\\\biblio_vse\\\\experimentos\\\\isomorphism_metrics.py\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\terron\\\\anaconda3\\\\envs\\\\aud_llm\\\\python.exe\" \"D:\\\\biblio_vse\\\\experimentos\\\\error_analysis.py\" 2>&1)",
+      "Bash(python experimentos/statistical_resampling.py)"
+    ]
+  }
+}

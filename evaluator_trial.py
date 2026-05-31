@@ -1,18 +1,41 @@
-#PRINCIPIOS DE RAG Y FEW-SHOT
+# PRINCIPIOS DE RAG Y FEW-SHOT
 import json
 import time
 import google.generativeai as genai
 from sklearn.metrics import classification_report, confusion_matrix, f1_score
 
+# --- Importaciones para el modelo local ---
+from model_loader import cargar_modelo, generar_con_modelo, formatear_prompt, CATALOGO_MODELOS, MODELO_ACTIVO
+
+# ==========================================
+# CONFIGURACIÓN DE ENTORNO
+# ==========================================
+# Cambia este valor a "API" o "LOCAL" según el modelo que quieras usar
+MODO_EJECUCION = "LOCAL" 
+
 # 1. Configuración de la IA (Ajusta tu API Key real aquí)
 # Obtén tu API key en: https://aistudio.google.com/
-genai.configure(api_key="AIzaSyBm1KV-r1ogQuZDA5JG0O7tlh7TRvh14Gs")
+genai.configure(api_key="AIzaSyCiZyEE19gFMkIxfGDohFSGV68Z2e47SxE")
 
 # Usamos el modelo más capaz para seguir instrucciones estrictas
 modelo = genai.GenerativeModel(
     model_name="gemini-2.5-pro",
     system_instruction="Eres un Auditor de Calidad de Software experto en el estándar ISO/IEC 29110. Tu única tarea es evaluar artefactos y determinar si cumplen con una meta-regla organizacional. Debes responder ÚNICAMENTE con el número 1 si el artefacto cumple la regla, o con el número 0 si la viola. No des explicaciones."
 )
+
+# --- Configuración del modelo local ---
+modelo_local = None
+tokenizer_local = None
+if MODO_EJECUCION == "LOCAL":
+    _conf = CATALOGO_MODELOS[MODELO_ACTIVO]
+    print(f"[*] Inicializando {_conf['nombre']} en local. Esto puede tardar...")
+    try:
+        modelo_local, tokenizer_local, _ = cargar_modelo()
+        print("[+] Modelo local cargado exitosamente.")
+    except Exception as e:
+        print(f"[!] Error al cargar el modelo local: {e}")
+        exit(1)
+
 
 def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
     """
@@ -37,7 +60,7 @@ def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
     Razón de fallo: Contraseña escrita en texto plano (hardcoded).
 
     EJEMPLO 3 (Regla: TRAZABILIDAD | Clase: 1 - Cumple)
-    Artefacto: `def registrar_prestamo():\\n    \\"\\"\\"ID Requerimiento: RF_05\\"\\"\\"`
+    Artefacto: `def registrar_prestamo():\n    \"\"\"ID Requerimiento: RF_05\"\"\"`
     Razón de éxito: El código contiene referencias explícitas (docstrings) hacia los requerimientos de negocio.
 
     EJEMPLO 4 (Regla: DOCUMENTAL | Clase: 0 - Viola)
@@ -57,23 +80,44 @@ def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
     ¿Cumple este artefacto con los estándares corporativos para la meta-regla {meta_regla}?
     Responde ÚNICAMENTE con el número 1 (si cumple) o el número 0 (si viola). No añadas ninguna explicación ni texto adicional.
     """
-    try:
-        respuesta = modelo.generate_content(prompt_rag)
-        resultado = respuesta.text.strip()
-        # Limpieza estricta
-        if "1" in resultado:
-            return 1
-        elif "0" in resultado:
-            return 0
-        else:
-            print(f"[!] Respuesta no binaria recibida: {resultado}")
+    
+    if MODO_EJECUCION == "API":
+        try:
+            respuesta = modelo.generate_content(prompt_rag)
+            resultado = respuesta.text.strip()
+            # Limpieza estricta
+            if "1" in resultado:
+                return 1
+            elif "0" in resultado:
+                return 0
+            else:
+                print(f"[!] Respuesta no binaria recibida de la API: {resultado}")
+                return -1
+        except Exception as e:
+            print(f"[!] Error de API: {e}")
             return -1
-    except Exception as e:
-        print(f"[!] Error de API: {e}")
-        return -1
+
+    elif MODO_EJECUCION == "LOCAL":
+        assert modelo_local is not None and tokenizer_local is not None
+        prompt_local = formatear_prompt(tokenizer_local, prompt_rag)
+        try:
+            resultado = generar_con_modelo(modelo_local, tokenizer_local, prompt_local).strip()
+            
+            # Limpieza estricta
+            if "1" in resultado:
+                return 1
+            elif "0" in resultado:
+                return 0
+            else:
+                print(f"[!] Respuesta no binaria recibida del modelo local: {resultado}")
+                return -1
+        except Exception as e:
+            print(f"[!] Error del Modelo Local: {e}")
+            return -1
+
 
 def ejecutar_auditoria():
-    print("Iniciando Auditoría LLM sobre Dataset Isomórfico...")
+    print(f"Iniciando Auditoría LLM sobre Dataset Isomórfico (MODO: {MODO_EJECUCION})...")
     
     with open('dataset_isomorfico.json', 'r', encoding='utf-8') as f:
         dataset = json.load(f)
@@ -92,8 +136,9 @@ def ejecutar_auditoria():
             muestra['contenido_texto']
         )
         
-        # Pausa para evitar límites de la API (Rate Limits)
-        time.sleep(2)
+        # Pausa para evitar límites de la API (Rate Limits) solo si es necesario
+        if MODO_EJECUCION == "API":
+            time.sleep(2)
 
         if prediccion != -1:
             y_verdadero.append(etiqueta_real)
@@ -116,7 +161,6 @@ def ejecutar_auditoria():
 
 if __name__ == '__main__':
     ejecutar_auditoria()
-
 
 """
 models/gemini-2.5-flash

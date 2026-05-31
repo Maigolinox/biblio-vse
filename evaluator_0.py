@@ -1,3 +1,4 @@
+# BASE LINE: ZERO-SHOT
 import json
 import time
 import google.generativeai as genai
@@ -9,15 +10,13 @@ from model_loader import cargar_modelo, generar_con_modelo, formatear_prompt, CA
 # ==========================================
 # CONFIGURACIÓN DE ENTORNO
 # ==========================================
-# Cambia este valor a "API" o "LOCAL" según el modelo que quieras usar
-MODO_EJECUCION = "LOCAL" 
+MODO_EJECUCION = "LOCAL" # Cambia este valor a "API" o "LOCAL"
 
 # ==========================================
 # 1. INICIALIZACIÓN DE MODELOS
 # ==========================================
 
 # A. Configuración de Gemini (API)
-# (Ajusta tu API Key real aquí)
 genai.configure(api_key="AIzaSyCiZyEE19gFMkIxfGDohFSGV68Z2e47SxE")
 modelo_gemini = genai.GenerativeModel(
     model_name="gemini-2.5-pro",
@@ -44,24 +43,25 @@ if MODO_EJECUCION == "LOCAL":
 
 def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
     """
-    Evalúa el artefacto usando Gemini o Mistral dependiendo del MODO_EJECUCION.
+    Evaluación Zero-Shot: Solo se inyecta la regla y el artefacto. Cero ejemplos.
+    """
+    
+    prompt_base = f"""
+    Contexto de la Meta-Regla a evaluar ({meta_regla}):
+    El artefacto debe demostrar cumplimiento estricto con las políticas corporativas.
+
+    Artefacto a auditar (Tipo: {tipo_artefacto}):
+    ```
+    {contenido_texto}
+    ```
+
+    ¿Cumple este artefacto con los estándares exigidos para la meta-regla {meta_regla}?
+    Responde solo 1 (Cumple) o 0 (Viola).
     """
     
     if MODO_EJECUCION == "API":
-        prompt_gemini = f"""
-        Contexto de la Meta-Regla a evaluar ({meta_regla}):
-        El artefacto debe demostrar cumplimiento estricto con las políticas de control documental, calidad, seguridad, trazabilidad o gobernanza de la empresa.
-
-        Artefacto a auditar (Tipo: {tipo_artefacto}):
-        ```
-        {contenido_texto}
-        ```
-
-        ¿Cumple este artefacto con los estándares exigidos para la meta-regla {meta_regla}?
-        Responde solo 1 (Cumple) o 0 (Viola).
-        """
         try:
-            respuesta = modelo_gemini.generate_content(prompt_gemini)
+            respuesta = modelo_gemini.generate_content(prompt_base)
             resultado = respuesta.text.strip()
             if "1" in resultado: return 1
             elif "0" in resultado: return 0
@@ -72,22 +72,10 @@ def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
 
     elif MODO_EJECUCION == "LOCAL":
         assert modelo_local is not None and tokenizer_local is not None
-        user_content = f"""
-        Contexto de la Meta-Regla a evaluar ({meta_regla}):
-        El artefacto debe demostrar cumplimiento estricto con las políticas de control documental, calidad, seguridad, trazabilidad o gobernanza de la empresa.
-
-        Artefacto a auditar (Tipo: {tipo_artefacto}):
-        ```
-        {contenido_texto}
-        ```
-
-        ¿Cumple este artefacto con los estándares exigidos para la meta-regla {meta_regla}?
-        Responde solo 1 (Cumple) o 0 (Viola)."""
-        prompt_local = formatear_prompt(tokenizer_local, user_content)
+        prompt_local = formatear_prompt(tokenizer_local, prompt_base)
         try:
             resultado = generar_con_modelo(modelo_local, tokenizer_local, prompt_local).strip()
             
-            # Limpieza para extraer solo el 1 o el 0 de la respuesta generada
             if "1" in resultado: return 1
             elif "0" in resultado: return 0
             else:
@@ -102,7 +90,7 @@ def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
 # ==========================================
 
 def ejecutar_auditoria():
-    print(f"Iniciando Auditoría LLM sobre Dataset Isomórfico (MODO: {MODO_EJECUCION})...")
+    print(f"Iniciando Auditoría LLM sobre Dataset Isomórfico (MODO: {MODO_EJECUCION} | METODOLOGÍA: ZERO-SHOT)...")
     
     with open('dataset_isomorfico.json', 'r', encoding='utf-8') as f:
         dataset = json.load(f)
@@ -121,18 +109,22 @@ def ejecutar_auditoria():
             muestra['contenido_texto']
         )
         
-        # Pausa para evitar Rate Limits solo si usamos la API
         if MODO_EJECUCION == "API":
             time.sleep(2)
 
+        # Manejo de respuestas y control estricto de las 20 muestras
+        y_verdadero.append(etiqueta_real)
         if prediccion != -1:
-            y_verdadero.append(etiqueta_real)
             y_prediccion.append(prediccion)
             print(f" -> Predicción LLM: {prediccion}")
+        else:
+            # Castigo: Si el modelo falla en dar una respuesta binaria, lo marcamos como violación (0)
+            print(" -> [!] Falla de inferencia. Contabilizado como 0 (Viola)")
+            y_prediccion.append(0)
 
     # Calcular resultados
     print("\n" + "="*50)
-    print("RESULTADOS DEL EXPERIMENTO (Para el Artículo JCR)")
+    print("RESULTADOS DEL EXPERIMENTO: ZERO-SHOT (Base Line)")
     print("="*50)
     
     matriz = confusion_matrix(y_verdadero, y_prediccion)
@@ -142,40 +134,7 @@ def ejecutar_auditoria():
     print("\nMétricas Detalladas:\n", reporte)
     
     f1 = f1_score(y_verdadero, y_prediccion)
-    print(f"\nF1-Score Global (El número clave para tu abstract): {f1:.4f}")
+    print(f"\nF1-Score Global (Baseline F1-Score): {f1:.4f}")
 
 if __name__ == '__main__':
     ejecutar_auditoria()
-"""
-models/gemini-2.5-flash
-models/gemini-2.5-pro
-models/gemini-2.0-flash
-models/gemini-2.0-flash-001
-models/gemini-2.0-flash-lite-001
-models/gemini-2.0-flash-lite
-models/gemini-2.5-flash-preview-tts
-models/gemini-2.5-pro-preview-tts
-models/gemma-3-1b-it
-models/gemma-3-4b-it
-models/gemma-3-12b-it
-models/gemma-3-27b-it
-models/gemma-3n-e4b-it
-models/gemma-3n-e2b-it
-models/gemini-flash-latest
-models/gemini-flash-lite-latest
-models/gemini-pro-latest
-models/gemini-2.5-flash-lite
-models/gemini-2.5-flash-image
-models/gemini-2.5-flash-lite-preview-09-2025
-models/gemini-3-pro-preview
-models/gemini-3-flash-preview
-models/gemini-3.1-pro-preview
-models/gemini-3.1-pro-preview-customtools
-models/gemini-3.1-flash-lite-preview
-models/gemini-3-pro-image-preview
-models/nano-banana-pro-preview
-models/gemini-3.1-flash-image-preview
-models/gemini-robotics-er-1.5-preview
-models/gemini-2.5-computer-use-preview-10-2025
-models/deep-research-pro-preview-12-2025
-"""

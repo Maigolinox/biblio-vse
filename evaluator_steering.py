@@ -1,401 +1,239 @@
-# import os
-# import json
-# import torch
-# import gc
-# from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-# from sklearn.metrics import classification_report, confusion_matrix, f1_score
-
-# # ================= CONFIGURACIÓN =================
-# MODELO_ID = "mistralai/Mistral-7B-Instruct-v0.2"
-# CAPA_OBJETIVO = 15     # Capa media de Mistral (de 32 capas)
-# ALPHA = 1.5            # Fuerza de la modificación
-# # =================================================
-
-# print("==================================================")
-# print(f" Cargando {MODELO_ID} en 4-bits (Optimizando VRAM)...")
-# print("==================================================")
-
-# # Configuración estricta para GPUs con poca VRAM
-# bnb_config = BitsAndBytesConfig(
-#     load_in_4bit=True,
-#     bnb_4bit_quant_type="nf4",
-#     bnb_4bit_compute_dtype=torch.float16,
-#     bnb_4bit_use_double_quant=True,
-# )
-
-# tokenizer = AutoTokenizer.from_pretrained(MODELO_ID)
-# if tokenizer.pad_token is None:
-#     tokenizer.pad_token = tokenizer.eos_token
-
-# model = AutoModelForCausalLM.from_pretrained(
-#     MODELO_ID,
-#     quantization_config=bnb_config,
-#     device_map="auto",
-# )
-
-# def limpiar_vram():
-#     gc.collect()
-#     torch.cuda.empty_cache()
-
-# # ================= DICCIONARIO RAG =================
-# # En lugar de una base vectorial pesada, simulamos la recuperación (Retrieval)
-# # mapeando exactamente la regla que necesita el artefacto.
-# DICCIONARIO_REGLAS = {
-#     "DOCUMENTAL": "Todo documento debe tener un código único, versión y fecha de vigencia.",
-#     "CALIDAD": "El código debe pasar revisión por pares, usar convenciones correctas y no tener dependencias sin usar.",
-#     "GOBERNANZA": "El desarrollo debe estar justificado por un requerimiento previamente aprobado y firmado.",
-#     "SEGURIDAD": "Las credenciales o contraseñas NUNCA deben estar en texto plano; deben usarse variables de entorno.",
-#     "TRAZABILIDAD": "El código debe contener referencias (ej. docstrings) a los IDs de los requerimientos de negocio.",
-#     "PRUEBAS": "Los tests deben tener pasos reproducibles, entorno documentado y aserciones lógicas.",
-#     "RESPALDO": "Los pipelines de CI/CD deben incluir rutinas explícitas de respaldo de base de datos o código.",
-#     "ACUERDOS": "Las actas de reunión deben listar acuerdos claros, con responsables asignados y estado de seguimiento.",
-#     "INFRA": "La configuración de red debe restringir el acceso exclusivamente a subdominios internos autorizados."
-# }
-
-# # ================= FASE 1: LECTURA DEL CONCEPTO =================
-# def obtener_estado_oculto(texto, layer_idx):
-#     # Formato estricto para Mistral Instruct
-#     prompt = f"[INST] Analiza este fragmento:\n{texto} [/INST]"
-#     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    
-#     with torch.no_grad():
-#         outputs = model(**inputs, output_hidden_states=True)
-    
-#     # Extraemos el tensor de la capa 15 del último token
-#     h_l = outputs.hidden_states[layer_idx][0, -1, :]
-    
-#     del inputs, outputs
-#     limpiar_vram()
-#     return h_l
-
-# def calcular_vector_conceptual(dataset):
-#     print(f"\n[1/3] Extrayendo vector conceptual desde la capa {CAPA_OBJETIVO}...")
-#     pos_states = []
-#     neg_states = []
-
-#     for muestra in dataset:
-#         h_l = obtener_estado_oculto(muestra['contenido_texto'], CAPA_OBJETIVO)
-#         if muestra['etiqueta_clase'] == 1:
-#             pos_states.append(h_l)
-#         else:
-#             neg_states.append(h_l)
-
-#     mean_pos = torch.stack(pos_states).mean(dim=0)
-#     mean_neg = torch.stack(neg_states).mean(dim=0)
-    
-#     v_norma = mean_pos - mean_neg
-#     print(f" -> Vector 'Cumplimiento Normativo' generado. Dimensión: {v_norma.shape}")
-#     return v_norma
-
-# # ================= FASE 2: INYECCIÓN Y AUDITORÍA =================
-# def evaluar_con_steering_y_rag(dataset, v_norma):
-#     print(f"\n[2/3] Iniciando Auditoría (RAG + Steering) con Alpha = {ALPHA}...")
-    
-#     y_verdadero = []
-#     y_prediccion = []
-
-#     def steering_hook(module, args, kwargs, output):
-#         # Hugging Face puede devolver una tupla o un tensor dependiendo del paso de generación
-#         if isinstance(output, tuple):
-#             h_l = output[0] 
-#             h_l_modificado = h_l + (ALPHA * v_norma.to(h_l.device))
-#             return (h_l_modificado,) + output[1:] # Reconstruimos la tupla
-#         else:
-#             h_l = output
-#             h_l_modificado = h_l + (ALPHA * v_norma.to(h_l.device))
-#             return h_l_modificado # Devolvemos solo el tensor
-
-#     capa_intervenida = model.model.layers[CAPA_OBJETIVO]
-#     handle = capa_intervenida.register_forward_hook(steering_hook, with_kwargs=True)
-
-#     for muestra in dataset:
-#         regla_id = muestra['meta_regla']
-#         contexto_rag = DICCIONARIO_REGLAS.get(regla_id, "Debe cumplir estándares corporativos.")
-        
-#         prompt = f"""[INST] Eres un Auditor ISO/IEC 29110. Evalúa el siguiente artefacto.
-
-# CONTEXTO NORMATIVO (Regla {regla_id}):
-# {contexto_rag}
-
-# ARTEFACTO:
-# {muestra['contenido_texto']}
-# ¿Cumple este artefacto la normativa? Responde SOLO con el número 1 (Sí cumple) o el número 0 (Viola la norma). [/INST]"""
-        
-#         inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-        
-#         with torch.no_grad():
-#             outputs = model.generate(
-#                 **inputs, 
-#                 max_new_tokens=5, 
-#                 do_sample=False, # Corrección: Inferencia 100% determinista (Greedy Decoding)
-#                 pad_token_id=tokenizer.eos_token_id
-#             )
-            
-#         respuesta_cruda = tokenizer.decode(outputs[0][inputs.input_ids.shape[-1]:], skip_special_tokens=True)
-        
-#         # Limpieza robusta del output
-#         prediccion = 1 if "1" in respuesta_cruda else 0
-#         y_verdadero.append(muestra['etiqueta_clase'])
-#         y_prediccion.append(prediccion)
-        
-#         print(f" [{muestra['id_muestra']}] Esperado: {muestra['etiqueta_clase']} | Mistral Steered: {prediccion}")
-        
-#         del inputs, outputs
-#         limpiar_vram()
-
-#     handle.remove() # Restaurar el modelo a su estado natural
-#     return y_verdadero, y_prediccion
-
-# def ejecutar_auditoria():
-#     with open('dataset_isomorfico.json', 'r', encoding='utf-8') as f:
-#         dataset = json.load(f)
-
-#     # 1. Leer el concepto
-#     v_norma = calcular_vector_conceptual(dataset)
-    
-#     # 2. Auditar con el cerebro modificado y contexto recuperado (RAG simulado)
-#     y_real, y_pred = evaluar_con_steering_y_rag(dataset, v_norma)
-
-#     # 3. Métricas para el Paper
-#     print("\n[3/3] " + "="*50)
-#     print("RESULTADOS DEL EXPERIMENTO 4 (MISTRAL-7B + RAG + STEERING)")
-#     print("="*50)
-#     print("\nMatriz de Confusión:\n", confusion_matrix(y_real, y_pred))
-#     print("\nMétricas Detalladas:\n", classification_report(y_real, y_pred, target_names=["Viola (0)", "Cumple (1)"], zero_division=0))
-#     print(f"\nF1-Score Global: {f1_score(y_real, y_pred):.4f}")
-
-# if __name__ == '__main__':
-#     ejecutar_auditoria()
 
 
-import os
+
+
+# RAG, FEW-SHOT Y ACTIVATION STEERING
 import json
-import torch
-import gc
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import time
+import google.generativeai as genai
 from sklearn.metrics import classification_report, confusion_matrix, f1_score
 
-# ================= LIBRERÍAS RAG =================
-from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader, Docx2txtLoader, TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import SKLearnVectorStore
+# --- Importaciones para el modelo local y Steering ---
+import torch
+from model_loader import cargar_modelo, generar_con_modelo, formatear_prompt, CATALOGO_MODELOS, MODELO_ACTIVO
 
-# ================= CONFIGURACIÓN =================
-MODELO_ID = "mistralai/Mistral-7B-Instruct-v0.2"
-CAPA_OBJETIVO = 15     # Capa media de Mistral
-ALPHA = 0.3            # Fuerza de la modificación (ajustado a 0.3 para evitar colapso tensorial)
-RUTA_ESTANDARES = "./documentos_estandar" # Tu carpeta con la ISO/IEC 29110
-# =================================================
+# ==========================================
+# CONFIGURACIÓN DE ENTORNO Y STEERING
+# ==========================================
+MODO_EJECUCION = "LOCAL" # Cambia a "API" o "LOCAL"
 
-# ================= 1. CARGA DE DOCUMENTOS MIXTOS (De tu código funcional) =================
-def cargar_documentos_mixtos(ruta_directorio):
-    """Carga recursivamente PDFs, DOCXs, TXTs y MDs de un directorio."""
-    if not os.path.exists(ruta_directorio):
-        os.makedirs(ruta_directorio)
-        print(f" [!] Se creó la carpeta '{ruta_directorio}'. Coloca tus normas ISO ahí.")
-        return []
+# Parámetros del Activation Steering (Solo aplicable en MODO LOCAL)
+USAR_STEERING = True
+CAPA_STEERING = None    # Se asigna automáticamente desde el catálogo al cargar el modelo
+ALPHA_STEERING = 0.8    # Multiplicador de fuerza (α). Valores típicos: 0.5 a 3.0
 
-    documentos = []
-    loaders = [
-        DirectoryLoader(ruta_directorio, glob="**/*.pdf", loader_cls=PyPDFLoader),
-        DirectoryLoader(ruta_directorio, glob="**/*.docx", loader_cls=Docx2txtLoader),
-        DirectoryLoader(ruta_directorio, glob="**/*.txt", loader_cls=TextLoader),
-        DirectoryLoader(ruta_directorio, glob="**/*.md", loader_cls=TextLoader),
-    ]
-    print(f" Escaneando directorio de estándares en: {ruta_directorio} ...")
-    for loader in loaders:
-        try:
-            docs = loader.load()
-            documentos.extend(docs)
-            if docs:
-                print(f"   - Encontrados {len(docs)} fragmentos con {loader.loader_cls.__name__}")
-        except Exception as e:
-            print(f"   [!] Error cargando: {e}")
-    return documentos
+# 1. Configuración de la IA (Ajusta tu API Key real aquí)
+genai.configure(api_key="AIzaSyCiZyEE19gFMkIxfGDohFSGV68Z2e47SxE")
+modelo_gemini = genai.GenerativeModel(
+    model_name="gemini-2.5-pro",
+    system_instruction="Eres un Auditor de Calidad de Software experto en el estándar ISO/IEC 29110. Tu única tarea es evaluar artefactos y determinar si cumplen con una meta-regla organizacional. Debes responder ÚNICAMENTE con el número 1 si el artefacto cumple la regla, o con el número 0 si la viola. No des explicaciones."
+)
 
-def configurar_rag():
-    print("==================================================")
-    print(" Configurando Base de Conocimiento RAG (ISO/IEC 29110)")
-    print("==================================================")
+# --- Configuración del modelo local ---
+modelo_local = None
+tokenizer_local = None
+vector_direccion = None
+hook_handle = None
+
+# ==========================================
+# FUNCIONES DE ACTIVATION STEERING
+# ==========================================
+
+def calcular_vector_steering(modelo, tokenizer, capa):
+    """Calcula el vector de dirección conceptual (Auditor Estricto vs Relajado)"""
+    print("[*] Calculando vector conceptual de Steering...")
     
-    docs_estandar = cargar_documentos_mixtos(RUTA_ESTANDARES)
-    
-    if not docs_estandar:
-        print(" [!] No se encontraron documentos. El contexto estará vacío.")
-        return None
-
-    print(f" -> {len(docs_estandar)} páginas/documentos cargados de los estándares.")
-    # Ajustado al chunk size de tu código anterior (800) para mayor contexto normativo
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
-    splits = text_splitter.split_documents(docs_estandar)
-    print(f" -> Total fragmentos vectorizados: {len(splits)}")
-
-    # Embeddings en CPU para salvar VRAM
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={'device': 'cpu'} 
+    # Prompts antagónicos para extraer la representación latente
+    sistema_neutral = "Eres un asistente de evaluación de calidad de software."
+    prompt_pos = formatear_prompt(
+        tokenizer,
+        "Actúa como un auditor de calidad extremadamente estricto, implacable y apegado milimétricamente a la norma.",
+        system_content=sistema_neutral,
     )
-    
-    vectorstore = SKLearnVectorStore.from_documents(documents=splits, embedding=embeddings)
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
-    print(" -> Base vectorial lista y cargada en memoria RAM.")
-    return retriever
+    prompt_neg = formatear_prompt(
+        tokenizer,
+        "Actúa como un auditor relajado, descuidado y permisivo. No te importan las normas ni la seguridad.",
+        system_content=sistema_neutral,
+    )
 
-# ================= 2. CARGA DEL MODELO (EN GPU) =================
-print(f"\n Cargando {MODELO_ID} en 4-bits (GPU VRAM)...")
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,
-    bnb_4bit_use_double_quant=True,
-)
-
-tokenizer = AutoTokenizer.from_pretrained(MODELO_ID)
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-model = AutoModelForCausalLM.from_pretrained(
-    MODELO_ID,
-    quantization_config=bnb_config,
-    device_map="auto",
-)
-
-def limpiar_vram():
-    gc.collect()
-    torch.cuda.empty_cache()
-
-# ================= 3. EXTRACCIÓN DEL CONCEPTO =================
-def obtener_estado_oculto(texto, layer_idx):
-    prompt = f"[INST] Analiza este fragmento:\n{texto} [/INST]"
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    inputs_pos = tokenizer(prompt_pos, return_tensors="pt").to(modelo.device)
+    inputs_neg = tokenizer(prompt_neg, return_tensors="pt").to(modelo.device)
     
     with torch.no_grad():
-        outputs = model(**inputs, output_hidden_states=True)
+        out_pos = modelo(**inputs_pos, output_hidden_states=True)
+        out_neg = modelo(**inputs_neg, output_hidden_states=True)
+        
+    # Extraemos el estado oculto de la capa deseada. 
+    # output_hidden_states es una tupla, tomamos el índice 'capa'.
+    # Shape: (batch_size=1, seq_len, hidden_size). Tomamos el último token [-1] que encapsula el contexto.
+    h_pos = out_pos.hidden_states[capa][:, -1, :] 
+    h_neg = out_neg.hidden_states[capa][:, -1, :] 
     
-    h_l = outputs.hidden_states[layer_idx][0, -1, :]
-    del inputs, outputs
-    limpiar_vram()
-    return h_l
-
-def calcular_vector_conceptual(dataset):
-    print(f"\n[1/3] Extrayendo vector conceptual desde la capa {CAPA_OBJETIVO}...")
-    pos_states = []
-    neg_states = []
-
-    for muestra in dataset:
-        h_l = obtener_estado_oculto(muestra['contenido_texto'], CAPA_OBJETIVO)
-        if muestra['etiqueta_clase'] == 1:
-            pos_states.append(h_l)
-        else:
-            neg_states.append(h_l)
-
-    mean_pos = torch.stack(pos_states).mean(dim=0)
-    mean_neg = torch.stack(neg_states).mean(dim=0)
+    # Vector delta (Estricto - Relajado)
+    vector = h_pos - h_neg 
     
-    v_norma = mean_pos - mean_neg
-    print(f" -> Vector 'Cumplimiento Normativo' generado. Dimensión: {v_norma.shape}")
-    return v_norma
+    # Redimensionamos para que se pueda sumar correctamente durante la generación (1, 1, hidden_size)
+    print("[+] Vector conceptual calculado.")
+    return vector.unsqueeze(1)
 
-# ================= 4. INYECCIÓN Y AUDITORÍA AL REPOSITORIO =================
-def evaluar_con_steering_y_rag(dataset, v_norma, retriever):
-    print(f"\n[2/3] Iniciando Auditoría RAG-Steering combinada (Alpha = {ALPHA})...")
+def steering_hook(module, input_args, output):
+    """Función Hook que intercepta e inyecta el vector en el forward pass.
+    Soporta dos formatos de salida de capa:
+    - Tensor directo (transformers 5.x: Qwen2, Gemma2, Phi3.5)
+    - Tupla (transformers 4.x: Mistral/LLaMA legacy)
+    """
+    assert vector_direccion is not None
+    if isinstance(output, torch.Tensor):
+        return output + (ALPHA_STEERING * vector_direccion.to(output.device))
+    # Formato tupla: (hidden_states, *resto)
+    hidden_states = output[0]
+    hidden_steered = hidden_states + (ALPHA_STEERING * vector_direccion.to(hidden_states.device))
+    return (hidden_steered,) + output[1:]
+
+# ==========================================
+# INICIALIZACIÓN LOCAL Y APLICACIÓN DE HOOK
+# ==========================================
+
+if MODO_EJECUCION == "LOCAL":
+    _conf = CATALOGO_MODELOS[MODELO_ACTIVO]
+    print(f"[*] Inicializando {_conf['nombre']} en local. Esto puede tardar...")
+    try:
+        modelo_local, tokenizer_local, _conf = cargar_modelo()
+        CAPA_STEERING = _conf["capa_steering"]
+
+        if USAR_STEERING:
+            vector_direccion = calcular_vector_steering(modelo_local, tokenizer_local, CAPA_STEERING)
+            capa_objetivo = modelo_local.model.layers[CAPA_STEERING]
+            hook_handle = capa_objetivo.register_forward_hook(steering_hook)
+            print(f"[+] Activation Steering inyectado en Capa {CAPA_STEERING} con Fuerza {ALPHA_STEERING}.")
+
+        print("[+] Modelo local cargado exitosamente.")
+    except Exception as e:
+        print(f"[!] Error al cargar el modelo local: {e}")
+        exit(1)
+
+# ==========================================
+# FUNCIÓN DE EVALUACIÓN
+# ==========================================
+
+def evaluar_artefacto(meta_regla, tipo_artefacto, contenido_texto):
+    """
+    Ensambla el Prompt usando RAG y Few-Shot.
+    Si estamos en LOCAL y USAR_STEERING es True, el modelo ya está modificado a nivel neuronal.
+    """
+    prompt_rag = f"""
+    Eres un Auditor de Calidad de Software estricto pero justo, experto en ISO/IEC 29110.
+    Tu tarea es clasificar el siguiente artefacto según la meta-regla proporcionada.
+
+    CONTEXTO DE LA META-REGLA A EVALUAR: [{meta_regla}]
+    Debes verificar si el artefacto demuestra cumplimiento explícito con esta política.
+
+    --- EJEMPLOS DE CALIBRACIÓN (FEW-SHOT) ---
+    EJEMPLO 1 (Regla: SEGURIDAD | Clase: 1 - Cumple)
+    Artefacto: `DATABASES_PASSWORD = os.environ.get('DB_PASSWORD')`
+    Razón de éxito: Las credenciales no están expuestas, se obtienen dinámicamente.
+
+    EJEMPLO 2 (Regla: SEGURIDAD | Clase: 0 - Viola)
+    Artefacto: `DATABASES_PASSWORD = 'super_secret_password'`
+    Razón de fallo: Contraseña escrita en texto plano (hardcoded).
+
+    EJEMPLO 3 (Regla: TRAZABILIDAD | Clase: 1 - Cumple)
+    Artefacto: `def registrar_prestamo():\n    \"\"\"ID Requerimiento: RF_05\"\"\"`
+    Razón de éxito: Referencias explícitas (docstrings) hacia los requerimientos de negocio.
+
+    EJEMPLO 4 (Regla: DOCUMENTAL | Clase: 0 - Viola)
+    Artefacto: `la arquitectura va a usar django y html normal. creo que base de datos postgres.`
+    Razón de fallo: Lenguaje informal, carece de estructura normativa.
+    ------------------------------------------
+
+    ARTEFACTO A AUDITAR (Tipo: {tipo_artefacto}):
+    ```
+    {contenido_texto}
+    ```
+
+    ¿Cumple este artefacto con los estándares corporativos para la meta-regla {meta_regla}?
+    Responde ÚNICAMENTE con el número 1 (si cumple) o el número 0 (si viola). No añadas ninguna explicación ni texto adicional.
+    """
     
-    y_verdadero = []
-    y_prediccion = []
+    if MODO_EJECUCION == "API":
+        try:
+            respuesta = modelo_gemini.generate_content(prompt_rag)
+            resultado = respuesta.text.strip()
+            if "1" in resultado: return 1
+            elif "0" in resultado: return 0
+            else: return -1
+        except Exception as e:
+            print(f"[!] Error de API: {e}")
+            return -1
 
-    def steering_hook(module, args, kwargs, output):
-        if isinstance(output, tuple):
-            h_l = output[0] 
-            h_l_modificado = h_l + (ALPHA * v_norma.to(h_l.device))
-            return (h_l_modificado,) + output[1:] 
-        else:
-            h_l = output
-            h_l_modificado = h_l + (ALPHA * v_norma.to(h_l.device))
-            return h_l_modificado
+    elif MODO_EJECUCION == "LOCAL":
+        assert modelo_local is not None and tokenizer_local is not None
+        prompt_local = formatear_prompt(tokenizer_local, prompt_rag)
+        try:
+            resultado = generar_con_modelo(modelo_local, tokenizer_local, prompt_local).strip()
+            if "1" in resultado: return 1
+            elif "0" in resultado: return 0
+            else: return -1
+        except Exception as e:
+            print(f"[!] Error del Modelo Local: {e}")
+            return -1
 
-    capa_intervenida = model.model.layers[CAPA_OBJETIVO]
-    handle = capa_intervenida.register_forward_hook(steering_hook, with_kwargs=True)
+# ==========================================
+# EJECUCIÓN PRINCIPAL
+# ==========================================
 
-    for muestra in dataset:
-        regla_id = muestra['meta_regla']
+def ejecutar_auditoria():
+    metodologia = "RAG + FEW-SHOT"
+    if MODO_EJECUCION == "LOCAL" and USAR_STEERING:
+        metodologia += f" + STEERING (α={ALPHA_STEERING})"
         
-        # 1. Recuperación con filtro estricto
-        contexto_rag = ""
-        if retriever:
-            # Forzamos la búsqueda de la regla específica
-            query = f"Regla, normativa o política para {regla_id}"
-            docs_recuperados = retriever.invoke(query)
-            if docs_recuperados:
-                contexto_rag = docs_recuperados[0].page_content
-        
-        # 2. Prompt optimizado para Mistral Instruct con Assistant Prefilling y Few-Shot
-        prompt = f"""[INST] Actúa como un riguroso Auditor de Software. 
-Evalúa el ARTEFACTO basándote ÚNICAMENTE en la NORMA recuperada.
-
-NORMA A CUMPLIR ({regla_id}):
-{contexto_rag}
-
---- EJEMPLO DE CÓMO DEBES RESPONDER ---
-¿El artefacto cumple con la norma?
-1
----------------------------------------
-
-ARTEFACTO A EVALUAR:
-{muestra['contenido_texto']}
-
-
-¿El artefacto cumple con la norma? Responde ESTRICTAMENTE con un solo dígito: 1 (si cumple) o 0 (si viola la norma). NO escribas texto, introducciones ni explicaciones. [/INST]
-"""
-        
-        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-        
-        # 3. Inferencia
-        with torch.no_grad():
-            outputs = model.generate(
-                **inputs, 
-                max_new_tokens=5, 
-                do_sample=False, 
-                pad_token_id=tokenizer.eos_token_id
-            )
-            
-        respuesta_cruda = tokenizer.decode(outputs[0][inputs.input_ids.shape[-1]:], skip_special_tokens=True)
-        
-        # Extracción segura del primer número encontrado
-        import re
-        numeros = re.findall(r'[01]', respuesta_cruda)
-        prediccion = int(numeros[0]) if numeros else 0
-        
-        y_verdadero.append(muestra['etiqueta_clase'])
-        y_prediccion.append(prediccion)
-        
-        print(f"\n[{muestra['id_muestra']}] Esperado: {muestra['etiqueta_clase']} | IA: {prediccion}")
-        print(f" ↳ Respuesta cruda: '{respuesta_cruda}'")
-        
-        del inputs, outputs
-        limpiar_vram()
-
-    handle.remove() 
-    return y_verdadero, y_prediccion
-
-def ejecutar_experimento_4():
-    # Inicializa el RAG leyendo los PDFs/DOCX
-    retriever = configurar_rag()
+    print(f"Iniciando Auditoría LLM (MODO: {MODO_EJECUCION} | METODOLOGÍA: {metodologia})...")
     
-    # Carga el repositorio de prueba
     with open('dataset_isomorfico.json', 'r', encoding='utf-8') as f:
         dataset = json.load(f)
 
-    # Ejecuta el experimento matemático
-    v_norma = calcular_vector_conceptual(dataset)
-    y_real, y_pred = evaluar_con_steering_y_rag(dataset, v_norma, retriever)
+    y_verdadero = []
+    y_prediccion = []
 
-    print("\n[3/3] " + "="*50)
-    print("RESULTADOS EXPERIMENTO 4: RAG (ISO 29110) + ACTIVATION STEERING")
+    for muestra in dataset:
+        id_muestra = muestra['id_muestra']
+        etiqueta_real = muestra['etiqueta_clase']
+        print(f"Evaluando {id_muestra} (Esperado: {etiqueta_real})...")
+        
+        prediccion = evaluar_artefacto(
+            muestra['meta_regla'], 
+            muestra['tipo_artefacto'], 
+            muestra['contenido_texto']
+        )
+        
+        if MODO_EJECUCION == "API": time.sleep(2)
+
+        if prediccion != -1:
+            y_verdadero.append(etiqueta_real)
+            y_prediccion.append(prediccion)
+            print(f" -> Predicción LLM: {prediccion}")
+        else:
+            # Si el modelo alucina o falla, lo contamos como Viola (0)
+            print(" -> [!] Falla de inferencia: Contabilizado como 0")
+            y_verdadero.append(etiqueta_real)
+            y_prediccion.append(0)
+
+    print("\n" + "="*50)
+    print(f"RESULTADOS DEL EXPERIMENTO: {metodologia}")
     print("="*50)
-    print("\nMatriz de Confusión:\n", confusion_matrix(y_real, y_pred))
-    print("\nMétricas Detalladas:\n", classification_report(y_real, y_pred, target_names=["Viola (0)", "Cumple (1)"], zero_division=0))
-    print(f"\nF1-Score Global: {f1_score(y_real, y_pred):.4f}")
+    
+    matriz = confusion_matrix(y_verdadero, y_prediccion)
+    print("\nMatriz de Confusión [TN, FP], [FN, TP]:\n", matriz)
+    
+    reporte = classification_report(y_verdadero, y_prediccion, target_names=["Viola (0)", "Cumple (1)"])
+    print("\nMétricas Detalladas:\n", reporte)
+    
+    f1 = f1_score(y_verdadero, y_prediccion)
+    print(f"\nF1-Score Global (El número clave para tu abstract): {f1:.4f}")
+    
+    # Limpieza: Si usamos un hook, debemos quitarlo al terminar para no dañar el modelo en RAM
+    if hook_handle is not None:
+        hook_handle.remove()
 
 if __name__ == '__main__':
-    ejecutar_experimento_4()
+    ejecutar_auditoria()
