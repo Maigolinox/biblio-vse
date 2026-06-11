@@ -45,7 +45,21 @@
       "Bash(python experimentos/fix_import_density.py)",
       "Bash(python experimentos/isomorphism_metrics.py)",
       "Bash(pip install *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git -C d:/biblio_vse branch -a)",
+      "Bash(git -C d:/biblio_vse log --oneline -5)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('d:/biblio_vse/dataset_isomorfico.json',encoding='utf-8'\\)\\); print\\(type\\(d\\)\\); print\\(list\\(d.keys\\(\\)\\) if isinstance\\(d,dict\\) else len\\(d\\)\\); import sys; e=d[0] if isinstance\\(d,list\\) else None; print\\(json.dumps\\(e,indent=1,ensure_ascii=False\\)[:800] if e else ''\\)\")",
+      "Bash(git -C d:/biblio_vse ls-files)",
+      "Bash(sed -n '897,960p' d:/biblio_vse/resultados_conglomerados_actualizados_03062026.txt)",
+      "Bash(sed -n '1130,1200p' d:/biblio_vse/resultados_conglomerados_actualizados_03062026.txt)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('d:/biblio_vse/dataset_isomorfico.json',encoding='utf-8'\\)\\); print\\(list\\(d[0].keys\\(\\)\\)\\); print\\([\\(a['id_muestra'],a.get\\('etiqueta_cumplimiento',a.get\\('etiqueta','?'\\)\\),a['meta_regla']\\) for a in d][:5]\\)\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('d:/biblio_vse/dataset_isomorfico.json',encoding='utf-8'\\)\\); print\\([\\(a['id_muestra'],a['etiqueta_clase']\\) for a in d]\\)\")",
+      "Bash(python experimentos/build_predictions_matrix.py)",
+      "Bash(python experimentos/statistical_resampling.py)",
+      "Bash(python _check.py)",
+      "Bash(python -c \"import sklearn; print\\(sklearn.__version__\\)\")",
+      "Bash(python experimentos/lexical_baselines.py)",
+      "Bash(python -)"
     ],
     "additionalDirectories": [
       "D:\\biblio_vse\\articulo"
