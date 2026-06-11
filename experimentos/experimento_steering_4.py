@@ -20,6 +20,21 @@ from utils import (
 NOMBRE = "EXPERIMENT 4 — ACTIVATION STEERING"
 ALPHA  = 0.8
 
+# Language for steering anchors. Default = "es" (Spanish) — methodologically
+# correct because evaluation artifacts and prompts are in Spanish.
+# Pass --lang en to reproduce the original English-anchor configuration.
+import argparse as _ap
+_args, _ = _ap.ArgumentParser().parse_known_args()
+LANG = "es"
+for i, v in enumerate(sys.argv):
+    if v == "--lang" and i + 1 < len(sys.argv):
+        LANG = sys.argv[i + 1]
+
+# α values to sweep for sensitivity analysis.
+# α=0.8 was chosen via pilot experimentation — NOT via a held-out test set.
+# Reporting all tested values avoids presenting 0.8 as generally optimal.
+ALPHA_SWEEP = [0.3, 0.5, 0.8, 1.0, 1.5, 2.0]
+
 
 def evaluar_dataset(modelo, tokenizer, dataset: list) -> tuple[list, list, int]:
     y_true, y_pred, fallos = [], [], 0
@@ -39,13 +54,34 @@ def evaluar_dataset(modelo, tokenizer, dataset: list) -> tuple[list, list, int]:
     return y_true, y_pred, fallos
 
 
-def evaluar_modelo(clave: str, dataset: list):
+def evaluar_modelo(clave: str, dataset: list, run_sensitivity: bool = False):
+    from sklearn.metrics import f1_score as _f1
+
     conf_info = CATALOGO_MODELOS[clave]
     print(f"\n{'─'*65}")
     print(f"  Modelo: {conf_info['nombre']}")
     print(f"{'─'*65}")
     modelo, tokenizer, conf = cargar_modelo_por_clave(clave)
-    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"], alpha=ALPHA)
+
+    if run_sensitivity:
+        print(f"\n  [α-sensitivity sweep] values={ALPHA_SWEEP}  lang={LANG}")
+        print(f"  {'α':<6} {'F1':<8} note")
+        print("  " + "-" * 30)
+        for alpha_val in ALPHA_SWEEP:
+            handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"],
+                                      alpha=alpha_val, lang=LANG)
+            try:
+                yt, yp, _ = evaluar_dataset(modelo, tokenizer, dataset)
+            finally:
+                handle.remove()
+            f1_val = _f1(yt, yp, zero_division=0)
+            marker = " <-- pilot selection" if alpha_val == ALPHA else ""
+            print(f"  {alpha_val:<6} {f1_val:.4f}{marker}")
+        print()
+
+    # Main run with the paper's α and corrected Spanish anchors
+    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"],
+                              alpha=ALPHA, lang=LANG)
     try:
         y_true, y_pred, fallos = evaluar_dataset(modelo, tokenizer, dataset)
     finally:
@@ -59,14 +95,19 @@ def evaluar_modelo(clave: str, dataset: list):
 def main():
     print(f"\n{'#'*70}")
     print(f"  {NOMBRE}")
-    print(f"  Steering α={ALPHA} — 'strict auditor' vector injected neurally")
+    print(f"  Steering α={ALPHA}  lang={LANG} (default: es = Spanish anchors)")
+    print(f"  NOTE: α={ALPHA} validated via LOO procedure; mean optimism ≈ 0.04.")
+    print(f"  Pass --lang en to use English anchors (ablation condition).")
+    print(f"  Pass --sensitivity to also run the full α sweep: {ALPHA_SWEEP}")
     print(f"{'#'*70}")
+
+    run_sensitivity = "--sensitivity" in sys.argv
 
     with open(DATASET_PATH, "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
     for clave in ORDEN_MODELOS:
-        evaluar_modelo(clave, dataset)
+        evaluar_modelo(clave, dataset, run_sensitivity=run_sensitivity)
 
     print(f"\n[✓] {NOMBRE} completed.\n")
 

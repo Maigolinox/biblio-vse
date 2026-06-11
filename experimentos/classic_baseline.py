@@ -52,6 +52,10 @@ def bootstrap_f1_ci(y_true: np.ndarray, y_pred: np.ndarray,
 
 
 def main() -> None:
+    import sys, io
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     with open(DATASET_PATH, encoding="utf-8") as f:
         dataset = json.load(f)
 
@@ -87,11 +91,73 @@ def main() -> None:
     print(classification_report(y_true, y_pred,
                                 target_names=["Violation (0)", "Compliant (1)"],
                                 zero_division=0))
+    f1_regex = f1_score(y_true, y_pred, zero_division=0)
     print(f"  Accuracy : {accuracy_score(y_true, y_pred):.4f}")
     print(f"  Precision: {precision_score(y_true, y_pred, zero_division=0):.4f}")
     print(f"  Recall   : {recall_score(y_true, y_pred, zero_division=0):.4f}")
-    print(f"  F1-Score : {f1_score(y_true, y_pred, zero_division=0):.4f}"
-          f"  (95% CI [{ci_lo:.2f}, {ci_hi:.2f}])")
+    print(f"  F1-Score : {f1_regex:.4f}  (95% CI [{ci_lo:.2f}, {ci_hi:.2f}])")
+    print(sep)
+
+    # ── T1-C: Majority-class baseline ────────────────────────────────────────
+    # A trivial classifier that predicts "compliant" for every artifact.
+    # On the 11/9 split (11 compliant, 9 violations) this achieves non-trivial
+    # F1 and serves as the floor against which all LLM configurations must be
+    # compared. Reviewer concern §6: several reported LLM F1 values (~0.70)
+    # were close to or below this floor, which readers need to calibrate against.
+    y_majority   = np.ones(len(y_true), dtype=int)
+    f1_maj       = f1_score(y_true, y_majority, zero_division=0)
+    pre_maj      = precision_score(y_true, y_majority, zero_division=0)
+    rec_maj      = recall_score(y_true, y_majority, zero_division=0)
+    ci_maj_lo, ci_maj_hi = bootstrap_f1_ci(y_true, y_majority)
+
+    print(f"\n{sep}")
+    print("  MAJORITY-CLASS BASELINE — 'always predict Compliant (1)'")
+    print(f"  Dataset split: {int(y_true.sum())} compliant / "
+          f"{int((1 - y_true).sum())} violations  (N={len(y_true)})")
+    print(sep)
+    print(f"  Precision : {pre_maj:.4f}  ({int(y_true.sum())}/{len(y_true)} = "
+          f"{y_true.mean():.2f} — fraction of true positives in the dataset)")
+    print(f"  Recall    : {rec_maj:.4f}  (detects all compliant artifacts by construction)")
+    print(f"  F1-Score  : {f1_maj:.4f}  (95% CI [{ci_maj_lo:.2f}, {ci_maj_hi:.2f}])")
+    print()
+    print(f"  Any LLM configuration with F1 <= {f1_maj:.4f} does not outperform")
+    print(f"  a zero-cost classifier that ignores the artifact entirely.")
+    print(f"  Add this value as a dashed reference line to the forest plot (Fig. 13).")
+    print(sep)
+
+    n_adv = sum(1 for s in dataset if "adversarial" in s)
+    n_orig = len(dataset) - n_adv
+    print(f"""
+  BENCHMARK DESIGN NOTES (N={len(dataset)}: {n_orig} original + {n_adv} adversarial)
+  ─────────────────────────────────────────────────────────────────────
+
+  ORIGINAL {n_orig} ARTIFACTS (N=20 proof-of-concept set):
+    Every compliant artifact contains at least one explicit keyword from
+    the PATTERNS dict; every violating artifact deliberately omits them.
+    A regex therefore achieved F1=1.000 on this subset — the perfect score
+    was a label-validity check (§V-E), not evidence that the benchmark was
+    hard.
+
+  ADVERSARIAL {n_adv} ARTIFACTS (added for reviewer revision):
+    Type-B (6 negatives, label=0): contain compliance keywords in contexts
+      that do NOT satisfy the rule (pending approval, removed references,
+      commented-out code, hollow test stubs). Regex predicts 1 (FP).
+    Type-C (6 positives, label=1): genuinely comply without any of the
+      expected keywords (decouple.config, HU-XX traceability, narrative
+      governance, tar+S3 backup, alternative document field names, private
+      IPs). Regex predicts 0 (FN).
+    Overall regex F1 on all {len(dataset)} artifacts: {f1_regex:.4f} — the LLM pipeline
+    must outperform this to demonstrate semantic value over pattern matching.
+
+  REMAINING LIMITATIONS:
+    1. N={len(dataset)} is still small; confidence intervals are wide (see forest plot).
+    2. All artifacts are single-file; cross-artifact compliance evidence
+       (e.g., traceability verified across SRS + test file) is not tested.
+    3. The adversarial set targets 6 of the 9 rules; CALIDAD, RESPALDO,
+       and DOCUMENTAL type-C cases remain relatively easy for regexes.
+    4. PATTERNS dict is published in this file for full transparency —
+       include it as an appendix item in the manuscript.
+""")
     print(sep)
 
 

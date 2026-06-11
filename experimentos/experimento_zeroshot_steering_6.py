@@ -20,6 +20,13 @@ from utils import (
 NOMBRE = "EXPERIMENT 6 — ZERO-SHOT + STEERING"
 ALPHA  = 0.8
 
+# Default lang=es: Spanish anchors are methodologically correct when
+# artifacts and prompts are in Spanish. Pass --lang en for English ablation.
+LANG = "es"
+for _i, _v in enumerate(sys.argv):
+    if _v == "--lang" and _i + 1 < len(sys.argv):
+        LANG = sys.argv[_i + 1]
+
 
 def evaluar_dataset(modelo, tokenizer, dataset: list) -> tuple[list, list, int]:
     y_true, y_pred, fallos = [], [], 0
@@ -45,7 +52,8 @@ def evaluar_modelo(clave: str, dataset: list):
     print(f"  Modelo: {conf_info['nombre']}")
     print(f"{'─'*65}")
     modelo, tokenizer, conf = cargar_modelo_por_clave(clave)
-    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"], alpha=ALPHA)
+    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"],
+                              alpha=ALPHA, lang=LANG)
     try:
         y_true, y_pred, fallos = evaluar_dataset(modelo, tokenizer, dataset)
     finally:
@@ -59,7 +67,7 @@ def evaluar_modelo(clave: str, dataset: list):
 def main():
     print(f"\n{'#'*70}")
     print(f"  {NOMBRE}")
-    print(f"  Structured zero-shot + steering α={ALPHA}")
+    print(f"  Structured zero-shot + steering α={ALPHA}  lang={LANG}")
     print(f"{'#'*70}")
 
     with open(DATASET_PATH, "r", encoding="utf-8") as f:

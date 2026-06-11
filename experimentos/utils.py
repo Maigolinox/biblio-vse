@@ -38,16 +38,24 @@ SYSTEM_ZEROSHOT = (
 )
 
 _CRITERIOS_ZEROSHOT = (
-    "COMPLIANCE CRITERIA BY META-RULE:\n"
-    "- SECURITY: No credentials, tokens, or secrets must exist in plaintext (hardcoded).\n"
-    "- QUALITY: The code must follow style standards (correct indentation, clean imports, naming conventions).\n"
-    "- TRACEABILITY: The artifact must explicitly reference requirement IDs (e.g. RF_XX, US_XX).\n"
-    "- DOCUMENTATION: The document must include artifact code, formal version, and effective date.\n"
+    "COMPLIANCE CRITERIA BY META-RULE (all nine ISO/IEC 29110 organizational meta-rules):\n"
+    "- DOCUMENTAL / DOCUMENTATION: The document must include artifact code, formal version, and effective date.\n"
+    "- CALIDAD / QUALITY: The code must follow style standards (correct indentation, clean imports, naming conventions).\n"
+    "- SEGURIDAD / SECURITY: No credentials, tokens, or secrets must exist in plaintext (hardcoded).\n"
+    "- TRAZABILIDAD / TRACEABILITY: The artifact must explicitly reference requirement IDs (e.g. RF_XX, US_XX).\n"
     "- INFRA: The configuration must be restricted to authorized internal hosts or environments.\n"
-    "- GOVERNANCE: The artifact must evidence formally documented controls, approvals, or policies.\n"
+    "- GOBERNANZA / GOVERNANCE: The artifact must evidence formally documented controls, approvals, or policies.\n"
+    "- PRUEBAS / TESTING: The artifact must include test case IDs, execution steps, expected results, "
+    "and a traceable link to an associated requirement.\n"
+    "- RESPALDO / BACKUP: The artifact must specify backup type (full/incremental), schedule, "
+    "recovery procedure, or a verified storage location (e.g. backup, pg_dump, restore).\n"
+    "- ACUERDOS / AGREEMENTS: The artifact must identify parties, state responsibilities, "
+    "record a formally approved status, and include authorized signatures.\n"
 )
 
 _SISTEMA_NEUTRAL = "You are a software quality evaluation assistant."
+
+# English anchor prompts (original, used in the paper's main experiments)
 _PROMPT_ESTRICTO = (
     "Act as an extremely strict quality auditor, "
     "uncompromising and precisely adhering to the ISO/IEC 29110 standard."
@@ -55,6 +63,19 @@ _PROMPT_ESTRICTO = (
 _PROMPT_RELAJADO = (
     "Act as a relaxed, careless, and permissive auditor. "
     "You do not care about standards or security."
+)
+
+# Spanish anchor prompts for T1-B: language-confound ablation.
+# The original anchors are English while artifacts and ZS prompts are Spanish.
+# These Spanish equivalents allow testing whether the steering vector encodes
+# compliance semantics or merely a language/persona direction.
+_PROMPT_ESTRICTO_ES = (
+    "Actúa como un auditor de calidad extremadamente estricto, "
+    "preciso e inflexible en el cumplimiento de las normas ISO/IEC 29110."
+)
+_PROMPT_RELAJADO_ES = (
+    "Actúa como un auditor descuidado, permisivo e indiferente "
+    "a las normas de calidad y seguridad."
 )
 
 
@@ -252,10 +273,19 @@ def imprimir_resultados(nombre_modelo: str, y_verdadero: list, y_prediccion: lis
 
 # ── Activation Steering ───────────────────────────────────────────────────────
 
-def calcular_vector_steering(modelo, tokenizer, capa: int):
-    print(f"  [*] Computing steering vector at layer {capa}...")
-    prompt_pos = formatear_prompt(tokenizer, _PROMPT_ESTRICTO, _SISTEMA_NEUTRAL)
-    prompt_neg = formatear_prompt(tokenizer, _PROMPT_RELAJADO,  _SISTEMA_NEUTRAL)
+def calcular_vector_steering(modelo, tokenizer, capa: int, lang: str = "en"):
+    """Compute the compliance steering direction v = H(p⁺) - H(p⁻) at layer `capa`.
+
+    lang="en" uses English anchors (original paper).
+    lang="es" uses Spanish anchors (T1-B ablation: language-confound control).
+    """
+    if lang == "es":
+        p_pos, p_neg = _PROMPT_ESTRICTO_ES, _PROMPT_RELAJADO_ES
+    else:
+        p_pos, p_neg = _PROMPT_ESTRICTO, _PROMPT_RELAJADO
+    print(f"  [*] Computing steering vector at layer {capa} (anchors: {lang})...")
+    prompt_pos = formatear_prompt(tokenizer, p_pos, _SISTEMA_NEUTRAL)
+    prompt_neg = formatear_prompt(tokenizer, p_neg, _SISTEMA_NEUTRAL)
 
     inputs_pos = tokenizer(prompt_pos, return_tensors="pt").to(modelo.device)
     inputs_neg = tokenizer(prompt_neg, return_tensors="pt").to(modelo.device)
@@ -281,9 +311,22 @@ def crear_steering_hook(vector_dir, alpha: float):
     return hook
 
 
-def aplicar_steering(modelo, tokenizer, capa: int, alpha: float = 0.8):
-    vector = calcular_vector_steering(modelo, tokenizer, capa)
+def aplicar_steering(modelo, tokenizer, capa: int, alpha: float = 0.8,
+                     lang: str = "en"):
+    """Compute steering vector and register hook. Convenience wrapper for single runs."""
+    vector = calcular_vector_steering(modelo, tokenizer, capa, lang=lang)
     hook_fn = crear_steering_hook(vector, alpha)
     handle = modelo.model.layers[capa].register_forward_hook(hook_fn)
-    print(f"  [+] Steering active at layer {capa} (α={alpha}).")
+    print(f"  [+] Steering active at layer {capa} (α={alpha}, lang={lang}).")
+    return handle
+
+
+def aplicar_steering_con_vector(modelo, vector, capa: int, alpha: float = 0.8):
+    """Register steering hook with a pre-computed vector.
+
+    Use this inside α sweeps and LOO loops to avoid recomputing the vector
+    (which requires two forward passes) on every iteration.
+    """
+    hook_fn = crear_steering_hook(vector, alpha)
+    handle = modelo.model.layers[capa].register_forward_hook(hook_fn)
     return handle

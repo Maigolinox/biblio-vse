@@ -1,0 +1,2200 @@
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_steering_4.py --sensitivity 2>&1
+
+######################################################################
+  EXPERIMENT 4 — ACTIVATION STEERING
+  Steering α=0.8  lang=es (default: es = Spanish anchors)
+  NOTE: α=0.8 validated via LOO procedure; mean optimism ≈ 0.04.
+  Pass --lang en to use English anchors (ablation condition).
+  Pass --sensitivity to also run the full α sweep: [0.3, 0.5, 0.8, 1.0, 1.5, 2.0]
+######################################################################
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.90s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+
+  [α-sensitivity sweep] values=[0.3, 0.5, 0.8, 1.0, 1.5, 2.0]  lang=es
+  α      F1       note
+  ------------------------------
+  [*] Computing steering vector at layer 21 (anchors: es)...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.3, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.3    0.7879
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.5    0.7778
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.8    0.8205 <-- pilot selection
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=1.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.0    0.8293
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=1.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.5    0.7727
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=2.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=0
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  2.0    0.8333
+
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 9  6]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.90      0.60      0.72        15
+Compliant (1)       0.73      0.94      0.82        17
+
+     accuracy                           0.78        32
+    macro avg       0.81      0.77      0.77        32
+ weighted avg       0.81      0.78      0.77        32
+
+  F1-Score  : 0.8205
+  Precision : 0.7273
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.07s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+
+  [α-sensitivity sweep] values=[0.3, 0.5, 0.8, 1.0, 1.5, 2.0]  lang=es
+  α      F1       note
+  ------------------------------
+  [*] Computing steering vector at layer 15 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.3, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.3    0.7179
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.5    0.7368
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.8    0.6667 <-- pilot selection
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=1.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.0    0.7317
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=1.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.5    0.7391
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=2.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  2.0    0.7234
+
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+  [!] Non-binary responses (penalized as 0): 6
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 6  9]
+ [ 4 13]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.60      0.40      0.48        15
+Compliant (1)       0.59      0.76      0.67        17
+
+     accuracy                           0.59        32
+    macro avg       0.60      0.58      0.57        32
+ weighted avg       0.60      0.59      0.58        32
+
+  F1-Score  : 0.6667
+  Precision : 0.5909
+  Recall    : 0.7647
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.48s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+
+  [α-sensitivity sweep] values=[0.3, 0.5, 0.8, 1.0, 1.5, 2.0]  lang=es
+  α      F1       note
+  ------------------------------
+  [*] Computing steering vector at layer 14 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.3, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.3    0.6667
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.5    0.6667
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.8    0.7027 <-- pilot selection
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=1.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.0    0.7027
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=1.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=0
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.5    0.7368
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=2.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  2.0    0.7273
+
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 8  7]
+ [ 4 13]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.67      0.53      0.59        15
+Compliant (1)       0.65      0.76      0.70        17
+
+     accuracy                           0.66        32
+    macro avg       0.66      0.65      0.65        32
+ weighted avg       0.66      0.66      0.65        32
+
+  F1-Score  : 0.7027
+  Precision : 0.6500
+  Recall    : 0.7647
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.40s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+
+  [α-sensitivity sweep] values=[0.3, 0.5, 0.8, 1.0, 1.5, 2.0]  lang=es
+  α      F1       note
+  ------------------------------
+  [*] Computing steering vector at layer 16 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.3, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.3    0.7907
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.5    0.7556
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  0.8    0.7556 <-- pilot selection
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=1.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=1
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.0    0.7234
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=1.5, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=1
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  1.5    0.7234
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=2.0, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=1
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=1
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=1
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  2.0    0.6939
+
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 4 11]
+ [ 0 17]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       1.00      0.27      0.42        15
+Compliant (1)       0.61      1.00      0.76        17
+
+     accuracy                           0.66        32
+    macro avg       0.80      0.63      0.59        32
+ weighted avg       0.79      0.66      0.60        32
+
+  F1-Score  : 0.7556
+  Precision : 0.6071
+  Recall    : 1.0000
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 4 — ACTIVATION STEERING completed.
+
+
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_zeroshot_steering_6.py
+
+######################################################################
+  EXPERIMENT 6 — ZERO-SHOT + STEERING
+  Structured zero-shot + steering α=0.8  lang=es
+######################################################################
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.87s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+  [*] Computing steering vector at layer 21 (anchors: es)...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[12  3]
+ [ 2 15]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.86      0.80      0.83        15
+Compliant (1)       0.83      0.88      0.86        17
+
+     accuracy                           0.84        32
+    macro avg       0.85      0.84      0.84        32
+ weighted avg       0.84      0.84      0.84        32
+
+  F1-Score  : 0.8571
+  Precision : 0.8333
+  Recall    : 0.8824
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.17s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+  [*] Computing steering vector at layer 15 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+  [!] Non-binary responses (penalized as 0): 7
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[13  2]
+ [ 3 14]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.81      0.87      0.84        15
+Compliant (1)       0.88      0.82      0.85        17
+
+     accuracy                           0.84        32
+    macro avg       0.84      0.85      0.84        32
+ weighted avg       0.85      0.84      0.84        32
+
+  F1-Score  : 0.8485
+  Precision : 0.8750
+  Recall    : 0.8235
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:10<00:00,  2.51s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+  [*] Computing steering vector at layer 14 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[12  3]
+ [ 3 14]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.80      0.80      0.80        15
+Compliant (1)       0.82      0.82      0.82        17
+
+     accuracy                           0.81        32
+    macro avg       0.81      0.81      0.81        32
+ weighted avg       0.81      0.81      0.81        32
+
+  F1-Score  : 0.8235
+  Precision : 0.8235
+  Recall    : 0.8235
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.40s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+  [*] Computing steering vector at layer 16 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[10  5]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.91      0.67      0.77        15
+Compliant (1)       0.76      0.94      0.84        17
+
+     accuracy                           0.81        32
+    macro avg       0.84      0.80      0.81        32
+ weighted avg       0.83      0.81      0.81        32
+
+  F1-Score  : 0.8421
+  Precision : 0.7619
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 6 — ZERO-SHOT + STEERING completed.
+
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_rag_steering_7.py
+
+######################################################################
+  EXPERIMENT 7 — RAG + STEERING
+  Retrieved normative context + steering α=0.8  lang=es
+######################################################################
+
+  [*] Loading RAG documents...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+  [+] RAG embedder loaded (CPU): sentence-transformers/all-MiniLM-L6-v2
+  [+] RAG document loaded: Metareglas extraidas.docx (3,864 chars, 14 chunks)
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.97s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+  [*] Computing steering vector at layer 21 (anchors: es)...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[13  2]
+ [ 4 13]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.76      0.87      0.81        15
+Compliant (1)       0.87      0.76      0.81        17
+
+     accuracy                           0.81        32
+    macro avg       0.82      0.82      0.81        32
+ weighted avg       0.82      0.81      0.81        32
+
+  F1-Score  : 0.8125
+  Precision : 0.8667
+  Recall    : 0.7647
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.17s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+  [*] Computing steering vector at layer 15 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+  [!] Non-binary responses (penalized as 0): 4
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[10  5]
+ [ 2 15]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.83      0.67      0.74        15
+Compliant (1)       0.75      0.88      0.81        17
+
+     accuracy                           0.78        32
+    macro avg       0.79      0.77      0.78        32
+ weighted avg       0.79      0.78      0.78        32
+
+  F1-Score  : 0.8108
+  Precision : 0.7500
+  Recall    : 0.8824
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:10<00:00,  2.55s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+  [*] Computing steering vector at layer 14 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=0
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=0
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[14  1]
+ [ 6 11]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.70      0.93      0.80        15
+Compliant (1)       0.92      0.65      0.76        17
+
+     accuracy                           0.78        32
+    macro avg       0.81      0.79      0.78        32
+ weighted avg       0.82      0.78      0.78        32
+
+  F1-Score  : 0.7586
+  Precision : 0.9167
+  Recall    : 0.6471
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.43s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+  [*] Computing steering vector at layer 16 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 5 10]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.83      0.33      0.48        15
+Compliant (1)       0.62      0.94      0.74        17
+
+     accuracy                           0.66        32
+    macro avg       0.72      0.64      0.61        32
+ weighted avg       0.72      0.66      0.62        32
+
+  F1-Score  : 0.7442
+  Precision : 0.6154
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 7 — RAG + STEERING completed.
+
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_zeroshot_rag_steering_8.py
+
+######################################################################
+  EXPERIMENT 8 — ZERO-SHOT + RAG + STEERING
+  All techniques: ZS + RAG + steering α=0.8  lang=es
+######################################################################
+
+  [*] Loading RAG documents...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+  [+] RAG embedder loaded (CPU): sentence-transformers/all-MiniLM-L6-v2
+  [+] RAG document loaded: Metareglas extraidas.docx (3,864 chars, 14 chunks)
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.91s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+  [*] Computing steering vector at layer 21 (anchors: es)...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[12  3]
+ [ 2 15]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.86      0.80      0.83        15
+Compliant (1)       0.83      0.88      0.86        17
+
+     accuracy                           0.84        32
+    macro avg       0.85      0.84      0.84        32
+ weighted avg       0.84      0.84      0.84        32
+
+  F1-Score  : 0.8571
+  Precision : 0.8333
+  Recall    : 0.8824
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.29s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+  [*] Computing steering vector at layer 15 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+  [!] Non-binary responses (penalized as 0): 5
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[11  4]
+ [ 3 14]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.79      0.73      0.76        15
+Compliant (1)       0.78      0.82      0.80        17
+
+     accuracy                           0.78        32
+    macro avg       0.78      0.78      0.78        32
+ weighted avg       0.78      0.78      0.78        32
+
+  F1-Score  : 0.8000
+  Precision : 0.7778
+  Recall    : 0.8235
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.50s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+  [*] Computing steering vector at layer 14 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[13  2]
+ [ 4 13]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.76      0.87      0.81        15
+Compliant (1)       0.87      0.76      0.81        17
+
+     accuracy                           0.81        32
+    macro avg       0.82      0.82      0.81        32
+ weighted avg       0.82      0.81      0.81        32
+
+  F1-Score  : 0.8125
+  Precision : 0.8667
+  Recall    : 0.7647
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:05<00:00,  2.50s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+  [*] Computing steering vector at layer 16 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 7  8]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.88      0.47      0.61        15
+Compliant (1)       0.67      0.94      0.78        17
+
+     accuracy                           0.72        32
+    macro avg       0.77      0.70      0.69        32
+ weighted avg       0.76      0.72      0.70        32
+
+  F1-Score  : 0.7805
+  Precision : 0.6667
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 8 — ZERO-SHOT + RAG + STEERING completed.
+
+
+(aud_llm) D:\biblio_vse\experimentos>python layer_sensitivity.py
+
+######################################################################
+  LAYER SENSITIVITY SWEEP — Exp 6 — Zero-Shot + Steering
+  Model : Phi-3.5-mini-instruct  (32 layers)
+  lang  : es  |  alpha : 0.8
+  Heuristic layer: 16  (~50% depth)
+  Output: layer_sensitivity_phi35_exp6_es.json
+  Estimated time: ~68 min
+######################################################################
+
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:03<00:00,  1.69s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+   Layer        F1    TP    FP    FN    TN  Note
+  ────────────────────────────────────────────────────
+  [*] Computing steering vector at layer 0 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+       0    0.6429     9     2     8    13
+  [*] Computing steering vector at layer 1 (anchors: es)...
+  [+] Steering vector computed.
+       1    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 2 (anchors: es)...
+  [+] Steering vector computed.
+       2    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 3 (anchors: es)...
+  [+] Steering vector computed.
+       3    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 4 (anchors: es)...
+  [+] Steering vector computed.
+       4    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 5 (anchors: es)...
+  [+] Steering vector computed.
+       5    0.7143    10     1     7    14
+  [*] Computing steering vector at layer 6 (anchors: es)...
+  [+] Steering vector computed.
+       6    0.6429     9     2     8    13
+  [*] Computing steering vector at layer 7 (anchors: es)...
+  [+] Steering vector computed.
+       7    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 8 (anchors: es)...
+  [+] Steering vector computed.
+       8    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 9 (anchors: es)...
+  [+] Steering vector computed.
+       9    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 10 (anchors: es)...
+  [+] Steering vector computed.
+      10    0.8125    13     2     4    13
+  [*] Computing steering vector at layer 11 (anchors: es)...
+  [+] Steering vector computed.
+      11    0.7097    11     3     6    12
+  [*] Computing steering vector at layer 12 (anchors: es)...
+  [+] Steering vector computed.
+      12    0.7879    13     3     4    12
+  [*] Computing steering vector at layer 13 (anchors: es)...
+  [+] Steering vector computed.
+      13    0.7879    13     3     4    12
+  [*] Computing steering vector at layer 14 (anchors: es)...
+  [+] Steering vector computed.
+      14    0.7742    12     2     5    13
+  [*] Computing steering vector at layer 15 (anchors: es)...
+  [+] Steering vector computed.
+      15    0.7586    11     1     6    14
+  [*] Computing steering vector at layer 16 (anchors: es)...
+  [+] Steering vector computed.
+      16    0.8421    16     5     1    10  <-- heuristic (50% depth)
+  [*] Computing steering vector at layer 17 (anchors: es)...
+  [+] Steering vector computed.
+      17    0.7879    13     3     4    12
+  [*] Computing steering vector at layer 18 (anchors: es)...
+  [+] Steering vector computed.
+      18    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 19 (anchors: es)...
+  [+] Steering vector computed.
+      19    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 20 (anchors: es)...
+  [+] Steering vector computed.
+      20    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 21 (anchors: es)...
+  [+] Steering vector computed.
+      21    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 22 (anchors: es)...
+  [+] Steering vector computed.
+      22    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 23 (anchors: es)...
+  [+] Steering vector computed.
+      23    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 24 (anchors: es)...
+  [+] Steering vector computed.
+      24    0.7333    11     2     6    13
+  [*] Computing steering vector at layer 25 (anchors: es)...
+  [+] Steering vector computed.
+      25    0.6429     9     2     8    13
+  [*] Computing steering vector at layer 26 (anchors: es)...
+  [+] Steering vector computed.
+      26    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 27 (anchors: es)...
+  [+] Steering vector computed.
+      27    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 28 (anchors: es)...
+  [+] Steering vector computed.
+      28    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 29 (anchors: es)...
+  [+] Steering vector computed.
+      29    0.6429     9     2     8    13
+  [*] Computing steering vector at layer 30 (anchors: es)...
+  [+] Steering vector computed.
+      30    0.6667     9     1     8    14
+  [*] Computing steering vector at layer 31 (anchors: es)...
+  [+] Steering vector computed.
+      31    0.7333    11     2     6    13
+
+  ────────────────────────────────────────────────────
+  Heuristic layer (16):  F1 = 0.8421
+  Best layer      (16):  F1 = 0.8421
+  Δ (best − heuristic)   : +0.0000
+
+  [✓] Results saved to D:\biblio_vse\experimentos\layer_sensitivity_phi35_exp6_es.json
+  Use these values to fill in the pgfplots data in Fig. layer_sensitivity
+
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+[✓] Layer sensitivity sweep completed.

@@ -18,6 +18,22 @@ def calcular_complejidad_ast(codigo_fuente):
         # Si el ejemplo negativo tiene errores de sintaxis intencionales
         return 0 
 
+# Directories / files that contain ISO/IEC 29110 artifacts in the Biblio-VSE Django project.
+# All other paths (experiment scripts, article, evaluators, IDE config) are excluded.
+ARTIFACT_DIRS = (
+    'catalogo/', 'prestamos/', 'scripts/', 'docs/', 'config/',
+    '.gitlab/', 'appserver/',
+)
+ARTIFACT_FILES = frozenset({'.gitlab-ci.yml'})
+
+
+def es_artefacto(ruta: str) -> bool:
+    """Returns True only for files inside the Django application and documentation tree."""
+    if ruta in ARTIFACT_FILES:
+        return True
+    return any(ruta.startswith(prefix) for prefix in ARTIFACT_DIRS)
+
+
 def construir_dataset():
     ruta_repo = '.'
     repo = Repo(ruta_repo)
@@ -29,28 +45,32 @@ def construir_dataset():
     for rama in repo.branches:
         if not rama.name.startswith('feat/'):
             continue
-            
+
         # Analizar metadatos de la rama
         es_cumplimiento = 'positiva' in rama.name
         etiqueta = 1 if es_cumplimiento else 0
         regla = rama.name.split('-')[1].upper() # Extrae R1, R2, etc.
-        
-        # Obtener el commit final de la rama y compararlo con master
-        commit_actual = rama.commit
-        if not commit_actual.parents:
-            continue
-            
-        commit_padre = commit_actual.parents[0]
-        diferencias = commit_padre.diff(commit_actual)
-        
+
+        # Diff the branch tip against master: captures ALL changes introduced
+        # by the branch regardless of how many intermediate commits exist.
+        # The es_artefacto() filter below then discards non-artifact files.
+        master_commit = repo.commit('master')
+        branch_commit = rama.commit
+        diferencias = master_commit.diff(branch_commit)
+
         for diff in diferencias:
             # Solo analizamos archivos agregados (A) o modificados (M)
             if diff.change_type not in ['A', 'M']:
                 continue
-                
+
             ruta_archivo = diff.b_path
+
+            # Skip files outside the Django application / docs tree
+            if not es_artefacto(ruta_archivo):
+                continue
+
             blob = diff.b_blob
-            
+
             if blob is None:
                 continue
                 

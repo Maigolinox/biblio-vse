@@ -12,21 +12,25 @@ CATALOGO_MODELOS = {
         "model_id":      "mistralai/Mistral-7B-Instruct-v0.2",
         "nombre":        "Mistral-7B-Instruct-v0.2",
         "capa_steering": 15,   # ~50% de 32 capas
+        "num_layers":    32,
     },
     "qwen25": {
         "model_id":      "Qwen/Qwen2.5-7B-Instruct",
         "nombre":        "Qwen2.5-7B-Instruct",
         "capa_steering": 14,   # ~50% de 28 capas
+        "num_layers":    28,
     },
     "gemma2": {
         "model_id":      "google/gemma-2-9b-it",
         "nombre":        "Gemma-2-9B-it",
         "capa_steering": 21,   # ~50% de 42 capas
+        "num_layers":    42,
     },
     "phi35": {
         "model_id":      "microsoft/Phi-3.5-mini-instruct",
         "nombre":        "Phi-3.5-mini-instruct",
         "capa_steering": 16,   # ~50% de 32 capas
+        "num_layers":    32,
     },
 }
 

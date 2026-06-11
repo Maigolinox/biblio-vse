@@ -21,6 +21,12 @@ from rag_utils import cargar_documentos, recuperar_contexto
 NOMBRE = "EXPERIMENT 7 — RAG + STEERING"
 ALPHA  = 0.8
 
+# Default lang=es: Spanish anchors match the Spanish evaluation artifacts.
+LANG = "es"
+for _i, _v in enumerate(sys.argv):
+    if _v == "--lang" and _i + 1 < len(sys.argv):
+        LANG = sys.argv[_i + 1]
+
 
 def evaluar_dataset(modelo, tokenizer, dataset: list,
                     documentos: list) -> tuple[list, list, int]:
@@ -50,7 +56,8 @@ def evaluar_modelo(clave: str, dataset: list, documentos: list):
     print(f"  Modelo: {conf_info['nombre']}")
     print(f"{'─'*65}")
     modelo, tokenizer, conf = cargar_modelo_por_clave(clave)
-    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"], alpha=ALPHA)
+    handle = aplicar_steering(modelo, tokenizer, conf["capa_steering"],
+                              alpha=ALPHA, lang=LANG)
     try:
         y_true, y_pred, fallos = evaluar_dataset(modelo, tokenizer, dataset, documentos)
     finally:
@@ -64,7 +71,7 @@ def evaluar_modelo(clave: str, dataset: list, documentos: list):
 def main():
     print(f"\n{'#'*70}")
     print(f"  {NOMBRE}")
-    print(f"  Retrieved normative context + steering α={ALPHA}")
+    print(f"  Retrieved normative context + steering α={ALPHA}  lang={LANG}")
     print(f"{'#'*70}")
 
     print("\n  [*] Loading RAG documents...")
