@@ -42,8 +42,12 @@ _DIR = os.path.dirname(os.path.abspath(__file__))
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-MATRIX_PATH = os.path.join(_DIR, "predictions_n32.json")
-OUT_PATH = os.path.join(_DIR, "statistical_analysis_n32.json")
+MATRIX_PATH = os.environ.get(
+    "PREDICTIONS_MATRIX", os.path.join(_DIR, "predictions_n32.json")
+)
+OUT_PATH = os.environ.get(
+    "STATISTICAL_ANALYSIS_OUT", os.path.join(_DIR, "statistical_analysis_n32.json")
+)
 
 N_BOOT = 10000
 SEED = 42

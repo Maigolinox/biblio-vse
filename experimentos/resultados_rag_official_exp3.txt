@@ -1,0 +1,280 @@
+
+D:\biblio_vse\experimentos>conda activate aud_llm
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_rag_3.py --rag-corpus official 2>&1
+
+######################################################################
+  EXPERIMENT 3 — RAG
+  RAG corpus: official
+######################################################################
+
+  [*] Loading RAG documents...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+  [+] RAG embedder loaded (CPU): sentence-transformers/all-MiniLM-L6-v2
+  [+] RAG document loaded (official): NORMA_Part 5_1_2_Management_Engineering_guide_ISO29110.pdf (96,552 chars, 271 chunks)
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:12<00:00,  3.06s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=0
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=0
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=0
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=0
+    ADV-C-GOBERNANZA-POS: real=1 pred=0
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=0
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[15  0]
+ [12  5]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.56      1.00      0.71        15
+Compliant (1)       1.00      0.29      0.45        17
+
+     accuracy                           0.62        32
+    macro avg       0.78      0.65      0.58        32
+ weighted avg       0.79      0.62      0.58        32
+
+  F1-Score  : 0.4545
+  Precision : 1.0000
+  Recall    : 0.2941
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:11<00:00,  3.99s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=0
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=0
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[11  4]
+ [ 7 10]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.61      0.73      0.67        15
+Compliant (1)       0.71      0.59      0.65        17
+
+     accuracy                           0.66        32
+    macro avg       0.66      0.66      0.66        32
+ weighted avg       0.67      0.66      0.66        32
+
+  F1-Score  : 0.6452
+  Precision : 0.7143
+  Recall    : 0.5882
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:10<00:00,  2.59s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=0
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=0
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=0
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[11  4]
+ [10  7]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.52      0.73      0.61        15
+Compliant (1)       0.64      0.41      0.50        17
+
+     accuracy                           0.56        32
+    macro avg       0.58      0.57      0.56        32
+ weighted avg       0.58      0.56      0.55        32
+
+  F1-Score  : 0.5000
+  Precision : 0.6364
+  Recall    : 0.4118
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.39s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+You are not running the flash-attention implementation, expect numerical differences.
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 9  6]
+ [ 2 15]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.82      0.60      0.69        15
+Compliant (1)       0.71      0.88      0.79        17
+
+     accuracy                           0.75        32
+    macro avg       0.77      0.74      0.74        32
+ weighted avg       0.76      0.75      0.74        32
+
+  F1-Score  : 0.7895
+  Precision : 0.7143
+  Recall    : 0.8824
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 3 — RAG completed.

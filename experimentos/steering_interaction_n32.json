@@ -1,0 +1,338 @@
+{
+  "design": {
+    "n_artifacts": 32,
+    "clusters": 9,
+    "bootstrap": "paired cluster bootstrap, k=10000, seed=42",
+    "interpretation": "Positive interaction means steering performs better in the named context than without it."
+  },
+  "models": {
+    "Gemma-2-9B-it": {
+      "structured_prompting": {
+        "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+        "metrics": {
+          "f1": {
+            "estimate": -0.0265,
+            "ci_grouped_95": [
+              -0.1997,
+              0.2446
+            ]
+          },
+          "mcc": {
+            "estimate": -0.1708,
+            "ci_grouped_95": [
+              -0.6202,
+              0.2825
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": -0.0706,
+            "ci_grouped_95": [
+              -0.2935,
+              0.1581
+            ]
+          },
+          "precision": {
+            "estimate": -0.1503,
+            "ci_grouped_95": [
+              -0.2898,
+              0.0402
+            ]
+          },
+          "recall": {
+            "estimate": 0.0588,
+            "ci_grouped_95": [
+              -0.2,
+              0.4167
+            ]
+          }
+        }
+      },
+      "rag": {
+        "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+        "metrics": {
+          "f1": {
+            "estimate": -0.0446,
+            "ci_grouped_95": [
+              -0.1506,
+              0.0
+            ]
+          },
+          "mcc": {
+            "estimate": -0.022,
+            "ci_grouped_95": [
+              -0.1267,
+              0.0365
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": -0.0294,
+            "ci_grouped_95": [
+              -0.1071,
+              0.0
+            ]
+          },
+          "precision": {
+            "estimate": 0.0333,
+            "ci_grouped_95": [
+              0.0,
+              0.1042
+            ]
+          },
+          "recall": {
+            "estimate": -0.0588,
+            "ci_grouped_95": [
+              -0.2143,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "Mistral-7B-Instruct-v0.2": {
+      "structured_prompting": {
+        "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+        "metrics": {
+          "f1": {
+            "estimate": 0.044,
+            "ci_grouped_95": [
+              -0.1442,
+              0.2421
+            ]
+          },
+          "mcc": {
+            "estimate": 0.1957,
+            "ci_grouped_95": [
+              -0.183,
+              0.5866
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": 0.1039,
+            "ci_grouped_95": [
+              -0.0667,
+              0.2889
+            ]
+          },
+          "precision": {
+            "estimate": 0.1272,
+            "ci_grouped_95": [
+              -0.0048,
+              0.2711
+            ]
+          },
+          "recall": {
+            "estimate": -0.0588,
+            "ci_grouped_95": [
+              -0.375,
+              0.2381
+            ]
+          }
+        }
+      },
+      "rag": {
+        "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+        "metrics": {
+          "f1": {
+            "estimate": -0.0601,
+            "ci_grouped_95": [
+              -0.1952,
+              0.0461
+            ]
+          },
+          "mcc": {
+            "estimate": -0.0533,
+            "ci_grouped_95": [
+              -0.2603,
+              0.1515
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": -0.0216,
+            "ci_grouped_95": [
+              -0.1333,
+              0.1041
+            ]
+          },
+          "precision": {
+            "estimate": 0.0614,
+            "ci_grouped_95": [
+              -0.0476,
+              0.1777
+            ]
+          },
+          "recall": {
+            "estimate": -0.1765,
+            "ci_grouped_95": [
+              -0.3571,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "Qwen2.5-7B-Instruct": {
+      "structured_prompting": {
+        "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+        "metrics": {
+          "f1": {
+            "estimate": 0.0246,
+            "ci_grouped_95": [
+              -0.0714,
+              0.1075
+            ]
+          },
+          "mcc": {
+            "estimate": 0.1311,
+            "ci_grouped_95": [
+              -0.107,
+              0.3586
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": 0.0706,
+            "ci_grouped_95": [
+              -0.0432,
+              0.1786
+            ]
+          },
+          "precision": {
+            "estimate": 0.1,
+            "ci_grouped_95": [
+              -0.0079,
+              0.2068
+            ]
+          },
+          "recall": {
+            "estimate": -0.0588,
+            "ci_grouped_95": [
+              -0.1667,
+              0.0
+            ]
+          }
+        }
+      },
+      "rag": {
+        "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+        "metrics": {
+          "f1": {
+            "estimate": 0.0156,
+            "ci_grouped_95": [
+              -0.075,
+              0.1212
+            ]
+          },
+          "mcc": {
+            "estimate": -0.0223,
+            "ci_grouped_95": [
+              -0.2203,
+              0.1265
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": -0.0039,
+            "ci_grouped_95": [
+              -0.1154,
+              0.075
+            ]
+          },
+          "precision": {
+            "estimate": -0.0595,
+            "ci_grouped_95": [
+              -0.1765,
+              0.028
+            ]
+          },
+          "recall": {
+            "estimate": 0.0588,
+            "ci_grouped_95": [
+              0.0,
+              0.1667
+            ]
+          }
+        }
+      }
+    },
+    "Phi-3.5-mini-instruct": {
+      "structured_prompting": {
+        "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+        "metrics": {
+          "f1": {
+            "estimate": 0.1496,
+            "ci_grouped_95": [
+              -0.0998,
+              0.4749
+            ]
+          },
+          "mcc": {
+            "estimate": 0.1927,
+            "ci_grouped_95": [
+              -0.2551,
+              0.6936
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": 0.1588,
+            "ci_grouped_95": [
+              -0.0909,
+              0.4132
+            ]
+          },
+          "precision": {
+            "estimate": 0.0425,
+            "ci_grouped_95": [
+              -0.205,
+              0.3001
+            ]
+          },
+          "recall": {
+            "estimate": 0.1176,
+            "ci_grouped_95": [
+              -0.2308,
+              0.4706
+            ]
+          }
+        }
+      },
+      "rag": {
+        "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+        "metrics": {
+          "f1": {
+            "estimate": 0.0621,
+            "ci_grouped_95": [
+              0.0,
+              0.1293
+            ]
+          },
+          "mcc": {
+            "estimate": 0.1926,
+            "ci_grouped_95": [
+              0.0,
+              0.3876
+            ]
+          },
+          "balanced_accuracy": {
+            "estimate": 0.1,
+            "ci_grouped_95": [
+              0.0,
+              0.2
+            ]
+          },
+          "precision": {
+            "estimate": 0.1172,
+            "ci_grouped_95": [
+              0.0,
+              0.2656
+            ]
+          },
+          "recall": {
+            "estimate": 0.0,
+            "ci_grouped_95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

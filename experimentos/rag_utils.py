@@ -4,6 +4,11 @@ import numpy as np
 _UTILS_DIR = os.path.dirname(os.path.abspath(__file__))
 DOCS_DIR = os.path.join(os.path.dirname(_UTILS_DIR), "documentos_estandar")
 
+CORPUS_FILES = {
+    "metarules": {"Metareglas extraidas.docx"},
+    "official": {"NORMA_Part 5_1_2_Management_Engineering_guide_ISO29110.pdf"},
+}
+
 # Embedding model used for dense retrieval.
 # all-MiniLM-L6-v2: 22 M params, 384-dim, runs on CPU in <1 s per batch.
 _EMBEDDING_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
@@ -34,9 +39,13 @@ def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     return b_norm @ a_norm
 
 
-def cargar_documentos() -> list[dict]:
+def cargar_documentos(corpus: str = "metarules") -> list[dict]:
     """
-    Reads all PDFs and Word files from documentos_estandar.
+    Reads the selected RAG corpus from documentos_estandar.
+
+    corpus="metarules" reproduces the original author-derived corpus.
+    corpus="official" uses only the official ISO/IEC 29110 guide.
+    corpus="all" loads both corpora for an explicitly mixed condition.
     Returns a list of dicts: {nombre, texto, chunks, embeddings}.
     Chunks and embeddings are computed here for reuse.
     """
@@ -44,9 +53,21 @@ def cargar_documentos() -> list[dict]:
         print(f"  [!] Folder not found: {DOCS_DIR}")
         return []
 
+    if corpus not in {"metarules", "official", "all"}:
+        raise ValueError("corpus must be one of: metarules, official, all")
+
+    selected = set().union(*CORPUS_FILES.values()) if corpus == "all" else CORPUS_FILES[corpus]
+    missing = sorted(selected.difference(os.listdir(DOCS_DIR)))
+    if missing:
+        raise FileNotFoundError(
+            f"Missing RAG corpus file(s) in {DOCS_DIR}: {', '.join(missing)}"
+        )
+
     embedder = _get_embedder()
     docs = []
     for fname in sorted(os.listdir(DOCS_DIR)):
+        if fname not in selected:
+            continue
         path = os.path.join(DOCS_DIR, fname)
         ext = fname.lower()
         if ext.endswith(".pdf"):
@@ -71,7 +92,7 @@ def cargar_documentos() -> list[dict]:
             "embeddings": embeddings,
         })
         print(
-            f"  [+] RAG document loaded: {fname} "
+            f"  [+] RAG document loaded ({corpus}): {fname} "
             f"({len(texto):,} chars, {len(chunks)} chunks)"
         )
     return docs

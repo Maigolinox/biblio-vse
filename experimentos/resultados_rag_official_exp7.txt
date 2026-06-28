@@ -1,0 +1,297 @@
+
+(aud_llm) D:\biblio_vse\experimentos>python experimento_rag_steering_7.py --rag-corpus official --lang es 2>&1
+
+######################################################################
+  EXPERIMENT 7 — RAG + STEERING
+  RAG corpus=official + steering α=0.8  lang=es
+######################################################################
+
+  [*] Loading RAG documents...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+  [+] RAG embedder loaded (CPU): sentence-transformers/all-MiniLM-L6-v2
+  [+] RAG document loaded (official): NORMA_Part 5_1_2_Management_Engineering_guide_ISO29110.pdf (96,552 chars, 271 chunks)
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.93s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+  [*] Computing steering vector at layer 21 (anchors: es)...
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+  [+] Steering vector computed.
+  [+] Steering active at layer 21 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[11  4]
+ [ 5 12]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.69      0.73      0.71        15
+Compliant (1)       0.75      0.71      0.73        17
+
+     accuracy                           0.72        32
+    macro avg       0.72      0.72      0.72        32
+ weighted avg       0.72      0.72      0.72        32
+
+  F1-Score  : 0.7273
+  Precision : 0.7500
+  Recall    : 0.7059
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 3/3 [00:09<00:00,  3.14s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+  [*] Computing steering vector at layer 15 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 15 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 8  7]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.89      0.53      0.67        15
+Compliant (1)       0.70      0.94      0.80        17
+
+     accuracy                           0.75        32
+    macro avg       0.79      0.74      0.73        32
+ weighted avg       0.79      0.75      0.74        32
+
+  F1-Score  : 0.8000
+  Precision : 0.6957
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.46s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+  [*] Computing steering vector at layer 14 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+  [+] Steering vector computed.
+  [+] Steering active at layer 14 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=0
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-POS: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=0
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=0
+    ADV-C-GOBERNANZA-POS: real=1 pred=0
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=0
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[13  2]
+ [11  6]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.54      0.87      0.67        15
+Compliant (1)       0.75      0.35      0.48        17
+
+     accuracy                           0.59        32
+    macro avg       0.65      0.61      0.57        32
+ weighted avg       0.65      0.59      0.57        32
+
+  F1-Score  : 0.4800
+  Precision : 0.7500
+  Recall    : 0.3529
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████| 2/2 [00:05<00:00,  2.54s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+  [*] Computing steering vector at layer 16 (anchors: es)...
+We detected that you are passing `past_key_values` as a tuple and this is deprecated and will be removed in v4.43. Please use an appropriate `Cache` class (https://huggingface.co/docs/transformers/v4.41.3/en/internal/generation_utils#transformers.Cache)
+You are not running the flash-attention implementation, expect numerical differences.
+  [+] Steering vector computed.
+  [+] Steering active at layer 16 (α=0.8, lang=es).
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=0
+    SMP-GOBERNANZA-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=1
+    SMP-SEGURIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-NEG: real=0 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-TRAZABILIDAD-POS: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=1
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=1
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=1
+    ADV-B-RESPALDO-NEG: real=0 pred=1
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+  [*] Steering hook removed.
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[ 4 11]
+ [ 1 16]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.80      0.27      0.40        15
+Compliant (1)       0.59      0.94      0.73        17
+
+     accuracy                           0.62        32
+    macro avg       0.70      0.60      0.56        32
+ weighted avg       0.69      0.62      0.57        32
+
+  F1-Score  : 0.7273
+  Precision : 0.5926
+  Recall    : 0.9412
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 7 — RAG + STEERING completed.

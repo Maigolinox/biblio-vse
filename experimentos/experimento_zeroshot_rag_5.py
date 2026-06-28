@@ -18,6 +18,10 @@ from utils import (
 from rag_utils import cargar_documentos, recuperar_contexto
 
 NOMBRE = "EXPERIMENT 5 — ZERO-SHOT + RAG"
+RAG_CORPUS = "metarules"
+for _i, _v in enumerate(sys.argv):
+    if _v == "--rag-corpus" and _i + 1 < len(sys.argv):
+        RAG_CORPUS = sys.argv[_i + 1]
 
 
 def evaluar_dataset(modelo, tokenizer, dataset: list,
@@ -57,11 +61,11 @@ def evaluar_modelo(clave: str, dataset: list, documentos: list):
 def main():
     print(f"\n{'#'*70}")
     print(f"  {NOMBRE}")
-    print(f"  Structured zero-shot + normative context from documentos_estandar/")
+    print(f"  Structured zero-shot + RAG corpus: {RAG_CORPUS}")
     print(f"{'#'*70}")
 
     print("\n  [*] Loading RAG documents...")
-    documentos = cargar_documentos()
+    documentos = cargar_documentos(RAG_CORPUS)
     if not documentos:
         print("  [!] No documents found. RAG will operate without context.")
 
