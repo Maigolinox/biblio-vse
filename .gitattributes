@@ -1,0 +1,10 @@
+# The artifact text is part of the benchmark data: line endings must not change
+# on checkout, or the datasets rebuilt from dataset_v2/edicion/ would differ from
+# the ones the published results were produced with.
+* text=auto eol=lf
+
+*.pdf  binary
+*.docx binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
