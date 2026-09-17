@@ -670,6 +670,88 @@
      "TRAZABILIDAD": 0.5455
     }
    }
+  },
+  "Gemini-3.8-flash": {
+   "1": {
+    "f1": 0.8506,
+    "acc_original32": 0.75,
+    "acc_extension64": 0.9219,
+    "recall_typeC": 0.8125,
+    "specificity_typeB": 0.9048,
+    "recall_nonadv_pos": 0.75,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "ACUERDOS": 0.8,
+     "CALIDAD": 0.9,
+     "DOCUMENTAL": 1.0,
+     "GOBERNANZA": 1.0,
+     "INFRA": 0.6364,
+     "PRUEBAS": 0.7,
+     "RESPALDO": 0.9091,
+     "SEGURIDAD": 0.9091,
+     "TRAZABILIDAD": 0.9091
+    }
+   },
+   "2": {
+    "f1": 0.9348,
+    "acc_original32": 0.8125,
+    "acc_extension64": 1.0,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.9524,
+    "recall_nonadv_pos": 0.8438,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "ACUERDOS": 0.9,
+     "CALIDAD": 0.9,
+     "DOCUMENTAL": 1.0,
+     "GOBERNANZA": 0.9091,
+     "INFRA": 1.0,
+     "PRUEBAS": 0.9,
+     "RESPALDO": 1.0,
+     "SEGURIDAD": 0.9091,
+     "TRAZABILIDAD": 0.9091
+    }
+   },
+   "3": {
+    "f1": 0.8046,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.875,
+    "recall_typeC": 0.8125,
+    "specificity_typeB": 0.8571,
+    "recall_nonadv_pos": 0.6875,
+    "specificity_nonadv_neg": 0.963,
+    "acc_per_rule": {
+     "ACUERDOS": 0.8,
+     "CALIDAD": 0.9,
+     "DOCUMENTAL": 0.5455,
+     "GOBERNANZA": 0.8182,
+     "INFRA": 0.7273,
+     "PRUEBAS": 0.8,
+     "RESPALDO": 1.0,
+     "SEGURIDAD": 0.9091,
+     "TRAZABILIDAD": 0.9091
+    }
+   },
+   "5": {
+    "f1": 0.9348,
+    "acc_original32": 0.8125,
+    "acc_extension64": 1.0,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.9524,
+    "recall_nonadv_pos": 0.8438,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "ACUERDOS": 0.9,
+     "CALIDAD": 0.9,
+     "DOCUMENTAL": 1.0,
+     "GOBERNANZA": 0.9091,
+     "INFRA": 1.0,
+     "PRUEBAS": 0.9,
+     "RESPALDO": 1.0,
+     "SEGURIDAD": 0.9091,
+     "TRAZABILIDAD": 0.9091
+    }
+   }
   }
  },
  "best_per_model": {
@@ -785,6 +867,18 @@
     "EXT-INFRA-02-NEG",
     "EXT-ADVB-INFRA-03-NEG",
     "EXT-ADVC-INFRA-03-POS"
+   ]
+  },
+  "Gemini-3.8-flash": {
+   "exp": "2",
+   "f1": 0.9348,
+   "errors": [
+    "SMP-CALIDAD-POS",
+    "SMP-GOBERNANZA-SRC-POS",
+    "SMP-SEGURIDAD-POS",
+    "SMP-PRUEBAS-POS",
+    "SMP-ACUERDOS-POS",
+    "ADV-B-TRAZABILIDAD-NEG"
    ]
   }
  },

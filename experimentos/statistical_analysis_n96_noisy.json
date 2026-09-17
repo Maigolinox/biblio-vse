@@ -563,6 +563,104 @@
      "p_holm": 0.42008
     }
    }
+  },
+  "Gemini-3.8-flash": {
+   "1": {
+    "f1": 0.4706,
+    "ci_scenario": [
+     0.3051,
+     0.6154
+    ],
+    "ci_meta_rule": [
+     0.25,
+     0.65
+    ],
+    "mcc": 0.3078,
+    "balanced_accuracy": 0.625,
+    "macro_f1_per_rule": 0.4019,
+    "expected_cost": {
+     "1": 0.375,
+     "2": 0.4167,
+     "5": 0.5417,
+     "10": 0.75
+    }
+   },
+   "2": {
+    "f1": 0.9348,
+    "ci_scenario": [
+     0.8791,
+     0.9792
+    ],
+    "ci_meta_rule": [
+     0.9011,
+     0.9691
+    ],
+    "mcc": 0.8781,
+    "balanced_accuracy": 0.9375,
+    "macro_f1_per_rule": 0.9304,
+    "expected_cost": {
+     "1": 0.0625,
+     "2": 0.0729,
+     "5": 0.1042,
+     "10": 0.1562
+    },
+    "perm_scenario": {
+     "t_observed": 30,
+     "p_raw": 1e-05,
+     "method": "monte_carlo",
+     "p_holm": 2e-05
+    },
+    "perm_meta_rule": {
+     "t_observed": 30,
+     "p_raw": 0.00781,
+     "method": "exact",
+     "p_holm": 0.01562
+    },
+    "mcnemar": {
+     "b_base_only_correct": 3,
+     "c_new_only_correct": 33,
+     "p_raw": 0.0,
+     "p_holm": 0.0
+    }
+   },
+   "5": {
+    "f1": 0.9032,
+    "ci_scenario": [
+     0.8317,
+     0.9639
+    ],
+    "ci_meta_rule": [
+     0.8315,
+     0.9592
+    ],
+    "mcc": 0.8141,
+    "balanced_accuracy": 0.9062,
+    "macro_f1_per_rule": 0.8958,
+    "expected_cost": {
+     "1": 0.0938,
+     "2": 0.125,
+     "5": 0.2188,
+     "10": 0.375
+    },
+    "perm_scenario": {
+     "t_observed": 27,
+     "p_raw": 6e-05,
+     "method": "monte_carlo",
+     "p_holm": 6e-05
+    },
+    "perm_meta_rule": {
+     "t_observed": 27,
+     "p_raw": 0.02344,
+     "method": "exact",
+     "p_holm": 0.02344
+    },
+    "mcnemar": {
+     "b_base_only_correct": 6,
+     "c_new_only_correct": 33,
+     "p_raw": 1e-05,
+     "p_holm": 1e-05
+    }
+   }
   }
  },
  "cost_minimizing": {
@@ -636,6 +734,24 @@
    "10": {
     "exp": "1",
     "cost": 0.6562
+   }
+  },
+  "Gemini-3.8-flash": {
+   "1": {
+    "exp": "2",
+    "cost": 0.0625
+   },
+   "2": {
+    "exp": "2",
+    "cost": 0.0729
+   },
+   "5": {
+    "exp": "2",
+    "cost": 0.1042
+   },
+   "10": {
+    "exp": "2",
+    "cost": 0.1562
    }
   }
  }

@@ -74,8 +74,9 @@ def api_key():
     if not key and os.path.exists(env_file):
         with open(env_file, encoding="utf-8") as fh:
             for line in fh:
-                if line.strip().startswith("GEMINI_API_KEY="):
-                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                name, _, value = line.strip().partition("=")
+                if name.strip() in ("GEMINI_API_KEY", "api_key") and value:
+                    key = value.strip().strip('"').strip("'")
     if not key:
         sys.exit("GEMINI_API_KEY not found (environment or .env).")
     return key
@@ -146,32 +147,39 @@ def generate(model, system, user, cache):
         return cached
     body = {
         "contents": [{"role": "user", "parts": [{"text": user}]}],
-        # Deterministic decoding; the thinking budget is disabled so that the
-        # output budget is spent on the binary label, as for the local models.
-        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 64,
-                             "thinkingConfig": {"thinkingBudget": 0}},
+        # Deterministic decoding. Current Gemini Flash models always reason
+        # before answering and do not allow disabling it; the lowest accepted
+        # thinking level is used, and the output limit is large enough that the
+        # reasoning tokens cannot truncate the binary label.
+        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 2048,
+                             "thinkingConfig": {"thinkingLevel": "low"}},
     }
     if system:
         body["systemInstruction"] = {"parts": [{"text": system}]}
+    text = ""
     for attempt in range(8):
         try:
             resp = request("POST", f"models/{model}:generateContent", body)
             cands = resp.get("candidates", [])
             parts = cands[0].get("content", {}).get("parts", []) if cands else []
             text = "".join(p.get("text", "") for p in parts).strip()
+            if not text:
+                # Truncated or blocked answer: never cache it; retry once more
+                # with a larger output limit before giving up.
+                body["generationConfig"]["maxOutputTokens"] = 8192
+                continue
             cache.put(k, text)
             return text
         except urllib.error.HTTPError as err:
             detail = err.read().decode("utf-8", "replace")
-            if err.code == 400 and "thinking" in detail.lower() and "thinkingConfig" in body["generationConfig"]:
-                body["generationConfig"].pop("thinkingConfig")
-                continue
             if err.code in (429, 500, 502, 503, 504):
                 time.sleep(min(60, 2 ** attempt * 2))
                 continue
             raise RuntimeError(f"HTTP {err.code}: {detail[:500]}") from err
         except (urllib.error.URLError, TimeoutError):
             time.sleep(min(60, 2 ** attempt * 2))
+    if text == "":
+        return ""  # scored as a non-binary answer by the caller
     raise RuntimeError("Gemini request failed after retries")
 
 

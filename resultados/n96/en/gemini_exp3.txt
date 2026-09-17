@@ -1,0 +1,131 @@
+# condition=en model=gemini-3.8-flash
+
+######################################################################
+  EXPERIMENT 3 — RAG
+######################################################################
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemini-3.8-flash
+─────────────────────────────────────────────────────────────────
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-SRC-POS: real=1 pred=0
+    SMP-GOBERNANZA-DOC-POS: real=1 pred=0
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS-A: real=1 pred=1
+    SMP-TRAZABILIDAD-POS-B: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=0
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=0
+    EXT-DOCUMENTAL-01-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-NEG: real=0 pred=0
+    EXT-DOCUMENTAL-02-POS: real=1 pred=1
+    EXT-ADVB-DOCUMENTAL-02-NEG: real=0 pred=0
+    EXT-ADVB-DOCUMENTAL-03-NEG: real=0 pred=0
+    EXT-ADVC-DOCUMENTAL-03-POS: real=1 pred=0
+    EXT-DOCUMENTAL-04-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-NEG: real=0 pred=0
+    EXT-CALIDAD-01-POS: real=1 pred=1
+    EXT-CALIDAD-01-NEG: real=0 pred=0
+    EXT-CALIDAD-02-POS: real=1 pred=1
+    EXT-CALIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-CALIDAD-03-NEG: real=0 pred=0
+    EXT-ADVC-CALIDAD-03-POS: real=1 pred=1
+    EXT-CALIDAD-04-POS: real=1 pred=1
+    EXT-ADVB-CALIDAD-04-NEG: real=0 pred=0
+    EXT-GOBERNANZA-01-POS: real=1 pred=1
+    EXT-GOBERNANZA-01-NEG: real=0 pred=0
+    EXT-ADVB-GOBERNANZA-02-NEG: real=0 pred=0
+    EXT-GOBERNANZA-03-NEG: real=0 pred=0
+    EXT-ADVC-GOBERNANZA-03-POS: real=1 pred=1
+    EXT-ADVB-GOBERNANZA-04-NEG: real=0 pred=0
+    EXT-SEGURIDAD-01-POS: real=1 pred=1
+    EXT-SEGURIDAD-01-NEG: real=0 pred=0
+    EXT-ADVC-SEGURIDAD-02-POS: real=1 pred=1
+    EXT-SEGURIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-SEGURIDAD-03-NEG: real=0 pred=0
+    EXT-SEGURIDAD-03-POS: real=1 pred=1
+    EXT-ADVC-SEGURIDAD-04-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-POS: real=1 pred=0
+    EXT-TRAZABILIDAD-01-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-02-NEG: real=0 pred=0
+    EXT-ADVC-TRAZABILIDAD-02-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-03-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-04-NEG: real=0 pred=0
+    EXT-PRUEBAS-01-POS: real=1 pred=1
+    EXT-PRUEBAS-01-NEG: real=0 pred=0
+    EXT-PRUEBAS-02-POS: real=1 pred=1
+    EXT-PRUEBAS-02-NEG: real=0 pred=0
+    EXT-ADVC-PRUEBAS-03-POS: real=1 pred=1
+    EXT-ADVB-PRUEBAS-03-NEG: real=0 pred=1
+    EXT-PRUEBAS-04-POS: real=1 pred=1
+    EXT-RESPALDO-01-POS: real=1 pred=1
+    EXT-RESPALDO-01-NEG: real=0 pred=0
+    EXT-RESPALDO-02-POS: real=1 pred=0
+    EXT-RESPALDO-02-NEG: real=0 pred=0
+    EXT-ADVB-RESPALDO-03-NEG: real=0 pred=0
+    EXT-ADVC-RESPALDO-03-POS: real=1 pred=1
+    EXT-ADVB-RESPALDO-04-NEG: real=0 pred=0
+    EXT-ACUERDOS-01-POS: real=1 pred=1
+    EXT-ACUERDOS-01-NEG: real=0 pred=0
+    EXT-ACUERDOS-02-POS: real=1 pred=0
+    EXT-ADVB-ACUERDOS-02-NEG: real=0 pred=0
+    EXT-ADVC-ACUERDOS-03-POS: real=1 pred=1
+    EXT-ACUERDOS-04-POS: real=1 pred=1
+    EXT-ACUERDOS-03-NEG: real=0 pred=0
+    EXT-INFRA-01-POS: real=1 pred=1
+    EXT-INFRA-01-NEG: real=0 pred=1
+    EXT-INFRA-02-POS: real=1 pred=0
+    EXT-INFRA-02-NEG: real=0 pred=0
+    EXT-ADVB-INFRA-03-NEG: real=0 pred=0
+    EXT-ADVC-INFRA-03-POS: real=1 pred=0
+    EXT-ADVB-INFRA-04-NEG: real=0 pred=0
+    EXT-INFRA-04-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Gemini-3.8-flash
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[44  4]
+ [13 35]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.77      0.92      0.84        48
+Compliant (1)       0.90      0.73      0.80        48
+
+     accuracy                           0.82        96
+    macro avg       0.83      0.82      0.82        96
+ weighted avg       0.83      0.82      0.82        96
+
+  F1-Score  : 0.8046
+  Precision : 0.8974
+  Recall    : 0.7292
+=================================================================
+
+[✓] EXPERIMENT 3 — RAG completed.
+

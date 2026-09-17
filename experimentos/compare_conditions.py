@@ -93,9 +93,11 @@ def main():
                 "t_observed": t_obs, "p_raw": round(p, 5), "prediction_agreement": round(agree, 4),
             })
 
-    adj = holm_correction([r["p_raw"] for r in rows])
-    for r, pa in zip(rows, adj):
-        r["p_holm"] = round(pa, 5)
+    # Separate Holm families for local models and the hosted frontier reference.
+    for is_ref in (False, True):
+        members = [r for r in rows if r["model"].startswith("Gemini") == is_ref]
+        for r, pa in zip(members, holm_correction([r["p_raw"] for r in members])):
+            r["p_holm"] = round(pa, 5)
 
     print("=" * 118)
     print(f"  {args.a} -> {args.b}: ΔF1 = F1({args.b}) - F1({args.a}); paired scenario tests, "
@@ -108,17 +110,18 @@ def main():
               f"Δ={r['delta_f1']:+.3f} [{r['delta_f1_ci_scenario'][0]:+.3f},"
               f"{r['delta_f1_ci_scenario'][1]:+.3f}]  p={r['p_raw']:.4f} "
               f"Holm={r['p_holm']:.4f}  agree={r['prediction_agreement']:.2f}{mark}")
-    mean_delta = sum(r["delta_f1"] for r in rows) / len(rows) if rows else 0.0
-    wins = sum(r["delta_f1"] > 0 for r in rows)
-    losses = sum(r["delta_f1"] < 0 for r in rows)
-    print(f"\n  cells: {len(rows)}  mean ΔF1={mean_delta:+.4f}  "
-          f"{args.b} better in {wins}, worse in {losses}, tied in {len(rows) - wins - losses}")
+    local = [r for r in rows if not r["model"].startswith("Gemini")]
+    mean_delta = sum(r["delta_f1"] for r in local) / len(local) if local else 0.0
+    wins = sum(r["delta_f1"] > 0 for r in local)
+    losses = sum(r["delta_f1"] < 0 for r in local)
+    print(f"\n  local-model cells: {len(local)}  mean ΔF1={mean_delta:+.4f}  "
+          f"{args.b} better in {wins}, worse in {losses}, tied in {len(local) - wins - losses}")
 
     out = {
         "a": args.a, "b": args.b, "n_artifacts": len(y),
-        "design": "paired; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip "
+        "design": "paired; summary over local models; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip "
                   "permutation over scenarios (Monte Carlo 100,000); Holm within family",
-        "summary": {"cells": len(rows), "mean_delta_f1": round(mean_delta, 4),
+        "summary": {"cells": len(local), "mean_delta_f1": round(mean_delta, 4),
                     "b_better": wins, "b_worse": losses},
         "rows": rows,
     }

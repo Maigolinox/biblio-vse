@@ -64,8 +64,11 @@ def main():
     best = {}
     for model, exps in data["predictions"].items():
         cells[model] = {}
+        reference = model.startswith("Gemini")
         for exp, pred in exps.items():
             cells[model][exp] = cell_subsets(arts, y, pred)
+            if reference:
+                continue  # hardest-artifact counts cover the 32 local-model cells only
             n_cells += 1
             for i, (t, p) in enumerate(zip(y, pred)):
                 errors[i] += t != p
@@ -73,7 +76,8 @@ def main():
         best[model] = {"exp": best_exp, "f1": round(f1(y, exps[best_exp]), 4),
                        "errors": [arts[i]["id"] for i, (t, p) in enumerate(zip(y, exps[best_exp])) if t != p]}
 
-    common = set.intersection(*(set(b["errors"]) for b in best.values())) if best else set()
+    local_best = [b for m, b in best.items() if not m.startswith("Gemini")]
+    common = set.intersection(*(set(b["errors"]) for b in local_best)) if local_best else set()
     hardest = sorted(errors.items(), key=lambda kv: -kv[1])[:15]
 
     print(f"{'System':<30}{'Exp':>4}{'F1':>7}{'orig32':>8}{'ext64':>8}{'recC':>7}{'specB':>7}"

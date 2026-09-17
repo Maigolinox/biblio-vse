@@ -147,13 +147,18 @@ def main():
                   f"S[{ci_s[0]:.2f},{ci_s[1]:.2f}]  R[{ci_r[0]:.2f},{ci_r[1]:.2f}]  "
                   f"MCC={cell['mcc']:+.3f}  BAcc={cell['balanced_accuracy']:.3f}")
 
+    # Holm families are formed separately for the local open-weight models and
+    # for the hosted frontier reference, so adding the reference model does not
+    # change the correction applied to the main 28-comparison family.
     for family, key in ((perm_s, "perm_scenario"), (perm_r, "perm_meta_rule"), (mcn, "mcnemar")):
-        adj = holm_correction([t[2] for t in family])
-        for (model, exp, _), pa in zip(family, adj):
-            results[model][exp][key]["p_holm"] = round(pa, 5)
+        for is_ref in (False, True):
+            members = [t for t in family if t[0].startswith("Gemini") == is_ref]
+            adj = holm_correction([t[2] for t in members])
+            for (model, exp, _), pa in zip(members, adj):
+                results[model][exp][key]["p_holm"] = round(pa, 5)
 
     print("\n" + "=" * 112)
-    print(f"  PAIRED TESTS vs Exp 1 (Holm within family; m={len(perm_s)})")
+    print(f"  PAIRED TESTS vs Exp 1 (Holm within family: local models and frontier reference separately)")
     print("=" * 112)
     print(f"  {'Model':<30}{'Exp':<22}{'T_S':>5}{'p_S raw':>10}{'p_S Holm':>10}"
           f"{'p_R raw':>10}{'p_R Holm':>10}{'McN raw':>10}{'McN Holm':>10}")

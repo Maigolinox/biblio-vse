@@ -16,6 +16,9 @@ SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Phi
 SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Gemini-3.8-flash,1,1
+SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-DOCUMENTAL-NEG,DOCUMENTAL,documento_texto,orig-documental,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,regex_baseline,,1
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Gemma-2-9B-it,2,1
@@ -33,6 +36,9 @@ SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Phi
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Phi-3.5-mini-instruct,5,1
 SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-documental,,original_v1,1,Gemini-3.8-flash,5,1
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,regex_baseline,,0
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Gemma-2-9B-it,2,0
@@ -50,6 +56,9 @@ SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Phi-3.5-mini-i
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Phi-3.5-mini-instruct,2,1
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-CALIDAD-NEG,CALIDAD,codigo_fuente,orig-calidad,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,regex_baseline,,1
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Gemma-2-9B-it,2,1
@@ -67,6 +76,9 @@ SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Phi-3.5-mini
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Phi-3.5-mini-instruct,5,1
 SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Gemini-3.8-flash,2,0
+SMP-CALIDAD-POS,CALIDAD,documento_texto,orig-calidad,,original_v1,1,Gemini-3.8-flash,5,0
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,regex_baseline,,0
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Gemma-2-9B-it,2,0
@@ -84,6 +96,9 @@ SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Phi-3
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,regex_baseline,,1
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Gemma-2-9B-it,2,0
@@ -101,6 +116,9 @@ SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,P
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,2,0
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,1,1
+SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,2,0
+SMP-GOBERNANZA-SRC-POS,GOBERNANZA,codigo_fuente,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,5,0
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,regex_baseline,,1
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Gemma-2-9B-it,2,1
@@ -118,6 +136,9 @@ SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,5,1
 SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,1,1
+SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-GOBERNANZA-DOC-POS,GOBERNANZA,documento_texto,orig-gobernanza,,original_v1,1,Gemini-3.8-flash,5,1
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,regex_baseline,,0
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Gemma-2-9B-it,2,0
@@ -135,6 +156,9 @@ SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Phi-3.5-
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,regex_baseline,,1
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Gemma-2-9B-it,1,0
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Gemma-2-9B-it,2,0
@@ -152,6 +176,9 @@ SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Phi-3.5-
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Phi-3.5-mini-instruct,2,0
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Gemini-3.8-flash,2,0
+SMP-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-seguridad,,original_v1,1,Gemini-3.8-flash,5,0
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,regex_baseline,,0
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Gemma-2-9B-it,2,0
@@ -169,6 +196,9 @@ SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,regex_baseline,,1
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemma-2-9B-it,2,1
@@ -186,6 +216,9 @@ SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,2,0
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-TRAZABILIDAD-POS-A,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,5,1
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,regex_baseline,,1
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemma-2-9B-it,2,1
@@ -203,6 +236,9 @@ SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,2,0
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-TRAZABILIDAD-POS-B,TRAZABILIDAD,codigo_fuente,orig-trazabilidad,,original_v1,1,Gemini-3.8-flash,5,1
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,regex_baseline,,0
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Gemma-2-9B-it,2,0
@@ -220,6 +256,9 @@ SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Phi-3.5-mini-i
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,regex_baseline,,1
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Gemma-2-9B-it,2,1
@@ -237,6 +276,9 @@ SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Phi-3.5-mini-i
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Phi-3.5-mini-instruct,5,1
 SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Gemini-3.8-flash,1,1
+SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Gemini-3.8-flash,2,0
+SMP-PRUEBAS-POS,PRUEBAS,codigo_fuente,orig-pruebas,,original_v1,1,Gemini-3.8-flash,5,0
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,regex_baseline,,0
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Gemma-2-9B-it,2,0
@@ -254,6 +296,9 @@ SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Phi-3.5-mini-
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Phi-3.5-mini-instruct,6,0
+SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,regex_baseline,,1
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Gemma-2-9B-it,2,0
@@ -271,6 +316,9 @@ SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Phi-3.5-mini-
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Phi-3.5-mini-instruct,2,0
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Gemini-3.8-flash,1,1
+SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-RESPALDO-POS,RESPALDO,pipeline_ci,orig-respaldo,,original_v1,1,Gemini-3.8-flash,5,1
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,regex_baseline,,0
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Gemma-2-9B-it,2,0
@@ -288,6 +336,9 @@ SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Phi-3.5-m
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,0,Gemini-3.8-flash,5,0
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,regex_baseline,,1
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Gemma-2-9B-it,2,1
@@ -305,6 +356,9 @@ SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Phi-3.5-m
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Phi-3.5-mini-instruct,5,1
 SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Gemini-3.8-flash,2,0
+SMP-ACUERDOS-POS,ACUERDOS,documento_texto,orig-acuerdos,,original_v1,1,Gemini-3.8-flash,5,0
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,regex_baseline,,0
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Gemma-2-9B-it,1,1
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Gemma-2-9B-it,2,0
@@ -322,6 +376,9 @@ SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Phi-3.5-mini-instruc
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Phi-3.5-mini-instruct,2,0
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Phi-3.5-mini-instruct,5,0
 SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Phi-3.5-mini-instruct,6,1
+SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Gemini-3.8-flash,1,0
+SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Gemini-3.8-flash,2,0
+SMP-INFRA-NEG,INFRA,codigo_fuente,orig-infra,,original_v1,0,Gemini-3.8-flash,5,0
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Gemma-2-9B-it,1,1
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Gemma-2-9B-it,2,0
@@ -339,6 +396,9 @@ ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,0
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,0
 ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,1
+ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Gemini-3.8-flash,2,0
+ADV-B-SEGURIDAD-NEG,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_b,original_v1,0,Gemini-3.8-flash,5,0
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Gemma-2-9B-it,1,1
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Gemma-2-9B-it,2,0
@@ -356,6 +416,9 @@ ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,o
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,0
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,0
 ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,1
+ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Gemini-3.8-flash,2,1
+ADV-B-TRAZABILIDAD-NEG,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_b,original_v1,0,Gemini-3.8-flash,5,1
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Gemma-2-9B-it,1,1
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Gemma-2-9B-it,2,0
@@ -373,6 +436,9 @@ ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,origina
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,0
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,0
 ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,1
+ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Gemini-3.8-flash,2,0
+ADV-B-GOBERNANZA-NEG,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_b,original_v1,0,Gemini-3.8-flash,5,1
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Gemma-2-9B-it,1,0
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Gemma-2-9B-it,2,0
@@ -390,6 +456,9 @@ ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,P
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,0
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,0
 ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,1
+ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Gemini-3.8-flash,2,0
+ADV-B-RESPALDO-NEG,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_b,original_v1,0,Gemini-3.8-flash,5,0
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Gemma-2-9B-it,1,1
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Gemma-2-9B-it,2,0
@@ -407,6 +476,9 @@ ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,0
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,0
 ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,0
+ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Gemini-3.8-flash,2,0
+ADV-B-ACUERDOS-NEG,ACUERDOS,documento_texto,orig-adv-acuerdos,tipo_b,original_v1,0,Gemini-3.8-flash,5,0
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,regex_baseline,,1
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Gemma-2-9B-it,1,1
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Gemma-2-9B-it,2,1
@@ -424,6 +496,9 @@ ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Ph
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Phi-3.5-mini-instruct,2,1
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Phi-3.5-mini-instruct,5,1
 ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Phi-3.5-mini-instruct,6,1
+ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Gemini-3.8-flash,1,0
+ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Gemini-3.8-flash,2,0
+ADV-B-PRUEBAS-NEG,PRUEBAS,codigo_fuente,orig-adv-pruebas,tipo_b,original_v1,0,Gemini-3.8-flash,5,0
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Gemma-2-9B-it,2,1
@@ -441,6 +516,9 @@ ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,1
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,1
 ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Gemini-3.8-flash,1,1
+ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-SEGURIDAD-POS,SEGURIDAD,codigo_fuente,orig-adv-seguridad,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Gemma-2-9B-it,2,1
@@ -458,6 +536,9 @@ ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,o
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,0
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,0
 ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Gemini-3.8-flash,1,0
+ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-TRAZABILIDAD-POS,TRAZABILIDAD,codigo_fuente,orig-adv-trazabilidad,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Gemma-2-9B-it,2,1
@@ -475,6 +556,9 @@ ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,origina
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,1
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,1
 ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Gemini-3.8-flash,1,1
+ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-GOBERNANZA-POS,GOBERNANZA,codigo_fuente,orig-adv-gobernanza,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Gemma-2-9B-it,2,0
@@ -492,6 +576,9 @@ ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,P
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,0
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,0
 ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Gemini-3.8-flash,1,1
+ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-RESPALDO-POS,RESPALDO,pipeline_ci,orig-adv-respaldo,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Gemma-2-9B-it,2,1
@@ -509,6 +596,9 @@ ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,origi
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,1
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,1
 ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Gemini-3.8-flash,1,1
+ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-DOCUMENTAL-POS,DOCUMENTAL,documento_texto,orig-adv-documental,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,regex_baseline,,1
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Gemma-2-9B-it,1,1
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Gemma-2-9B-it,2,1
@@ -526,6 +616,9 @@ SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Phi-3.5-mini-instruc
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Phi-3.5-mini-instruct,2,1
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Phi-3.5-mini-instruct,5,0
 SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Phi-3.5-mini-instruct,6,1
+SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Gemini-3.8-flash,1,0
+SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Gemini-3.8-flash,2,1
+SMP-INFRA-POS,INFRA,codigo_fuente,orig-infra,,original_v1,1,Gemini-3.8-flash,5,1
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,regex_baseline,,0
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Gemma-2-9B-it,1,1
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Gemma-2-9B-it,2,1
@@ -543,6 +636,9 @@ ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Phi-3.5-
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Phi-3.5-mini-instruct,2,1
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Phi-3.5-mini-instruct,5,1
 ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Phi-3.5-mini-instruct,6,1
+ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Gemini-3.8-flash,1,0
+ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Gemini-3.8-flash,2,1
+ADV-C-INFRA-POS,INFRA,codigo_fuente,orig-adv-infra,tipo_c,original_v1,1,Gemini-3.8-flash,5,1
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,regex_baseline,,1
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -560,6 +656,9 @@ EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Phi-3.5-
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-DOCUMENTAL-01-POS,DOCUMENTAL,documento_texto,doc-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,regex_baseline,,1
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -577,6 +676,9 @@ EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Phi-3.5-
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-DOCUMENTAL-01-NEG,DOCUMENTAL,documento_texto,doc-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,regex_baseline,,1
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -594,6 +696,9 @@ EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Phi-3.5-
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-DOCUMENTAL-02-POS,DOCUMENTAL,documento_texto,doc-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -611,6 +716,9 @@ EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-DOCUMENTAL-02-NEG,DOCUMENTAL,documento_texto,doc-02,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -628,6 +736,9 @@ EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,1
+EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-DOCUMENTAL-03-NEG,DOCUMENTAL,documento_texto,doc-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,1
@@ -645,6 +756,9 @@ EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-DOCUMENTAL-03-POS,DOCUMENTAL,documento_texto,doc-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,regex_baseline,,1
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -662,6 +776,9 @@ EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Phi-3.5-
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-DOCUMENTAL-04-POS,DOCUMENTAL,documento_texto,doc-04,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,regex_baseline,,0
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -679,6 +796,9 @@ EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Phi-3.5-
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Gemini-3.8-flash,1,1
+EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-DOCUMENTAL-04-NEG,DOCUMENTAL,documento_texto,doc-04,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,regex_baseline,,0
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -696,6 +816,9 @@ EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Phi-3.5-mini-ins
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-CALIDAD-01-POS,CALIDAD,codigo_fuente,cal-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,regex_baseline,,0
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Gemma-2-9B-it,2,1
@@ -713,6 +836,9 @@ EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Phi-3.5-mini-ins
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-CALIDAD-01-NEG,CALIDAD,codigo_fuente,cal-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,regex_baseline,,0
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -730,6 +856,9 @@ EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Phi-3.5-mini-ins
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-CALIDAD-02-POS,CALIDAD,codigo_fuente,cal-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,regex_baseline,,0
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -747,6 +876,9 @@ EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Phi-3.5-mini-ins
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-CALIDAD-02-NEG,CALIDAD,codigo_fuente,cal-02,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,1
@@ -764,6 +896,9 @@ EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Phi-3
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-CALIDAD-03-NEG,CALIDAD,codigo_fuente,cal-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,1
@@ -781,6 +916,9 @@ EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Phi-3
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-CALIDAD-03-POS,CALIDAD,codigo_fuente,cal-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,regex_baseline,,1
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -798,6 +936,9 @@ EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Phi-3.5-mini-instr
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-CALIDAD-04-POS,CALIDAD,pipeline_ci,cal-04,,extension_v2,1,Gemini-3.8-flash,5,0
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Gemma-2-9B-it,2,1
@@ -815,6 +956,9 @@ EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Phi-3.5
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-CALIDAD-04-NEG,CALIDAD,pipeline_ci,cal-04,tipo_b,extension_v2,0,Gemini-3.8-flash,5,1
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,regex_baseline,,1
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -832,6 +976,9 @@ EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Phi-3.5-
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-GOBERNANZA-01-POS,GOBERNANZA,documento_texto,gob-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,regex_baseline,,0
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -849,6 +996,9 @@ EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Phi-3.5-
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-GOBERNANZA-01-NEG,GOBERNANZA,documento_texto,gob-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -866,6 +1016,9 @@ EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-GOBERNANZA-02-NEG,GOBERNANZA,codigo_fuente,gob-02,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,regex_baseline,,0
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -883,6 +1036,9 @@ EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Phi-3.5-mi
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-GOBERNANZA-03-NEG,GOBERNANZA,codigo_fuente,gob-03,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,0
@@ -900,6 +1056,9 @@ EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,P
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-GOBERNANZA-03-POS,GOBERNANZA,pipeline_ci,gob-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -917,6 +1076,9 @@ EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-GOBERNANZA-04-NEG,GOBERNANZA,codigo_fuente,gob-04,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,regex_baseline,,1
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Gemma-2-9B-it,2,0
@@ -934,6 +1096,9 @@ EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Phi-3.5-mini
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-SEGURIDAD-01-POS,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,regex_baseline,,0
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -951,6 +1116,9 @@ EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Phi-3.5-mini
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-SEGURIDAD-01-NEG,SEGURIDAD,codigo_fuente,seg-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Gemma-2-9B-it,1,0
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Gemma-2-9B-it,2,0
@@ -968,6 +1136,9 @@ EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Phi
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,0
+EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-SEGURIDAD-02-POS,SEGURIDAD,pipeline_ci,seg-02,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,regex_baseline,,0
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Gemma-2-9B-it,1,0
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -985,6 +1156,9 @@ EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Phi-3.5-mini-i
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-SEGURIDAD-02-NEG,SEGURIDAD,pipeline_ci,seg-02,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1002,6 +1176,9 @@ EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,P
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-SEGURIDAD-03-NEG,SEGURIDAD,codigo_fuente,seg-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,regex_baseline,,1
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Gemma-2-9B-it,1,0
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1019,6 +1196,9 @@ EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Phi-3.5-mini
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-SEGURIDAD-03-POS,SEGURIDAD,codigo_fuente,seg-03,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1036,6 +1216,9 @@ EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Gemini-3.8-flash,1,1
+EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-SEGURIDAD-04-POS,SEGURIDAD,documento_texto,seg-04,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,regex_baseline,,1
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1053,6 +1236,9 @@ EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Phi
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-TRAZABILIDAD-01-POS,TRAZABILIDAD,documento_texto,traz-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,regex_baseline,,0
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1070,6 +1256,9 @@ EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Phi-3
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-TRAZABILIDAD-01-NEG,TRAZABILIDAD,codigo_fuente,traz-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1087,6 +1276,9 @@ EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-TRAZABILIDAD-02-NEG,TRAZABILIDAD,codigo_fuente,traz-02,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1104,6 +1296,9 @@ EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-TRAZABILIDAD-02-POS,TRAZABILIDAD,codigo_fuente,traz-02,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,regex_baseline,,0
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1121,6 +1316,9 @@ EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Phi
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-TRAZABILIDAD-03-NEG,TRAZABILIDAD,documento_texto,traz-03,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Gemma-2-9B-it,2,1
@@ -1138,6 +1336,9 @@ EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extensi
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-TRAZABILIDAD-04-NEG,TRAZABILIDAD,documento_texto,traz-04,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,regex_baseline,,1
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1155,6 +1356,9 @@ EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Phi-3.5-mini-ins
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-PRUEBAS-01-POS,PRUEBAS,codigo_fuente,pru-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,regex_baseline,,0
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1172,6 +1376,9 @@ EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Phi-3.5-mini-ins
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-PRUEBAS-01-NEG,PRUEBAS,codigo_fuente,pru-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,regex_baseline,,1
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1189,6 +1396,9 @@ EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Phi-3.5-mini-i
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-PRUEBAS-02-POS,PRUEBAS,documento_texto,pru-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,regex_baseline,,0
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1206,6 +1416,9 @@ EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Phi-3.5-mini-i
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-PRUEBAS-02-NEG,PRUEBAS,documento_texto,pru-02,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1223,6 +1436,9 @@ EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Phi-3
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-PRUEBAS-03-POS,PRUEBAS,codigo_fuente,pru-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1240,6 +1456,9 @@ EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Phi
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,1
+EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-PRUEBAS-03-NEG,PRUEBAS,documento_texto,pru-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,regex_baseline,,1
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1257,6 +1476,9 @@ EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Phi-3.5-mini-ins
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-PRUEBAS-04-POS,PRUEBAS,codigo_fuente,pru-04,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,regex_baseline,,1
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1274,6 +1496,9 @@ EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Phi-3.5-mini-ins
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-RESPALDO-01-POS,RESPALDO,pipeline_ci,res-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,regex_baseline,,0
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1291,6 +1516,9 @@ EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Phi-3.5-mini-ins
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-RESPALDO-01-NEG,RESPALDO,pipeline_ci,res-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,regex_baseline,,1
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1308,6 +1536,9 @@ EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Phi-3.5-mini
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-RESPALDO-02-POS,RESPALDO,documento_texto,res-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,regex_baseline,,0
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1325,6 +1556,9 @@ EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Phi-3.5-mini
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-RESPALDO-02-NEG,RESPALDO,documento_texto,res-02,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,0
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1342,6 +1576,9 @@ EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Phi-3
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-RESPALDO-03-NEG,RESPALDO,pipeline_ci,res-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1359,6 +1596,9 @@ EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Phi-3
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,0
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-RESPALDO-03-POS,RESPALDO,pipeline_ci,res-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1376,6 +1616,9 @@ EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,P
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-RESPALDO-04-NEG,RESPALDO,documento_texto,res-04,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,regex_baseline,,1
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1393,6 +1636,9 @@ EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Phi-3.5-mini
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ACUERDOS-01-POS,ACUERDOS,documento_texto,acu-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,regex_baseline,,0
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Gemma-2-9B-it,1,0
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1410,6 +1656,9 @@ EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Phi-3.5-mini
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ACUERDOS-01-NEG,ACUERDOS,documento_texto,acu-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,regex_baseline,,1
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1427,6 +1676,9 @@ EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Phi-3.5-mini
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ACUERDOS-02-POS,ACUERDOS,documento_texto,acu-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1444,6 +1696,9 @@ EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,P
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-ACUERDOS-02-NEG,ACUERDOS,documento_texto,acu-02,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1461,6 +1716,9 @@ EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,P
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-ACUERDOS-03-POS,ACUERDOS,documento_texto,acu-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,regex_baseline,,1
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1478,6 +1736,9 @@ EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Phi-3.5-mini
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ACUERDOS-04-POS,ACUERDOS,documento_texto,acu-04,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,regex_baseline,,0
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1495,6 +1756,9 @@ EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Phi-3.5-mini
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ACUERDOS-03-NEG,ACUERDOS,documento_texto,acu-03,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,regex_baseline,,1
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1512,6 +1776,9 @@ EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Phi-3.5-mini-instruc
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-INFRA-01-POS,INFRA,codigo_fuente,inf-01,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,regex_baseline,,0
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1529,6 +1796,9 @@ EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Phi-3.5-mini-instruc
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Phi-3.5-mini-instruct,6,0
+EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-INFRA-01-NEG,INFRA,codigo_fuente,inf-01,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,regex_baseline,,1
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1546,6 +1816,9 @@ EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Phi-3.5-mini-instruct,
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Phi-3.5-mini-instruct,5,0
 EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-INFRA-02-POS,INFRA,pipeline_ci,inf-02,,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,regex_baseline,,0
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Gemma-2-9B-it,1,0
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1563,6 +1836,9 @@ EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Phi-3.5-mini-instruct,
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-INFRA-02-NEG,INFRA,pipeline_ci,inf-02,,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1580,6 +1856,9 @@ EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Phi-3.5-m
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,0
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,0
 EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-INFRA-03-NEG,INFRA,codigo_fuente,inf-03,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,regex_baseline,,0
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Gemma-2-9B-it,2,0
@@ -1597,6 +1876,9 @@ EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Phi-3.5-min
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-ADVC-INFRA-03-POS,INFRA,pipeline_ci,inf-03,tipo_c,extension_v2,1,Gemini-3.8-flash,5,1
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,regex_baseline,,1
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Gemma-2-9B-it,1,1
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Gemma-2-9B-it,2,0
@@ -1614,6 +1896,9 @@ EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Phi-3.5
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,2,1
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,5,1
 EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Phi-3.5-mini-instruct,6,1
+EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Gemini-3.8-flash,1,0
+EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Gemini-3.8-flash,2,0
+EXT-ADVB-INFRA-04-NEG,INFRA,documento_texto,inf-04,tipo_b,extension_v2,0,Gemini-3.8-flash,5,0
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,regex_baseline,,1
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Gemma-2-9B-it,1,1
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Gemma-2-9B-it,2,1
@@ -1631,3 +1916,6 @@ EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Phi-3.5-mini-instr
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Phi-3.5-mini-instruct,2,1
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Phi-3.5-mini-instruct,5,1
 EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Phi-3.5-mini-instruct,6,1
+EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Gemini-3.8-flash,1,0
+EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Gemini-3.8-flash,2,1
+EXT-INFRA-04-POS,INFRA,documento_texto,inf-04,,extension_v2,1,Gemini-3.8-flash,5,1

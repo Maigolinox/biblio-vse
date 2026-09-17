@@ -90,10 +90,12 @@ Model weights are downloaded from Hugging Face on first use. Gemma-2 and Mistral
 - `microsoft/Phi-3.5-mini-instruct`
 - `sentence-transformers/all-MiniLM-L6-v2` (RAG embedder, runs on the CPU)
 
-For the frontier-model reference (Gemini), put your own key in a git-ignored `.env` file:
+For the frontier-model reference (Gemini), put your own key in a git-ignored `.env` file (either name is accepted):
 
 ```
 GEMINI_API_KEY=your-key
+# or
+api_key=your-key
 ```
 
 Run every command from the repository root.
@@ -147,14 +149,24 @@ python experimentos/run_condition.py --condition noisy --exps 1,2,5,6  # noise s
 
 ### 3. Frontier-model reference (Gemini API; Exp 1, 2, 3, 5)
 
-Steering needs access to hidden states, so Exp 4, 6, 7 and 8 are not applicable to a hosted API. Responses are cached in `resultados/n96/gemini_cache.jsonl`, which makes reruns free and deterministic.
+Steering needs access to hidden states, so Exp 4, 6, 7 and 8 are not applicable to a hosted API.
+
+The paper uses `gemini-3.8-flash` (September 2026), with these settings:
+
+- Temperature 0.
+- Thinking level `low`. This model always reasons before answering and cannot turn it off.
+- Output limit of 2,048 tokens, so the reasoning never truncates the label.
+
+All 1,440 raw responses are in `resultados/n96/gemini_cache.jsonl`. With the cache present, reruns reproduce the paper's numbers without new API calls. Without `--model`, the script picks the newest stable Flash model available to your key.
 
 ```bash
-python experimentos/experimento_gemini.py --condition mixed   # newest stable Gemini Flash
-python experimentos/experimento_gemini.py --condition es
-python experimentos/experimento_gemini.py --condition en
-python experimentos/experimento_gemini.py --condition noisy --exps 1,2,5
+python experimentos/experimento_gemini.py --condition mixed --model gemini-3.8-flash
+python experimentos/experimento_gemini.py --condition es    --model gemini-3.8-flash
+python experimentos/experimento_gemini.py --condition en    --model gemini-3.8-flash
+python experimentos/experimento_gemini.py --condition noisy --exps 1,2,5 --model gemini-3.8-flash
 ```
+
+The frontier model's paired tests use a separate Holm family, so the corrections applied to the local models are unchanged.
 
 ### 4. Analyses (minutes, no GPU)
 

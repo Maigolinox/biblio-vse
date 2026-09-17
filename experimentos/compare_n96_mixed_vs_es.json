@@ -2,7 +2,7 @@
  "a": "mixed",
  "b": "es",
  "n_artifacts": 96,
- "design": "paired; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip permutation over scenarios (Monte Carlo 100,000); Holm within family",
+ "design": "paired; summary over local models; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip permutation over scenarios (Monte Carlo 100,000); Holm within family",
  "summary": {
   "cells": 32,
   "mean_delta_f1": 0.012,
@@ -552,6 +552,74 @@
    "t_observed": 3,
    "p_raw": 0.5468,
    "prediction_agreement": 0.8854,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemini-3.8-flash",
+   "exp": "1",
+   "f1_mixed": 0.8506,
+   "f1_es": 0.8667,
+   "mcc_mixed": 0.7423,
+   "mcc_es": 0.7559,
+   "delta_f1": 0.0161,
+   "delta_f1_ci_scenario": [
+    -0.0471,
+    0.0828
+   ],
+   "t_observed": 1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9271,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemini-3.8-flash",
+   "exp": "2",
+   "f1_mixed": 0.9348,
+   "f1_es": 0.9247,
+   "mcc_mixed": 0.8781,
+   "mcc_es": 0.8558,
+   "delta_f1": -0.0101,
+   "delta_f1_ci_scenario": [
+    -0.0321,
+    0.0
+   ],
+   "t_observed": -1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9896,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemini-3.8-flash",
+   "exp": "3",
+   "f1_mixed": 0.8046,
+   "f1_es": 0.7317,
+   "mcc_mixed": 0.6575,
+   "mcc_es": 0.5663,
+   "delta_f1": -0.0729,
+   "delta_f1_ci_scenario": [
+    -0.205,
+    0.0579
+   ],
+   "t_observed": -5,
+   "p_raw": 0.38521,
+   "prediction_agreement": 0.8021,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemini-3.8-flash",
+   "exp": "5",
+   "f1_mixed": 0.9348,
+   "f1_es": 0.9348,
+   "mcc_mixed": 0.8781,
+   "mcc_es": 0.8781,
+   "delta_f1": 0.0,
+   "delta_f1_ci_scenario": [
+    0.0,
+    0.0
+   ],
+   "t_observed": 0,
+   "p_raw": 1.0,
+   "prediction_agreement": 1.0,
    "p_holm": 1.0
   }
  ]
