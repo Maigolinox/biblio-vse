@@ -29,3 +29,6 @@ article.tex
 
 # Local run artefacts
 resultados_runner_*.log
+
+# ISO/IEC 29110 standard documents: not redistributable (see documentos_estandar/README.md)
+documentos_estandar/*.pdf

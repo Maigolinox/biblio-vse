@@ -34,7 +34,9 @@ Biblio-VSE is a synthetic benchmark for **artifact-level ISO/IEC 29110 complianc
 ├── dataset_isomorfico_n96_en.json               Benchmark v2, N=96, English edition (paired)
 ├── dataset_isomorfico_n96_noisy.json            Benchmark v2, N=96, noise-injected stress test
 ├── dataset_v2/                                  Sources and builders of benchmark v2
-├── documentos_estandar/                         RAG corpora (official guide EN/ES, author digest)
+├── documentos_estandar/                         RAG corpora: author digest (included) and the
+│                                                ISO/IEC 29110 guides (NOT redistributed; see
+│                                                documentos_estandar/README.md to download them)
 ├── experimentos/                                Experiment, analysis, and result files
 ├── resultados/n32/                              Raw experiment logs of the N=32 study
 ├── resultados/n96/<condition>/                  Raw experiment logs of the N=96 study
@@ -89,6 +91,8 @@ Model weights are downloaded from Hugging Face on first use. Gemma-2 and Mistral
 - `Qwen/Qwen2.5-7B-Instruct`
 - `microsoft/Phi-3.5-mini-instruct`
 - `sentence-transformers/all-MiniLM-L6-v2` (RAG embedder, runs on the CPU)
+
+The retrieval conditions also need the two ISO/IEC 29110 Part 5-1-2 guides (English and Spanish). They are **not** redistributed here, because their copyright belongs to ISO/IEC and to the national standards body that published the translation. `documentos_estandar/README.md` gives the download links and the reference checksums; `python documentos_estandar/verificar_corpus.py` tells you whether your copies match the ones used for the published results. Experiments 1, 2, 4 and 6 and all analyses run without them.
 
 For the frontier-model reference (Gemini), put your own key in a git-ignored `.env` file (either name is accepted):
 
@@ -250,8 +254,8 @@ python experimentos/experimento_zeroshot_rag_steering_8.py --dataset mini.json -
 | `dataset_v2/en_originals.py`, `dataset_v2/en_extension_{a,b,c}.py` | English translations of all 96 artifacts |
 | `dataset_v2/build_dataset_n96*.py` | Builders of v2, v2-en and v2-noisy |
 | `dataset_v2/export_for_editing.py`, `import_edited.py` | Export every artifact as an editable file and rebuild the datasets from the edited files, re-running all checks |
-| `documentos_estandar/NORMA_Part 5_1_2_Management_Engineering_guide_ISO29110.pdf` | Official ISO/IEC 29110 Part 5-1-2 guide (English); main RAG corpus |
-| `documentos_estandar/Parte 5-1-2 GuiadeGestioneIngenieria_PDS 2022.pdf` | Spanish edition of the guide; RAG corpus of the `es` condition |
+| `documentos_estandar/README.md` | Where to download the two ISO/IEC 29110 guides (not redistributed here) and the reference checksums and chunk counts |
+| `documentos_estandar/verificar_corpus.py` | Checks which corpora are present and whether they match the copies used for the published results |
 | `documentos_estandar/Metareglas extraidas.docx` | Author-derived meta-rule digest (circularity sensitivity condition of the N=32 study) |
 
 ### Experiments

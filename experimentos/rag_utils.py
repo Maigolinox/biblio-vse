@@ -62,8 +62,13 @@ def cargar_documentos(corpus: str = "metarules") -> list[dict]:
     selected = (CORPUS_FILES["metarules"] | CORPUS_FILES["official"]) if corpus == "all" else CORPUS_FILES[corpus]
     missing = sorted(selected.difference(os.listdir(DOCS_DIR)))
     if missing:
+        # The ISO/IEC 29110 standard documents are not redistributed with this
+        # repository; documentos_estandar/README.md says where to obtain them.
         raise FileNotFoundError(
-            f"Missing RAG corpus file(s) in {DOCS_DIR}: {', '.join(missing)}"
+            f"Missing RAG corpus file(s) in {DOCS_DIR}: {', '.join(missing)}.\n"
+            f"The ISO/IEC 29110 guides are not distributed with this repository. "
+            f"See documentos_estandar/README.md for the download links, and run "
+            f"'python documentos_estandar/verificar_corpus.py' to check your copies."
         )
 
     embedder = _get_embedder()
