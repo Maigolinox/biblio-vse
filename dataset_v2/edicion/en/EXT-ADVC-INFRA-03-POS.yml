@@ -1,0 +1,28 @@
+services:
+  web:
+    image: registry.interno/biblio:2.1.0
+    command: gunicorn config.wsgi --bind 0.0.0.0:8000
+    networks:
+      - app_network
+    expose:
+      - "8000"
+
+  proxy:
+    image: nginx:1.27
+    ports:
+      - "10.20.0.15:443:443"
+    networks:
+      - app_network
+
+  db:
+    image: postgres:15
+    networks:
+      - data_network
+
+networks:
+  app_network:
+    ipam:
+      config:
+        - subnet: 172.28.10.0/24
+  data_network:
+    internal: true

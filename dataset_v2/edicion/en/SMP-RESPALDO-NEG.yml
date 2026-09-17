@@ -1,0 +1,7 @@
+stages:
+  - deploy
+
+quick_deploy:
+  stage: deploy
+  script:
+    - echo "Deploying straight to production"

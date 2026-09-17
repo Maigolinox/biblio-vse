@@ -1,0 +1,20 @@
+stages:
+  - build
+  - deploy
+
+construir_imagen:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    - docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+
+desplegar:
+  stage: deploy
+  script:
+    - ssh -i "$DEPLOY_SSH_KEY_FILE" deploy@app01 "./actualizar.sh $CI_COMMIT_SHORT_SHA"
+  # DEPLOY_SSH_KEY_FILE y CI_REGISTRY_PASSWORD son variables protegidas y
+  # enmascaradas definidas en la configuración del proyecto de GitLab.

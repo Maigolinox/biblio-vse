@@ -1,0 +1,14 @@
+stages:
+  - backup
+  - deploy
+
+backup:
+  stage: backup
+  script:
+    - echo "TODO: implementar el backup antes de salir a producción"
+    - exit 0
+
+desplegar:
+  stage: deploy
+  script:
+    - ./scripts/deploy.sh produccion

@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+deploy_intranet:
+  stage: deploy
+  environment:
+    name: production-intranet
+    url: https://prestamos.biblioteca.local
+  tags:
+    - runner-private-network
+  script:
+    - rsync -az --delete ./ deploy@app01.biblioteca.local:/srv/biblio/
+    - ssh deploy@app01.biblioteca.local "sudo systemctl restart biblio"

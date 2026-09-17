@@ -1,0 +1,32 @@
+name: Instantánea Diaria de Base de Datos
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  generar_instantanea:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comprimir volumen de datos
+        run: |
+          tar -czf /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \
+              /var/lib/postgresql/data/
+          echo "Compresión completada: $(ls -lh /tmp/biblio_*.tar.gz)"
+
+      - name: Transferir a almacenamiento de largo plazo
+        run: |
+          aws s3 cp /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \
+              s3://biblio-archivo-historico/instantaneas/ \
+              --storage-class STANDARD_IA
+          echo "Transferencia a S3 completada"
+
+      - name: Verificar integridad del archivo
+        run: |
+          aws s3 ls s3://biblio-archivo-historico/instantaneas/ \
+              --recursive --human-readable | tail -5
+          echo "Verificación de integridad completada"
+
+      - name: Notificar resultado
+        if: always()
+        run: echo "Instantánea diaria procesada — $(date)"

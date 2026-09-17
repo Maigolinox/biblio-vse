@@ -1,0 +1,24 @@
+stages:
+  - backup
+  - verificar
+
+backup_completo_nocturno:
+  stage: backup
+  image: postgres:15
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  script:
+    - export ARCHIVO="biblio_completo_$(date +%Y%m%d).dump"
+    - pg_dump -Fc -h "$DB_HOST" -U "$DB_USER" biblio > "$ARCHIVO"
+    - aws s3 cp "$ARCHIVO" s3://biblio-respaldos/diarios/
+    - aws s3 ls s3://biblio-respaldos/diarios/ | tail -7
+
+verificar_restauracion:
+  stage: verificar
+  image: postgres:15
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  script:
+    - aws s3 cp "s3://biblio-respaldos/diarios/biblio_completo_$(date +%Y%m%d).dump" prueba.dump
+    - createdb -h "$DB_HOST_PRUEBAS" -U "$DB_USER" biblio_verificacion
+    - pg_restore -h "$DB_HOST_PRUEBAS" -U "$DB_USER" -d biblio_verificacion prueba.dump

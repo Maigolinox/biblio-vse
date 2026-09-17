@@ -1,0 +1,20 @@
+stages:
+  - quality
+  - tests
+
+check_style:
+  stage: quality
+  image: python:3.10
+  script:
+    - pip install flake8 black isort
+    - flake8 catalog loans reports --max-line-length 100
+    - black --check catalog loans reports
+    - isort --check-only catalog loans reports
+
+run_unit_tests:
+  stage: tests
+  image: python:3.10
+  needs: ["check_style"]
+  script:
+    - pip install -r requirements.txt
+    - python manage.py test

@@ -1,0 +1,26 @@
+# Production pipeline — Biblio-VSE
+# NOTE: The backup process was temporarily disabled (2026-02-20)
+# due to a conflict with the server maintenance windows.
+# Pending reactivation according to ticket OPS-441.
+#
+# DISABLED BLOCK:
+# stages:
+#   - backup
+#   - deploy
+#
+# daily_backup:
+#   stage: backup
+#   script:
+#     - pg_dump -U biblio_admin biblio_prod > /backups/daily_$(date +%Y%m%d).sql
+#     - echo "Backup completed"
+#
+stages:
+  - deploy
+
+production_deployment:
+  stage: deploy
+  script:
+    - echo "Deploying version $CI_COMMIT_SHORT_SHA to production"
+    - ./scripts/deploy.sh production
+  only:
+    - tags

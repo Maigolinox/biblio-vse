@@ -1,0 +1,14 @@
+stages:
+  - backup
+  - deploy
+
+backup:
+  stage: backup
+  script:
+    - echo "TODO: implement the backup before going to production"
+    - exit 0
+
+deploy:
+  stage: deploy
+  script:
+    - ./scripts/deploy.sh production

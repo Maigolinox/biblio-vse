@@ -1,0 +1,20 @@
+stages:
+  - calidad
+  - pruebas
+
+verificar_estilo:
+  stage: calidad
+  image: python:3.10
+  script:
+    - pip install flake8 black isort
+    - flake8 catalogo prestamos reportes --max-line-length 100
+    - black --check catalogo prestamos reportes
+    - isort --check-only catalogo prestamos reportes
+
+pruebas_unitarias:
+  stage: pruebas
+  image: python:3.10
+  needs: ["verificar_estilo"]
+  script:
+    - pip install -r requirements.txt
+    - python manage.py test

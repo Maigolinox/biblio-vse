@@ -1,0 +1,22 @@
+name: Nightly data archive
+
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  archive:
+    runs-on: self-hosted
+    steps:
+      - name: Create deduplicated archive of the PostgreSQL volume
+        run: |
+          borg create --stats --compression zstd \
+            /mnt/archive/biblio::biblio-{now:%Y-%m-%d} /var/lib/postgresql/15/main
+
+      - name: Retention (7 daily, 4 weekly, 6 monthly)
+        run: borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6 /mnt/archive/biblio
+
+      - name: Check integrity and that the archive can be extracted
+        run: |
+          borg check /mnt/archive/biblio
+          borg extract --dry-run /mnt/archive/biblio::biblio-$(date +%Y-%m-%d)

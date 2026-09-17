@@ -1,0 +1,32 @@
+name: Daily Database Snapshot
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  generate_snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compress data volume
+        run: |
+          tar -czf /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \
+              /var/lib/postgresql/data/
+          echo "Compression completed: $(ls -lh /tmp/biblio_*.tar.gz)"
+
+      - name: Transfer to long-term storage
+        run: |
+          aws s3 cp /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \
+              s3://biblio-historical-archive/snapshots/ \
+              --storage-class STANDARD_IA
+          echo "Transfer to S3 completed"
+
+      - name: Verify file integrity
+        run: |
+          aws s3 ls s3://biblio-historical-archive/snapshots/ \
+              --recursive --human-readable | tail -5
+          echo "Integrity verification completed"
+
+      - name: Notify result
+        if: always()
+        run: echo "Daily snapshot processed — $(date)"

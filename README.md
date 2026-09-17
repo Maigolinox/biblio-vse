@@ -110,6 +110,25 @@ python dataset_v2/build_dataset_n96_en.py      # -> dataset_isomorfico_n96_en.js
 python dataset_v2/build_dataset_n96_noisy.py   # -> dataset_isomorfico_n96_noisy.json
 ```
 
+### 1b. Review or rewrite the artifacts (optional, no GPU)
+
+To edit the artifacts as ordinary files instead of inside JSON:
+
+```bash
+python dataset_v2/export_for_editing.py   # -> dataset_v2/edicion/{es,en}/<id>.py|.md|.yml
+#   ... edit the files ...
+python dataset_v2/import_edited.py        # rebuilds the three datasets and re-validates
+```
+
+`dataset_v2/edicion/LEEME.md` lists what an edit must preserve (the label, the
+adversarial design, the Spanish/English pairing, technical identifiers, and no
+label-revealing comments). The importer refuses to write anything if a Type-B
+artifact stops triggering the regex of its rule or a Type-C artifact starts
+triggering it, reports leftover Spanish in the English edition, and warns when
+the label balance changes. Re-importing unedited files reproduces the datasets
+byte for byte. **After editing, re-run the experiments** (step 2 onwards): the
+published results correspond to the current artifact text.
+
 ### 2. Run the eight configurations × four local models (GPU)
 
 | Exp | Configuration | Script |
@@ -230,6 +249,7 @@ python experimentos/experimento_zeroshot_rag_steering_8.py --dataset mini.json -
 | `dataset_v2/extension_es_{a,b,c}.py` | The 64 v2 artifacts (Spanish), grouped by meta-rule |
 | `dataset_v2/en_originals.py`, `dataset_v2/en_extension_{a,b,c}.py` | English translations of all 96 artifacts |
 | `dataset_v2/build_dataset_n96*.py` | Builders of v2, v2-en and v2-noisy |
+| `dataset_v2/export_for_editing.py`, `import_edited.py` | Export every artifact as an editable file and rebuild the datasets from the edited files, re-running all checks |
 | `documentos_estandar/NORMA_Part 5_1_2_Management_Engineering_guide_ISO29110.pdf` | Official ISO/IEC 29110 Part 5-1-2 guide (English); main RAG corpus |
 | `documentos_estandar/Parte 5-1-2 GuiadeGestioneIngenieria_PDS 2022.pdf` | Spanish edition of the guide; RAG corpus of the `es` condition |
 | `documentos_estandar/Metareglas extraidas.docx` | Author-derived meta-rule digest (circularity sensitivity condition of the N=32 study) |

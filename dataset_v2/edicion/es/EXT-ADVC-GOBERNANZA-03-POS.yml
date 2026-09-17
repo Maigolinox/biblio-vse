@@ -1,0 +1,19 @@
+# Despliegue a producción conforme a la política de cambios PC-04:
+# el job solo se ejecuta sobre etiquetas de versión, requiere que la solicitud
+# de fusión tenga la revisión de dos integrantes (reglas de CODEOWNERS) y queda
+# detenido hasta que el coordinador técnico lo libera manualmente en el
+# ambiente protegido "produccion".
+stages:
+  - deploy
+
+desplegar_produccion:
+  stage: deploy
+  environment:
+    name: produccion
+    deployment_tier: production
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/
+      when: manual
+  script:
+    - ./scripts/deploy.sh produccion
+  resource_group: produccion

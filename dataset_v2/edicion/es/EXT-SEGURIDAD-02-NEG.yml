@@ -1,0 +1,18 @@
+stages:
+  - build
+  - deploy
+
+construir_imagen:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker login -u biblio_admin -p "Registro.Biblio.2026" registry.biblioteca.local
+    - docker build -t registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA .
+    - docker push registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA
+
+desplegar:
+  stage: deploy
+  script:
+    - sshpass -p "deploy2026" ssh deploy@app01 "./actualizar.sh $CI_COMMIT_SHORT_SHA"

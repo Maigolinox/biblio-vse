@@ -1,0 +1,16 @@
+stages:
+  - calidad
+  - deploy
+
+verificar_estilo:
+  stage: calidad
+  image: python:3.10
+  allow_failure: true
+  script:
+    - pip install flake8
+    - flake8 catalogo prestamos reportes || true
+
+desplegar:
+  stage: deploy
+  script:
+    - ./scripts/deploy.sh

@@ -1,0 +1,22 @@
+name: Archivo nocturno de datos
+
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  archivar:
+    runs-on: self-hosted
+    steps:
+      - name: Crear archivo deduplicado del volumen de PostgreSQL
+        run: |
+          borg create --stats --compression zstd \
+            /mnt/archivo/biblio::biblio-{now:%Y-%m-%d} /var/lib/postgresql/15/main
+
+      - name: Retención (7 diarios, 4 semanales, 6 mensuales)
+        run: borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6 /mnt/archivo/biblio
+
+      - name: Verificar integridad y que el archivo se pueda extraer
+        run: |
+          borg check /mnt/archivo/biblio
+          borg extract --dry-run /mnt/archivo/biblio::biblio-$(date +%Y-%m-%d)

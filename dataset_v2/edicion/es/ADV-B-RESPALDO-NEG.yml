@@ -1,0 +1,26 @@
+# Pipeline de producción — Biblio-VSE
+# NOTA: El proceso de respaldo fue desactivado temporalmente (2026-02-20)
+# por conflicto con ventanas de mantenimiento del servidor.
+# Pendiente de reactivación según ticket OPS-441.
+#
+# BLOQUE DESACTIVADO:
+# stages:
+#   - backup
+#   - deploy
+#
+# backup_diario:
+#   stage: backup
+#   script:
+#     - pg_dump -U biblio_admin biblio_prod > /backups/diario_$(date +%Y%m%d).sql
+#     - echo "Respaldo completado"
+#
+stages:
+  - deploy
+
+despliegue_produccion:
+  stage: deploy
+  script:
+    - echo "Desplegando versión $CI_COMMIT_SHORT_SHA a producción"
+    - ./scripts/deploy.sh production
+  only:
+    - tags
