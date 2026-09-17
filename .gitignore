@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Local environments and secrets (never commit API keys)
+.venv/
+venv/
+.env
+.env.*
+
+# Editor / assistant configuration
+.claude/
+.vscode/
+.idea/
+
+# Manuscript sources, reviews, and submission material (kept outside the artifact repository)
+COMENTARIOS_REVISORES/
+articulo/
+article.tex
+*.aux
+*.log
+*.bbl
+*.blg
+*.synctex.gz
+
+# Local run artefacts
+resultados_runner_*.log

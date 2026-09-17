@@ -1,0 +1,20 @@
+# Environment used for every experiment and analysis in the paper
+# (Python 3.10.19, CUDA 12.1, NVIDIA RTX 4060 8 GB). Install PyTorch first:
+#   pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cu121
+#   pip install -r requirements-experiments.txt
+torch==2.3.0
+transformers==4.44.0
+accelerate==0.34.0
+bitsandbytes==0.43.3
+huggingface-hub==0.33.4
+tokenizers==0.19.1
+safetensors==0.7.0
+sentence-transformers==5.2.3
+scikit-learn==1.7.2
+numpy==1.26.4
+scipy==1.15.3
+pypdf==6.7.1
+python-docx==1.2.0
+radon==6.0.1
+textstat==0.7.13
+GitPython==3.1.50

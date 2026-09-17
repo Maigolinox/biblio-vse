@@ -1,0 +1,1602 @@
+[
+ {
+  "id_muestra": "SMP-DOCUMENTAL-NEG",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/arquitectura_final_ok_2.txt",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\nNotas de arquitectura del sistema de préstamos de biblioteca\n\nEl sistema va a usar el framework Django con base de datos PostgreSQL para la gestión de datos del sistema. La vista principal del sistema va a manejar las solicitudes de préstamo de los usuarios registrados en el sistema de biblioteca. El proceso de validación del sistema va a revisar si el usuario tiene deudas pendientes antes de autorizar el registro de un nuevo préstamo en el sistema de biblioteca.\n\nEl módulo de catálogo del sistema va a listar todos los libros disponibles en el inventario del sistema. El proceso de búsqueda del sistema va a permitir la localización de libros por ISBN, título o nombre de autor en la base de datos del sistema. La estructura de la base de datos del sistema va a incluir las entidades principales de implementación: usuarios, libros, préstamos, devoluciones y multas por retraso en el sistema.\n\nEl proceso de autenticación del sistema va a utilizar el sistema de autenticación integrado del framework Django para la verificación de las credenciales del usuario registrado en el sistema de biblioteca. El proceso de autorización del sistema va a asignar permisos de acceso a cada usuario en función del rol asignado en el sistema de administración de la biblioteca.\n\nEl proceso de generación de reportes del sistema va a ejecutarse de forma mensual para la presentación de estadísticas de uso del sistema de biblioteca. La implementación del módulo de exportación del sistema va a utilizar las bibliotecas de generación de documentos disponibles en el sistema para producir reportes del sistema en formato PDF y hojas de cálculo.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 1634,
+   "conteo_palabras": 269
+  },
+  "escenario": "orig-documental",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-DOCUMENTAL-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/BVSE-ARQ-001_V1.0.0.md",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Documento de Arquitectura del Sistema\n**Código:** BVSE-ARQ-001\n**Versión:** V1.0.0\n**Fecha de Vigencia:** 2026-03-16\n\n## 1. Patrón Arquitectónico del Sistema\n\nEl sistema Biblio-VSE implementa el patrón arquitectónico MVT (Modelo-Vista-Template) proporcionado por el framework de desarrollo web Django. Este patrón arquitectónico garantiza la separación de responsabilidades entre la lógica de negocio del sistema, la capa de presentación de datos del sistema y el módulo de acceso a la base de datos del sistema. La implementación del patrón arquitectónico MVT en el sistema permite que cada componente del sistema pueda ser desarrollado, verificado y mantenido de forma independiente sin afectar el funcionamiento de los demás componentes del sistema de biblioteca.\n\n## 2. Componentes del Sistema\n\nEl sistema está compuesto por los siguientes módulos principales de implementación: el módulo de autenticación y autorización de usuarios del sistema, el módulo de gestión del catálogo de libros disponibles en el sistema, el módulo de administración de préstamos y devoluciones del sistema, y el módulo de generación de reportes del sistema de biblioteca.\n\nEl módulo de autenticación del sistema implementa el proceso de verificación de credenciales de usuario mediante el sistema de autenticación integrado del framework Django. El proceso de autorización del sistema determina los permisos de acceso de cada usuario en función del rol asignado en el sistema de administración de la biblioteca.\n\n## 3. Base de Datos del Sistema\n\nEl sistema utiliza PostgreSQL como sistema gestor de base de datos para el almacenamiento persistente de la información del sistema de biblioteca. La estructura de la base de datos del sistema incluye las entidades principales de implementación: Usuario, Libro, Préstamo, Devolución y Multa. Las relaciones entre las entidades del sistema garantizan la integridad referencial de los datos almacenados en el sistema de administración de la biblioteca.\n\n## 4. Proceso de Despliegue del Sistema\n\nEl proceso de despliegue del sistema se realiza mediante la plataforma de integración y despliegue continuo GitLab CI/CD. Cada nueva versión del sistema pasa por un proceso de validación automatizada antes de ser desplegada al entorno de producción del sistema. El proceso de despliegue del sistema incluye la ejecución de pruebas unitarias del sistema, la verificación de cobertura de código y la validación de la configuración del sistema de biblioteca.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 2480,
+   "conteo_palabras": 368
+  },
+  "escenario": "orig-documental",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-CALIDAD-NEG",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "scripts/utilerias.py",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\nimport sys,os,time,json,random\nfrom django.http import JsonResponse\n\ndef procesar_solicitud(request,id,tipo,modo):\n    x=id\n    if tipo==\"admin\":\n        if x>0:\n            if modo==\"lectura\":\n                if x>100:\n                    return JsonResponse({\"r\":\"alto\",\"v\":x*3.14})\n                elif x>50:\n                    return JsonResponse({\"r\":\"medio\",\"v\":x*1.5})\n                else:\n                    return JsonResponse({\"r\":\"bajo\",\"v\":x})\n            elif modo==\"escritura\":\n                for i in range(x):\n                    if i%2==0:\n                        x=x-1\n                return JsonResponse({\"r\":\"loop\",\"v\":x})\n            else:\n                return JsonResponse({\"r\":\"modo_inv\"})\n        else:\n            return JsonResponse({\"r\":\"id_inv\"})\n    elif tipo==\"usuario\":\n        try:\n            resultado=100/x\n        except ZeroDivisionError:\n            resultado=0\n        if resultado>50:\n            return JsonResponse({\"r\":\"ok\",\"v\":resultado})\n        else:\n            return JsonResponse({\"r\":\"bajo\",\"v\":resultado})\n    else:\n        return JsonResponse({\"r\":\"tipo_inv\"})\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 34,
+   "longitud_caracteres": 1119,
+   "complejidad_ciclomatica_VG": 12.0
+  },
+  "escenario": "orig-calidad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-CALIDAD-POS",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "documento_texto",
+  "archivo": ".gitlab/merge_request_templates/Default.md",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n## Lista de Cotejo de Calidad del Sistema — BVSE-QA-MR\n\n### Verificación de Estilo y Formato del Código del Sistema\n\n- [ ] El código del sistema pasa el proceso de verificación con la herramienta de análisis estático flake8 sin errores ni advertencias de estilo de código.\n- [ ] El código del sistema cumple con las convenciones de nomenclatura del proyecto: variables del sistema en snake_case, clases del sistema en PascalCase, constantes del sistema en MAYÚSCULAS_CON_GUIÓN_BAJO.\n- [ ] El código del sistema no contiene identificadores mágicos (magic numbers) sin documentar en ninguna función ni clase del módulo de implementación del sistema.\n- [ ] El código del sistema tiene indentación correcta de cuatro espacios por nivel de anidamiento en todas las funciones y clases del módulo del sistema de biblioteca.\n- [ ] Los imports del módulo del sistema están organizados según las convenciones de estilo establecidas en la guía del proyecto: primero la biblioteca estándar del sistema, luego dependencias externas del sistema, y finalmente módulos del propio sistema de biblioteca.\n\n### Verificación de Documentación del Sistema\n\n- [ ] El código del sistema incluye docstrings en todas las funciones y clases públicas del módulo de implementación de acuerdo con el estándar de documentación del proyecto del sistema.\n- [ ] El código del sistema incluye referencias explícitas a los identificadores de requerimientos del sistema (RF_XX o US_XX) en los comentarios de las funciones que implementan lógica de negocio del sistema.\n- [ ] Se incluyeron pruebas unitarias del sistema con una cobertura mínima del 80% para todas las funciones y clases del módulo del sistema de biblioteca.\n- [ ] Los mensajes de commit del proceso de integración del sistema siguen el formato convencional establecido en la guía de contribución del proyecto del sistema.\n\n### Verificación de Seguridad del Sistema\n\n- [ ] El código del sistema no contiene credenciales, tokens de autenticación ni contraseñas del sistema en texto plano (hardcoded) en ninguna parte del módulo de implementación.\n- [ ] El código del sistema utiliza variables de entorno del sistema operativo para la gestión de toda configuración sensible del sistema de biblioteca.\n- [ ] El proceso de validación de entradas del sistema incluye verificación de tipos, longitudes y formatos esperados para todos los parámetros de entrada del sistema.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 2395,
+   "conteo_palabras": 383
+  },
+  "escenario": "orig-calidad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/nueva_interfaz_experimental.py",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n# Haciendo pruebas para una nueva interfaz que me pidieron ayer en el pasillo\nfrom django.http import HttpResponse\nfrom django.contrib.auth.decorators import login_required\nfrom django.views import View\ndef renderizar_nuevo_dashboard():\n    return \"Dashboard V2\"\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 263,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-SRC-POS",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/reservas.py",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n# Implementación basada en BVSE-REQ-002\nfrom django.http import HttpResponse\nfrom django.contrib.auth.decorators import login_required\nfrom django.views import View\ndef crear_reserva():\n    pass\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 195,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-DOC-POS",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/requerimientos/BVSE-REQ-002.md",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Especificación de Requerimientos del Sistema — BVSE-REQ-002\n**Código:** BVSE-REQ-002\n**Versión:** V1.0.0\n**Fecha de Vigencia:** 2026-03-12\n**Estado:** Aprobado\n**Firma Digital (Hash SHA-256):** 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\n**Autoriza:** Director de Biblioteca — Sistema Biblio-VSE\n**Responsable de Revisión:** Coordinador Técnico del Proyecto\n\n## Descripción del Requerimiento del Sistema\n\nEl requerimiento funcional BVSE-REQ-002 especifica el proceso de implementación del módulo de gestión de reservas del sistema de biblioteca. El proceso de reserva del sistema permite a los usuarios registrados del sistema realizar la reserva anticipada de libros disponibles en el catálogo del sistema de biblioteca antes de su préstamo formal en el sistema.\n\nEl sistema de reservas debe implementar el proceso de validación de disponibilidad del libro en el catálogo del sistema antes de registrar la reserva del usuario en el sistema de base de datos. El proceso de validación del sistema debe verificar que el usuario registrado no tenga préstamos vencidos ni multas pendientes de pago en el sistema de administración de la biblioteca antes de autorizar la reserva del sistema.\n\n## Criterios de Aceptación del Sistema\n\nEl proceso de implementación del módulo de reservas del sistema debe satisfacer los siguientes criterios de aceptación establecidos por el responsable técnico del proyecto del sistema:\n\n1. El sistema debe procesar la solicitud de reserva del usuario registrado en un tiempo de respuesta máximo de dos segundos de procesamiento del sistema de biblioteca.\n2. El proceso de notificación del sistema debe enviar una confirmación de reserva al correo electrónico registrado del usuario dentro de los cinco minutos posteriores al registro de la reserva en el sistema.\n3. El sistema de reservas debe cancelar automáticamente las reservas del usuario registrado que no sean reclamadas dentro del período de vigencia de la reserva establecido en la configuración del sistema de biblioteca.\n\n## Implementación del Requerimiento del Sistema\n\nLa implementación del módulo de gestión de reservas del sistema sigue las especificaciones de gobernanza del proceso y los controles de aprobación definidos en el presente documento de requerimientos del sistema de biblioteca.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 2308,
+   "conteo_palabras": 330
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-SEGURIDAD-NEG",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings.py",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nDATABASES_PASSWORD = 'super_secret_production_password_2026!'\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 121,
+   "longitud_caracteres": 3129,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-seguridad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-SEGURIDAD-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings.py",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nimport os\n# La contraseña se inyecta por entorno, nunca en el repositorio\nDATABASES_PASSWORD = os.environ.get('DB_PASSWORD', 'default_dev_pass')\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 122,
+   "longitud_caracteres": 3202,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-seguridad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/views.py",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\nfrom django.shortcuts import render\nfrom django.http import JsonResponse\nimport random\n\ndef calcular_morosidad_avanzada(request, user_id):\n    if user_id <= 0:\n        return JsonResponse({\"error\": \"ID de usuario inválido\"}, status=400)\n\n    deuda_base = 150.50\n    penalizacion = random.choice([1.2, 1.5, 2.0])\n    total = deuda_base * penalizacion\n\n    if total > 300:\n        nivel_alerta = \"critico\"\n        bloquear = True\n    elif total > 200:\n        nivel_alerta = \"alto\"\n        bloquear = True\n    elif total > 100:\n        nivel_alerta = \"medio\"\n        bloquear = False\n    else:\n        nivel_alerta = \"bajo\"\n        bloquear = False\n\n    return JsonResponse({\n        \"bloquear_usuario\": bloquear,\n        \"deuda\": total,\n        \"nivel_alerta\": nivel_alerta\n    })\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 780,
+   "complejidad_ciclomatica_VG": 5.0
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-POS-A",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/tests.py",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# prestamos/tests.py\nfrom django.contrib.auth.models import User\nfrom django.urls import reverse\nfrom django.test import TestCase\n\nclass PrestamoTestCase(TestCase):\n    def test_registrar_prestamo_rf05(self):\n        \"\"\"Valida el RF_05_Gestión_Préstamos\"\"\"\n        response = self.client.get('/prestamos/registrar/')\n        self.assertEqual(response.status_code, 200)\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 368,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-POS-B",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/views.py",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# prestamos/views.py\nfrom django.shortcuts import get_object_or_404\nfrom prestamos.models import Prestamo\nfrom django.http import JsonResponse\n\ndef registrar_prestamo(request):\n    \"\"\"\n    ID Requerimiento: RF_05_Gestión_Préstamos\n    Descripción: Registra un nuevo préstamo de libro en el sistema.\n    Caso de Prueba Asociado: TEST_PRESTAMO_01\n    \"\"\"\n    # Lógica simulada\n    return JsonResponse({\"status\": \"success\", \"message\": \"Préstamo registrado\"})\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 455,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-PRUEBAS-NEG",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/tests.py",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nfrom django.contrib.auth.models import User\nfrom catalogo.models import Libro\nfrom django.test import TestCase\n\nclass Pruebas(TestCase):\n    def test_todo_bien(self):\n        # probando que no explote\n        assert 1 == 1\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 8,
+   "longitud_caracteres": 223,
+   "complejidad_ciclomatica_VG": 2.5
+  },
+  "escenario": "orig-pruebas",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-PRUEBAS-POS",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/tests.py",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nfrom django.contrib.auth.models import User\nfrom catalogo.models import Libro\nfrom django.test import TestCase\n\nclass CatalogoTests(TestCase):\n    def test_busqueda_isbn(self):\n        \"\"\"\n        Entorno: Python 3.10, Django 5.0\n        Pasos:\n        1. Insertar libro ficticio con ISBN 978-3-16-148410-0\n        2. Realizar petición GET a /catalogo/buscar/?isbn=978-3-16-148410-0\n        Resultado Esperado: HTTP 200 y JSON con datos del libro.\n        \"\"\"\n        self.assertTrue(True) # Simulación de assert\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 513,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-pruebas",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-RESPALDO-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\n﻿stages:\n  - deploy\n\ndeploy_rapido:\n  stage: deploy\n  script:\n    - echo \"Desplegando directo a produccion\"\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 108
+  },
+  "escenario": "orig-respaldo",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-RESPALDO-POS",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\n﻿stages:\n  - backup\n\nbackup_database:\n  stage: backup\n  script:\n    - echo \"Generando dump de la base de datos...\"\n    - pg_dump -U postgres biblio_db > backup_hitos.sql\n  artifacts:\n    paths:\n      - backup_hitos.sql\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 11,
+   "longitud_caracteres": 219
+  },
+  "escenario": "orig-respaldo",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-ACUERDOS-NEG",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/notas_reunion_martes.md",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Notas de la reunión del martes\n\n- Cambiar los colores del botón de inicio de sesión del sistema, que el diseño del sistema quede más visible y atractivo para los usuarios del sistema de biblioteca.\n- Alguien tiene que revisar lo del bug de los préstamos del sistema, que a veces no registra bien el proceso cuando el usuario hace el préstamo de más de un libro al mismo tiempo en el sistema de biblioteca.\n- También hay que ver si el proceso de cálculo de multas del sistema está funcionando bien, porque el cliente del sistema reportó que los días de retraso en las devoluciones no están siendo calculados correctamente por el sistema de administración.\n- El proceso de generación de reportes del sistema tarda demasiado en producir los resultados del sistema, hay que ver cómo optimizar el proceso del sistema antes del próximo lunes porque el director del proyecto quiere revisar los datos del mes en el sistema.\n- Ver si se puede agregar la funcionalidad de renovar el préstamo del sistema desde la aplicación web del sistema sin que el usuario tenga que ir físicamente a la biblioteca a realizar el proceso de renovación en el sistema.\n- Alguien tiene que hablar con el cliente del proyecto sobre el proceso de implementación de los cambios solicitados la semana pasada para el módulo del catálogo del sistema de biblioteca.\n- Revisar si el proceso de respaldo del sistema está funcionando correctamente en el servidor del sistema de infraestructura, el técnico del área reportó que el proceso de backup del sistema falló durante el fin de semana.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 1555,
+   "conteo_palabras": 269
+  },
+  "escenario": "orig-acuerdos",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-ACUERDOS-POS",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/actas/BVSE-ACTA-002.md",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Acta de Reunión de Diseño del Sistema — BVSE-ACTA-002\n**Código:** BVSE-ACTA-002\n**Versión:** V1.0.0\n**Fecha de Vigencia:** 2026-03-10\n**Estado:** Aprobado\n\n## Datos Generales de la Reunión\n\n- **Fecha de Reunión:** 2026-03-10\n- **Lugar:** Sala de reuniones del proyecto Biblio-VSE\n- **Responsable de Coordinación:** Coordinador del Proyecto\n\n## Participantes del Proyecto\n\n| Nombre | Rol | Presencia |\n|---|---|---|\n| Ana García | Desarrolladora Principal | Presente |\n| Luis Martínez | Responsable de Base de Datos | Presente |\n| María Torres | Responsable de Calidad | Presente |\n| Pedro Ramírez | Responsable de Infraestructura | Presente |\n\n## Acuerdos Formalizados\n\n**Acuerdo 01:** El equipo migrará las vistas funcionales al patrón Class-Based Views de Django.\nEl objetivo es mejorar la mantenibilidad y extensibilidad del módulo.\nEl patrón separa la lógica de negocio de la capa de presentación.\n- **Responsable:** Ana García, Desarrolladora Principal\n- **Fecha de Implementación:** 2026-03-20\n- **Estado:** En Proceso\n\n**Acuerdo 02:** Luis Martínez agregará índices de optimización en las tablas de préstamos y usuarios.\nEsta mejora reducirá el tiempo de respuesta en las consultas del sistema.\nLos índices se aplicarán sobre las columnas de fecha y estado del registro.\n- **Responsable:** Luis Martínez, Responsable de Base de Datos\n- **Fecha de Implementación:** 2026-03-17\n- **Estado:** Pendiente\n\n**Acuerdo 03:** María Torres ejecutará la validación del módulo de autenticación antes del despliegue.\nLa cobertura incluirá los flujos de ingreso y gestión de sesiones del usuario.\nEl resultado se documentará en el informe de calidad del sistema.\n- **Responsable:** María Torres, Responsable de Calidad\n- **Fecha de Validación:** 2026-03-15\n- **Estado:** En Proceso\n\n## Aprobación del Acta\n\n**Autoriza:** Director del Proyecto del Sistema Biblio-VSE\n**Estado del Documento:** Aprobado\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 48,
+   "longitud_caracteres": 1896,
+   "conteo_palabras": 279
+  },
+  "escenario": "orig-acuerdos",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-INFRA-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings.py",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nALLOWED_HOSTS = ['*']\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 121,
+   "longitud_caracteres": 3089,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-infra",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-SEGURIDAD-NEG",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_staging.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene os.environ.get (satisface regex) pero también hardcodea NOTIFICACIONES_API_KEY. La violación exige leer el archivo completo.",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n\"\"\"\nDjango settings for staging environment — Biblio-VSE\n\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\nimport os\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-dev-key')\nDEBUG = False\nALLOWED_HOSTS = ['staging.biblioteca.local']\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     os.environ.get('DB_NAME', 'biblio_staging'),\n        'USER':     os.environ.get('DB_USER', 'biblio_app'),\n        'PASSWORD': os.environ.get('DB_PASSWORD', ''),\n        'HOST':     os.environ.get('DB_HOST', 'localhost'),\n        'PORT':     os.environ.get('DB_PORT', '5432'),\n    }\n}\n\n# INTEGRACIÓN CON SERVICIO EXTERNO DE NOTIFICACIONES\n# TODO: mover a variable de entorno antes del pase a producción\nNOTIFICACIONES_API_KEY = \"nvapi-Xk7dP2mQr9sL4wYh3jNvZc8eA1bFgT6uE0iO5\"\n\nEMAIL_HOST          = os.environ.get('EMAIL_HOST', 'smtp.biblioteca.local')\nEMAIL_PORT          = int(os.environ.get('EMAIL_PORT', '587'))\nEMAIL_HOST_USER     = os.environ.get('EMAIL_USER', '')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 32,
+   "longitud_caracteres": 1162,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-seguridad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-TRAZABILIDAD-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/views_legacy.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "RF_05 y US_03 aparecen en comentarios que explican que esas referencias YA NO aplican. El regex detecta los IDs y predice cumplimiento incorrecto.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# prestamos/views_legacy.py\n# ADVERTENCIA: Esta función fue refactorizada en el sprint 6.\n# La implementación original de RF_05_Gestión_Préstamos fue migrada\n# a prestamos/views.py. Este módulo ya NO implementa RF_05 ni\n# ningún otro requerimiento activo. Conservado solo por referencia histórica.\nfrom django.shortcuts import get_object_or_404\nfrom prestamos.models import Prestamo\nfrom django.http import JsonResponse\n\ndef registrar_prestamo_legacy(request):\n    # Función desactivada — no usar en producción\n    return JsonResponse({\"error\": \"Módulo fuera de servicio\"}, status=410)\n\ndef consultar_historial_legacy(request, user_id):\n    # Ver US_03 en prestamos/views.py para la implementación vigente\n    return JsonResponse({\"error\": \"Módulo fuera de servicio\"}, status=410)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 781,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-adv-trazabilidad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-GOBERNANZA-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/filtros_avanzados.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene BVSE-REQ-015 en un comentario que dice explícitamente PENDIENTE DE APROBACIÓN. El regex predice cumplimiento pero la gobernanza no se ha otorgado.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# catalogo/filtros_avanzados.py\n# ESTADO: PENDIENTE DE APROBACIÓN — en revisión para BVSE-REQ-015\n# Implementación solicitada verbalmente el 2026-03-18.\n# Aún no tiene número de requerimiento formal asignado.\n# NO desplegar hasta recibir la aprobación formal del coordinador técnico.\n\nfrom django.shortcuts import render\nfrom catalogo.models import Libro\nfrom django.db.models import Q\n\ndef filtrar_libros_por_disponibilidad(queryset, solo_disponibles=True):\n    if solo_disponibles:\n        return queryset.filter(disponible=True, prestado=False)\n    return queryset\n\ndef filtrar_libros_por_categoria(queryset, categoria_id):\n    return queryset.filter(categoria__id=categoria_id)\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 682,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-adv-gobernanza",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-RESPALDO-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci-production.yml",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "pg_dump, backup y respaldo aparecen solo en bloques YAML comentados. El stage de backup está desactivado. El regex los detecta y predice cumplimiento erróneamente.",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\n# Pipeline de producción — Biblio-VSE\n# NOTA: El proceso de respaldo fue desactivado temporalmente (2026-02-20)\n# por conflicto con ventanas de mantenimiento del servidor.\n# Pendiente de reactivación según ticket OPS-441.\n#\n# BLOQUE DESACTIVADO:\n# stages:\n#   - backup\n#   - deploy\n#\n# backup_diario:\n#   stage: backup\n#   script:\n#     - pg_dump -U biblio_admin biblio_prod > /backups/diario_$(date +%Y%m%d).sql\n#     - echo \"Respaldo completado\"\n#\nstages:\n  - deploy\n\ndespliegue_produccion:\n  stage: deploy\n  script:\n    - echo \"Desplegando versión $CI_COMMIT_SHORT_SHA a producción\"\n    - ./scripts/deploy.sh production\n  only:\n    - tags\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 642
+  },
+  "escenario": "orig-adv-respaldo",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-ACUERDOS-NEG",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/notas_kickoff_sprint5.md",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene Responsable: y Estado: (activan regex) pero el documento es una nota informal sin firma, sin partes formalmente identificadas y el propio texto declara que no hubo acta formal.",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Notas kickoff sprint 5 — reunión informal\n\nFecha: martes 2026-03-11, sala pequeña, 15 min.\n\nComentamos lo del módulo de devoluciones. Carlos dijo que ya casi lo tiene.\nEl sistema de multas también hay que revisarlo.\n\nAcuerdo de palabra: terminar lo del módulo antes del viernes.\n\nResponsable: Carlos M.\nEstado: en progreso (según lo que dijo)\n\nTambién se habló de los reportes. Alguien tiene que hacerlos pero no quedó claro quién.\n\nNo hubo firma ni acta formal. Reunión improvisada en el pasillo.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 15,
+   "longitud_caracteres": 500,
+   "conteo_palabras": 82
+  },
+  "escenario": "orig-adv-acuerdos",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-B-PRUEBAS-NEG",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/tests_cobertura.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Todos los keywords de PRUEBAS están presentes (Caso de Prueba, Entorno, Pasos, Resultado Esperado) pero los asserts solo verifican que el servidor no falla, sin validar comportamiento funcional ni requerimientos.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# prestamos/tests_cobertura.py\nfrom django.contrib.auth.models import User\nfrom django.test import TestCase\n\nclass CoberturaMinimaPrestamos(TestCase):\n\n    def test_endpoint_prestamo_responde(self):\n        \"\"\"\n        Caso de Prueba: TC-PREST-001\n        Entorno: Django TestClient, SQLite en memoria\n        Pasos:\n        1. Enviar solicitud GET al endpoint /prestamos/\n        Resultado Esperado: El servidor no genera una excepción interna.\n        \"\"\"\n        response = self.client.get('/prestamos/')\n        self.assertIsNotNone(response)\n\n    def test_modelo_prestamo_instancia(self):\n        \"\"\"\n        Caso de Prueba: TC-PREST-002\n        Entorno: Python 3.10, Django ORM\n        Pasos:\n        1. Importar el modelo Prestamo del módulo de préstamos\n        Resultado Esperado: La clase Prestamo es importable sin error.\n        \"\"\"\n        from prestamos.models import Prestamo  # noqa: F401\n        self.assertTrue(True)  # El import ya habría fallado si hubiera error\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 983,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "escenario": "orig-adv-pruebas",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-SEGURIDAD-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_produccion.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Todos los secretos se leen via decouple.config (ningún hardcoding). El regex busca os.environ/getenv y no los encuentra, prediciendo violación incorrectamente.",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n\"\"\"\nDjango settings for production — Biblio-VSE\nGestión de secretos: python-decouple (variables de entorno o archivo .env).\nNingún valor sensible está embebido en el código fuente.\n\"\"\"\nimport os\nfrom pathlib import Path\nfrom decouple import config, Csv\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = config('DJANGO_SECRET_KEY')\nDEBUG = config('DEBUG', default=False, cast=bool)\nALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='biblioteca.local')\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     config('DB_NAME'),\n        'USER':     config('DB_USER'),\n        'PASSWORD': config('DB_PASSWORD'),\n        'HOST':     config('DB_HOST', default='localhost'),\n        'PORT':     config('DB_PORT', default='5432'),\n    }\n}\n\nEMAIL_HOST          = config('EMAIL_HOST')\nEMAIL_HOST_USER     = config('EMAIL_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')\nNOTIFICACIONES_KEY  = config('NOTIFICACIONES_API_KEY')\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 992,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-seguridad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-TRAZABILIDAD-POS",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "multas/views.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Trazabilidad explícita mediante formato HU-12/TK-089 en lugar de RF_XX/US_XX. El regex no reconoce este esquema de identificación y predice violación incorrectamente.",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n# multas/views.py\nfrom django.http import JsonResponse\nfrom django.utils import timezone\nfrom .models import Multa\n\ndef calcular_multa_por_retraso(request, prestamo_id):\n    \"\"\"\n    Historia de Usuario: HU-12 — Cálculo automático de multas por devolución tardía\n    Tarea técnica: TK-089 en el tablero de sprint\n    Criterio de aceptación: multa = dias_retraso * tarifa_diaria_vigente\n    Validado por: María Torres, Responsable de Calidad — sesión del 2026-03-12.\n    \"\"\"\n    try:\n        multa = Multa.objects.get(prestamo__id=prestamo_id)\n    except Multa.DoesNotExist:\n        return JsonResponse({\"error\": \"Multa no registrada\"}, status=404)\n    dias = (timezone.now().date() - multa.prestamo.fecha_devolucion_esperada).days\n    monto = max(0, dias) * float(multa.tarifa_diaria)\n    return JsonResponse({\"prestamo_id\": prestamo_id, \"multa\": monto, \"dias_retraso\": dias})\n\n\ndef listar_multas_activas(request):\n    \"\"\"\n    Historia de Usuario: HU-13 — Consulta de multas pendientes de pago\n    Tarea técnica: TK-092\n    \"\"\"\n    multas = Multa.objects.filter(pagada=False).values(\n        'id', 'prestamo__usuario__username', 'monto_total', 'fecha_generacion'\n    )\n    return JsonResponse({\"multas_activas\": list(multas)})\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 1226,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-adv-trazabilidad",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-GOBERNANZA-POS",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reportes/generador_estadisticas.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Gobernanza evidenciada mediante prosa narrativa: SCR-2026-031, visto bueno del coordinador técnico, validación del director. Ningún keyword del regex (Aprobado, BVSE-REQ-\\d+, Firma Digital, Autoriza) aparece.",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n# reportes/generador_estadisticas.py\n#\n# Este módulo fue incorporado a la rama principal mediante solicitud de\n# cambio SCR-2026-031, revisada en la sesión técnica del 2026-03-07.\n# El coordinador técnico del proyecto dio el visto bueno formal para su\n# integración tras verificar que cumple los lineamientos de calidad y no\n# introduce regresiones en el módulo de préstamos.\n# El director de biblioteca validó el alcance funcional el 2026-03-09.\n\nfrom django.db.models import Count, Avg\nfrom prestamos.models import Prestamo\nfrom catalogo.models import Libro\n\ndef generar_resumen_mensual(mes, anio):\n    prestamos_mes = Prestamo.objects.filter(\n        fecha_inicio__month=mes, fecha_inicio__year=anio\n    )\n    return {\n        \"total_prestamos\": prestamos_mes.count(),\n        \"promedio_duracion_dias\": prestamos_mes.aggregate(\n            Avg('dias_prestamo')\n        )['dias_prestamo__avg'],\n        \"libros_mas_solicitados\": list(\n            Libro.objects.annotate(num_prestamos=Count('prestamo'))\n                         .order_by('-num_prestamos')[:5]\n                         .values('titulo', 'isbn', 'num_prestamos')\n        ),\n    }\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 28,
+   "longitud_caracteres": 1147,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-adv-gobernanza",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-RESPALDO-POS",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".github/workflows/snapshot.yml",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Respaldo completo implementado con tar -czf y aws s3 cp, verificación de integridad, ejecución programada diaria. Ninguna de las palabras clave del regex (backup, pg_dump, dump, restore, respaldo) aparece en el YAML.",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\nname: Instantánea Diaria de Base de Datos\n\non:\n  schedule:\n    - cron: '0 2 * * *'\n\njobs:\n  generar_instantanea:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Comprimir volumen de datos\n        run: |\n          tar -czf /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \\\n              /var/lib/postgresql/data/\n          echo \"Compresión completada: $(ls -lh /tmp/biblio_*.tar.gz)\"\n\n      - name: Transferir a almacenamiento de largo plazo\n        run: |\n          aws s3 cp /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \\\n              s3://biblio-archivo-historico/instantaneas/ \\\n              --storage-class STANDARD_IA\n          echo \"Transferencia a S3 completada\"\n\n      - name: Verificar integridad del archivo\n        run: |\n          aws s3 ls s3://biblio-archivo-historico/instantaneas/ \\\n              --recursive --human-readable | tail -5\n          echo \"Verificación de integridad completada\"\n\n      - name: Notificar resultado\n        if: always()\n        run: echo \"Instantánea diaria procesada — $(date)\"\n\n  compilar_estilos:\n    runs-on: ubuntu-latest\n    steps:\n      - run: npm ci && npm run build:css\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 32,
+   "longitud_caracteres": 1015
+  },
+  "escenario": "orig-adv-respaldo",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-DOCUMENTAL-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/PI-2026-02_plan_iteracion.md",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "El documento cumple DOCUMENTAL: tiene identificador (PI-2026-02), edición (2.1) y fecha de vigencia (2026-03-01). Sin embargo usa Identificador/Edición/Vigente a partir de en lugar de Código/Versión/Fecha de Vigencia/BVSE-*, que son los términos del regex.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Plan de Iteración — Sistema Biblio-VSE\n\n**Identificador del Documento:** PI-2026-02\n**Edición:** 2.1\n**Vigente a partir de:** 2026-03-01\n**Elaborado por:** Ana García — Desarrolladora Principal del Sistema\n**Revisado por:** María Torres — Responsable de Calidad\n\n---\n\n## 1. Objetivo de la Iteración\n\nLa segunda iteración del sistema Biblio-VSE completa el módulo de gestión\nde multas y el módulo de reportes estadísticos.\n\n## 2. Alcance del Sistema\n\n- Módulo de cálculo automático de multas (HU-12, HU-13)\n- Módulo de generación de reportes mensuales (HU-15)\n- Módulo de exportación de datos CSV para el sistema administrativo (HU-16)\n\n## 3. Criterios de Completitud\n\nSe considera completo cuando pasa la verificación de calidad de la responsable\ndel área y cuando las historias de usuario tienen sus casos de prueba\ndocumentados y ejecutados con resultado exitoso en el entorno de integración.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 897,
+   "conteo_palabras": 136
+  },
+  "escenario": "orig-adv-documental",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "SMP-INFRA-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings.py",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\n# Restricción estricta a subdominios internos (Política de Red)\nALLOWED_HOSTS = ['catalogo.biblioteca.local', 'api.biblioteca.local']\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 122,
+   "longitud_caracteres": 3201,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-infra",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "ADV-C-INFRA-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_red_interna.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "ALLOWED_HOSTS restringido a IPs privadas RFC-1918 del datacenter institucional (10.100.5.x). Cumple la política INFRA pero el regex busca '.biblioteca.local', '.internal' o 'entornos? autorizado', ninguno de los cuales aparece.",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"\nDjango settings — red interna Biblio-VSE\nPolítica de seguridad de red: acceso restringido a rangos de IP privados\nasignados a la infraestructura interna del Centro de Cómputo institucional.\n\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\nimport os\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')\nDEBUG = False\n\n# Restricción de acceso: únicamente hosts en rangos privados institucionales.\n# 10.100.5.x — Servidores de aplicación del datacenter principal\n# 10.100.6.x — Balanceadores de carga del segmento de servicios internos\nALLOWED_HOSTS = [\n    '10.100.5.50',\n    '10.100.5.51',\n    '10.100.6.10',\n]\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     os.environ.get('DB_NAME'),\n        'USER':     os.environ.get('DB_USER'),\n        'PASSWORD': os.environ.get('DB_PASSWORD'),\n        'HOST':     '10.100.5.20',\n        'PORT':     '5432',\n    }\n}\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 33,
+   "longitud_caracteres": 997,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-infra",
+  "origen": "original_v1",
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-01-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/BVSE-PP-001_V1.2.0.md",
+  "escenario": "doc-01",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Plan del Proyecto Biblio-VSE\n**Código:** BVSE-PP-001\n**Versión:** V1.2.0\n**Fecha de Vigencia:** 2026-02-02\n\n## 1. Propósito\n\nEste plan describe cómo el equipo va a construir y entregar la segunda versión del sistema de préstamos de la biblioteca municipal. Aquí se indican las tareas, los tiempos y las personas que participan, para que el cliente y el equipo tengan la misma idea de lo que se va a entregar y en qué fecha.\n\n## 2. Alcance\n\nEl proyecto incluye el módulo de catálogo, el módulo de préstamos y devoluciones, y el cálculo de multas por retraso. No se incluye en esta etapa la aplicación móvil ni la integración con el sistema de nómina del municipio.\n\n## 3. Calendario\n\n| Hito | Fecha estimada |\n|---|---|\n| Catálogo en ambiente de pruebas | 2026-02-27 |\n| Préstamos y devoluciones | 2026-03-20 |\n| Entrega final al cliente | 2026-04-10 |\n\n## 4. Riesgos\n\nSi el cliente tarda en revisar los entregables, las fechas del calendario se moverán la misma cantidad de días. Para reducir este riesgo, las revisiones se agendan con una semana de anticipación.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 1066,
+   "conteo_palabras": 183
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-01-NEG",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/plan_proyecto_nuevo.md",
+  "escenario": "doc-01",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Plan del proyecto (lo que vamos a hacer)\n\n## 1. Propósito\n\nEste plan describe cómo el equipo va a construir y entregar la segunda versión del sistema de préstamos de la biblioteca municipal. Aquí se indican las tareas, los tiempos y las personas que participan, para que el cliente y el equipo tengan la misma idea de lo que se va a entregar y en qué fecha.\n\n## 2. Alcance\n\nEl proyecto incluye el módulo de catálogo, el módulo de préstamos y devoluciones, y el cálculo de multas por retraso. No se incluye en esta etapa la aplicación móvil ni la integración con el sistema de nómina del municipio.\n\n## 3. Calendario\n\n| Hito | Fecha estimada |\n|---|---|\n| Catálogo en ambiente de pruebas | finales de febrero |\n| Préstamos y devoluciones | marzo |\n| Entrega final al cliente | abril, más o menos |\n\n## 4. Riesgos\n\nSi el cliente tarda en revisar los entregables, las fechas del calendario se moverán. Hay que ver cómo lo manejamos.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 932,
+   "conteo_palabras": 172
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-02-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/diseno/BVSE-DIS-003.md",
+  "escenario": "doc-02",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Especificación de Diseño — Módulo de Multas\n**Código:** BVSE-DIS-003\n**Versión:** V2.0.1\n**Fecha de Vigencia:** 2026-03-05\n\n## Descripción general\n\nEl módulo de multas calcula el monto que debe pagar un usuario cuando devuelve un libro después de la fecha acordada. El cálculo se hace una sola vez, en el momento en que se registra la devolución, y el resultado se guarda para que no cambie si después se modifica la tarifa.\n\n## Componentes\n\n- `CalculadoraMulta`: recibe el préstamo y la fecha real de devolución, y regresa el monto.\n- `TarifaVigente`: consulta la tarifa diaria que estaba activa el día en que venció el préstamo.\n- `RegistroMulta`: guarda el monto, la fecha y el usuario en la tabla de multas.\n\n## Decisiones de diseño\n\nSe decidió no calcular multas en tiempo real porque el cliente pidió que el monto quede fijo desde la devolución. También se decidió que los días feriados sí cuentan como días de retraso, de acuerdo con el reglamento de la biblioteca.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 975,
+   "conteo_palabras": 164
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-DOCUMENTAL-02-NEG",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/diseno/diseno_multas_borrador.md",
+  "escenario": "doc-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Los campos Código, Versión y Fecha de Vigencia existen (activan el regex) pero sus valores están vacíos o pendientes; el documento no tiene identificación formal.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Especificación de Diseño — Módulo de Multas\n**Código:** (se asignará cuando se registre en el control documental)\n**Versión:** borrador, sin número\n**Fecha de Vigencia:** por definir\n\n## Descripción general\n\nEl módulo de multas calcula el monto que debe pagar un usuario cuando devuelve un libro después de la fecha acordada. El cálculo se hace una sola vez, en el momento en que se registra la devolución, y el resultado se guarda para que no cambie si después se modifica la tarifa.\n\n## Componentes\n\n- `CalculadoraMulta`: recibe el préstamo y la fecha real de devolución, y regresa el monto.\n- `TarifaVigente`: consulta la tarifa diaria que estaba activa el día en que venció el préstamo.\n- `RegistroMulta`: guarda el monto, la fecha y el usuario en la tabla de multas.\n\n## Decisiones de diseño\n\nSe decidió no calcular multas en tiempo real porque el cliente pidió que el monto quede fijo desde la devolución.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 914,
+   "conteo_palabras": 154
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-DOCUMENTAL-03-NEG",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/manual_usuario.md",
+  "escenario": "doc-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Las palabras Versión, Fecha de Vigencia y el patrón BVSE-ARQ-001 aparecen, pero se refieren a OTRO documento citado; el manual mismo no tiene código, versión ni fecha.",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Manual de uso del sistema de préstamos\n\nEste manual explica a los bibliotecarios cómo registrar un préstamo, cómo recibir una devolución y cómo consultar las multas de un usuario. Para entender la arquitectura del sistema consulte el documento BVSE-ARQ-001, Versión V1.0.0, cuya Fecha de Vigencia es 2026-03-16.\n\n## Registrar un préstamo\n\n1. Entre al sistema con su usuario de bibliotecario.\n2. Busque el libro por título o por ISBN.\n3. Escriba el número de credencial del usuario y presione \"Prestar\".\n\n## Recibir una devolución\n\n1. Busque el préstamo por el número de credencial del usuario.\n2. Presione \"Devolver\". Si el libro llega tarde, el sistema le mostrará la multa que corresponde.\n\n## Consultar multas\n\nEn el menú \"Usuarios\" seleccione la persona y abra la pestaña \"Multas\". Ahí aparecen las multas pagadas y las que siguen pendientes.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 849,
+   "conteo_palabras": 137
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-DOCUMENTAL-03-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/reportes/RP-2026-07.md",
+  "escenario": "doc-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Tiene identificador (RP-2026-07), número de revisión y fecha en vigor, pero con los términos Clave/Revisión/En vigor desde en lugar de Código/Versión/Fecha de Vigencia/BVSE-*.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Informe de resultados de la iteración 3\n\n| Clave del documento | RP-2026-07 |\n|---|---|\n| Revisión | 3 |\n| En vigor desde | 15 de marzo de 2026 |\n| Elaboró | Luis Martínez |\n\n## Resumen\n\nDurante la tercera iteración se terminaron el módulo de devoluciones y la pantalla de consulta de multas. Quedó pendiente la exportación de reportes a hoja de cálculo, que pasa a la siguiente iteración por petición del cliente.\n\n## Avance por módulo\n\n- Catálogo: terminado y en uso por el personal de la biblioteca.\n- Préstamos y devoluciones: terminado; se corrigieron dos defectos reportados por el cliente.\n- Multas: la consulta funciona; falta el reporte mensual.\n\n## Observaciones\n\nEl cliente pidió que los avisos de retraso se envíen también por mensaje de texto. Se registró como una solicitud nueva y se evaluará en la siguiente reunión de planeación.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 849,
+   "conteo_palabras": 147
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-04-POS",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/BVSE-SC-004_V1.0.0.md",
+  "escenario": "doc-04",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Registro de Solicitudes de Cambio\n**Código:** BVSE-SC-004\n**Versión:** V1.0.0\n**Fecha de Vigencia:** 2026-03-18\n\n## Uso de este registro\n\nCada vez que el cliente o el equipo pidan un cambio a lo que ya se había acordado, el cambio se anota en esta tabla. Así se puede saber quién lo pidió, por qué, y qué se decidió hacer con él.\n\n| Solicitud | Descripción | Solicitante | Decisión |\n|---|---|---|---|\n| SC-01 | Enviar avisos de retraso por mensaje de texto | Director de biblioteca | Se evaluará en la iteración 4 |\n| SC-02 | Mostrar la portada del libro en el catálogo | Personal de préstamo | Aceptada |\n| SC-03 | Permitir renovar un préstamo desde casa | Usuarios | Aceptada con cambios |\n\n## Notas\n\nLas solicitudes aceptadas se agregan al plan de la siguiente iteración. Las que no se aceptan se quedan en la tabla con el motivo, para que no se vuelvan a discutir sin información.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 888,
+   "conteo_palabras": 162
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-04-NEG",
+  "meta_regla": "DOCUMENTAL",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/como_instalar.txt",
+  "escenario": "doc-04",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\nCómo instalar el sistema en una computadora nueva\n\nPrimero hay que tener Python instalado. Después se descarga el proyecto del repositorio y se crea un ambiente virtual para que las librerías no se mezclen con las de otros proyectos.\n\nLuego se instalan las dependencias con el archivo de requerimientos. Si sale un error con la librería de PostgreSQL, casi siempre es porque falta instalar el cliente de la base de datos en la computadora.\n\nAl final se corren las migraciones y se crea un usuario administrador. Con eso ya se puede entrar al sistema desde el navegador y empezar a capturar libros.\n\nSi algo no funciona, pregúntale a Ana o a Luis, ellos lo instalaron la última vez.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 682,
+   "conteo_palabras": 118
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-01-POS",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/services.py",
+  "escenario": "cal-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"Servicios de dominio para el registro de préstamos.\"\"\"\nfrom datetime import timedelta\n\nfrom django.db import transaction\nfrom django.utils import timezone\n\nfrom catalogo.models import Libro\nfrom prestamos.models import Prestamo\n\nDIAS_PRESTAMO_ESTANDAR = 14\nMAXIMO_PRESTAMOS_ACTIVOS = 3\n\n\ndef contar_prestamos_activos(usuario):\n    \"\"\"Devuelve el número de préstamos sin devolver del usuario.\"\"\"\n    return Prestamo.objects.filter(usuario=usuario, devuelto=False).count()\n\n\n@transaction.atomic\ndef registrar_prestamo(usuario, isbn):\n    \"\"\"Registra un préstamo si el libro está disponible y el usuario no excede el límite.\"\"\"\n    if contar_prestamos_activos(usuario) >= MAXIMO_PRESTAMOS_ACTIVOS:\n        raise ValueError(\"El usuario alcanzó el máximo de préstamos activos.\")\n\n    libro = Libro.objects.select_for_update().get(isbn=isbn)\n    if not libro.disponible:\n        raise ValueError(\"El libro no está disponible.\")\n\n    fecha_limite = timezone.now().date() + timedelta(days=DIAS_PRESTAMO_ESTANDAR)\n    libro.disponible = False\n    libro.save(update_fields=[\"disponible\"])\n    return Prestamo.objects.create(\n        usuario=usuario, libro=libro, fecha_devolucion_esperada=fecha_limite\n    )\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 34,
+   "longitud_caracteres": 1201,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-01-NEG",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/servicios2.py",
+  "escenario": "cal-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nimport os, sys, json, re\nfrom datetime import *\nfrom django.db import transaction\nfrom django.utils import timezone\nfrom catalogo.models import Libro\nfrom prestamos.models import Prestamo\ndef RegistrarPrestamo(u,i):\n  c=Prestamo.objects.filter(usuario=u,devuelto=False).count()\n  if c>=3:\n      raise ValueError(\"limite\")\n  l=Libro.objects.get(isbn=i)\n  if l.disponible==False: raise ValueError(\"no\")\n  f=timezone.now().date()+timedelta(days=14)\n  l.disponible=False;l.save()\n  tmp = Prestamo.objects.create(usuario=u,libro=l,fecha_devolucion_esperada=f)\n  if tmp.id>9999:\n        print(\"muchos\")\n  return tmp\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 610,
+   "complejidad_ciclomatica_VG": 4.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-02-POS",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/forms.py",
+  "escenario": "cal-02",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Formularios del módulo de catálogo.\"\"\"\nfrom django import forms\n\nfrom catalogo.models import Libro\n\nLONGITUD_ISBN = 13\n\n\nclass LibroForm(forms.ModelForm):\n    \"\"\"Formulario para registrar o editar un libro del catálogo.\"\"\"\n\n    class Meta:\n        model = Libro\n        fields = [\"titulo\", \"autor\", \"isbn\", \"categoria\"]\n\n    def clean_isbn(self):\n        \"\"\"Valida que el ISBN tenga exactamente trece dígitos.\"\"\"\n        isbn = self.cleaned_data[\"isbn\"].replace(\"-\", \"\")\n        if len(isbn) != LONGITUD_ISBN or not isbn.isdigit():\n            raise forms.ValidationError(\"El ISBN debe tener 13 dígitos.\")\n        return isbn\n\n\nclass BusquedaLibroForm(forms.Form):\n    \"\"\"Formulario de búsqueda por título, autor o ISBN.\"\"\"\n\n    termino = forms.CharField(max_length=120, required=True)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 789,
+   "complejidad_ciclomatica_VG": 2.6666666666666665
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-02-NEG",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "catalogo/forms_v2.py",
+  "escenario": "cal-02",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\nfrom django.forms import *\nimport datetime, re, logging\nfrom catalogo.models import *\n\nclass libroform(ModelForm):\n  class Meta:\n    model=Libro\n    fields='__all__'\n  def clean_isbn(self):\n    x=self.cleaned_data['isbn'].replace('-','')\n    if len(x)!=13 or not x.isdigit(): raise ValidationError('mal isbn')\n    return x\n\nclass buscar(Form):\n      t=CharField(max_length=120)\n      aux=CharField(required=False)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 414,
+   "complejidad_ciclomatica_VG": 2.6666666666666665
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-CALIDAD-03-NEG",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reportes/exportar.py",
+  "escenario": "cal-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Afirma haber pasado flake8 y la Lista de Cotejo (activa el regex), pero el código tiene imports sin usar, nombres no descriptivos, números mágicos y varias sentencias por línea.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# Revisado con flake8 y con la Lista de Cotejo BVSE-QA-MR antes de subirlo.\nimport csv, io, os, sys, time\nfrom django.http import HttpResponse\nfrom prestamos.models import Prestamo\n\ndef exp(r,m,a):\n    q=Prestamo.objects.filter(fecha_inicio__month=m,fecha_inicio__year=a)\n    b=io.StringIO();w=csv.writer(b)\n    for p in q:\n        if p.dias_prestamo>21: w.writerow([p.id,p.libro.titulo,p.dias_prestamo*2.5])\n        else: w.writerow([p.id,p.libro.titulo,0])\n    resp=HttpResponse(b.getvalue(),content_type='text/csv')\n    resp['Content-Disposition']='attachment; filename=\"r.csv\"'\n    return resp\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 598,
+   "complejidad_ciclomatica_VG": 3.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-CALIDAD-03-POS",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reportes/exportacion_csv.py",
+  "escenario": "cal-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Código limpio (constantes con nombre, docstrings, imports usados y ordenados) sin mencionar linter, flake8, lista de cotejo ni pruebas unitarias.",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"Exportación del reporte mensual de préstamos en formato CSV.\"\"\"\nimport csv\nimport io\n\nfrom django.http import HttpResponse\n\nfrom prestamos.models import Prestamo\n\nDIAS_SIN_CARGO = 21\nCARGO_POR_DIA_EXTRA = 2.5\n\n\ndef calcular_cargo(prestamo):\n    \"\"\"Calcula el cargo por los días que exceden el periodo sin cargo.\"\"\"\n    dias_extra = max(0, prestamo.dias_prestamo - DIAS_SIN_CARGO)\n    return dias_extra * CARGO_POR_DIA_EXTRA\n\n\ndef exportar_reporte_mensual(request, mes, anio):\n    \"\"\"Genera un archivo CSV con los préstamos del mes indicado.\"\"\"\n    prestamos = Prestamo.objects.filter(\n        fecha_inicio__month=mes, fecha_inicio__year=anio\n    ).select_related(\"libro\")\n\n    buffer = io.StringIO()\n    escritor = csv.writer(buffer)\n    escritor.writerow([\"id\", \"titulo\", \"cargo\"])\n    for prestamo in prestamos:\n        escritor.writerow([prestamo.id, prestamo.libro.titulo, calcular_cargo(prestamo)])\n\n    respuesta = HttpResponse(buffer.getvalue(), content_type=\"text/csv\")\n    respuesta[\"Content-Disposition\"] = 'attachment; filename=\"prestamos.csv\"'\n    return respuesta\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 33,
+   "longitud_caracteres": 1080,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-04-POS",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "cal-04",
+  "origen": "extension_v2",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\nstages:\n  - calidad\n  - pruebas\n\nverificar_estilo:\n  stage: calidad\n  image: python:3.10\n  script:\n    - pip install flake8 black isort\n    - flake8 catalogo prestamos reportes --max-line-length 100\n    - black --check catalogo prestamos reportes\n    - isort --check-only catalogo prestamos reportes\n\npruebas_unitarias:\n  stage: pruebas\n  image: python:3.10\n  needs: [\"verificar_estilo\"]\n  script:\n    - pip install -r requirements.txt\n    - python manage.py test\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 464
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-CALIDAD-04-NEG",
+  "meta_regla": "CALIDAD",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci-rapido.yml",
+  "escenario": "cal-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Incluye un job con flake8 (activa el regex), pero está configurado con allow_failure y '|| true', por lo que los errores de estilo nunca detienen el despliegue.",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - calidad\n  - deploy\n\nverificar_estilo:\n  stage: calidad\n  image: python:3.10\n  allow_failure: true\n  script:\n    - pip install flake8\n    - flake8 catalogo prestamos reportes || true\n\ndesplegar:\n  stage: deploy\n  script:\n    - ./scripts/deploy.sh\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 258
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-01-POS",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/politicas/BVSE-POL-002.md",
+  "escenario": "gob-01",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Política de Gestión de Cambios — BVSE-POL-002\n**Estado:** Aprobado\n**Autoriza:** Director del Proyecto Biblio-VSE\n**Fecha de aprobación:** 2026-02-20\n\n## Objetivo\n\nEsta política define cómo se aceptan los cambios al sistema una vez que el cliente aprobó los requerimientos. Su propósito es que ningún cambio llegue a producción sin que alguien responsable lo haya revisado.\n\n## Controles\n\n1. Todo cambio se registra primero como solicitud en el registro BVSE-SC-004.\n2. El coordinador técnico evalúa el impacto en tiempo y costo antes de aceptarlo.\n3. El código del cambio se integra solo mediante una solicitud de fusión revisada por otra persona del equipo.\n4. Ningún cambio se despliega en producción sin la aprobación escrita del director del proyecto.\n\n## Excepciones\n\nLas correcciones urgentes de seguridad pueden desplegarse antes de la aprobación escrita, pero deben documentarse en un plazo máximo de dos días hábiles.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 930,
+   "conteo_palabras": 142
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-01-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/idea_proceso_cambios.md",
+  "escenario": "gob-01",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Idea para manejar los cambios (propuesta)\n\nÚltimamente nos han pedido muchos cambios de última hora y a veces no sabemos quién los pidió. Escribo aquí algunas ideas para que las platiquemos, nada de esto está decidido todavía.\n\n- Podríamos anotar los cambios en una hoja compartida.\n- Tal vez alguien debería revisar el código antes de subirlo, aunque a veces no hay tiempo.\n- Lo de pedir permiso al director para cada cambio suena lento, mejor avisarle después.\n\nComentarios bienvenidos. Si nadie dice nada, seguimos como hasta ahora.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 538,
+   "conteo_palabras": 89
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-GOBERNANZA-02-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/renovaciones.py",
+  "escenario": "gob-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene las etiquetas Aprobado, Autoriza y Firma Digital (activan el regex) pero todas están vacías o pendientes; no existe aprobación.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# prestamos/renovaciones.py\n# Aprobado por: ____________________ (pendiente de firma)\n# Autoriza: _______________________\n# Firma Digital: no se ha generado\nfrom django.http import JsonResponse\nfrom django.utils import timezone\nfrom prestamos.models import Prestamo\n\n\ndef renovar_prestamo(request, prestamo_id):\n    prestamo = Prestamo.objects.get(pk=prestamo_id)\n    prestamo.fecha_devolucion_esperada += timezone.timedelta(days=7)\n    prestamo.save()\n    return JsonResponse({\"renovado\": True})\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 497,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-03-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "prestamos/ajuste_multas.py",
+  "escenario": "gob-03",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n# lo subí directo a main porque el director lo necesitaba hoy, luego abrimos el ticket\nfrom django.contrib.admin.views.decorators import staff_member_required\nfrom django.http import JsonResponse\nfrom prestamos.models import Multa\n\n\n@staff_member_required\ndef condonar_multas_masivo(request):\n    total = Multa.objects.filter(pagada=False).update(pagada=True, monto_total=0)\n    return JsonResponse({\"multas_condonadas\": total})\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 429,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-GOBERNANZA-03-POS",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "gob-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Evidencia controles formales (política PC-04, revisión obligatoria de dos personas, liberación manual en ambiente protegido) sin las palabras Aprobado, Autoriza, Firma Digital ni BVSE-REQ-*.",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\n# Despliegue a producción conforme a la política de cambios PC-04:\n# el job solo se ejecuta sobre etiquetas de versión, requiere que la solicitud\n# de fusión tenga la revisión de dos integrantes (reglas de CODEOWNERS) y queda\n# detenido hasta que el coordinador técnico lo libera manualmente en el\n# ambiente protegido \"produccion\".\nstages:\n  - deploy\n\ndesplegar_produccion:\n  stage: deploy\n  environment:\n    name: produccion\n    deployment_tier: production\n  rules:\n    - if: $CI_COMMIT_TAG =~ /^v\\d+\\.\\d+\\.\\d+$/\n      when: manual\n  script:\n    - ./scripts/deploy.sh produccion\n  resource_group: produccion\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 610
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-GOBERNANZA-04-NEG",
+  "meta_regla": "GOBERNANZA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/flujo_aprobaciones.py",
+  "escenario": "gob-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Menciona Firma Digital y BVSE-REQ-* (activan el regex), pero el código desactiva precisamente esos controles de gobernanza.",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"Configuración del flujo de aprobaciones de Biblio-VSE.\"\"\"\n\n# Firma Digital de los requerimientos (BVSE-REQ-*): desactivada para agilizar\n# los despliegues de esta temporada.\nREQUIERE_FIRMA_DIGITAL = False\n\n# Revisión del coordinador antes de fusionar: desactivada.\nREQUIERE_REVISION_COORDINADOR = False\n\n\ndef puede_desplegar(solicitud):\n    \"\"\"Permite desplegar cualquier solicitud mientras los controles estén apagados.\"\"\"\n    if REQUIERE_FIRMA_DIGITAL and not solicitud.firmada:\n        return False\n    if REQUIERE_REVISION_COORDINADOR and not solicitud.revisada:\n        return False\n    return True\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 607,
+   "complejidad_ciclomatica_VG": 5.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-01-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "notificaciones/cliente_correo.py",
+  "escenario": "seg-01",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Cliente de correo para los avisos de vencimiento de préstamos.\"\"\"\nimport os\nimport smtplib\nfrom email.message import EmailMessage\n\nSERVIDOR_SMTP = os.getenv(\"SMTP_HOST\", \"smtp.biblioteca.local\")\nPUERTO_SMTP = int(os.getenv(\"SMTP_PORT\", \"587\"))\nUSUARIO_SMTP = os.getenv(\"SMTP_USER\")\nCLAVE_SMTP = os.getenv(\"SMTP_PASSWORD\")\n\n\ndef enviar_aviso(destinatario, titulo_libro, fecha_limite):\n    \"\"\"Envía un aviso de vencimiento al usuario del préstamo.\"\"\"\n    mensaje = EmailMessage()\n    mensaje[\"Subject\"] = \"Tu préstamo está por vencer\"\n    mensaje[\"To\"] = destinatario\n    mensaje.set_content(f\"El libro '{titulo_libro}' debe devolverse el {fecha_limite}.\")\n    with smtplib.SMTP(SERVIDOR_SMTP, PUERTO_SMTP) as servidor:\n        servidor.starttls()\n        servidor.login(USUARIO_SMTP, CLAVE_SMTP)\n        servidor.send_message(mensaje)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 837,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-01-NEG",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "notificaciones/cliente_correo.py",
+  "escenario": "seg-01",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Cliente de correo para los avisos de vencimiento de préstamos.\"\"\"\nimport smtplib\nfrom email.message import EmailMessage\n\nSERVIDOR_SMTP = \"smtp.biblioteca.local\"\nPUERTO_SMTP = 587\nUSUARIO_SMTP = \"avisos@biblioteca.local\"\nCLAVE_SMTP = \"Avisos#Biblio2026\"\n\n\ndef enviar_aviso(destinatario, titulo_libro, fecha_limite):\n    \"\"\"Envía un aviso de vencimiento al usuario del préstamo.\"\"\"\n    mensaje = EmailMessage()\n    mensaje[\"Subject\"] = \"Tu préstamo está por vencer\"\n    mensaje[\"To\"] = destinatario\n    mensaje.set_content(f\"El libro '{titulo_libro}' debe devolverse el {fecha_limite}.\")\n    with smtplib.SMTP(SERVIDOR_SMTP, PUERTO_SMTP) as servidor:\n        servidor.starttls()\n        servidor.login(USUARIO_SMTP, CLAVE_SMTP)\n        servidor.send_message(mensaje)\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 768,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-SEGURIDAD-02-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "seg-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Todas las credenciales provienen de variables protegidas y enmascaradas de GitLab CI; no hay os.environ/getenv en el archivo, por lo que el regex predice violación.",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - build\n  - deploy\n\nconstruir_imagen:\n  stage: build\n  image: docker:24\n  services:\n    - docker:24-dind\n  script:\n    - echo \"$CI_REGISTRY_PASSWORD\" | docker login -u \"$CI_REGISTRY_USER\" --password-stdin \"$CI_REGISTRY\"\n    - docker build -t \"$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA\" .\n    - docker push \"$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA\"\n\ndesplegar:\n  stage: deploy\n  script:\n    - ssh -i \"$DEPLOY_SSH_KEY_FILE\" deploy@app01 \"./actualizar.sh $CI_COMMIT_SHORT_SHA\"\n  # DEPLOY_SSH_KEY_FILE y CI_REGISTRY_PASSWORD son variables protegidas y\n  # enmascaradas definidas en la configuración del proyecto de GitLab.\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 627
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-02-NEG",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "seg-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - build\n  - deploy\n\nconstruir_imagen:\n  stage: build\n  image: docker:24\n  services:\n    - docker:24-dind\n  script:\n    - docker login -u biblio_admin -p \"Registro.Biblio.2026\" registry.biblioteca.local\n    - docker build -t registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA .\n    - docker push registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA\n\ndesplegar:\n  stage: deploy\n  script:\n    - sshpass -p \"deploy2026\" ssh deploy@app01 \"./actualizar.sh $CI_COMMIT_SHORT_SHA\"\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 486
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-SEGURIDAD-03-NEG",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reportes/almacenamiento.py",
+  "escenario": "seg-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Usa os.environ.get (activa el regex), pero los valores por defecto contienen una clave de acceso y una clave secreta reales en texto plano.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Carga de reportes mensuales al almacenamiento de objetos.\"\"\"\nimport os\n\nimport boto3\n\nCLAVE_ACCESO = os.environ.get(\"AWS_ACCESS_KEY_ID\", \"AKIAQ3EXAMPLE7BIBLIO2\")\nCLAVE_SECRETA = os.environ.get(\n    \"AWS_SECRET_ACCESS_KEY\", \"q9Xr2vL8mZt4Kp1Nw6Ys3Bc7Hd0Jf5Ge8Ua2Io4E\"\n)\nCUBETA = os.environ.get(\"REPORTES_BUCKET\", \"biblio-reportes\")\n\n\ndef subir_reporte(ruta_local, nombre):\n    \"\"\"Sube un reporte generado a la cubeta de reportes.\"\"\"\n    cliente = boto3.client(\n        \"s3\", aws_access_key_id=CLAVE_ACCESO, aws_secret_access_key=CLAVE_SECRETA\n    )\n    cliente.upload_file(ruta_local, CUBETA, f\"mensuales/{nombre}\")\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 617,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-03-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/base_datos.py",
+  "escenario": "seg-03",
+  "origen": "extension_v2",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\n\"\"\"Lectura de credenciales de base de datos desde archivos de secretos montados.\"\"\"\nimport os\nfrom pathlib import Path\n\nfrom django.core.exceptions import ImproperlyConfigured\n\n\ndef leer_secreto(variable):\n    \"\"\"Lee el secreto desde el archivo indicado por la variable de entorno.\"\"\"\n    ruta = os.environ.get(variable)\n    if not ruta:\n        raise ImproperlyConfigured(f\"Falta la variable {variable}.\")\n    return Path(ruta).read_text(encoding=\"utf-8\").strip()\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": os.environ.get(\"DB_NAME\", \"biblio\"),\n        \"USER\": leer_secreto(\"DB_USER_FILE\"),\n        \"PASSWORD\": leer_secreto(\"DB_PASSWORD_FILE\"),\n        \"HOST\": os.environ.get(\"DB_HOST\", \"db\"),\n        \"PORT\": os.environ.get(\"DB_PORT\", \"5432\"),\n    }\n}\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 25,
+   "longitud_caracteres": 810,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-SEGURIDAD-04-POS",
+  "meta_regla": "SEGURIDAD",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/despliegue_servidor.md",
+  "escenario": "seg-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Documento operativo sin ningún secreto en texto plano y que prescribe el uso de una bóveda; no contiene os.environ/getenv.",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Guía de despliegue en el servidor de la biblioteca\n\n## Antes de empezar\n\nPara desplegar necesitas acceso al servidor de aplicación y permiso de lectura en la bóveda de secretos del proyecto. Pide ambos accesos al responsable de infraestructura; no se comparten por correo ni por mensaje.\n\n## Pasos\n\n1. Entra al servidor con tu propia llave personal, no con cuentas compartidas.\n2. Descarga la nueva versión desde el repositorio con la etiqueta indicada en la solicitud de cambio.\n3. Las contraseñas de la base de datos y del correo se inyectan desde la bóveda al iniciar el servicio. No las copies en archivos de configuración ni en esta guía.\n4. Reinicia el servicio y revisa que la página de inicio responda.\n\n## Si algo falla\n\nRevisa el registro del servicio. Si el error menciona credenciales, avisa al responsable de infraestructura para que las rote desde la bóveda.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 875,
+   "conteo_palabras": 149
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-01-POS",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/matriz_trazabilidad.md",
+  "escenario": "traz-01",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Matriz de trazabilidad — iteración 3\n\nLa siguiente tabla relaciona cada requerimiento con el código que lo implementa y con la prueba que lo verifica. Se actualiza al cierre de cada iteración.\n\n| Requerimiento | Descripción | Implementación | Prueba |\n|---|---|---|---|\n| RF_05 | Registrar préstamo | prestamos/services.py | prestamos/tests.py::test_registrar_prestamo |\n| RF_07 | Registrar devolución | devoluciones/views.py | devoluciones/tests.py::test_devolucion_a_tiempo |\n| RF_08 | Calcular multa por retraso | multas/calculo.py | multas/tests.py::test_multa_tres_dias |\n| US_04 | Consultar multas pendientes | multas/views.py | multas/tests.py::test_listado_pendientes |\n\nLos requerimientos RF_06 y US_05 quedaron fuera de esta iteración por acuerdo con el cliente.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 12,
+   "longitud_caracteres": 775,
+   "conteo_palabras": 101
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-01-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "devoluciones/views.py",
+  "escenario": "traz-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\nfrom django.http import JsonResponse\nfrom django.shortcuts import get_object_or_404\nfrom django.utils import timezone\n\nfrom prestamos.models import Prestamo\n\n\ndef registrar_devolucion(request, prestamo_id):\n    \"\"\"Marca el préstamo como devuelto y libera el libro.\"\"\"\n    prestamo = get_object_or_404(Prestamo, pk=prestamo_id)\n    prestamo.devuelto = True\n    prestamo.fecha_devolucion_real = timezone.now().date()\n    prestamo.save(update_fields=[\"devuelto\", \"fecha_devolucion_real\"])\n\n    libro = prestamo.libro\n    libro.disponible = True\n    libro.save(update_fields=[\"disponible\"])\n\n    dias_retraso = (prestamo.fecha_devolucion_real - prestamo.fecha_devolucion_esperada).days\n    return JsonResponse({\"devuelto\": True, \"dias_retraso\": max(0, dias_retraso)})\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 764,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-TRAZABILIDAD-02-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reservas/views.py",
+  "escenario": "traz-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Tiene las etiquetas 'ID Requerimiento' y 'Caso de Prueba Asociado' (activan el regex), pero ambos valores están pendientes: no referencia ningún requerimiento real.",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\nfrom django.http import JsonResponse\nfrom reservas.models import Reserva\n\n\ndef cancelar_reserva(request, reserva_id):\n    \"\"\"\n    ID Requerimiento: pendiente de asignar\n    Caso de Prueba Asociado: por definir cuando exista el requerimiento\n    \"\"\"\n    reserva = Reserva.objects.get(pk=reserva_id)\n    reserva.activa = False\n    reserva.save(update_fields=[\"activa\"])\n    return JsonResponse({\"cancelada\": True})\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 413,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-TRAZABILIDAD-02-POS",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reservas/servicios.py",
+  "escenario": "traz-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Trazabilidad explícita con el esquema REQ-FUN-014 / HISTORIA-031, que el regex (RF_/US_/ID Requerimiento) no reconoce.",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nfrom django.utils import timezone\nfrom reservas.models import Reserva\n\nVIGENCIA_RESERVA_DIAS = 3\n\n\ndef expirar_reservas_vencidas():\n    \"\"\"\n    Implementa REQ-FUN-014 (expiración automática de reservas no reclamadas).\n    Deriva de la historia HISTORIA-031 del tablero del cliente.\n    \"\"\"\n    limite = timezone.now() - timezone.timedelta(days=VIGENCIA_RESERVA_DIAS)\n    return Reserva.objects.filter(activa=True, creada__lt=limite).update(activa=False)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 454,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-03-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/notas_version_2.1.md",
+  "escenario": "traz-03",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Notas de la versión 2.1\n\n## Novedades\n\n- Ahora se pueden renovar los préstamos desde la página del usuario.\n- La pantalla de multas muestra el total pendiente en la parte superior.\n- Se agregó la búsqueda por nombre de autor en el catálogo.\n\n## Correcciones\n\n- Ya no se duplica el préstamo cuando se presiona dos veces el botón \"Prestar\".\n- El reporte mensual respeta los días feriados.\n\n## Cambios internos\n\n- Se actualizó Django y se limpiaron consultas lentas en el listado de préstamos.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 493,
+   "conteo_palabras": 87
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-TRAZABILIDAD-04-NEG",
+  "meta_regla": "TRAZABILIDAD",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/plantillas/plantilla_trazabilidad.md",
+  "escenario": "traz-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene RF_00 y US_00 (activan el regex), pero son marcadores de ejemplo de una plantilla vacía; no hay trazabilidad a requerimientos reales.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Plantilla de trazabilidad (no llenar aquí)\n\nCopie esta plantilla en la carpeta de la iteración y sustituya los ejemplos por los identificadores reales del proyecto.\n\n| Requerimiento | Implementación | Prueba |\n|---|---|---|\n| RF_00 (ejemplo, reemplazar) | ruta/al/modulo.py | ruta/a/la/prueba.py |\n| US_00 (ejemplo, reemplazar) | ruta/al/modulo.py | ruta/a/la/prueba.py |\n\nInstrucciones: cada fila debe apuntar a un requerimiento aprobado. Las filas de ejemplo se deben borrar antes de entregar el documento.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 511,
+   "conteo_palabras": 73
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-01-POS",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "devoluciones/tests.py",
+  "escenario": "pru-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nfrom datetime import date, timedelta\n\nfrom django.contrib.auth.models import User\nfrom django.test import TestCase\n\nfrom catalogo.models import Libro\nfrom prestamos.models import Prestamo\n\n\nclass DevolucionTests(TestCase):\n    def test_devolucion_con_retraso(self):\n        \"\"\"\n        Caso de Prueba: TC-DEV-002\n        Requerimiento: RF_07 (registrar devolución)\n        Pasos:\n        1. Crear un préstamo vencido hace tres días.\n        2. Enviar POST a /devoluciones/<id>/.\n        Resultado Esperado: HTTP 200, préstamo devuelto y dias_retraso = 3.\n        \"\"\"\n        usuario = User.objects.create(username=\"lector\")\n        libro = Libro.objects.create(titulo=\"Pedro Páramo\", isbn=\"9786071600000\")\n        prestamo = Prestamo.objects.create(\n            usuario=usuario, libro=libro,\n            fecha_devolucion_esperada=date.today() - timedelta(days=3),\n        )\n        respuesta = self.client.post(f\"/devoluciones/{prestamo.id}/\")\n        self.assertEqual(respuesta.status_code, 200)\n        self.assertEqual(respuesta.json()[\"dias_retraso\"], 3)\n        prestamo.refresh_from_db()\n        self.assertTrue(prestamo.devuelto)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 1137,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-01-NEG",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "devoluciones/tests.py",
+  "escenario": "pru-01",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\nfrom unittest import skip\n\nfrom django.test import TestCase\n\n\nclass DevolucionTests(TestCase):\n    @skip(\"arreglar después\")\n    def test_devolucion(self):\n        pass\n\n    @skip(\"falla en la computadora de Luis\")\n    def test_devolucion_tarde(self):\n        pass\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 265,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-02-POS",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/pruebas/protocolo_multas.md",
+  "escenario": "pru-02",
+  "origen": "extension_v2",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Protocolo de pruebas — módulo de multas\n\n| Caso de Prueba: | TC-MUL-001 |\n|---|---|\n| Requerimiento | RF_08 — Calcular multa por retraso |\n| Entorno: | Servidor de integración, base de datos de prueba |\n\n**Pasos:**\n1. Registrar un préstamo con fecha límite 2026-03-01.\n2. Registrar la devolución el 2026-03-04.\n3. Consultar la multa generada para el préstamo.\n\n**Resultado Esperado:** la multa es de 3 días por la tarifa diaria vigente y queda en estado pendiente.\n\n| Caso de Prueba: | TC-MUL-002 |\n|---|---|\n| Requerimiento | RF_08 — Calcular multa por retraso |\n| Entorno: | Servidor de integración, base de datos de prueba |\n\n**Pasos:**\n1. Registrar un préstamo con fecha límite 2026-03-01.\n2. Registrar la devolución el 2026-02-28.\n\n**Resultado Esperado:** no se genera ninguna multa para el préstamo.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 808,
+   "conteo_palabras": 134
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-02-NEG",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/pruebas/como_nos_fue.txt",
+  "escenario": "pru-02",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\nResumen de pruebas de esta semana\n\nProbé el inicio de sesión con mi usuario y funciona bien. También hice un préstamo y una devolución y no marcó errores.\n\nLo de las multas no lo alcancé a probar porque la base de datos de pruebas estaba caída el jueves. Luis dice que a él sí le calculó bien, así que supongo que está bien.\n\nLa próxima semana intento probar los reportes.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 373,
+   "conteo_palabras": 70
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-PRUEBAS-03-POS",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "multas/test_calculo.py",
+  "escenario": "pru-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Casos con identificador (TP-MUL-004/005), pasos Dado/cuando/entonces, resultado verificado con asserts reales y vínculo a HU-12, sin las palabras Caso de Prueba:, Pasos:, Entorno: ni Resultado Esperado.",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\nimport pytest\n\nfrom multas.calculo import calcular_multa\n\nTARIFA_DIARIA = 5.0\n\n\n@pytest.mark.parametrize(\n    \"dias_atraso, monto_correcto\",\n    [(0, 0.0), (1, 5.0), (3, 15.0)],\n)\ndef test_tp_mul_004_monto_por_dias_de_atraso(dias_atraso, monto_correcto):\n    \"\"\"\n    Escenario TP-MUL-004 — cubre la historia HU-12 (multas por devolución tardía).\n    Dado un préstamo devuelto con `dias_atraso` días de atraso\n    y una tarifa diaria de 5.0,\n    cuando se calcula la multa,\n    entonces el monto debe ser igual a `monto_correcto`.\n    \"\"\"\n    assert calcular_multa(dias_atraso, TARIFA_DIARIA) == monto_correcto\n\n\ndef test_tp_mul_005_atraso_negativo_no_genera_multa():\n    \"\"\"\n    Escenario TP-MUL-005 — cubre HU-12.\n    Dado un libro devuelto antes de la fecha límite, cuando se calcula la multa,\n    entonces el monto debe ser cero.\n    \"\"\"\n    assert calcular_multa(-2, TARIFA_DIARIA) == 0.0\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 29,
+   "longitud_caracteres": 893,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-PRUEBAS-03-NEG",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/pruebas/plantilla_caso.md",
+  "escenario": "pru-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene todas las etiquetas del regex (Caso de Prueba:, Entorno:, Pasos:, Resultado Esperado) pero es una plantilla vacía sin ningún caso de prueba real.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Caso de prueba (plantilla)\n\nCaso de Prueba: TC-___\nRequerimiento: ______\nEntorno: ______\n\nPasos:\n1.\n2.\n3.\n\nResultado Esperado:\n\nResultado obtenido:\n\nObservaciones: llenar esta plantilla por cada caso antes de la revisión de la iteración.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 240,
+   "conteo_palabras": 35
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-04-POS",
+  "meta_regla": "PRUEBAS",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "reservas/tests.py",
+  "escenario": "pru-04",
+  "origen": "extension_v2",
+  "contenido_texto": "# ============================================================\n#  Módulo del sistema de préstamos\n#  Nota: conservar la codificación UTF-8 al editar este archivo\n# ============================================================\n\nfrom django.contrib.auth.models import User\nfrom django.test import TestCase\n\nfrom catalogo.models import Libro\nfrom reservas.models import Reserva\n\n\nclass ReservaTests(TestCase):\n    def setUp(self):\n        self.usuario = User.objects.create(username=\"lectora\")\n        self.libro = Libro.objects.create(titulo=\"Rayuela\", isbn=\"9788437604572\")\n\n    def test_reserva_libro_prestado(self):\n        \"\"\"\n        Caso de Prueba: TC-RES-001\n        Requerimiento: BVSE-REQ-002 (reservas anticipadas)\n        Pasos:\n        1. Marcar el libro como no disponible.\n        2. Enviar POST a /reservas/ con el ISBN del libro.\n        Resultado Esperado: HTTP 201 y una reserva activa para el usuario.\n        \"\"\"\n        self.libro.disponible = False\n        self.libro.save()\n        self.client.force_login(self.usuario)\n        respuesta = self.client.post(\"/reservas/\", {\"isbn\": self.libro.isbn})\n        self.assertEqual(respuesta.status_code, 201)\n        self.assertTrue(\n            Reserva.objects.filter(usuario=self.usuario, libro=self.libro, activa=True).exists()\n        )\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 29,
+   "longitud_caracteres": 1077,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-01-POS",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - backup\n  - verificar\n\nbackup_completo_nocturno:\n  stage: backup\n  image: postgres:15\n  rules:\n    - if: $CI_PIPELINE_SOURCE == \"schedule\"\n  script:\n    - export ARCHIVO=\"biblio_completo_$(date +%Y%m%d).dump\"\n    - pg_dump -Fc -h \"$DB_HOST\" -U \"$DB_USER\" biblio > \"$ARCHIVO\"\n    - aws s3 cp \"$ARCHIVO\" s3://biblio-respaldos/diarios/\n    - aws s3 ls s3://biblio-respaldos/diarios/ | tail -7\n\nverificar_restauracion:\n  stage: verificar\n  image: postgres:15\n  rules:\n    - if: $CI_PIPELINE_SOURCE == \"schedule\"\n  script:\n    - aws s3 cp \"s3://biblio-respaldos/diarios/biblio_completo_$(date +%Y%m%d).dump\" prueba.dump\n    - createdb -h \"$DB_HOST_PRUEBAS\" -U \"$DB_USER\" biblio_verificacion\n    - pg_restore -h \"$DB_HOST_PRUEBAS\" -U \"$DB_USER\" -d biblio_verificacion prueba.dump\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 785
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-01-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - migrar\n  - deploy\n\naplicar_migraciones:\n  stage: migrar\n  image: python:3.10\n  script:\n    - pip install -r requirements.txt\n    - python manage.py migrate --noinput\n\ndesplegar:\n  stage: deploy\n  needs: [\"aplicar_migraciones\"]\n  script:\n    - ./scripts/deploy.sh produccion\n  only:\n    - main\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 305
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-02-POS",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/procedimiento_respaldo.md",
+  "escenario": "res-02",
+  "origen": "extension_v2",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Procedimiento de respaldo y recuperación de la base de datos\n\n## Tipo y periodicidad\n\n- Respaldo completo: cada domingo a las 02:00 con pg_dump en formato personalizado.\n- Respaldo incremental: todos los días a las 02:00 mediante el archivado continuo de los registros WAL.\n\n## Ubicación\n\nLos archivos se guardan en la cubeta biblio-respaldos, en una región distinta a la del servidor de producción. Se conservan cuatro respaldos completos y los incrementales de los últimos 28 días.\n\n## Recuperación\n\n1. Detener el servicio de la aplicación.\n2. Descargar el último respaldo completo y los archivos WAL posteriores.\n3. Ejecutar pg_restore sobre una base de datos vacía y aplicar los WAL hasta la hora deseada.\n4. Verificar el número de préstamos del día anterior y reiniciar el servicio.\n\n## Prueba de recuperación\n\nEl primer lunes de cada mes el responsable de infraestructura restaura el respaldo en el servidor de pruebas y anota el resultado en la bitácora de operación.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 977,
+   "conteo_palabras": 159
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-02-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/actualizar_version.md",
+  "escenario": "res-02",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Cómo actualizar el sistema a una nueva versión\n\n1. Avisar al personal de la biblioteca que el sistema estará detenido unos minutos.\n2. Entrar al servidor y descargar la nueva versión del repositorio.\n3. Instalar las dependencias nuevas, si las hay.\n4. Aplicar las migraciones de la base de datos directamente sobre producción.\n5. Reiniciar el servicio y revisar que la página de préstamos cargue.\n\nSi algo sale mal después de migrar, se puede intentar regresar a la versión anterior del código. Los datos que ya se hayan modificado tendrán que corregirse a mano.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 565,
+   "conteo_palabras": 95
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-RESPALDO-03-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Tiene un stage y un job llamados backup (activan el regex), pero el job solo imprime un TODO y termina; no se genera ningún respaldo.",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\nstages:\n  - backup\n  - deploy\n\nbackup:\n  stage: backup\n  script:\n    - echo \"TODO: implementar el backup antes de salir a producción\"\n    - exit 0\n\ndesplegar:\n  stage: deploy\n  script:\n    - ./scripts/deploy.sh produccion\n\ngenerar_sitio_documentacion:\n  image: python:3.10\n  script:\n    - pip install mkdocs\n    - mkdocs build --site-dir sitio\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 222
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-RESPALDO-03-POS",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".github/workflows/archivo_nocturno.yml",
+  "escenario": "res-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Copia programada, deduplicada y verificada con BorgBackup (borg create/prune/check/extract) y política de retención, sin las palabras backup, dump, pg_dump, restore ni respaldo.",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nname: Archivo nocturno de datos\n\non:\n  schedule:\n    - cron: '30 1 * * *'\n\njobs:\n  archivar:\n    runs-on: self-hosted\n    steps:\n      - name: Crear archivo deduplicado del volumen de PostgreSQL\n        run: |\n          borg create --stats --compression zstd \\\n            /mnt/archivo/biblio::biblio-{now:%Y-%m-%d} /var/lib/postgresql/15/main\n\n      - name: Retención (7 diarios, 4 semanales, 6 mensuales)\n        run: borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6 /mnt/archivo/biblio\n\n      - name: Verificar integridad y que el archivo se pueda extraer\n        run: |\n          borg check /mnt/archivo/biblio\n          borg extract --dry-run /mnt/archivo/biblio::biblio-$(date +%Y-%m-%d)\n\n  compilar_estilos:\n    runs-on: ubuntu-latest\n    steps:\n      - run: npm ci && npm run build:css\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 704
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-RESPALDO-04-NEG",
+  "meta_regla": "RESPALDO",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/plan_respaldo.md",
+  "escenario": "res-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Menciona pg_dump, respaldo y restore (activan el regex), pero declara que no existe respaldo vigente, periodicidad, ubicación ni procedimiento probado.",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Plan de respaldo (situación actual)\n\nHasta febrero existía un script con pg_dump que se ejecutaba desde la computadora de Pedro. Ese script se eliminó cuando se cambió de servidor y no se volvió a configurar.\n\nPor ahora no está definida la periodicidad de los respaldos, no hay una ubicación asignada para guardarlos y nadie ha probado un restore de la base de datos actual.\n\nPendiente: decidir quién se encarga del tema en la próxima reunión.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 446,
+   "conteo_palabras": 76
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-01-POS",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/actas/BVSE-ACTA-005.md",
+  "escenario": "acu-01",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Acta de Revisión de la Iteración 3 — BVSE-ACTA-005\n**Fecha:** 2026-03-21\n**Estado:** Aprobado\n\n## Participantes\n\n| Nombre | Rol | Organización |\n|---|---|---|\n| Rosa Delgado | Directora de la biblioteca | Cliente |\n| Ana García | Desarrolladora principal | Equipo Biblio-VSE |\n| María Torres | Responsable de calidad | Equipo Biblio-VSE |\n\n## Acuerdos\n\n**Acuerdo 01:** El cliente acepta el módulo de devoluciones entregado en la iteración 3.\n- **Responsable:** Rosa Delgado\n- **Fecha:** 2026-03-21\n\n**Acuerdo 02:** El equipo corregirá el formato de fechas del reporte mensual antes del 2026-03-28.\n- **Responsable:** Ana García\n\n**Acuerdo 03:** La responsable de calidad repetirá las pruebas del reporte y enviará el resultado al cliente.\n- **Responsable:** María Torres\n\n## Firmas\n\n| Nombre | Firma |\n|---|---|\n| Rosa Delgado | *R. Delgado* |\n| Ana García | *A. García* |\n| María Torres | *M. Torres* |\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 31,
+   "longitud_caracteres": 906,
+   "conteo_palabras": 148
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-01-NEG",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/resumen_chat_cliente.txt",
+  "escenario": "acu-01",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\nResumen del chat con la biblioteca (lo copio para que no se pierda)\n\n- La directora dijo que las devoluciones se ven bien, aunque quiere verlas otra vez con calma.\n- Creo que quedamos en arreglar lo de las fechas del reporte, pero no dijimos para cuándo.\n- Alguien del equipo iba a repetir las pruebas del reporte, no recuerdo si Ana o María.\n- Quedamos en hablar la próxima semana para cerrar todo.\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 400,
+   "conteo_palabras": 74
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-02-POS",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/contratos/BVSE-CONV-001.md",
+  "escenario": "acu-02",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Convenio de Servicios de Mantenimiento — BVSE-CONV-001\n**Estado:** Aprobado\n**Vigencia:** del 2026-04-01 al 2027-03-31\n\n## Partes\n\n- **La Biblioteca:** Biblioteca Municipal, representada por su directora, Rosa Delgado.\n- **El Proveedor:** Equipo Biblio-VSE, representado por su coordinador técnico, Jorge Ruiz.\n\n## Obligaciones del Proveedor\n\n1. Corregir los defectos críticos en un plazo máximo de 48 horas hábiles.\n2. Entregar una versión de mantenimiento cada tres meses.\n3. Informar mensualmente las incidencias atendidas.\n\n## Obligaciones de la Biblioteca\n\n1. Reportar los defectos por el canal acordado, con la descripción del problema.\n2. Dar acceso al servidor de pruebas cuando el Proveedor lo solicite.\n\n## Firmas\n\nLeído el presente convenio, las partes lo firman de conformidad el 2026-03-25.\n\n| Por la Biblioteca | Por el Proveedor |\n|---|---|\n| Rosa Delgado — *firma* | Jorge Ruiz — *firma* |\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 908,
+   "conteo_palabras": 137
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-ACUERDOS-02-NEG",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/contratos/convenio_borrador.md",
+  "escenario": "acu-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene 'Acuerdo 1', 'Responsable:' y 'Estado:' (activan el regex), pero es un borrador sin representantes definidos, sin responsables asignados, sin aprobación y sin firmas.",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\n# Convenio de Servicios de Mantenimiento — BORRADOR\nEstado: borrador, pendiente de revisión jurídica\n\n## Partes\n\n- La Biblioteca Municipal (representante por confirmar).\n- El Equipo Biblio-VSE.\n\n## Obligaciones propuestas\n\nAcuerdo 1: corregir defectos críticos \"lo antes posible\" (plazo por definir).\nResponsable: por asignar\n\nAcuerdo 2: entregar versiones de mantenimiento periódicas.\nResponsable: por asignar\n\n## Firmas\n\nEste documento no ha sido firmado. No tiene validez hasta que ambas partes lo aprueben.\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 511,
+   "conteo_palabras": 71
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-ACUERDOS-03-POS",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/actas/minuta_direccion_2026-03-27.md",
+  "escenario": "acu-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Identifica a las partes, fija compromisos con responsables y fechas, registra la ratificación y las rúbricas, sin las etiquetas 'Acuerdo N', 'Responsable:' ni 'Estado:'.",
+  "contenido_texto": "[Volver al índice](../README.md) · [Ver historial en la wiki](#)\n\n---\n\n# Minuta de la sesión con la Dirección de la Biblioteca — 27 de marzo de 2026\n\nAsistieron la directora Rosa Delgado, en representación de la Biblioteca Municipal, y el coordinador técnico Jorge Ruiz, en representación del equipo de desarrollo.\n\nLa directora se compromete a entregar, a más tardar el 3 de abril, el reglamento actualizado de préstamos para que el sistema aplique los nuevos plazos. El coordinador técnico se compromete a que el equipo implemente esos plazos en la versión 2.2, cuya entrega se fija para el 17 de abril.\n\nAmbas partes ratificaron los compromisos anteriores al término de la sesión y la minuta quedó rubricada por los dos representantes:\n\nRosa Delgado (rúbrica) — Jorge Ruiz (rúbrica)\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 715,
+   "conteo_palabras": 118
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-04-POS",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/actas/BVSE-ACEP-003.md",
+  "escenario": "acu-04",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Carta de Aceptación de Entregable — BVSE-ACEP-003\n**Estado:** Aprobado\n\nPor medio de la presente, la Biblioteca Municipal, representada por su directora Rosa Delgado, acepta el entregable \"Módulo de reservas anticipadas\" desarrollado por el Equipo Biblio-VSE, representado por su coordinador técnico Jorge Ruiz.\n\n## Condiciones de la aceptación\n\n- **Responsable de la verificación:** María Torres, responsable de calidad, quien confirmó que el módulo pasó las pruebas TC-RES-001 a TC-RES-004.\n- **Responsable de la puesta en marcha:** Pedro Ramírez, responsable de infraestructura, a más tardar el 2026-04-02.\n\n## Firmas\n\n| Rosa Delgado | Jorge Ruiz |\n|---|---|\n| *firma* | *firma* |\n\nFecha de firma: 2026-03-30\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 714,
+   "conteo_palabras": 105
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-03-NEG",
+  "meta_regla": "ACUERDOS",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/correo_plazos.txt",
+  "escenario": "acu-03",
+  "origen": "extension_v2",
+  "contenido_texto": "Inicio > Espacio del proyecto > Documentación&nbsp;&nbsp;|&nbsp;&nbsp;Exportado desde la wiki interna\n<br>\n\nAsunto: RE: RE: plazos nuevos\n\nHola Jorge,\n\nSí, algo comentamos en la reunión sobre cambiar los plazos de préstamo, pero todavía lo tengo que platicar con el consejo. No te puedo confirmar nada por ahora.\n\nSi ustedes quieren ir adelantando algo, adelante, pero no es seguro que se quede así.\n\nSaludos,\nRosa\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 307,
+   "conteo_palabras": 52
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-INFRA-01-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_produccion_red.py",
+  "escenario": "inf-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# -*- coding: utf-8 -*-\n# Proyecto Biblio-VSE — Biblioteca Municipal\n# Uso interno. Prohibida su distribución fuera de la institución.\n# Mantenido por el equipo de desarrollo; dudas en el canal #biblio-dev.\n\n\"\"\"Ajustes de red para el despliegue en producción de Biblio-VSE.\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\n\nDEBUG = False\n\nALLOWED_HOSTS = [\n    \"prestamos.biblioteca.local\",\n    \"api.biblioteca.local\",\n]\n\nCSRF_TRUSTED_ORIGINS = [\n    \"https://prestamos.biblioteca.local\",\n    \"https://api.biblioteca.local\",\n]\n\nSECURE_PROXY_SSL_HEADER = (\"HTTP_X_FORWARDED_PROTO\", \"https\")\nUSE_X_FORWARDED_HOST = False\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\nMESES = (\n    \"enero\", \"febrero\", \"marzo\", \"abril\", \"mayo\", \"junio\",\n    \"julio\", \"agosto\", \"septiembre\", \"octubre\", \"noviembre\", \"diciembre\",\n)\n\n\ndef nombre_mes(numero):\n    \"\"\"Devuelve el nombre del mes a partir de su número (1-12).\"\"\"\n    return MESES[numero - 1]\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 421,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-INFRA-01-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_produccion_red.py",
+  "escenario": "inf-01",
+  "origen": "extension_v2",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Ajustes de red para el despliegue en producción de Biblio-VSE.\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\n\nDEBUG = False\n\nALLOWED_HOSTS = [\"*\"]\n\nCSRF_TRUSTED_ORIGINS = [\n    \"http://*\",\n    \"https://*\",\n]\n\nSECURE_PROXY_SSL_HEADER = (\"HTTP_X_FORWARDED_PROTO\", \"https\")\nUSE_X_FORWARDED_HOST = True\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\ndef es_isbn_con_guiones(texto):\n    \"\"\"Indica si el texto contiene guiones típicos de un ISBN impreso.\"\"\"\n    return texto.count(\"-\") >= 3\n\n\n# --- bloque anterior conservado como referencia de la migración a Django ---\n# def pagina_inicio_vieja(peticion):\n#     return render(peticion, 'inicio_viejo.html', {})\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 315,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-INFRA-02-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "inf-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\nstages:\n  - deploy\n\ndesplegar_intranet:\n  stage: deploy\n  environment:\n    name: produccion-intranet\n    url: https://prestamos.biblioteca.local\n  tags:\n    - runner-red-interna\n  script:\n    - rsync -az --delete ./ deploy@app01.biblioteca.local:/srv/biblio/\n    - ssh deploy@app01.biblioteca.local \"sudo systemctl restart biblio\"\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 331
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-INFRA-02-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "inf-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# yaml-language-server: $schema=https://json.schemastore.org/gitlab-ci\n\nstages:\n  - deploy\n\ndesplegar_nube:\n  stage: deploy\n  environment:\n    name: produccion\n    url: http://203.0.113.25\n  script:\n    - rsync -az --delete ./ root@203.0.113.25:/srv/biblio/\n    - ssh root@203.0.113.25 \"ufw allow from any to any port 8000 && systemctl restart biblio\"\n    - ssh root@203.0.113.25 \"gunicorn config.wsgi --bind 0.0.0.0:8000 --daemon\"\n\navisar_canal:\n  image: curlimages/curl:8.5.0\n  script:\n    - echo \"Pipeline $CI_PIPELINE_ID terminado para la rama $CI_COMMIT_REF_NAME\"\n\n\ncompilar_estilos:\n  image: node:20\n  script:\n    - npm ci\n    - npm run build:css\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 12,
+   "longitud_caracteres": 360
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-INFRA-03-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "codigo_fuente",
+  "archivo": "config/settings_intranet.py",
+  "escenario": "inf-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Incluye hosts biblioteca.local (activan el regex), pero la lista también contiene el comodín '*', que acepta cualquier host.",
+  "contenido_texto": "#\n# Este archivo forma parte del sistema de préstamos de la biblioteca.\n# Última limpieza de formato realizada con el editor del equipo.\n#\n\n\"\"\"Ajustes de hosts para la intranet de la biblioteca.\"\"\"\n\nDEBUG = False\n\nALLOWED_HOSTS = [\n    \"catalogo.biblioteca.local\",\n    \"api.biblioteca.local\",\n    \"localhost\",\n    \"*\",\n]\n\n\nSEPARADOR_CSV = \";\"\n\n\ndef unir_campos(campos):\n    \"\"\"Une una lista de campos de texto con el separador del reporte.\"\"\"\n    return SEPARADOR_CSV.join(str(campo) for campo in campos)\n\n\ndef formatear_nombre_completo(nombre, apellido):\n    \"\"\"Devuelve el nombre y apellido con mayúscula inicial.\"\"\"\n    return f\"{nombre.strip().title()} {apellido.strip().title()}\"\n\n\n# NOTA DE MANTENIMIENTO: la función de impresión de etiquetas se movió al\n# módulo de catálogo en la reorganización de carpetas del año pasado.\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 181,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVC-INFRA-03-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "pipeline_ci",
+  "archivo": "docker-compose.produccion.yml",
+  "escenario": "inf-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Solo el proxy publica un puerto, ligado a una IP privada (10.20.0.15); la base de datos está en una red sin salida. No aparecen biblioteca.local, '.internal' ni 'entornos autorizados'.",
+  "contenido_texto": "# Configuración de la integración continua del proyecto Biblio-VSE.\n# Los cambios a este archivo se comentan en el canal del equipo.\n\nservices:\n  web:\n    image: registry.interno/biblio:2.1.0\n    command: gunicorn config.wsgi --bind 0.0.0.0:8000\n    networks:\n      - red_aplicacion\n    expose:\n      - \"8000\"\n\n  proxy:\n    image: nginx:1.27\n    ports:\n      - \"10.20.0.15:443:443\"\n    networks:\n      - red_aplicacion\n\n  db:\n    image: postgres:15\n    networks:\n      - red_datos\n\nnetworks:\n  red_aplicacion:\n    ipam:\n      config:\n        - subnet: 172.28.10.0/24\n  red_datos:\n    internal: true\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 28,
+   "longitud_caracteres": 465
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-ADVB-INFRA-04-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/politica_red.md",
+  "escenario": "inf-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Cita 'entornos autorizados' y biblioteca.local (activan el regex), pero la configuración vigente documentada permite acceso desde cualquier origen, incluida la base de datos.",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Política de red del servidor de aplicación\n\nLa política institucional indica que el sistema solo debe operar en entornos autorizados de la red interna (dominio biblioteca.local).\n\n## Configuración vigente del firewall\n\n| Regla | Origen | Puerto | Acción |\n|---|---|---|---|\n| 1 | 0.0.0.0/0 | 443 | Permitir |\n| 2 | 0.0.0.0/0 | 22 | Permitir |\n| 3 | 0.0.0.0/0 | 5432 | Permitir |\n\nNota: las reglas se abrieron a cualquier origen durante la migración de servidor y todavía no se han restringido.\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n\n&nbsp;\n\n<!-- fin del contenido exportado -->\n_Esta página se generó automáticamente a partir de la wiki; algunos formatos pueden verse distintos._\n\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 496,
+   "conteo_palabras": 88
+  },
+  "ruido": true
+ },
+ {
+  "id_muestra": "EXT-INFRA-04-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "documento_texto",
+  "archivo": "docs/operacion/arquitectura_red.md",
+  "escenario": "inf-04",
+  "origen": "extension_v2",
+  "contenido_texto": "> **Aviso de confidencialidad:** este material es de uso interno de la Biblioteca Municipal\n> y no debe reenviarse a terceros.\n\n# Arquitectura de red de Biblio-VSE\n\nEl sistema se publica únicamente dentro de la red de la biblioteca. No existe ninguna regla que exponga los servicios a internet.\n\n## Hosts permitidos\n\n| Servicio | Nombre | Dirección |\n|---|---|---|\n| Aplicación web | prestamos.biblioteca.local | 10.20.0.15 |\n| API | api.biblioteca.local | 10.20.0.16 |\n| Base de datos | db.biblioteca.local | 10.20.1.5 |\n\n## Reglas del firewall\n\n| Regla | Origen | Puerto | Acción |\n|---|---|---|---|\n| 1 | 10.20.0.0/16 | 443 | Permitir |\n| 2 | 10.20.0.15, 10.20.0.16 | 5432 | Permitir |\n| 3 | Cualquier otro origen | Todos | Denegar |\n\n---\n\n## Anexo: preguntas frecuentes del personal\n\n**¿Cómo cambio mi contraseña de la computadora de préstamo?**\nPide al área de soporte que te envíe el enlace de cambio; nunca la compartas con tus compañeros.\n\n**¿Qué hago si la impresora de etiquetas no imprime?**\nRevisa que tenga papel y reiníciala. Si sigue sin funcionar, levanta un reporte en la mesa de ayuda.\n\n\n---\n\n## Glosario\n\n- **Acervo:** conjunto de libros y materiales que posee la biblioteca.\n- **Ficha bibliográfica:** descripción de un libro con título, autor y editorial.\n- **Credencial:** identificación que la biblioteca entrega a cada lector.\n\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 609,
+   "conteo_palabras": 107
+  },
+  "ruido": true
+ }
+]

@@ -1,0 +1,528 @@
+# condition=es D:\biblio_vse\experimentos\experimento_zeroshot_2.py --dataset D:\biblio_vse\dataset_isomorfico_n96.json --prompt-lang es
+
+######################################################################
+  EXPERIMENT 2 — ZERO-SHOT
+  ISO/IEC 29110 system instruction + explicit criteria per meta-rule
+######################################################################
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Gemma-2-9B-it
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 0 MB
+  [*] Loading Gemma-2-9B-it (google/gemma-2-9b-it)...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:13,  4.50s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.33s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:16<00:00,  4.02s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:16<00:00,  4.15s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Gemma-2-9B-it ready.
+C:\Users\terron\anaconda3\envs\aud_llm\lib\site-packages\transformers\models\gemma2\modeling_gemma2.py:520: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:455.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-SRC-POS: real=1 pred=0
+    SMP-GOBERNANZA-DOC-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS-A: real=1 pred=1
+    SMP-TRAZABILIDAD-POS-B: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=0
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-NEG: real=0 pred=0
+    EXT-DOCUMENTAL-02-POS: real=1 pred=1
+    EXT-ADVB-DOCUMENTAL-02-NEG: real=0 pred=0
+    EXT-ADVB-DOCUMENTAL-03-NEG: real=0 pred=1
+    EXT-ADVC-DOCUMENTAL-03-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-NEG: real=0 pred=0
+    EXT-CALIDAD-01-POS: real=1 pred=1
+    EXT-CALIDAD-01-NEG: real=0 pred=0
+    EXT-CALIDAD-02-POS: real=1 pred=1
+    EXT-CALIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-CALIDAD-03-NEG: real=0 pred=1
+    EXT-ADVC-CALIDAD-03-POS: real=1 pred=1
+    EXT-CALIDAD-04-POS: real=1 pred=1
+    EXT-ADVB-CALIDAD-04-NEG: real=0 pred=1
+    EXT-GOBERNANZA-01-POS: real=1 pred=1
+    EXT-GOBERNANZA-01-NEG: real=0 pred=0
+    EXT-ADVB-GOBERNANZA-02-NEG: real=0 pred=0
+    EXT-GOBERNANZA-03-NEG: real=0 pred=0
+    EXT-ADVC-GOBERNANZA-03-POS: real=1 pred=0
+    EXT-ADVB-GOBERNANZA-04-NEG: real=0 pred=0
+    EXT-SEGURIDAD-01-POS: real=1 pred=0
+    EXT-SEGURIDAD-01-NEG: real=0 pred=0
+    EXT-ADVC-SEGURIDAD-02-POS: real=1 pred=0
+    EXT-SEGURIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-SEGURIDAD-03-NEG: real=0 pred=0
+    EXT-SEGURIDAD-03-POS: real=1 pred=0
+    EXT-ADVC-SEGURIDAD-04-POS: real=1 pred=0
+    EXT-TRAZABILIDAD-01-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-02-NEG: real=0 pred=0
+    EXT-ADVC-TRAZABILIDAD-02-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-03-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-04-NEG: real=0 pred=0
+    EXT-PRUEBAS-01-POS: real=1 pred=1
+    EXT-PRUEBAS-01-NEG: real=0 pred=0
+    EXT-PRUEBAS-02-POS: real=1 pred=1
+    EXT-PRUEBAS-02-NEG: real=0 pred=0
+    EXT-ADVC-PRUEBAS-03-POS: real=1 pred=1
+    EXT-ADVB-PRUEBAS-03-NEG: real=0 pred=0
+    EXT-PRUEBAS-04-POS: real=1 pred=1
+    EXT-RESPALDO-01-POS: real=1 pred=1
+    EXT-RESPALDO-01-NEG: real=0 pred=0
+    EXT-RESPALDO-02-POS: real=1 pred=1
+    EXT-RESPALDO-02-NEG: real=0 pred=0
+    EXT-ADVB-RESPALDO-03-NEG: real=0 pred=0
+    EXT-ADVC-RESPALDO-03-POS: real=1 pred=1
+    EXT-ADVB-RESPALDO-04-NEG: real=0 pred=0
+    EXT-ACUERDOS-01-POS: real=1 pred=1
+    EXT-ACUERDOS-01-NEG: real=0 pred=0
+    EXT-ACUERDOS-02-POS: real=1 pred=1
+    EXT-ADVB-ACUERDOS-02-NEG: real=0 pred=0
+    EXT-ADVC-ACUERDOS-03-POS: real=1 pred=1
+    EXT-ACUERDOS-04-POS: real=1 pred=1
+    EXT-ACUERDOS-03-NEG: real=0 pred=0
+    EXT-INFRA-01-POS: real=1 pred=0
+    EXT-INFRA-01-NEG: real=0 pred=0
+    EXT-INFRA-02-POS: real=1 pred=0
+    EXT-INFRA-02-NEG: real=0 pred=0
+    EXT-ADVB-INFRA-03-NEG: real=0 pred=0
+    EXT-ADVC-INFRA-03-POS: real=1 pred=0
+    EXT-ADVB-INFRA-04-NEG: real=0 pred=0
+    EXT-INFRA-04-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Gemma-2-9B-it
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[43  5]
+ [11 37]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.80      0.90      0.84        48
+Compliant (1)       0.88      0.77      0.82        48
+
+     accuracy                           0.83        96
+    macro avg       0.84      0.83      0.83        96
+ weighted avg       0.84      0.83      0.83        96
+
+  F1-Score  : 0.8222
+  Precision : 0.8810
+  Recall    : 0.7708
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Mistral-7B-Instruct-v0.2
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Mistral-7B-Instruct-v0.2 (mistralai/Mistral-7B-Instruct-v0.2)...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.26s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.42s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.81s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.96s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Mistral-7B-Instruct-v0.2 ready.
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=1
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-SRC-POS: real=1 pred=0
+    SMP-GOBERNANZA-DOC-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS-A: real=1 pred=1
+    SMP-TRAZABILIDAD-POS-B: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=1
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=1
+    ADV-C-INFRA-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-NEG: real=0 pred=1
+    EXT-DOCUMENTAL-02-POS: real=1 pred=1
+    EXT-ADVB-DOCUMENTAL-02-NEG: real=0 pred=1
+    EXT-ADVB-DOCUMENTAL-03-NEG: real=0 pred=1
+    EXT-ADVC-DOCUMENTAL-03-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-NEG: real=0 pred=1
+    EXT-CALIDAD-01-POS: real=1 pred=1
+    EXT-CALIDAD-01-NEG: real=0 pred=1
+    EXT-CALIDAD-02-POS: real=1 pred=1
+    EXT-CALIDAD-02-NEG: real=0 pred=1
+    EXT-ADVB-CALIDAD-03-NEG: real=0 pred=1
+    EXT-ADVC-CALIDAD-03-POS: real=1 pred=1
+    EXT-CALIDAD-04-POS: real=1 pred=1
+    EXT-ADVB-CALIDAD-04-NEG: real=0 pred=1
+    EXT-GOBERNANZA-01-POS: real=1 pred=1
+    EXT-GOBERNANZA-01-NEG: real=0 pred=0
+    EXT-ADVB-GOBERNANZA-02-NEG: real=0 pred=1
+    EXT-GOBERNANZA-03-NEG: real=0 pred=0
+    EXT-ADVC-GOBERNANZA-03-POS: real=1 pred=1
+    EXT-ADVB-GOBERNANZA-04-NEG: real=0 pred=1
+    EXT-SEGURIDAD-01-POS: real=1 pred=0
+    EXT-SEGURIDAD-01-NEG: real=0 pred=0
+    EXT-ADVC-SEGURIDAD-02-POS: real=1 pred=0
+    EXT-SEGURIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-SEGURIDAD-03-NEG: real=0 pred=0
+    EXT-SEGURIDAD-03-POS: real=1 pred=0
+    EXT-ADVC-SEGURIDAD-04-POS: real=1 pred=0
+    EXT-TRAZABILIDAD-01-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-NEG: real=0 pred=1
+    EXT-ADVB-TRAZABILIDAD-02-NEG: real=0 pred=0
+    EXT-ADVC-TRAZABILIDAD-02-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-03-NEG: real=0 pred=1
+    EXT-ADVB-TRAZABILIDAD-04-NEG: real=0 pred=1
+    EXT-PRUEBAS-01-POS: real=1 pred=1
+    EXT-PRUEBAS-01-NEG: real=0 pred=1
+    EXT-PRUEBAS-02-POS: real=1 pred=1
+    EXT-PRUEBAS-02-NEG: real=0 pred=0
+    EXT-ADVC-PRUEBAS-03-POS: real=1 pred=1
+    EXT-ADVB-PRUEBAS-03-NEG: real=0 pred=1
+    EXT-PRUEBAS-04-POS: real=1 pred=1
+    EXT-RESPALDO-01-POS: real=1 pred=1
+    EXT-RESPALDO-01-NEG: real=0 pred=0
+    EXT-RESPALDO-02-POS: real=1 pred=1
+    EXT-RESPALDO-02-NEG: real=0 pred=0
+    EXT-ADVB-RESPALDO-03-NEG: real=0 pred=0
+    EXT-ADVC-RESPALDO-03-POS: real=1 pred=1
+    EXT-ADVB-RESPALDO-04-NEG: real=0 pred=0
+    EXT-ACUERDOS-01-POS: real=1 pred=1
+    EXT-ACUERDOS-01-NEG: real=0 pred=0
+    EXT-ACUERDOS-02-POS: real=1 pred=1
+    EXT-ADVB-ACUERDOS-02-NEG: real=0 pred=1
+    EXT-ADVC-ACUERDOS-03-POS: real=1 pred=1
+    EXT-ACUERDOS-04-POS: real=1 pred=1
+    EXT-ACUERDOS-03-NEG: real=0 pred=0
+    EXT-INFRA-01-POS: real=1 pred=1
+    EXT-INFRA-01-NEG: real=0 pred=1
+    EXT-INFRA-02-POS: real=1 pred=0
+    EXT-INFRA-02-NEG: real=0 pred=0
+    EXT-ADVB-INFRA-03-NEG: real=0 pred=1
+    EXT-ADVC-INFRA-03-POS: real=1 pred=1
+    EXT-ADVB-INFRA-04-NEG: real=0 pred=1
+    EXT-INFRA-04-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Mistral-7B-Instruct-v0.2
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[25 23]
+ [ 7 41]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.78      0.52      0.62        48
+Compliant (1)       0.64      0.85      0.73        48
+
+     accuracy                           0.69        96
+    macro avg       0.71      0.69      0.68        96
+ weighted avg       0.71      0.69      0.68        96
+
+  F1-Score  : 0.7321
+  Precision : 0.6406
+  Recall    : 0.8542
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Qwen2.5-7B-Instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Qwen2.5-7B-Instruct (Qwen/Qwen2.5-7B-Instruct)...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.60s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:07,  3.63s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:10<00:03,  3.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.51s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.56s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Qwen2.5-7B-Instruct ready.
+    SMP-DOCUMENTAL-NEG: real=0 pred=0
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=1
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-SRC-POS: real=1 pred=0
+    SMP-GOBERNANZA-DOC-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS-A: real=1 pred=1
+    SMP-TRAZABILIDAD-POS-B: real=1 pred=1
+    SMP-PRUEBAS-NEG: real=0 pred=0
+    SMP-PRUEBAS-POS: real=1 pred=0
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=0
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=1
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=1
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=1
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-NEG: real=0 pred=0
+    EXT-DOCUMENTAL-02-POS: real=1 pred=1
+    EXT-ADVB-DOCUMENTAL-02-NEG: real=0 pred=1
+    EXT-ADVB-DOCUMENTAL-03-NEG: real=0 pred=1
+    EXT-ADVC-DOCUMENTAL-03-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-NEG: real=0 pred=0
+    EXT-CALIDAD-01-POS: real=1 pred=1
+    EXT-CALIDAD-01-NEG: real=0 pred=1
+    EXT-CALIDAD-02-POS: real=1 pred=1
+    EXT-CALIDAD-02-NEG: real=0 pred=1
+    EXT-ADVB-CALIDAD-03-NEG: real=0 pred=1
+    EXT-ADVC-CALIDAD-03-POS: real=1 pred=1
+    EXT-CALIDAD-04-POS: real=1 pred=1
+    EXT-ADVB-CALIDAD-04-NEG: real=0 pred=1
+    EXT-GOBERNANZA-01-POS: real=1 pred=1
+    EXT-GOBERNANZA-01-NEG: real=0 pred=0
+    EXT-ADVB-GOBERNANZA-02-NEG: real=0 pred=1
+    EXT-GOBERNANZA-03-NEG: real=0 pred=0
+    EXT-ADVC-GOBERNANZA-03-POS: real=1 pred=1
+    EXT-ADVB-GOBERNANZA-04-NEG: real=0 pred=0
+    EXT-SEGURIDAD-01-POS: real=1 pred=0
+    EXT-SEGURIDAD-01-NEG: real=0 pred=0
+    EXT-ADVC-SEGURIDAD-02-POS: real=1 pred=1
+    EXT-SEGURIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-SEGURIDAD-03-NEG: real=0 pred=0
+    EXT-SEGURIDAD-03-POS: real=1 pred=1
+    EXT-ADVC-SEGURIDAD-04-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-02-NEG: real=0 pred=0
+    EXT-ADVC-TRAZABILIDAD-02-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-03-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-04-NEG: real=0 pred=1
+    EXT-PRUEBAS-01-POS: real=1 pred=1
+    EXT-PRUEBAS-01-NEG: real=0 pred=0
+    EXT-PRUEBAS-02-POS: real=1 pred=1
+    EXT-PRUEBAS-02-NEG: real=0 pred=0
+    EXT-ADVC-PRUEBAS-03-POS: real=1 pred=1
+    EXT-ADVB-PRUEBAS-03-NEG: real=0 pred=0
+    EXT-PRUEBAS-04-POS: real=1 pred=1
+    EXT-RESPALDO-01-POS: real=1 pred=1
+    EXT-RESPALDO-01-NEG: real=0 pred=0
+    EXT-RESPALDO-02-POS: real=1 pred=1
+    EXT-RESPALDO-02-NEG: real=0 pred=0
+    EXT-ADVB-RESPALDO-03-NEG: real=0 pred=0
+    EXT-ADVC-RESPALDO-03-POS: real=1 pred=1
+    EXT-ADVB-RESPALDO-04-NEG: real=0 pred=0
+    EXT-ACUERDOS-01-POS: real=1 pred=1
+    EXT-ACUERDOS-01-NEG: real=0 pred=0
+    EXT-ACUERDOS-02-POS: real=1 pred=1
+    EXT-ADVB-ACUERDOS-02-NEG: real=0 pred=1
+    EXT-ADVC-ACUERDOS-03-POS: real=1 pred=1
+    EXT-ACUERDOS-04-POS: real=1 pred=1
+    EXT-ACUERDOS-03-NEG: real=0 pred=0
+    EXT-INFRA-01-POS: real=1 pred=1
+    EXT-INFRA-01-NEG: real=0 pred=0
+    EXT-INFRA-02-POS: real=1 pred=1
+    EXT-INFRA-02-NEG: real=0 pred=0
+    EXT-ADVB-INFRA-03-NEG: real=0 pred=1
+    EXT-ADVC-INFRA-03-POS: real=1 pred=1
+    EXT-ADVB-INFRA-04-NEG: real=0 pred=1
+    EXT-INFRA-04-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Qwen2.5-7B-Instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[33 15]
+ [ 6 42]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.85      0.69      0.76        48
+Compliant (1)       0.74      0.88      0.80        48
+
+     accuracy                           0.78        96
+    macro avg       0.79      0.78      0.78        96
+ weighted avg       0.79      0.78      0.78        96
+
+  F1-Score  : 0.8000
+  Precision : 0.7368
+  Recall    : 0.8750
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+─────────────────────────────────────────────────────────────────
+  Modelo: Phi-3.5-mini-instruct
+─────────────────────────────────────────────────────────────────
+  [before loading] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+  [*] Loading Phi-3.5-mini-instruct (microsoft/Phi-3.5-mini-instruct)...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.66s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.51s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.68s/it]
+  [+] 4-bit NF4 quantization active.
+  [+] Phi-3.5-mini-instruct ready.
+You are not running the flash-attention implementation, expect numerical differences.
+    SMP-DOCUMENTAL-NEG: real=0 pred=1
+    SMP-DOCUMENTAL-POS: real=1 pred=1
+    SMP-CALIDAD-NEG: real=0 pred=0
+    SMP-CALIDAD-POS: real=1 pred=1
+    SMP-GOBERNANZA-NEG: real=0 pred=0
+    SMP-GOBERNANZA-SRC-POS: real=1 pred=0
+    SMP-GOBERNANZA-DOC-POS: real=1 pred=1
+    SMP-SEGURIDAD-NEG: real=0 pred=0
+    SMP-SEGURIDAD-POS: real=1 pred=0
+    SMP-TRAZABILIDAD-NEG: real=0 pred=0
+    SMP-TRAZABILIDAD-POS-A: real=1 pred=0
+    SMP-TRAZABILIDAD-POS-B: real=1 pred=0
+    SMP-PRUEBAS-NEG: real=0 pred=1
+    SMP-PRUEBAS-POS: real=1 pred=1
+    SMP-RESPALDO-NEG: real=0 pred=0
+    SMP-RESPALDO-POS: real=1 pred=0
+    SMP-ACUERDOS-NEG: real=0 pred=0
+    SMP-ACUERDOS-POS: real=1 pred=1
+    SMP-INFRA-NEG: real=0 pred=0
+    ADV-B-SEGURIDAD-NEG: real=0 pred=0
+    ADV-B-TRAZABILIDAD-NEG: real=0 pred=0
+    ADV-B-GOBERNANZA-NEG: real=0 pred=0
+    ADV-B-RESPALDO-NEG: real=0 pred=0
+    ADV-B-ACUERDOS-NEG: real=0 pred=0
+    ADV-B-PRUEBAS-NEG: real=0 pred=1
+    ADV-C-SEGURIDAD-POS: real=1 pred=1
+    ADV-C-TRAZABILIDAD-POS: real=1 pred=1
+    ADV-C-GOBERNANZA-POS: real=1 pred=1
+    ADV-C-RESPALDO-POS: real=1 pred=0
+    ADV-C-DOCUMENTAL-POS: real=1 pred=1
+    SMP-INFRA-POS: real=1 pred=0
+    ADV-C-INFRA-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-POS: real=1 pred=1
+    EXT-DOCUMENTAL-01-NEG: real=0 pred=0
+    EXT-DOCUMENTAL-02-POS: real=1 pred=1
+    EXT-ADVB-DOCUMENTAL-02-NEG: real=0 pred=0
+    EXT-ADVB-DOCUMENTAL-03-NEG: real=0 pred=1
+    EXT-ADVC-DOCUMENTAL-03-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-POS: real=1 pred=1
+    EXT-DOCUMENTAL-04-NEG: real=0 pred=0
+    EXT-CALIDAD-01-POS: real=1 pred=1
+    EXT-CALIDAD-01-NEG: real=0 pred=0
+    EXT-CALIDAD-02-POS: real=1 pred=1
+    EXT-CALIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-CALIDAD-03-NEG: real=0 pred=0
+    EXT-ADVC-CALIDAD-03-POS: real=1 pred=1
+    EXT-CALIDAD-04-POS: real=1 pred=1
+    EXT-ADVB-CALIDAD-04-NEG: real=0 pred=0
+    EXT-GOBERNANZA-01-POS: real=1 pred=1
+    EXT-GOBERNANZA-01-NEG: real=0 pred=0
+    EXT-ADVB-GOBERNANZA-02-NEG: real=0 pred=0
+    EXT-GOBERNANZA-03-NEG: real=0 pred=0
+    EXT-ADVC-GOBERNANZA-03-POS: real=1 pred=1
+    EXT-ADVB-GOBERNANZA-04-NEG: real=0 pred=0
+    EXT-SEGURIDAD-01-POS: real=1 pred=0
+    EXT-SEGURIDAD-01-NEG: real=0 pred=0
+    EXT-ADVC-SEGURIDAD-02-POS: real=1 pred=0
+    EXT-SEGURIDAD-02-NEG: real=0 pred=0
+    EXT-ADVB-SEGURIDAD-03-NEG: real=0 pred=0
+    EXT-SEGURIDAD-03-POS: real=1 pred=0
+    EXT-ADVC-SEGURIDAD-04-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-01-NEG: real=0 pred=1
+    EXT-ADVB-TRAZABILIDAD-02-NEG: real=0 pred=0
+    EXT-ADVC-TRAZABILIDAD-02-POS: real=1 pred=1
+    EXT-TRAZABILIDAD-03-NEG: real=0 pred=0
+    EXT-ADVB-TRAZABILIDAD-04-NEG: real=0 pred=1
+    EXT-PRUEBAS-01-POS: real=1 pred=1
+    EXT-PRUEBAS-01-NEG: real=0 pred=0
+    EXT-PRUEBAS-02-POS: real=1 pred=1
+    EXT-PRUEBAS-02-NEG: real=0 pred=0
+    EXT-ADVC-PRUEBAS-03-POS: real=1 pred=1
+    EXT-ADVB-PRUEBAS-03-NEG: real=0 pred=1
+    EXT-PRUEBAS-04-POS: real=1 pred=1
+    EXT-RESPALDO-01-POS: real=1 pred=1
+    EXT-RESPALDO-01-NEG: real=0 pred=0
+    EXT-RESPALDO-02-POS: real=1 pred=1
+    EXT-RESPALDO-02-NEG: real=0 pred=0
+    EXT-ADVB-RESPALDO-03-NEG: real=0 pred=0
+    EXT-ADVC-RESPALDO-03-POS: real=1 pred=1
+    EXT-ADVB-RESPALDO-04-NEG: real=0 pred=0
+    EXT-ACUERDOS-01-POS: real=1 pred=1
+    EXT-ACUERDOS-01-NEG: real=0 pred=0
+    EXT-ACUERDOS-02-POS: real=1 pred=1
+    EXT-ADVB-ACUERDOS-02-NEG: real=0 pred=0
+    EXT-ADVC-ACUERDOS-03-POS: real=1 pred=1
+    EXT-ACUERDOS-04-POS: real=1 pred=1
+    EXT-ACUERDOS-03-NEG: real=0 pred=0
+    EXT-INFRA-01-POS: real=1 pred=1
+    EXT-INFRA-01-NEG: real=0 pred=0
+    EXT-INFRA-02-POS: real=1 pred=1
+    EXT-INFRA-02-NEG: real=0 pred=0
+    EXT-ADVB-INFRA-03-NEG: real=0 pred=0
+    EXT-ADVC-INFRA-03-POS: real=1 pred=0
+    EXT-ADVB-INFRA-04-NEG: real=0 pred=0
+    EXT-INFRA-04-POS: real=1 pred=1
+
+=================================================================
+  RESULTS — Phi-3.5-mini-instruct
+=================================================================
+
+  Confusion Matrix (rows=actual, cols=predicted) [0,1]:
+[[41  7]
+ [11 37]]
+
+  Detailed metrics:
+               precision    recall  f1-score   support
+
+Violation (0)       0.79      0.85      0.82        48
+Compliant (1)       0.84      0.77      0.80        48
+
+     accuracy                           0.81        96
+    macro avg       0.81      0.81      0.81        96
+ weighted avg       0.81      0.81      0.81        96
+
+  F1-Score  : 0.8043
+  Precision : 0.8409
+  Recall    : 0.7708
+=================================================================
+  [after freeing] VRAM free: 6.9/8.0 GB  |  torch allocated: 8 MB
+
+[✓] EXPERIMENT 2 — ZERO-SHOT completed.
+

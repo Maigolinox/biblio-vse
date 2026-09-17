@@ -1,0 +1,1602 @@
+[
+ {
+  "id_muestra": "SMP-DOCUMENTAL-NEG",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/arquitectura_final_ok_2.txt",
+  "contenido_texto": "Architecture notes for the library loan system\n\nThe system is going to use the Django framework with a PostgreSQL database for the management of the system's data. The main view of the system is going to handle the loan requests of the users registered in the library system. The validation process of the system is going to check whether the user has outstanding debts before authorizing the registration of a new loan in the library system.\n\nThe catalog module of the system is going to list all the books available in the inventory of the system. The search process of the system is going to allow locating books by ISBN, title, or author name in the system's database. The database structure of the system is going to include the main implementation entities: users, books, loans, returns, and late-return fines in the system.\n\nThe authentication process of the system is going to use the built-in authentication system of the Django framework for verifying the credentials of the user registered in the library system. The authorization process of the system is going to assign access permissions to each user according to the role assigned in the library administration system.\n\nThe report generation process of the system is going to run monthly to present usage statistics of the library system. The implementation of the export module of the system is going to use the document generation libraries available in the system to produce system reports in PDF format and spreadsheets.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 1634,
+   "conteo_palabras": 269
+  },
+  "escenario": "orig-documental",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-DOCUMENTAL-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/BVSE-ARQ-001_V1.0.0.md",
+  "contenido_texto": "# System Architecture Document\n**Code:** BVSE-ARQ-001\n**Version:** V1.0.0\n**Effective Date:** 2026-03-16\n\n## 1. Architectural Pattern of the System\n\nThe Biblio-VSE system implements the MVT (Model-View-Template) architectural pattern provided by the Django web development framework. This architectural pattern guarantees the separation of responsibilities between the business logic of the system, the data presentation layer of the system, and the database access module of the system. The implementation of the MVT architectural pattern in the system allows each component of the system to be developed, verified, and maintained independently without affecting the operation of the other components of the library system.\n\n## 2. System Components\n\nThe system is composed of the following main implementation modules: the user authentication and authorization module of the system, the management module of the catalog of books available in the system, the loans and returns administration module of the system, and the report generation module of the library system.\n\nThe authentication module of the system implements the user credential verification process through the built-in authentication system of the Django framework. The authorization process of the system determines the access permissions of each user according to the role assigned in the library administration system.\n\n## 3. System Database\n\nThe system uses PostgreSQL as the database management system for the persistent storage of the library system's information. The database structure of the system includes the main implementation entities: User, Book, Loan, Return, and Fine. The relationships between the entities of the system guarantee the referential integrity of the data stored in the library administration system.\n\n## 4. System Deployment Process\n\nThe deployment process of the system is carried out through the GitLab CI/CD continuous integration and deployment platform. Each new version of the system goes through an automated validation process before being deployed to the production environment of the system. The deployment process of the system includes running the unit tests of the system, verifying code coverage, and validating the configuration of the library system.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 2480,
+   "conteo_palabras": 368
+  },
+  "escenario": "orig-documental",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-CALIDAD-NEG",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "scripts/utilerias.py",
+  "contenido_texto": "import sys,os,time,json,random\nfrom django.http import JsonResponse\n\ndef process_request(request,id,kind,mode):\n    x=id\n    if kind==\"admin\":\n        if x>0:\n            if mode==\"read\":\n                if x>100:\n                    return JsonResponse({\"r\":\"high\",\"v\":x*3.14})\n                elif x>50:\n                    return JsonResponse({\"r\":\"medium\",\"v\":x*1.5})\n                else:\n                    return JsonResponse({\"r\":\"low\",\"v\":x})\n            elif mode==\"write\":\n                for i in range(x):\n                    if i%2==0:\n                        x=x-1\n                return JsonResponse({\"r\":\"loop\",\"v\":x})\n            else:\n                return JsonResponse({\"r\":\"invalid_mode\"})\n        else:\n            return JsonResponse({\"r\":\"invalid_id\"})\n    elif kind==\"user\":\n        try:\n            result=100/x\n        except ZeroDivisionError:\n            result=0\n        if result>50:\n            return JsonResponse({\"r\":\"ok\",\"v\":result})\n        else:\n            return JsonResponse({\"r\":\"low\",\"v\":result})\n    else:\n        return JsonResponse({\"r\":\"invalid_kind\"})\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 34,
+   "longitud_caracteres": 1119,
+   "complejidad_ciclomatica_VG": 12.0
+  },
+  "escenario": "orig-calidad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-CALIDAD-POS",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "text_document",
+  "archivo": ".gitlab/merge_request_templates/Default.md",
+  "contenido_texto": "## System Quality Checklist — BVSE-QA-MR\n\n### Verification of System Code Style and Format\n\n- [ ] The system code passes the verification process with the flake8 static analysis tool with no code style errors or warnings.\n- [ ] The system code follows the project naming conventions: system variables in snake_case, system classes in PascalCase, system constants in UPPER_CASE_WITH_UNDERSCORES.\n- [ ] The system code does not contain undocumented magic identifiers (magic numbers) in any function or class of the system's implementation module.\n- [ ] The system code has correct indentation of four spaces per nesting level in all functions and classes of the library system module.\n- [ ] The imports of the system module are organized according to the style conventions established in the project guide: first the system standard library, then the system's external dependencies, and finally the library system's own modules.\n\n### Verification of System Documentation\n\n- [ ] The system code includes docstrings in all public functions and classes of the implementation module according to the documentation standard of the system project.\n- [ ] The system code includes explicit references to the system requirement identifiers (RF_XX or US_XX) in the comments of the functions that implement system business logic.\n- [ ] System unit tests were included with a minimum coverage of 80% for all functions and classes of the library system module.\n- [ ] The commit messages of the system integration process follow the conventional format established in the contribution guide of the system project.\n\n### Verification of System Security\n\n- [ ] The system code does not contain credentials, authentication tokens, or system passwords in plaintext (hardcoded) in any part of the implementation module.\n- [ ] The system code uses operating system environment variables for managing all sensitive configuration of the library system.\n- [ ] The input validation process of the system includes checking the expected types, lengths, and formats for all input parameters of the system.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 2395,
+   "conteo_palabras": 383
+  },
+  "escenario": "orig-calidad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/nueva_interfaz_experimental.py",
+  "contenido_texto": "# Trying out a new interface someone asked me for yesterday in the hallway\nfrom django.http import HttpResponse\nfrom django.contrib.auth.decorators import login_required\nfrom django.views import View\ndef render_new_dashboard():\n    return \"Dashboard V2\"\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 263,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-SRC-POS",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/reservas.py",
+  "contenido_texto": "# Implementation based on BVSE-REQ-002\nfrom django.http import HttpResponse\nfrom django.contrib.auth.decorators import login_required\nfrom django.views import View\ndef create_reservation():\n    pass\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 195,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-GOBERNANZA-DOC-POS",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/requerimientos/BVSE-REQ-002.md",
+  "contenido_texto": "# System Requirements Specification — BVSE-REQ-002\n**Code:** BVSE-REQ-002\n**Version:** V1.0.0\n**Effective Date:** 2026-03-12\n**Status:** Approved\n**Digital Signature (SHA-256 Hash):** 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08\n**Authorized by:** Library Director — Biblio-VSE System\n**Review Owner:** Technical Project Coordinator\n\n## Description of the System Requirement\n\nFunctional requirement BVSE-REQ-002 specifies the implementation process of the reservation management module of the library system. The reservation process of the system allows registered users of the system to make advance reservations of books available in the library system catalog before their formal loan in the system.\n\nThe reservation system must implement the process of validating the availability of the book in the system catalog before registering the user's reservation in the system database. The validation process of the system must verify that the registered user has no overdue loans or unpaid fines in the library administration system before authorizing the system reservation.\n\n## System Acceptance Criteria\n\nThe implementation process of the system's reservation module must satisfy the following acceptance criteria established by the technical owner of the system project:\n\n1. The system must process the registered user's reservation request within a maximum response time of two seconds of library system processing.\n2. The notification process of the system must send a reservation confirmation to the user's registered email within five minutes after the reservation is registered in the system.\n3. The reservation system must automatically cancel the registered user's reservations that are not claimed within the reservation validity period established in the library system configuration.\n\n## Implementation of the System Requirement\n\nThe implementation of the reservation management module of the system follows the process governance specifications and approval controls defined in this library system requirements document.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 2308,
+   "conteo_palabras": 330
+  },
+  "escenario": "orig-gobernanza",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-SEGURIDAD-NEG",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings.py",
+  "contenido_texto": "\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nDATABASES_PASSWORD = 'super_secret_production_password_2026!'\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 121,
+   "longitud_caracteres": 3129,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-seguridad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-SEGURIDAD-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings.py",
+  "contenido_texto": "\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nimport os\n# The password is injected through the environment, never stored in the repository\nDATABASES_PASSWORD = os.environ.get('DB_PASSWORD', 'default_dev_pass')\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 122,
+   "longitud_caracteres": 3202,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-seguridad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/views.py",
+  "contenido_texto": "from django.shortcuts import render\nfrom django.http import JsonResponse\nimport random\n\ndef calculate_advanced_delinquency(request, user_id):\n    if user_id <= 0:\n        return JsonResponse({\"error\": \"Invalid user ID\"}, status=400)\n\n    base_debt = 150.50\n    penalty = random.choice([1.2, 1.5, 2.0])\n    total = base_debt * penalty\n\n    if total > 300:\n        alert_level = \"critical\"\n        block = True\n    elif total > 200:\n        alert_level = \"high\"\n        block = True\n    elif total > 100:\n        alert_level = \"medium\"\n        block = False\n    else:\n        alert_level = \"low\"\n        block = False\n\n    return JsonResponse({\n        \"block_user\": block,\n        \"debt\": total,\n        \"alert_level\": alert_level\n    })\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 780,
+   "complejidad_ciclomatica_VG": 5.0
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-POS-A",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/tests.py",
+  "contenido_texto": "# loans/tests.py\nfrom django.contrib.auth.models import User\nfrom django.urls import reverse\nfrom django.test import TestCase\n\nclass LoanTestCase(TestCase):\n    def test_register_loan_rf05(self):\n        \"\"\"Validates RF_05_Loan_Management\"\"\"\n        response = self.client.get('/loans/register/')\n        self.assertEqual(response.status_code, 200)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 368,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-TRAZABILIDAD-POS-B",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/views.py",
+  "contenido_texto": "# loans/views.py\nfrom django.shortcuts import get_object_or_404\nfrom loans.models import Loan\nfrom django.http import JsonResponse\n\ndef register_loan(request):\n    \"\"\"\n    Requirement ID: RF_05_Loan_Management\n    Description: Registers a new book loan in the system.\n    Associated Test Case: TEST_LOAN_01\n    \"\"\"\n    # Simulated logic\n    return JsonResponse({\"status\": \"success\", \"message\": \"Loan registered\"})\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 455,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-trazabilidad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-PRUEBAS-NEG",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/tests.py",
+  "contenido_texto": "from django.contrib.auth.models import User\nfrom catalog.models import Book\nfrom django.test import TestCase\n\nclass Tests(TestCase):\n    def test_all_good(self):\n        # checking that it does not blow up\n        assert 1 == 1\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 8,
+   "longitud_caracteres": 223,
+   "complejidad_ciclomatica_VG": 2.5
+  },
+  "escenario": "orig-pruebas",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-PRUEBAS-POS",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/tests.py",
+  "contenido_texto": "from django.contrib.auth.models import User\nfrom catalog.models import Book\nfrom django.test import TestCase\n\nclass CatalogTests(TestCase):\n    def test_isbn_search(self):\n        \"\"\"\n        Environment: Python 3.10, Django 5.0\n        Steps:\n        1. Insert a dummy book with ISBN 978-3-16-148410-0\n        2. Send a GET request to /catalog/search/?isbn=978-3-16-148410-0\n        Expected Result: HTTP 200 and JSON with the book data.\n        \"\"\"\n        self.assertTrue(True) # Simulated assert\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 513,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-pruebas",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-RESPALDO-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "contenido_texto": "stages:\n  - deploy\n\nquick_deploy:\n  stage: deploy\n  script:\n    - echo \"Deploying straight to production\"\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 108
+  },
+  "escenario": "orig-respaldo",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-RESPALDO-POS",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "contenido_texto": "stages:\n  - backup\n\nbackup_database:\n  stage: backup\n  script:\n    - echo \"Generating database dump...\"\n    - pg_dump -U postgres biblio_db > backup_milestones.sql\n  artifacts:\n    paths:\n      - backup_milestones.sql\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 11,
+   "longitud_caracteres": 219
+  },
+  "escenario": "orig-respaldo",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-ACUERDOS-NEG",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/notas_reunion_martes.md",
+  "contenido_texto": "# Notes from Tuesday's meeting\n\n- Change the colors of the system login button, so that the system design is more visible and attractive for the users of the library system.\n- Someone has to look at the system loans bug, which sometimes does not register the process correctly when the user borrows more than one book at the same time in the library system.\n- We also need to check whether the system's fine calculation process is working well, because the system client reported that the days of delay in returns are not being calculated correctly by the administration system.\n- The system's report generation process takes too long to produce the system results, we need to see how to optimize the system process before next Monday because the project director wants to review the month's data in the system.\n- See whether we can add the functionality to renew the system loan from the system web application without the user having to go physically to the library to carry out the renewal process in the system.\n- Someone has to talk to the project client about the implementation process of the changes requested last week for the catalog module of the library system.\n- Check whether the system backup process is working correctly on the infrastructure system server, the area technician reported that the system backup process failed over the weekend.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 1555,
+   "conteo_palabras": 269
+  },
+  "escenario": "orig-acuerdos",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-ACUERDOS-POS",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/actas/BVSE-ACTA-002.md",
+  "contenido_texto": "# System Design Meeting Minutes — BVSE-ACTA-002\n**Code:** BVSE-ACTA-002\n**Version:** V1.0.0\n**Effective Date:** 2026-03-10\n**Status:** Approved\n\n## General Meeting Information\n\n- **Meeting Date:** 2026-03-10\n- **Location:** Biblio-VSE project meeting room\n- **Coordination Owner:** Project Coordinator\n\n## Project Participants\n\n| Name | Role | Attendance |\n|---|---|---|\n| Ana García | Lead Developer | Present |\n| Luis Martínez | Database Owner | Present |\n| María Torres | Quality Owner | Present |\n| Pedro Ramírez | Infrastructure Owner | Present |\n\n## Formalized Agreements\n\n**Agreement 01:** The team will migrate the function-based views to Django's Class-Based Views pattern.\nThe goal is to improve the maintainability and extensibility of the module.\nThe pattern separates business logic from the presentation layer.\n- **Responsible:** Ana García, Lead Developer\n- **Implementation Date:** 2026-03-20\n- **Status:** In Progress\n\n**Agreement 02:** Luis Martínez will add optimization indexes to the loans and users tables.\nThis improvement will reduce the response time of system queries.\nThe indexes will be applied to the date and record status columns.\n- **Responsible:** Luis Martínez, Database Owner\n- **Implementation Date:** 2026-03-17\n- **Status:** Pending\n\n**Agreement 03:** María Torres will validate the authentication module before deployment.\nThe coverage will include the login and user session management flows.\nThe result will be documented in the system quality report.\n- **Responsible:** María Torres, Quality Owner\n- **Validation Date:** 2026-03-15\n- **Status:** In Progress\n\n## Approval of the Minutes\n\n**Authorized by:** Biblio-VSE System Project Director\n**Document Status:** Approved\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 48,
+   "longitud_caracteres": 1896,
+   "conteo_palabras": 279
+  },
+  "escenario": "orig-acuerdos",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-INFRA-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings.py",
+  "contenido_texto": "\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\nALLOWED_HOSTS = ['*']\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 121,
+   "longitud_caracteres": 3089,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-infra",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-SEGURIDAD-NEG",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_staging.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene os.environ.get (satisface regex) pero también hardcodea NOTIFICACIONES_API_KEY. La violación exige leer el archivo completo.",
+  "contenido_texto": "\"\"\"\nDjango settings for staging environment — Biblio-VSE\n\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\nimport os\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-dev-key')\nDEBUG = False\nALLOWED_HOSTS = ['staging.biblioteca.local']\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     os.environ.get('DB_NAME', 'biblio_staging'),\n        'USER':     os.environ.get('DB_USER', 'biblio_app'),\n        'PASSWORD': os.environ.get('DB_PASSWORD', ''),\n        'HOST':     os.environ.get('DB_HOST', 'localhost'),\n        'PORT':     os.environ.get('DB_PORT', '5432'),\n    }\n}\n\n# INTEGRATION WITH EXTERNAL NOTIFICATION SERVICE\n# TODO: move to an environment variable before going to production\nNOTIFICATIONS_API_KEY = \"nvapi-Xk7dP2mQr9sL4wYh3jNvZc8eA1bFgT6uE0iO5\"\n\nEMAIL_HOST          = os.environ.get('EMAIL_HOST', 'smtp.biblioteca.local')\nEMAIL_PORT          = int(os.environ.get('EMAIL_PORT', '587'))\nEMAIL_HOST_USER     = os.environ.get('EMAIL_USER', '')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 32,
+   "longitud_caracteres": 1162,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-seguridad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-TRAZABILIDAD-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/views_legacy.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "RF_05 y US_03 aparecen en comentarios que explican que esas referencias YA NO aplican. El regex detecta los IDs y predice cumplimiento incorrecto.",
+  "contenido_texto": "# loans/views_legacy.py\n# WARNING: This function was refactored in sprint 6.\n# The original implementation of RF_05_Loan_Management was migrated\n# to loans/views.py. This module NO LONGER implements RF_05 or\n# any other active requirement. Kept only for historical reference.\nfrom django.shortcuts import get_object_or_404\nfrom loans.models import Loan\nfrom django.http import JsonResponse\n\ndef register_loan_legacy(request):\n    # Disabled function — do not use in production\n    return JsonResponse({\"error\": \"Module out of service\"}, status=410)\n\ndef query_history_legacy(request, user_id):\n    # See US_03 in loans/views.py for the current implementation\n    return JsonResponse({\"error\": \"Module out of service\"}, status=410)\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 781,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-adv-trazabilidad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-GOBERNANZA-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/filtros_avanzados.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene BVSE-REQ-015 en un comentario que dice explícitamente PENDIENTE DE APROBACIÓN. El regex predice cumplimiento pero la gobernanza no se ha otorgado.",
+  "contenido_texto": "# catalog/advanced_filters.py\n# STATUS: PENDING APPROVAL — under review for BVSE-REQ-015\n# Implementation requested verbally on 2026-03-18.\n# It does not have a formal requirement number assigned yet.\n# DO NOT deploy until formal approval from the technical coordinator is received.\n\nfrom django.shortcuts import render\nfrom catalog.models import Book\nfrom django.db.models import Q\n\ndef filter_books_by_availability(queryset, only_available=True):\n    if only_available:\n        return queryset.filter(available=True, on_loan=False)\n    return queryset\n\ndef filter_books_by_category(queryset, category_id):\n    return queryset.filter(category__id=category_id)\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 682,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-adv-gobernanza",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-RESPALDO-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci-production.yml",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "pg_dump, backup y respaldo aparecen solo en bloques YAML comentados. El stage de backup está desactivado. El regex los detecta y predice cumplimiento erróneamente.",
+  "contenido_texto": "# Production pipeline — Biblio-VSE\n# NOTE: The backup process was temporarily disabled (2026-02-20)\n# due to a conflict with the server maintenance windows.\n# Pending reactivation according to ticket OPS-441.\n#\n# DISABLED BLOCK:\n# stages:\n#   - backup\n#   - deploy\n#\n# daily_backup:\n#   stage: backup\n#   script:\n#     - pg_dump -U biblio_admin biblio_prod > /backups/daily_$(date +%Y%m%d).sql\n#     - echo \"Backup completed\"\n#\nstages:\n  - deploy\n\nproduction_deployment:\n  stage: deploy\n  script:\n    - echo \"Deploying version $CI_COMMIT_SHORT_SHA to production\"\n    - ./scripts/deploy.sh production\n  only:\n    - tags\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 642
+  },
+  "escenario": "orig-adv-respaldo",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-ACUERDOS-NEG",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/notas_kickoff_sprint5.md",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene Responsable: y Estado: (activan regex) pero el documento es una nota informal sin firma, sin partes formalmente identificadas y el propio texto declara que no hubo acta formal.",
+  "contenido_texto": "# Sprint 5 kickoff notes — informal meeting\n\nDate: Tuesday 2026-03-11, small room, 15 min.\n\nWe talked about the returns module. Carlos said he almost has it.\nThe fines system also needs to be reviewed.\n\nVerbal agreement: finish the module before Friday.\n\nResponsible: Carlos M.\nStatus: in progress (according to what he said)\n\nThe reports were also discussed. Someone has to do them but it was not clear who.\n\nThere was no signature or formal minutes. Improvised meeting in the hallway.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 15,
+   "longitud_caracteres": 500,
+   "conteo_palabras": 82
+  },
+  "escenario": "orig-adv-acuerdos",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-B-PRUEBAS-NEG",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/tests_cobertura.py",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Todos los keywords de PRUEBAS están presentes (Caso de Prueba, Entorno, Pasos, Resultado Esperado) pero los asserts solo verifican que el servidor no falla, sin validar comportamiento funcional ni requerimientos.",
+  "contenido_texto": "# loans/tests_coverage.py\nfrom django.contrib.auth.models import User\nfrom django.test import TestCase\n\nclass MinimumLoanCoverage(TestCase):\n\n    def test_loan_endpoint_responds(self):\n        \"\"\"\n        Test Case: TC-PREST-001\n        Environment: Django TestClient, in-memory SQLite\n        Steps:\n        1. Send a GET request to the /loans/ endpoint\n        Expected Result: The server does not raise an internal exception.\n        \"\"\"\n        response = self.client.get('/loans/')\n        self.assertIsNotNone(response)\n\n    def test_loan_model_instance(self):\n        \"\"\"\n        Test Case: TC-PREST-002\n        Environment: Python 3.10, Django ORM\n        Steps:\n        1. Import the Loan model from the loans module\n        Expected Result: The Loan class is importable without error.\n        \"\"\"\n        from loans.models import Loan  # noqa: F401\n        self.assertTrue(True)  # The import would already have failed if there were an error\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 983,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "escenario": "orig-adv-pruebas",
+  "origen": "original_v1",
+  "depurado_v2": true,
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-SEGURIDAD-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_produccion.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Todos los secretos se leen via decouple.config (ningún hardcoding). El regex busca os.environ/getenv y no los encuentra, prediciendo violación incorrectamente.",
+  "contenido_texto": "\"\"\"\nDjango settings for production — Biblio-VSE\nSecret management: python-decouple (environment variables or .env file).\nNo sensitive value is embedded in the source code.\n\"\"\"\nimport os\nfrom pathlib import Path\nfrom decouple import config, Csv\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = config('DJANGO_SECRET_KEY')\nDEBUG = config('DEBUG', default=False, cast=bool)\nALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='biblioteca.local')\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     config('DB_NAME'),\n        'USER':     config('DB_USER'),\n        'PASSWORD': config('DB_PASSWORD'),\n        'HOST':     config('DB_HOST', default='localhost'),\n        'PORT':     config('DB_PORT', default='5432'),\n    }\n}\n\nEMAIL_HOST          = config('EMAIL_HOST')\nEMAIL_HOST_USER     = config('EMAIL_USER')\nEMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')\nNOTIFICATIONS_KEY   = config('NOTIFICATIONS_API_KEY')\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 992,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-seguridad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-TRAZABILIDAD-POS",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "multas/views.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Trazabilidad explícita mediante formato HU-12/TK-089 en lugar de RF_XX/US_XX. El regex no reconoce este esquema de identificación y predice violación incorrectamente.",
+  "contenido_texto": "# fines/views.py\nfrom django.http import JsonResponse\nfrom django.utils import timezone\nfrom .models import Fine\n\ndef calculate_late_fine(request, loan_id):\n    \"\"\"\n    User Story: HU-12 — Automatic calculation of fines for late returns\n    Technical task: TK-089 on the sprint board\n    Acceptance criterion: fine = days_late * current_daily_rate\n    Validated by: María Torres, Quality Owner — session of 2026-03-12.\n    \"\"\"\n    try:\n        fine = Fine.objects.get(loan__id=loan_id)\n    except Fine.DoesNotExist:\n        return JsonResponse({\"error\": \"Fine not registered\"}, status=404)\n    days = (timezone.now().date() - fine.loan.expected_return_date).days\n    amount = max(0, days) * float(fine.daily_rate)\n    return JsonResponse({\"loan_id\": loan_id, \"fine\": amount, \"days_late\": days})\n\n\ndef list_active_fines(request):\n    \"\"\"\n    User Story: HU-13 — Query of unpaid pending fines\n    Technical task: TK-092\n    \"\"\"\n    fines = Fine.objects.filter(paid=False).values(\n        'id', 'loan__user__username', 'total_amount', 'generated_date'\n    )\n    return JsonResponse({\"active_fines\": list(fines)})\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 1226,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "escenario": "orig-adv-trazabilidad",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-GOBERNANZA-POS",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "reportes/generador_estadisticas.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Gobernanza evidenciada mediante prosa narrativa: SCR-2026-031, visto bueno del coordinador técnico, validación del director. Ningún keyword del regex (Aprobado, BVSE-REQ-\\d+, Firma Digital, Autoriza) aparece.",
+  "contenido_texto": "# reports/statistics_generator.py\n#\n# This module was merged into the main branch through change\n# request SCR-2026-031, reviewed in the technical session of 2026-03-07.\n# The technical project coordinator gave the formal go-ahead for its\n# integration after verifying that it meets the quality guidelines and does not\n# introduce regressions in the loans module.\n# The library director validated the functional scope on 2026-03-09.\n\nfrom django.db.models import Count, Avg\nfrom loans.models import Loan\nfrom catalog.models import Book\n\ndef generate_monthly_summary(month, year):\n    month_loans = Loan.objects.filter(\n        start_date__month=month, start_date__year=year\n    )\n    return {\n        \"total_loans\": month_loans.count(),\n        \"average_duration_days\": month_loans.aggregate(\n            Avg('loan_days')\n        )['loan_days__avg'],\n        \"most_requested_books\": list(\n            Book.objects.annotate(num_loans=Count('loan'))\n                        .order_by('-num_loans')[:5]\n                        .values('title', 'isbn', 'num_loans')\n        ),\n    }\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 28,
+   "longitud_caracteres": 1147,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "escenario": "orig-adv-gobernanza",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-RESPALDO-POS",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".github/workflows/snapshot.yml",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Respaldo completo implementado con tar -czf y aws s3 cp, verificación de integridad, ejecución programada diaria. Ninguna de las palabras clave del regex (backup, pg_dump, dump, restore, respaldo) aparece en el YAML.",
+  "contenido_texto": "name: Daily Database Snapshot\n\non:\n  schedule:\n    - cron: '0 2 * * *'\n\njobs:\n  generate_snapshot:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Compress data volume\n        run: |\n          tar -czf /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \\\n              /var/lib/postgresql/data/\n          echo \"Compression completed: $(ls -lh /tmp/biblio_*.tar.gz)\"\n\n      - name: Transfer to long-term storage\n        run: |\n          aws s3 cp /tmp/biblio_$(date +%Y%m%d_%H%M).tar.gz \\\n              s3://biblio-historical-archive/snapshots/ \\\n              --storage-class STANDARD_IA\n          echo \"Transfer to S3 completed\"\n\n      - name: Verify file integrity\n        run: |\n          aws s3 ls s3://biblio-historical-archive/snapshots/ \\\n              --recursive --human-readable | tail -5\n          echo \"Integrity verification completed\"\n\n      - name: Notify result\n        if: always()\n        run: echo \"Daily snapshot processed — $(date)\"\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 32,
+   "longitud_caracteres": 1015
+  },
+  "escenario": "orig-adv-respaldo",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-DOCUMENTAL-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/PI-2026-02_plan_iteracion.md",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "El documento cumple DOCUMENTAL: tiene identificador (PI-2026-02), edición (2.1) y fecha de vigencia (2026-03-01). Sin embargo usa Identificador/Edición/Vigente a partir de en lugar de Código/Versión/Fecha de Vigencia/BVSE-*, que son los términos del regex.",
+  "contenido_texto": "# Iteration Plan — Biblio-VSE System\n\n**Document Identifier:** PI-2026-02\n**Edition:** 2.1\n**In force from:** 2026-03-01\n**Prepared by:** Ana García — Lead System Developer\n**Reviewed by:** María Torres — Quality Owner\n\n---\n\n## 1. Iteration Objective\n\nThe second iteration of the Biblio-VSE system completes the fines\nmanagement module and the statistical reports module.\n\n## 2. System Scope\n\n- Automatic fine calculation module (HU-12, HU-13)\n- Monthly report generation module (HU-15)\n- CSV data export module for the administrative system (HU-16)\n\n## 3. Completeness Criteria\n\nIt is considered complete when it passes the quality check of the area\nowner and when the user stories have their test cases\ndocumented and executed with a successful result in the integration environment.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 26,
+   "longitud_caracteres": 897,
+   "conteo_palabras": 136
+  },
+  "escenario": "orig-adv-documental",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "SMP-INFRA-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings.py",
+  "contenido_texto": "\"\"\"\nDjango settings for config project.\n\nGenerated by 'django-admin startproject' using Django 6.0.3.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/6.0/topics/settings/\n\nFor the full list of settings and their values, see\nhttps://docs.djangoproject.com/en/6.0/ref/settings/\n\"\"\"\n\nimport os\nfrom django.core.exceptions import ImproperlyConfigured\nfrom pathlib import Path\n\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n\n\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-!zon007&+f00l)7xbnw!44dehs)q8kw+u8ks-_xga81^xfl6h7\"\n\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\n\nALLOWED_HOSTS = []\n\n\n# Application definition\n\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n]\n\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\n\nROOT_URLCONF = \"config.urls\"\n\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = \"config.wsgi.application\"\n\n\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        \"NAME\": BASE_DIR / \"db.sqlite3\",\n    }\n}\n\n\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\n\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.NumericPasswordValidator\",\n    },\n]\n\n\n# Internationalization\n# https://docs.djangoproject.com/en/6.0/topics/i18n/\n\nLANGUAGE_CODE = \"en-us\"\n\nTIME_ZONE = \"UTC\"\n\nUSE_I18N = True\n\nUSE_TZ = True\n\n\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\n\nSTATIC_URL = \"static/\"\n\n# Strict restriction to internal subdomains (Network Policy)\nALLOWED_HOSTS = ['catalogo.biblioteca.local', 'api.biblioteca.local']\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 122,
+   "longitud_caracteres": 3201,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-infra",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "ADV-C-INFRA-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_red_interna.py",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "ALLOWED_HOSTS restringido a IPs privadas RFC-1918 del datacenter institucional (10.100.5.x). Cumple la política INFRA pero el regex busca '.biblioteca.local', '.internal' o 'entornos? autorizado', ninguno de los cuales aparece.",
+  "contenido_texto": "\"\"\"\nDjango settings — Biblio-VSE internal network\nNetwork security policy: access restricted to private IP ranges\nassigned to the internal infrastructure of the institutional Computing Center.\n\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\nimport os\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')\nDEBUG = False\n\n# Access restriction: only hosts in private institutional ranges.\n# 10.100.5.x — Application servers of the main datacenter\n# 10.100.6.x — Load balancers of the internal services segment\nALLOWED_HOSTS = [\n    '10.100.5.50',\n    '10.100.5.51',\n    '10.100.6.10',\n]\n\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME':     os.environ.get('DB_NAME'),\n        'USER':     os.environ.get('DB_USER'),\n        'PASSWORD': os.environ.get('DB_PASSWORD'),\n        'HOST':     '10.100.5.20',\n        'PORT':     '5432',\n    }\n}\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 33,
+   "longitud_caracteres": 997,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "escenario": "orig-adv-infra",
+  "origen": "original_v1",
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-01-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/BVSE-PP-001_V1.2.0.md",
+  "escenario": "doc-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Biblio-VSE Project Plan\n**Code:** BVSE-PP-001\n**Version:** V1.2.0\n**Effective Date:** 2026-02-02\n\n## 1. Purpose\n\nThis plan describes how the team is going to build and deliver the second release of the municipal library loan system. It lists the tasks, the dates, and the people involved, so that the client and the team share the same idea of what will be delivered and when.\n\n## 2. Scope\n\nThe project includes the catalog module, the loans and returns module, and the calculation of late-return fines. The mobile application and the integration with the municipal payroll system are not included at this stage.\n\n## 3. Schedule\n\n| Milestone | Estimated date |\n|---|---|\n| Catalog in the test environment | 2026-02-27 |\n| Loans and returns | 2026-03-20 |\n| Final delivery to the client | 2026-04-10 |\n\n## 4. Risks\n\nIf the client takes longer to review the deliverables, the schedule dates will move by the same number of days. To reduce this risk, reviews are scheduled one week in advance.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 1066,
+   "conteo_palabras": 183
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-01-NEG",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/plan_proyecto_nuevo.md",
+  "escenario": "doc-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Project plan (what we are going to do)\n\n## 1. Purpose\n\nThis plan describes how the team is going to build and deliver the second release of the municipal library loan system. It lists the tasks, the dates, and the people involved, so that the client and the team share the same idea of what will be delivered and when.\n\n## 2. Scope\n\nThe project includes the catalog module, the loans and returns module, and the calculation of late-return fines. The mobile application and the integration with the municipal payroll system are not included at this stage.\n\n## 3. Schedule\n\n| Milestone | Estimated date |\n|---|---|\n| Catalog in the test environment | end of February |\n| Loans and returns | March |\n| Final delivery to the client | April, more or less |\n\n## 4. Risks\n\nIf the client takes longer to review the deliverables, the schedule dates will move. We need to see how we handle it.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 932,
+   "conteo_palabras": 172
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-02-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/diseno/BVSE-DIS-003.md",
+  "escenario": "doc-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# Design Specification — Fines Module\n**Code:** BVSE-DIS-003\n**Version:** V2.0.1\n**Effective Date:** 2026-03-05\n\n## Overview\n\nThe fines module calculates the amount a user must pay when a book is returned after the agreed date. The calculation is done only once, when the return is registered, and the result is stored so that it does not change if the rate is modified later.\n\n## Components\n\n- `FineCalculator`: receives the loan and the actual return date, and returns the amount.\n- `CurrentRate`: looks up the daily rate that was active on the day the loan expired.\n- `FineRecord`: stores the amount, the date, and the user in the fines table.\n\n## Design decisions\n\nIt was decided not to calculate fines in real time because the client asked for the amount to be fixed from the moment of return. It was also decided that holidays do count as days late, in accordance with the library regulations.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 975,
+   "conteo_palabras": 164
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-DOCUMENTAL-02-NEG",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/diseno/diseno_multas_borrador.md",
+  "escenario": "doc-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Los campos Código, Versión y Fecha de Vigencia existen (activan el regex) pero sus valores están vacíos o pendientes; el documento no tiene identificación formal.",
+  "contenido_texto": "# Design Specification — Fines Module\n**Code:** (will be assigned when registered in document control)\n**Version:** draft, no number\n**Effective Date:** to be defined\n\n## Overview\n\nThe fines module calculates the amount a user must pay when a book is returned after the agreed date. The calculation is done only once, when the return is registered, and the result is stored so that it does not change if the rate is modified later.\n\n## Components\n\n- `FineCalculator`: receives the loan and the actual return date, and returns the amount.\n- `CurrentRate`: looks up the daily rate that was active on the day the loan expired.\n- `FineRecord`: stores the amount, the date, and the user in the fines table.\n\n## Design decisions\n\nIt was decided not to calculate fines in real time because the client asked for the amount to be fixed from the moment of return.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 914,
+   "conteo_palabras": 154
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-DOCUMENTAL-03-NEG",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/manual_usuario.md",
+  "escenario": "doc-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Las palabras Versión, Fecha de Vigencia y el patrón BVSE-ARQ-001 aparecen, pero se refieren a OTRO documento citado; el manual mismo no tiene código, versión ni fecha.",
+  "contenido_texto": "# Loan system user guide\n\nThis guide explains to librarians how to register a loan, how to receive a return, and how to look up a user's fines. To understand the system architecture, see document BVSE-ARQ-001, Version V1.0.0, whose Effective Date is 2026-03-16.\n\n## Register a loan\n\n1. Sign in to the system with your librarian account.\n2. Search for the book by title or by ISBN.\n3. Type the user's card number and press \"Lend\".\n\n## Receive a return\n\n1. Search for the loan by the user's card number.\n2. Press \"Return\". If the book arrives late, the system will show you the corresponding fine.\n\n## Look up fines\n\nIn the \"Users\" menu, select the person and open the \"Fines\" tab. Paid fines and those still pending are listed there.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 849,
+   "conteo_palabras": 137
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-DOCUMENTAL-03-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/reportes/RP-2026-07.md",
+  "escenario": "doc-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Tiene identificador (RP-2026-07), número de revisión y fecha en vigor, pero con los términos Clave/Revisión/En vigor desde en lugar de Código/Versión/Fecha de Vigencia/BVSE-*.",
+  "contenido_texto": "# Iteration 3 results report\n\n| Document key | RP-2026-07 |\n|---|---|\n| Revision | 3 |\n| In force since | March 15, 2026 |\n| Prepared by | Luis Martínez |\n\n## Summary\n\nDuring the third iteration the returns module and the fines lookup screen were completed. Exporting reports to a spreadsheet remained pending and moves to the next iteration at the client's request.\n\n## Progress by module\n\n- Catalog: finished and in use by the library staff.\n- Loans and returns: finished; two defects reported by the client were fixed.\n- Fines: the lookup works; the monthly report is missing.\n\n## Remarks\n\nThe client asked for late notices to also be sent by text message. It was registered as a new request and will be evaluated at the next planning meeting.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 849,
+   "conteo_palabras": 147
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-04-POS",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/BVSE-SC-004_V1.0.0.md",
+  "escenario": "doc-04",
+  "origen": "extension_v2",
+  "contenido_texto": "# Change Request Log\n**Code:** BVSE-SC-004\n**Version:** V1.0.0\n**Effective Date:** 2026-03-18\n\n## Use of this log\n\nEvery time the client or the team asks to change something that had already been agreed, the change is recorded in this table. This makes it possible to know who asked for it, why, and what was decided.\n\n| Request | Description | Requester | Decision |\n|---|---|---|---|\n| SC-01 | Send late notices by text message | Library director | To be evaluated in iteration 4 |\n| SC-02 | Show the book cover in the catalog | Loan desk staff | Accepted |\n| SC-03 | Allow renewing a loan from home | Users | Accepted with changes |\n\n## Notes\n\nAccepted requests are added to the plan of the next iteration. Requests that are not accepted remain in the table with the reason, so they are not discussed again without information.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 888,
+   "conteo_palabras": 162
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-DOCUMENTAL-04-NEG",
+  "meta_regla": "DOCUMENTATION",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/como_instalar.txt",
+  "escenario": "doc-04",
+  "origen": "extension_v2",
+  "contenido_texto": "How to install the system on a new computer\n\nFirst you need to have Python installed. Then you download the project from the repository and create a virtual environment so the libraries do not get mixed with those of other projects.\n\nNext you install the dependencies with the requirements file. If there is an error with the PostgreSQL library, it is almost always because the database client is missing on the computer.\n\nFinally you run the migrations and create an administrator user. After that you can open the system in the browser and start entering books.\n\nIf something does not work, ask Ana or Luis, they installed it last time.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 682,
+   "conteo_palabras": 118
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-01-POS",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/services.py",
+  "escenario": "cal-01",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Domain services for registering loans.\"\"\"\nfrom datetime import timedelta\n\nfrom django.db import transaction\nfrom django.utils import timezone\n\nfrom catalog.models import Book\nfrom loans.models import Loan\n\nSTANDARD_LOAN_DAYS = 14\nMAX_ACTIVE_LOANS = 3\n\n\ndef count_active_loans(user):\n    \"\"\"Returns the number of loans the user has not returned yet.\"\"\"\n    return Loan.objects.filter(user=user, returned=False).count()\n\n\n@transaction.atomic\ndef register_loan(user, isbn):\n    \"\"\"Registers a loan if the book is available and the user is within the limit.\"\"\"\n    if count_active_loans(user) >= MAX_ACTIVE_LOANS:\n        raise ValueError(\"The user reached the maximum number of active loans.\")\n\n    book = Book.objects.select_for_update().get(isbn=isbn)\n    if not book.available:\n        raise ValueError(\"The book is not available.\")\n\n    due_date = timezone.now().date() + timedelta(days=STANDARD_LOAN_DAYS)\n    book.available = False\n    book.save(update_fields=[\"available\"])\n    return Loan.objects.create(user=user, book=book, expected_return_date=due_date)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 34,
+   "longitud_caracteres": 1201,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-01-NEG",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/servicios2.py",
+  "escenario": "cal-01",
+  "origen": "extension_v2",
+  "contenido_texto": "import os, sys, json, re\nfrom datetime import *\nfrom django.db import transaction\nfrom django.utils import timezone\nfrom catalog.models import Book\nfrom loans.models import Loan\ndef RegisterLoan(u,i):\n  c=Loan.objects.filter(user=u,returned=False).count()\n  if c>=3:\n      raise ValueError(\"limit\")\n  l=Book.objects.get(isbn=i)\n  if l.available==False: raise ValueError(\"no\")\n  f=timezone.now().date()+timedelta(days=14)\n  l.available=False;l.save()\n  tmp = Loan.objects.create(user=u,book=l,expected_return_date=f)\n  if tmp.id>9999:\n        print(\"many\")\n  return tmp\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 610,
+   "complejidad_ciclomatica_VG": 4.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-02-POS",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/forms.py",
+  "escenario": "cal-02",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Forms of the catalog module.\"\"\"\nfrom django import forms\n\nfrom catalog.models import Book\n\nISBN_LENGTH = 13\n\n\nclass BookForm(forms.ModelForm):\n    \"\"\"Form to register or edit a catalog book.\"\"\"\n\n    class Meta:\n        model = Book\n        fields = [\"title\", \"author\", \"isbn\", \"category\"]\n\n    def clean_isbn(self):\n        \"\"\"Validates that the ISBN has exactly thirteen digits.\"\"\"\n        isbn = self.cleaned_data[\"isbn\"].replace(\"-\", \"\")\n        if len(isbn) != ISBN_LENGTH or not isbn.isdigit():\n            raise forms.ValidationError(\"The ISBN must have 13 digits.\")\n        return isbn\n\n\nclass BookSearchForm(forms.Form):\n    \"\"\"Search form by title, author, or ISBN.\"\"\"\n\n    term = forms.CharField(max_length=120, required=True)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 789,
+   "complejidad_ciclomatica_VG": 2.6666666666666665
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-02-NEG",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "catalogo/forms_v2.py",
+  "escenario": "cal-02",
+  "origen": "extension_v2",
+  "contenido_texto": "from django.forms import *\nimport datetime, re, logging\nfrom catalog.models import *\n\nclass bookform(ModelForm):\n  class Meta:\n    model=Book\n    fields='__all__'\n  def clean_isbn(self):\n    x=self.cleaned_data['isbn'].replace('-','')\n    if len(x)!=13 or not x.isdigit(): raise ValidationError('bad isbn')\n    return x\n\nclass search(Form):\n      t=CharField(max_length=120)\n      aux=CharField(required=False)\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 414,
+   "complejidad_ciclomatica_VG": 2.6666666666666665
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-CALIDAD-03-NEG",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "reportes/exportar.py",
+  "escenario": "cal-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Afirma haber pasado flake8 y la Lista de Cotejo (activa el regex), pero el código tiene imports sin usar, nombres no descriptivos, números mágicos y varias sentencias por línea.",
+  "contenido_texto": "# Checked with flake8 and with the BVSE-QA-MR Checklist before uploading.\nimport csv, io, os, sys, time\nfrom django.http import HttpResponse\nfrom loans.models import Loan\n\ndef exp(r,m,a):\n    q=Loan.objects.filter(start_date__month=m,start_date__year=a)\n    b=io.StringIO();w=csv.writer(b)\n    for p in q:\n        if p.loan_days>21: w.writerow([p.id,p.book.title,p.loan_days*2.5])\n        else: w.writerow([p.id,p.book.title,0])\n    resp=HttpResponse(b.getvalue(),content_type='text/csv')\n    resp['Content-Disposition']='attachment; filename=\"r.csv\"'\n    return resp\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 598,
+   "complejidad_ciclomatica_VG": 3.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-CALIDAD-03-POS",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "reportes/exportacion_csv.py",
+  "escenario": "cal-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Código limpio (constantes con nombre, docstrings, imports usados y ordenados) sin mencionar linter, flake8, lista de cotejo ni pruebas unitarias.",
+  "contenido_texto": "\"\"\"Export of the monthly loans report in CSV format.\"\"\"\nimport csv\nimport io\n\nfrom django.http import HttpResponse\n\nfrom loans.models import Loan\n\nFREE_DAYS = 21\nCHARGE_PER_EXTRA_DAY = 2.5\n\n\ndef calculate_charge(loan):\n    \"\"\"Calculates the charge for the days that exceed the free period.\"\"\"\n    extra_days = max(0, loan.loan_days - FREE_DAYS)\n    return extra_days * CHARGE_PER_EXTRA_DAY\n\n\ndef export_monthly_report(request, month, year):\n    \"\"\"Generates a CSV file with the loans of the given month.\"\"\"\n    loans = Loan.objects.filter(\n        start_date__month=month, start_date__year=year\n    ).select_related(\"book\")\n\n    buffer = io.StringIO()\n    writer = csv.writer(buffer)\n    writer.writerow([\"id\", \"title\", \"charge\"])\n    for loan in loans:\n        writer.writerow([loan.id, loan.book.title, calculate_charge(loan)])\n\n    response = HttpResponse(buffer.getvalue(), content_type=\"text/csv\")\n    response[\"Content-Disposition\"] = 'attachment; filename=\"loans.csv\"'\n    return response\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 33,
+   "longitud_caracteres": 1080,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-CALIDAD-04-POS",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "cal-04",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - quality\n  - tests\n\ncheck_style:\n  stage: quality\n  image: python:3.10\n  script:\n    - pip install flake8 black isort\n    - flake8 catalog loans reports --max-line-length 100\n    - black --check catalog loans reports\n    - isort --check-only catalog loans reports\n\nrun_unit_tests:\n  stage: tests\n  image: python:3.10\n  needs: [\"check_style\"]\n  script:\n    - pip install -r requirements.txt\n    - python manage.py test\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 464
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-CALIDAD-04-NEG",
+  "meta_regla": "QUALITY",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci-rapido.yml",
+  "escenario": "cal-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Incluye un job con flake8 (activa el regex), pero está configurado con allow_failure y '|| true', por lo que los errores de estilo nunca detienen el despliegue.",
+  "contenido_texto": "stages:\n  - quality\n  - deploy\n\ncheck_style:\n  stage: quality\n  image: python:3.10\n  allow_failure: true\n  script:\n    - pip install flake8\n    - flake8 catalog loans reports || true\n\ndeploy:\n  stage: deploy\n  script:\n    - ./scripts/deploy.sh\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 258
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-01-POS",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/politicas/BVSE-POL-002.md",
+  "escenario": "gob-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Change Management Policy — BVSE-POL-002\n**Status:** Approved\n**Authorized by:** Biblio-VSE Project Director\n**Approval date:** 2026-02-20\n\n## Objective\n\nThis policy defines how changes to the system are accepted once the client has signed off the requirements. Its purpose is that no change reaches production without having been reviewed by an accountable person.\n\n## Controls\n\n1. Every change is first recorded as a request in the BVSE-SC-004 log.\n2. The technical coordinator assesses the impact on time and cost before accepting it.\n3. The code of the change is integrated only through a merge request reviewed by another team member.\n4. No change is deployed to production without the written approval of the project director.\n\n## Exceptions\n\nUrgent security fixes may be deployed before the written approval, but they must be documented within at most two business days.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 930,
+   "conteo_palabras": 142
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-01-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/idea_proceso_cambios.md",
+  "escenario": "gob-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Idea for handling changes (proposal)\n\nLately we have been asked for many last-minute changes and sometimes we do not know who asked for them. I am writing some ideas here so we can talk about them; none of this has been decided yet.\n\n- We could write the changes down in a shared spreadsheet.\n- Maybe someone should review the code before pushing it, although sometimes there is no time.\n- Asking the director for permission for every change sounds slow; better to tell them afterwards.\n\nComments welcome. If nobody says anything, we carry on as before.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 538,
+   "conteo_palabras": 89
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-GOBERNANZA-02-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/renovaciones.py",
+  "escenario": "gob-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene las etiquetas Aprobado, Autoriza y Firma Digital (activan el regex) pero todas están vacías o pendientes; no existe aprobación.",
+  "contenido_texto": "# loans/renewals.py\n# Approved by: ____________________ (signature pending)\n# Authorized by: _______________________\n# Digital Signature: not generated\nfrom django.http import JsonResponse\nfrom django.utils import timezone\nfrom loans.models import Loan\n\n\ndef renew_loan(request, loan_id):\n    loan = Loan.objects.get(pk=loan_id)\n    loan.expected_return_date += timezone.timedelta(days=7)\n    loan.save()\n    return JsonResponse({\"renewed\": True})\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 497,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-GOBERNANZA-03-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "prestamos/ajuste_multas.py",
+  "escenario": "gob-03",
+  "origen": "extension_v2",
+  "contenido_texto": "# pushed it straight to main because the director needed it today, we will open the ticket later\nfrom django.contrib.admin.views.decorators import staff_member_required\nfrom django.http import JsonResponse\nfrom loans.models import Fine\n\n\n@staff_member_required\ndef waive_all_fines(request):\n    total = Fine.objects.filter(paid=False).update(paid=True, total_amount=0)\n    return JsonResponse({\"waived_fines\": total})\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 429,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-GOBERNANZA-03-POS",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "gob-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Evidencia controles formales (política PC-04, revisión obligatoria de dos personas, liberación manual en ambiente protegido) sin las palabras Aprobado, Autoriza, Firma Digital ni BVSE-REQ-*.",
+  "contenido_texto": "# Production deployment under change policy PC-04:\n# the job only runs on release tags, requires the merge request to be\n# reviewed by two members (CODEOWNERS rules), and stays blocked until the\n# technical coordinator releases it manually in the protected\n# \"production\" environment.\nstages:\n  - deploy\n\ndeploy_production:\n  stage: deploy\n  environment:\n    name: production\n    deployment_tier: production\n  rules:\n    - if: $CI_COMMIT_TAG =~ /^v\\d+\\.\\d+\\.\\d+$/\n      when: manual\n  script:\n    - ./scripts/deploy.sh production\n  resource_group: production\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 610
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-GOBERNANZA-04-NEG",
+  "meta_regla": "GOVERNANCE",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/flujo_aprobaciones.py",
+  "escenario": "gob-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Menciona Firma Digital y BVSE-REQ-* (activan el regex), pero el código desactiva precisamente esos controles de gobernanza.",
+  "contenido_texto": "\"\"\"Configuration of the Biblio-VSE approval workflow.\"\"\"\n\n# Digital Signature of requirements (BVSE-REQ-*): disabled to speed up\n# deployments this season.\nREQUIRE_DIGITAL_SIGNATURE = False\n\n# Coordinator review before merging: disabled.\nREQUIRE_COORDINATOR_REVIEW = False\n\n\ndef can_deploy(request):\n    \"\"\"Allows deploying any request while the controls are switched off.\"\"\"\n    if REQUIRE_DIGITAL_SIGNATURE and not request.signed:\n        return False\n    if REQUIRE_COORDINATOR_REVIEW and not request.reviewed:\n        return False\n    return True\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 607,
+   "complejidad_ciclomatica_VG": 5.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-01-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "notificaciones/cliente_correo.py",
+  "escenario": "seg-01",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Email client for loan due-date notices.\"\"\"\nimport os\nimport smtplib\nfrom email.message import EmailMessage\n\nSMTP_SERVER = os.getenv(\"SMTP_HOST\", \"smtp.biblioteca.local\")\nSMTP_PORT = int(os.getenv(\"SMTP_PORT\", \"587\"))\nSMTP_USER = os.getenv(\"SMTP_USER\")\nSMTP_PASSWORD = os.getenv(\"SMTP_PASSWORD\")\n\n\ndef send_notice(recipient, book_title, due_date):\n    \"\"\"Sends a due-date notice to the user of the loan.\"\"\"\n    message = EmailMessage()\n    message[\"Subject\"] = \"Your loan is about to expire\"\n    message[\"To\"] = recipient\n    message.set_content(f\"The book '{book_title}' must be returned on {due_date}.\")\n    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:\n        server.starttls()\n        server.login(SMTP_USER, SMTP_PASSWORD)\n        server.send_message(message)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 837,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-01-NEG",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "notificaciones/cliente_correo.py",
+  "escenario": "seg-01",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Email client for loan due-date notices.\"\"\"\nimport smtplib\nfrom email.message import EmailMessage\n\nSMTP_SERVER = \"smtp.biblioteca.local\"\nSMTP_PORT = 587\nSMTP_USER = \"notices@biblioteca.local\"\nSMTP_PASSWORD = \"Avisos#Biblio2026\"\n\n\ndef send_notice(recipient, book_title, due_date):\n    \"\"\"Sends a due-date notice to the user of the loan.\"\"\"\n    message = EmailMessage()\n    message[\"Subject\"] = \"Your loan is about to expire\"\n    message[\"To\"] = recipient\n    message.set_content(f\"The book '{book_title}' must be returned on {due_date}.\")\n    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:\n        server.starttls()\n        server.login(SMTP_USER, SMTP_PASSWORD)\n        server.send_message(message)\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 768,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-SEGURIDAD-02-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "seg-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Todas las credenciales provienen de variables protegidas y enmascaradas de GitLab CI; no hay os.environ/getenv en el archivo, por lo que el regex predice violación.",
+  "contenido_texto": "stages:\n  - build\n  - deploy\n\nbuild_image:\n  stage: build\n  image: docker:24\n  services:\n    - docker:24-dind\n  script:\n    - echo \"$CI_REGISTRY_PASSWORD\" | docker login -u \"$CI_REGISTRY_USER\" --password-stdin \"$CI_REGISTRY\"\n    - docker build -t \"$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA\" .\n    - docker push \"$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA\"\n\ndeploy:\n  stage: deploy\n  script:\n    - ssh -i \"$DEPLOY_SSH_KEY_FILE\" deploy@app01 \"./update.sh $CI_COMMIT_SHORT_SHA\"\n  # DEPLOY_SSH_KEY_FILE and CI_REGISTRY_PASSWORD are protected, masked\n  # variables defined in the GitLab project settings.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 627
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-02-NEG",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "seg-02",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - build\n  - deploy\n\nbuild_image:\n  stage: build\n  image: docker:24\n  services:\n    - docker:24-dind\n  script:\n    - docker login -u biblio_admin -p \"Registro.Biblio.2026\" registry.biblioteca.local\n    - docker build -t registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA .\n    - docker push registry.biblioteca.local/biblio:$CI_COMMIT_SHORT_SHA\n\ndeploy:\n  stage: deploy\n  script:\n    - sshpass -p \"deploy2026\" ssh deploy@app01 \"./update.sh $CI_COMMIT_SHORT_SHA\"\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 486
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-SEGURIDAD-03-NEG",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "reportes/almacenamiento.py",
+  "escenario": "seg-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Usa os.environ.get (activa el regex), pero los valores por defecto contienen una clave de acceso y una clave secreta reales en texto plano.",
+  "contenido_texto": "\"\"\"Upload of monthly reports to object storage.\"\"\"\nimport os\n\nimport boto3\n\nACCESS_KEY = os.environ.get(\"AWS_ACCESS_KEY_ID\", \"AKIAQ3EXAMPLE7BIBLIO2\")\nSECRET_KEY = os.environ.get(\n    \"AWS_SECRET_ACCESS_KEY\", \"q9Xr2vL8mZt4Kp1Nw6Ys3Bc7Hd0Jf5Ge8Ua2Io4E\"\n)\nBUCKET = os.environ.get(\"REPORTS_BUCKET\", \"biblio-reportes\")\n\n\ndef upload_report(local_path, name):\n    \"\"\"Uploads a generated report to the reports bucket.\"\"\"\n    client = boto3.client(\n        \"s3\", aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY\n    )\n    client.upload_file(local_path, BUCKET, f\"monthly/{name}\")\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 617,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-SEGURIDAD-03-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/base_datos.py",
+  "escenario": "seg-03",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Reading database credentials from mounted secret files.\"\"\"\nimport os\nfrom pathlib import Path\n\nfrom django.core.exceptions import ImproperlyConfigured\n\n\ndef read_secret(variable):\n    \"\"\"Reads the secret from the file pointed to by the environment variable.\"\"\"\n    path = os.environ.get(variable)\n    if not path:\n        raise ImproperlyConfigured(f\"Missing variable {variable}.\")\n    return Path(path).read_text(encoding=\"utf-8\").strip()\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": os.environ.get(\"DB_NAME\", \"biblio\"),\n        \"USER\": read_secret(\"DB_USER_FILE\"),\n        \"PASSWORD\": read_secret(\"DB_PASSWORD_FILE\"),\n        \"HOST\": os.environ.get(\"DB_HOST\", \"db\"),\n        \"PORT\": os.environ.get(\"DB_PORT\", \"5432\"),\n    }\n}\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 25,
+   "longitud_caracteres": 810,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-SEGURIDAD-04-POS",
+  "meta_regla": "SECURITY",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/despliegue_servidor.md",
+  "escenario": "seg-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Documento operativo sin ningún secreto en texto plano y que prescribe el uso de una bóveda; no contiene os.environ/getenv.",
+  "contenido_texto": "# Deployment guide for the library server\n\n## Before you start\n\nTo deploy you need access to the application server and read permission on the project's secrets vault. Ask the infrastructure owner for both; they are not shared by email or chat.\n\n## Steps\n\n1. Log in to the server with your own personal key, not with shared accounts.\n2. Download the new release from the repository using the tag given in the change request.\n3. The database and email passwords are injected from the vault when the service starts. Do not copy them into configuration files or into this guide.\n4. Restart the service and check that the home page responds.\n\n## If something fails\n\nCheck the service log. If the error mentions credentials, tell the infrastructure owner so they can rotate them from the vault.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 875,
+   "conteo_palabras": 149
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-01-POS",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/matriz_trazabilidad.md",
+  "escenario": "traz-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Traceability matrix — iteration 3\n\nThe following table links each requirement with the code that implements it and the test that verifies it. It is updated at the end of each iteration.\n\n| Requirement | Description | Implementation | Test |\n|---|---|---|---|\n| RF_05 | Register loan | loans/services.py | loans/tests.py::test_register_loan |\n| RF_07 | Register return | returns/views.py | returns/tests.py::test_on_time_return |\n| RF_08 | Calculate late fine | fines/calculation.py | fines/tests.py::test_three_day_fine |\n| US_04 | Look up pending fines | fines/views.py | fines/tests.py::test_pending_list |\n\nRequirements RF_06 and US_05 were left out of this iteration by agreement with the client.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 12,
+   "longitud_caracteres": 775,
+   "conteo_palabras": 101
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-01-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "devoluciones/views.py",
+  "escenario": "traz-01",
+  "origen": "extension_v2",
+  "contenido_texto": "from django.http import JsonResponse\nfrom django.shortcuts import get_object_or_404\nfrom django.utils import timezone\n\nfrom loans.models import Loan\n\n\ndef register_return(request, loan_id):\n    \"\"\"Marks the loan as returned and releases the book.\"\"\"\n    loan = get_object_or_404(Loan, pk=loan_id)\n    loan.returned = True\n    loan.actual_return_date = timezone.now().date()\n    loan.save(update_fields=[\"returned\", \"actual_return_date\"])\n\n    book = loan.book\n    book.available = True\n    book.save(update_fields=[\"available\"])\n\n    days_late = (loan.actual_return_date - loan.expected_return_date).days\n    return JsonResponse({\"returned\": True, \"days_late\": max(0, days_late)})\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 20,
+   "longitud_caracteres": 764,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-TRAZABILIDAD-02-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "reservas/views.py",
+  "escenario": "traz-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Tiene las etiquetas 'ID Requerimiento' y 'Caso de Prueba Asociado' (activan el regex), pero ambos valores están pendientes: no referencia ningún requerimiento real.",
+  "contenido_texto": "from django.http import JsonResponse\nfrom reservations.models import Reservation\n\n\ndef cancel_reservation(request, reservation_id):\n    \"\"\"\n    Requirement ID: pending assignment\n    Associated Test Case: to be defined once the requirement exists\n    \"\"\"\n    reservation = Reservation.objects.get(pk=reservation_id)\n    reservation.active = False\n    reservation.save(update_fields=[\"active\"])\n    return JsonResponse({\"cancelled\": True})\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 413,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-TRAZABILIDAD-02-POS",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "source_code",
+  "archivo": "reservas/servicios.py",
+  "escenario": "traz-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Trazabilidad explícita con el esquema REQ-FUN-014 / HISTORIA-031, que el regex (RF_/US_/ID Requerimiento) no reconoce.",
+  "contenido_texto": "from django.utils import timezone\nfrom reservations.models import Reservation\n\nRESERVATION_VALIDITY_DAYS = 3\n\n\ndef expire_overdue_reservations():\n    \"\"\"\n    Implements REQ-FUN-014 (automatic expiration of unclaimed reservations).\n    Derived from story HISTORIA-031 on the client's board.\n    \"\"\"\n    limit = timezone.now() - timezone.timedelta(days=RESERVATION_VALIDITY_DAYS)\n    return Reservation.objects.filter(active=True, created__lt=limit).update(active=False)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 454,
+   "complejidad_ciclomatica_VG": 1.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-TRAZABILIDAD-03-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/notas_version_2.1.md",
+  "escenario": "traz-03",
+  "origen": "extension_v2",
+  "contenido_texto": "# Release notes 2.1\n\n## New\n\n- Loans can now be renewed from the user page.\n- The fines screen shows the pending total at the top.\n- Search by author name was added to the catalog.\n\n## Fixes\n\n- The loan is no longer duplicated when the \"Lend\" button is pressed twice.\n- The monthly report respects holidays.\n\n## Internal changes\n\n- Django was updated and slow queries in the loans list were cleaned up.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 493,
+   "conteo_palabras": 87
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-TRAZABILIDAD-04-NEG",
+  "meta_regla": "TRACEABILITY",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/plantillas/plantilla_trazabilidad.md",
+  "escenario": "traz-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene RF_00 y US_00 (activan el regex), pero son marcadores de ejemplo de una plantilla vacía; no hay trazabilidad a requerimientos reales.",
+  "contenido_texto": "# Traceability template (do not fill in here)\n\nCopy this template into the iteration folder and replace the examples with the project's real identifiers.\n\n| Requirement | Implementation | Test |\n|---|---|---|\n| RF_00 (example, replace) | path/to/module.py | path/to/test.py |\n| US_00 (example, replace) | path/to/module.py | path/to/test.py |\n\nInstructions: each row must point to a signed-off requirement. The example rows must be deleted before submitting the document.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 511,
+   "conteo_palabras": 73
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-01-POS",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "devoluciones/tests.py",
+  "escenario": "pru-01",
+  "origen": "extension_v2",
+  "contenido_texto": "from datetime import date, timedelta\n\nfrom django.contrib.auth.models import User\nfrom django.test import TestCase\n\nfrom catalog.models import Book\nfrom loans.models import Loan\n\n\nclass ReturnTests(TestCase):\n    def test_late_return(self):\n        \"\"\"\n        Test Case: TC-DEV-002\n        Requirement: RF_07 (register return)\n        Steps:\n        1. Create a loan that expired three days ago.\n        2. Send POST to /returns/<id>/.\n        Expected Result: HTTP 200, loan returned and days_late = 3.\n        \"\"\"\n        user = User.objects.create(username=\"reader\")\n        book = Book.objects.create(title=\"Pedro Páramo\", isbn=\"9786071600000\")\n        loan = Loan.objects.create(\n            user=user, book=book,\n            expected_return_date=date.today() - timedelta(days=3),\n        )\n        response = self.client.post(f\"/returns/{loan.id}/\")\n        self.assertEqual(response.status_code, 200)\n        self.assertEqual(response.json()[\"days_late\"], 3)\n        loan.refresh_from_db()\n        self.assertTrue(loan.returned)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 30,
+   "longitud_caracteres": 1137,
+   "complejidad_ciclomatica_VG": 1.5
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-01-NEG",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "devoluciones/tests.py",
+  "escenario": "pru-01",
+  "origen": "extension_v2",
+  "contenido_texto": "from unittest import skip\n\nfrom django.test import TestCase\n\n\nclass ReturnTests(TestCase):\n    @skip(\"fix later\")\n    def test_return(self):\n        pass\n\n    @skip(\"fails on Luis's computer\")\n    def test_late_return(self):\n        pass\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 265,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-02-POS",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/pruebas/protocolo_multas.md",
+  "escenario": "pru-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# Test protocol — fines module\n\n| Test Case: | TC-MUL-001 |\n|---|---|\n| Requirement | RF_08 — Calculate late fine |\n| Environment: | Integration server, test database |\n\n**Steps:**\n1. Register a loan with due date 2026-03-01.\n2. Register the return on 2026-03-04.\n3. Look up the fine generated for the loan.\n\n**Expected Result:** the fine is 3 days times the current daily rate and remains in pending status.\n\n| Test Case: | TC-MUL-002 |\n|---|---|\n| Requirement | RF_08 — Calculate late fine |\n| Environment: | Integration server, test database |\n\n**Steps:**\n1. Register a loan with due date 2026-03-01.\n2. Register the return on 2026-02-28.\n\n**Expected Result:** no fine is generated for the loan.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 808,
+   "conteo_palabras": 134
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-02-NEG",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/pruebas/como_nos_fue.txt",
+  "escenario": "pru-02",
+  "origen": "extension_v2",
+  "contenido_texto": "Summary of this week's testing\n\nI tried logging in with my user and it works fine. I also did a loan and a return and there were no errors.\n\nI did not get to try the fines because the test database was down on Thursday. Luis says it calculated correctly for him, so I guess it is fine.\n\nNext week I will try to check the reports.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 373,
+   "conteo_palabras": 70
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-PRUEBAS-03-POS",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "multas/test_calculo.py",
+  "escenario": "pru-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Casos con identificador (TP-MUL-004/005), pasos Dado/cuando/entonces, resultado verificado con asserts reales y vínculo a HU-12, sin las palabras Caso de Prueba:, Pasos:, Entorno: ni Resultado Esperado.",
+  "contenido_texto": "import pytest\n\nfrom fines.calculation import calculate_fine\n\nDAILY_RATE = 5.0\n\n\n@pytest.mark.parametrize(\n    \"days_overdue, correct_amount\",\n    [(0, 0.0), (1, 5.0), (3, 15.0)],\n)\ndef test_tp_mul_004_amount_per_day_overdue(days_overdue, correct_amount):\n    \"\"\"\n    Scenario TP-MUL-004 — covers story HU-12 (fines for late returns).\n    Given a loan returned `days_overdue` days after its due date\n    and a daily rate of 5.0,\n    when the fine is calculated,\n    then the amount must equal `correct_amount`.\n    \"\"\"\n    assert calculate_fine(days_overdue, DAILY_RATE) == correct_amount\n\n\ndef test_tp_mul_005_negative_delay_generates_no_fine():\n    \"\"\"\n    Scenario TP-MUL-005 — covers HU-12.\n    Given a book returned before its due date, when the fine is calculated,\n    then the amount must be zero.\n    \"\"\"\n    assert calculate_fine(-2, DAILY_RATE) == 0.0\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 29,
+   "longitud_caracteres": 893,
+   "complejidad_ciclomatica_VG": 2.0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-PRUEBAS-03-NEG",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/pruebas/plantilla_caso.md",
+  "escenario": "pru-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene todas las etiquetas del regex (Caso de Prueba:, Entorno:, Pasos:, Resultado Esperado) pero es una plantilla vacía sin ningún caso de prueba real.",
+  "contenido_texto": "# Test case (template)\n\nTest Case: TC-___\nRequirement: ______\nEnvironment: ______\n\nSteps:\n1.\n2.\n3.\n\nExpected Result:\n\nActual result:\n\nRemarks: fill in this template for each case before the iteration review.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 16,
+   "longitud_caracteres": 240,
+   "conteo_palabras": 35
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-PRUEBAS-04-POS",
+  "meta_regla": "TESTING",
+  "tipo_artefacto": "source_code",
+  "archivo": "reservas/tests.py",
+  "escenario": "pru-04",
+  "origen": "extension_v2",
+  "contenido_texto": "from django.contrib.auth.models import User\nfrom django.test import TestCase\n\nfrom catalog.models import Book\nfrom reservations.models import Reservation\n\n\nclass ReservationTests(TestCase):\n    def setUp(self):\n        self.user = User.objects.create(username=\"reader2\")\n        self.book = Book.objects.create(title=\"Rayuela\", isbn=\"9788437604572\")\n\n    def test_reserve_book_on_loan(self):\n        \"\"\"\n        Test Case: TC-RES-001\n        Requirement: BVSE-REQ-002 (advance reservations)\n        Steps:\n        1. Mark the book as not available.\n        2. Send POST to /reservations/ with the book ISBN.\n        Expected Result: HTTP 201 and an active reservation for the user.\n        \"\"\"\n        self.book.available = False\n        self.book.save()\n        self.client.force_login(self.user)\n        response = self.client.post(\"/reservations/\", {\"isbn\": self.book.isbn})\n        self.assertEqual(response.status_code, 201)\n        self.assertTrue(\n            Reservation.objects.filter(user=self.user, book=self.book, active=True).exists()\n        )\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 29,
+   "longitud_caracteres": 1077,
+   "complejidad_ciclomatica_VG": 1.3333333333333333
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-01-POS",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-01",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - backup\n  - verify\n\nnightly_full_backup:\n  stage: backup\n  image: postgres:15\n  rules:\n    - if: $CI_PIPELINE_SOURCE == \"schedule\"\n  script:\n    - export FILE=\"biblio_full_$(date +%Y%m%d).dump\"\n    - pg_dump -Fc -h \"$DB_HOST\" -U \"$DB_USER\" biblio > \"$FILE\"\n    - aws s3 cp \"$FILE\" s3://biblio-backups/daily/\n    - aws s3 ls s3://biblio-backups/daily/ | tail -7\n\nverify_restore:\n  stage: verify\n  image: postgres:15\n  rules:\n    - if: $CI_PIPELINE_SOURCE == \"schedule\"\n  script:\n    - aws s3 cp \"s3://biblio-backups/daily/biblio_full_$(date +%Y%m%d).dump\" check.dump\n    - createdb -h \"$DB_HOST_TEST\" -U \"$DB_USER\" biblio_verification\n    - pg_restore -h \"$DB_HOST_TEST\" -U \"$DB_USER\" -d biblio_verification check.dump\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 24,
+   "longitud_caracteres": 785
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-01-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-01",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - migrate\n  - deploy\n\napply_migrations:\n  stage: migrate\n  image: python:3.10\n  script:\n    - pip install -r requirements.txt\n    - python manage.py migrate --noinput\n\ndeploy:\n  stage: deploy\n  needs: [\"apply_migrations\"]\n  script:\n    - ./scripts/deploy.sh production\n  only:\n    - main\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 18,
+   "longitud_caracteres": 305
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-02-POS",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/procedimiento_respaldo.md",
+  "escenario": "res-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# Database backup and recovery procedure\n\n## Type and schedule\n\n- Full backup: every Sunday at 02:00 with pg_dump in custom format.\n- Incremental backup: every day at 02:00 through continuous archiving of the WAL records.\n\n## Location\n\nThe files are stored in the biblio-backups bucket, in a different region from the production server. Four full backups and the incremental files of the last 28 days are retained.\n\n## Recovery\n\n1. Stop the application service.\n2. Download the latest full backup and the subsequent WAL files.\n3. Run pg_restore on an empty database and apply the WAL files up to the desired time.\n4. Check the number of loans from the previous day and restart the service.\n\n## Recovery test\n\nOn the first Monday of each month the infrastructure owner restores the backup on the test server and records the result in the operations log.\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 21,
+   "longitud_caracteres": 977,
+   "conteo_palabras": 159
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-RESPALDO-02-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/actualizar_version.md",
+  "escenario": "res-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# How to upgrade the system to a new release\n\n1. Tell the library staff that the system will be stopped for a few minutes.\n2. Log in to the server and download the new release from the repository.\n3. Install the new dependencies, if any.\n4. Apply the database migrations directly on production.\n5. Restart the service and check that the loans page loads.\n\nIf something goes wrong after migrating, you can try to go back to the previous release of the code. Data that has already been modified will have to be fixed by hand.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 565,
+   "conteo_palabras": 95
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-RESPALDO-03-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "res-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Tiene un stage y un job llamados backup (activan el regex), pero el job solo imprime un TODO y termina; no se genera ningún respaldo.",
+  "contenido_texto": "stages:\n  - backup\n  - deploy\n\nbackup:\n  stage: backup\n  script:\n    - echo \"TODO: implement the backup before going to production\"\n    - exit 0\n\ndeploy:\n  stage: deploy\n  script:\n    - ./scripts/deploy.sh production\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 222
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-RESPALDO-03-POS",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".github/workflows/archivo_nocturno.yml",
+  "escenario": "res-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Copia programada, deduplicada y verificada con BorgBackup (borg create/prune/check/extract) y política de retención, sin las palabras backup, dump, pg_dump, restore ni respaldo.",
+  "contenido_texto": "name: Nightly data archive\n\non:\n  schedule:\n    - cron: '30 1 * * *'\n\njobs:\n  archive:\n    runs-on: self-hosted\n    steps:\n      - name: Create deduplicated archive of the PostgreSQL volume\n        run: |\n          borg create --stats --compression zstd \\\n            /mnt/archive/biblio::biblio-{now:%Y-%m-%d} /var/lib/postgresql/15/main\n\n      - name: Retention (7 daily, 4 weekly, 6 monthly)\n        run: borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6 /mnt/archive/biblio\n\n      - name: Check integrity and that the archive can be extracted\n        run: |\n          borg check /mnt/archive/biblio\n          borg extract --dry-run /mnt/archive/biblio::biblio-$(date +%Y-%m-%d)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 22,
+   "longitud_caracteres": 704
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-RESPALDO-04-NEG",
+  "meta_regla": "BACKUP",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/plan_respaldo.md",
+  "escenario": "res-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Menciona pg_dump, respaldo y restore (activan el regex), pero declara que no existe respaldo vigente, periodicidad, ubicación ni procedimiento probado.",
+  "contenido_texto": "# Backup plan (current situation)\n\nUntil February there was a pg_dump script that ran from Pedro's computer. That script was deleted when the server was changed and it was never set up again.\n\nFor now no backup schedule is defined, there is no location assigned to store the files, and nobody has tested a restore of the current database.\n\nPending: decide who takes care of this at the next meeting.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 7,
+   "longitud_caracteres": 446,
+   "conteo_palabras": 76
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-01-POS",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/actas/BVSE-ACTA-005.md",
+  "escenario": "acu-01",
+  "origen": "extension_v2",
+  "contenido_texto": "# Iteration 3 Review Minutes — BVSE-ACTA-005\n**Date:** 2026-03-21\n**Status:** Approved\n\n## Participants\n\n| Name | Role | Organization |\n|---|---|---|\n| Rosa Delgado | Library director | Client |\n| Ana García | Lead developer | Biblio-VSE team |\n| María Torres | Quality owner | Biblio-VSE team |\n\n## Agreements\n\n**Agreement 01:** The client accepts the returns module delivered in iteration 3.\n- **Responsible:** Rosa Delgado\n- **Date:** 2026-03-21\n\n**Agreement 02:** The team will fix the date format of the monthly report before 2026-03-28.\n- **Responsible:** Ana García\n\n**Agreement 03:** The quality owner will repeat the report tests and send the result to the client.\n- **Responsible:** María Torres\n\n## Signatures\n\n| Name | Signature |\n|---|---|\n| Rosa Delgado | *R. Delgado* |\n| Ana García | *A. García* |\n| María Torres | *M. Torres* |\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 31,
+   "longitud_caracteres": 906,
+   "conteo_palabras": 148
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-01-NEG",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/resumen_chat_cliente.txt",
+  "escenario": "acu-01",
+  "origen": "extension_v2",
+  "contenido_texto": "Summary of the chat with the library (copying it so it does not get lost)\n\n- The director said the returns look good, although she wants to look at them again calmly.\n- I think we said we would fix the report dates, but we did not say by when.\n- Someone from the team was going to repeat the report tests, I do not remember if Ana or María.\n- We said we would talk next week to close everything.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 6,
+   "longitud_caracteres": 400,
+   "conteo_palabras": 74
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-02-POS",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/contratos/BVSE-CONV-001.md",
+  "escenario": "acu-02",
+  "origen": "extension_v2",
+  "contenido_texto": "# Maintenance Services Agreement — BVSE-CONV-001\n**Status:** Approved\n**Term:** from 2026-04-01 to 2027-03-31\n\n## Parties\n\n- **The Library:** Municipal Library, represented by its director, Rosa Delgado.\n- **The Provider:** Biblio-VSE team, represented by its technical coordinator, Jorge Ruiz.\n\n## Obligations of the Provider\n\n1. Fix critical defects within at most 48 business hours.\n2. Deliver a maintenance release every three months.\n3. Report the incidents handled every month.\n\n## Obligations of the Library\n\n1. Report defects through the agreed channel, with a description of the problem.\n2. Grant access to the test server when the Provider requests it.\n\n## Signatures\n\nHaving read this agreement, the parties sign it in agreement on 2026-03-25.\n\n| For the Library | For the Provider |\n|---|---|\n| Rosa Delgado — *signature* | Jorge Ruiz — *signature* |\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 27,
+   "longitud_caracteres": 908,
+   "conteo_palabras": 137
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-ACUERDOS-02-NEG",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/contratos/convenio_borrador.md",
+  "escenario": "acu-02",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Contiene 'Acuerdo 1', 'Responsable:' y 'Estado:' (activan el regex), pero es un borrador sin representantes definidos, sin responsables asignados, sin aprobación y sin firmas.",
+  "contenido_texto": "# Maintenance Services Agreement — DRAFT\nStatus: draft, pending legal review\n\n## Parties\n\n- The Municipal Library (representative to be confirmed).\n- The Biblio-VSE team.\n\n## Proposed obligations\n\nAgreement 1: fix critical defects \"as soon as possible\" (deadline to be defined).\nResponsible: to be assigned\n\nAgreement 2: deliver periodic maintenance releases.\nResponsible: to be assigned\n\n## Signatures\n\nThis document has not been signed. It is not valid until both parties sign off on it.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 511,
+   "conteo_palabras": 71
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-ACUERDOS-03-POS",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/actas/minuta_direccion_2026-03-27.md",
+  "escenario": "acu-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Identifica a las partes, fija compromisos con responsables y fechas, registra la ratificación y las rúbricas, sin las etiquetas 'Acuerdo N', 'Responsable:' ni 'Estado:'.",
+  "contenido_texto": "# Record of the session with the Library Board — March 27, 2026\n\nPresent were director Rosa Delgado, representing the Municipal Library, and technical coordinator Jorge Ruiz, representing the development team.\n\nThe director commits to deliver, no later than April 3, the updated loan regulations so that the system applies the new loan periods. The technical coordinator commits that the team will implement those periods in release 2.2, whose delivery is set for April 17.\n\nBoth parties ratified the above commitments at the end of the session and the record was initialed by the two representatives:\n\nRosa Delgado (initials) — Jorge Ruiz (initials)\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 9,
+   "longitud_caracteres": 715,
+   "conteo_palabras": 118
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-04-POS",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/actas/BVSE-ACEP-003.md",
+  "escenario": "acu-04",
+  "origen": "extension_v2",
+  "contenido_texto": "# Deliverable Acceptance Letter — BVSE-ACEP-003\n**Status:** Approved\n\nThe Municipal Library, represented by its director Rosa Delgado, hereby accepts the deliverable \"Advance reservations module\" developed by the Biblio-VSE team, represented by its technical coordinator Jorge Ruiz.\n\n## Acceptance conditions\n\n- **Responsible for verification:** María Torres, quality owner, who confirmed that the module passed tests TC-RES-001 to TC-RES-004.\n- **Responsible for go-live:** Pedro Ramírez, infrastructure owner, no later than 2026-04-02.\n\n## Signatures\n\n| Rosa Delgado | Jorge Ruiz |\n|---|---|\n| *signature* | *signature* |\n\nSignature date: 2026-03-30\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 714,
+   "conteo_palabras": 105
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ACUERDOS-03-NEG",
+  "meta_regla": "AGREEMENTS",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/correo_plazos.txt",
+  "escenario": "acu-03",
+  "origen": "extension_v2",
+  "contenido_texto": "Subject: RE: RE: new loan periods\n\nHi Jorge,\n\nYes, we mentioned something in the meeting about changing the loan periods, but I still have to discuss it with the board. I cannot confirm anything for now.\n\nIf you want to get started on something, go ahead, but it is not certain it will stay that way.\n\nRegards,\nRosa\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 307,
+   "conteo_palabras": 52
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-INFRA-01-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_produccion_red.py",
+  "escenario": "inf-01",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Network settings for the Biblio-VSE production deployment.\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\n\nDEBUG = False\n\nALLOWED_HOSTS = [\n    \"prestamos.biblioteca.local\",\n    \"api.biblioteca.local\",\n]\n\nCSRF_TRUSTED_ORIGINS = [\n    \"https://prestamos.biblioteca.local\",\n    \"https://api.biblioteca.local\",\n]\n\nSECURE_PROXY_SSL_HEADER = (\"HTTP_X_FORWARDED_PROTO\", \"https\")\nUSE_X_FORWARDED_HOST = False\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 17,
+   "longitud_caracteres": 421,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-INFRA-01-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_produccion_red.py",
+  "escenario": "inf-01",
+  "origen": "extension_v2",
+  "contenido_texto": "\"\"\"Network settings for the Biblio-VSE production deployment.\"\"\"\nfrom django.core.exceptions import ImproperlyConfigured\n\nDEBUG = False\n\nALLOWED_HOSTS = [\"*\"]\n\nCSRF_TRUSTED_ORIGINS = [\n    \"http://*\",\n    \"https://*\",\n]\n\nSECURE_PROXY_SSL_HEADER = (\"HTTP_X_FORWARDED_PROTO\", \"https\")\nUSE_X_FORWARDED_HOST = True\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 14,
+   "longitud_caracteres": 315,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-INFRA-02-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "inf-02",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - deploy\n\ndeploy_intranet:\n  stage: deploy\n  environment:\n    name: production-intranet\n    url: https://prestamos.biblioteca.local\n  tags:\n    - runner-private-network\n  script:\n    - rsync -az --delete ./ deploy@app01.biblioteca.local:/srv/biblio/\n    - ssh deploy@app01.biblioteca.local \"sudo systemctl restart biblio\"\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 331
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-INFRA-02-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": ".gitlab-ci.yml",
+  "escenario": "inf-02",
+  "origen": "extension_v2",
+  "contenido_texto": "stages:\n  - deploy\n\ndeploy_cloud:\n  stage: deploy\n  environment:\n    name: production\n    url: http://203.0.113.25\n  script:\n    - rsync -az --delete ./ root@203.0.113.25:/srv/biblio/\n    - ssh root@203.0.113.25 \"ufw allow from any to any port 8000 && systemctl restart biblio\"\n    - ssh root@203.0.113.25 \"gunicorn config.wsgi --bind 0.0.0.0:8000 --daemon\"\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 12,
+   "longitud_caracteres": 360
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-INFRA-03-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "source_code",
+  "archivo": "config/settings_intranet.py",
+  "escenario": "inf-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Incluye hosts biblioteca.local (activan el regex), pero la lista también contiene el comodín '*', que acepta cualquier host.",
+  "contenido_texto": "\"\"\"Host settings for the library intranet.\"\"\"\n\nDEBUG = False\n\nALLOWED_HOSTS = [\n    \"catalogo.biblioteca.local\",\n    \"api.biblioteca.local\",\n    \"localhost\",\n    \"*\",\n]\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 10,
+   "longitud_caracteres": 181,
+   "complejidad_ciclomatica_VG": 0
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVC-INFRA-03-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "ci_pipeline",
+  "archivo": "docker-compose.produccion.yml",
+  "escenario": "inf-03",
+  "origen": "extension_v2",
+  "adversarial": "tipo_c",
+  "adversarial_nota": "Solo el proxy publica un puerto, ligado a una IP privada (10.20.0.15); la base de datos está en una red sin salida. No aparecen biblioteca.local, '.internal' ni 'entornos autorizados'.",
+  "contenido_texto": "services:\n  web:\n    image: registry.interno/biblio:2.1.0\n    command: gunicorn config.wsgi --bind 0.0.0.0:8000\n    networks:\n      - app_network\n    expose:\n      - \"8000\"\n\n  proxy:\n    image: nginx:1.27\n    ports:\n      - \"10.20.0.15:443:443\"\n    networks:\n      - app_network\n\n  db:\n    image: postgres:15\n    networks:\n      - data_network\n\nnetworks:\n  app_network:\n    ipam:\n      config:\n        - subnet: 172.28.10.0/24\n  data_network:\n    internal: true\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 28,
+   "longitud_caracteres": 465
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-ADVB-INFRA-04-NEG",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/politica_red.md",
+  "escenario": "inf-04",
+  "origen": "extension_v2",
+  "adversarial": "tipo_b",
+  "adversarial_nota": "Cita 'entornos autorizados' y biblioteca.local (activan el regex), pero la configuración vigente documentada permite acceso desde cualquier origen, incluida la base de datos.",
+  "contenido_texto": "# Network policy of the application server\n\nThe institutional policy states that the system must only operate in authorized environments of the private network (biblioteca.local domain).\n\n## Current firewall configuration\n\n| Rule | Source | Port | Action |\n|---|---|---|---|\n| 1 | 0.0.0.0/0 | 443 | Allow |\n| 2 | 0.0.0.0/0 | 22 | Allow |\n| 3 | 0.0.0.0/0 | 5432 | Allow |\n\nNote: the rules were opened to any source during the server migration and have not been restricted yet.\n",
+  "etiqueta_clase": 0,
+  "metricas_isomorfismo": {
+   "lineas_totales": 13,
+   "longitud_caracteres": 496,
+   "conteo_palabras": 88
+  },
+  "idioma": "en"
+ },
+ {
+  "id_muestra": "EXT-INFRA-04-POS",
+  "meta_regla": "INFRA",
+  "tipo_artefacto": "text_document",
+  "archivo": "docs/operacion/arquitectura_red.md",
+  "escenario": "inf-04",
+  "origen": "extension_v2",
+  "contenido_texto": "# Biblio-VSE network architecture\n\nThe system is published only inside the library network. There is no rule that exposes the services to the internet.\n\n## Allowed hosts\n\n| Service | Name | Address |\n|---|---|---|\n| Web application | prestamos.biblioteca.local | 10.20.0.15 |\n| API | api.biblioteca.local | 10.20.0.16 |\n| Database | db.biblioteca.local | 10.20.1.5 |\n\n## Firewall rules\n\n| Rule | Source | Port | Action |\n|---|---|---|---|\n| 1 | 10.20.0.0/16 | 443 | Allow |\n| 2 | 10.20.0.15, 10.20.0.16 | 5432 | Allow |\n| 3 | Any other source | All | Deny |\n",
+  "etiqueta_clase": 1,
+  "metricas_isomorfismo": {
+   "lineas_totales": 19,
+   "longitud_caracteres": 609,
+   "conteo_palabras": 107
+  },
+  "idioma": "en"
+ }
+]

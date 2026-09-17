@@ -1,0 +1,164 @@
+{
+ "dataset": "dataset_isomorfico_n96.json",
+ "synthetic": {
+  "vg": {
+   "n": 43,
+   "mean": 1.833,
+   "stdev": 1.882,
+   "median": 1.0
+  },
+  "ast_depth": {
+   "n": 43,
+   "mean": 8.488,
+   "stdev": 2.463,
+   "median": 9
+  },
+  "fog": {
+   "n": 53,
+   "mean": 16.274,
+   "stdev": 4.666,
+   "median": 16.3
+  },
+  "lex_density": {
+   "n": 53,
+   "mean": 64.804,
+   "stdev": 12.697,
+   "median": 65.69
+  },
+  "mattr50": {
+   "n": 53,
+   "mean": 73.404,
+   "stdev": 8.281,
+   "median": 74.709
+  },
+  "content_density": {
+   "n": 53,
+   "mean": 68.755,
+   "stdev": 17.425,
+   "median": 62.295
+  },
+  "word_count": {
+   "n": 53,
+   "mean": 118.717,
+   "stdev": 84.928,
+   "median": 95
+  },
+  "ttr_first150": {
+   "n": 12,
+   "mean": 55.944,
+   "stdev": 4.182,
+   "median": 56.667
+  }
+ },
+ "private_remeasured": {
+  "vg": {
+   "n": 37,
+   "mean": 1.841,
+   "stdev": 3.233,
+   "median": 1.0
+  },
+  "ast_depth": {
+   "n": 37,
+   "mean": 7.838,
+   "stdev": 4.953,
+   "median": 7
+  },
+  "fog": {
+   "n": 87,
+   "mean": 18.612,
+   "stdev": 9.168,
+   "median": 16.93
+  },
+  "lex_density": {
+   "n": 87,
+   "mean": 42.884,
+   "stdev": 21.12,
+   "median": 37.7
+  },
+  "mattr50": {
+   "n": 87,
+   "mean": 73.938,
+   "stdev": 8.171,
+   "median": 75.47
+  },
+  "content_density": {
+   "n": 87,
+   "mean": 69.73,
+   "stdev": 10.35,
+   "median": 68.036
+  },
+  "word_count": {
+   "n": 87,
+   "mean": 1623.517,
+   "stdev": 4319.195,
+   "median": 754
+  },
+  "ttr_first150": {
+   "n": 76,
+   "mean": 55.333,
+   "stdev": 9.746,
+   "median": 50.667
+  }
+ },
+ "comparison": {
+  "vg": {
+   "abs_diff": 0.008,
+   "tolerance": 0.5,
+   "within_tolerance": true,
+   "tost_p_lower": 0.2094,
+   "tost_p_upper": 0.202,
+   "tost_equivalent": false
+  },
+  "ast_depth": {
+   "abs_diff": 0.65,
+   "tolerance": 2.0,
+   "within_tolerance": true,
+   "tost_p_lower": 0.0024,
+   "tost_p_upper": 0.0692,
+   "tost_equivalent": false
+  },
+  "fog": {
+   "abs_diff": 2.338,
+   "tolerance": 1.0,
+   "within_tolerance": false,
+   "tost_p_lower": 0.8719,
+   "tost_p_upper": 0.0026,
+   "tost_equivalent": false
+  },
+  "lex_density": {
+   "abs_diff": 21.92,
+   "tolerance": 8.0,
+   "within_tolerance": false,
+   "tost_p_lower": 0.0,
+   "tost_p_upper": 1.0,
+   "tost_equivalent": false
+  },
+  "mattr50": {
+   "abs_diff": 0.534,
+   "tolerance": 8.0,
+   "within_tolerance": true,
+   "tost_p_lower": 0.0,
+   "tost_p_upper": 0.0,
+   "tost_equivalent": true
+  },
+  "content_density": {
+   "abs_diff": 0.975,
+   "tolerance": 8.0,
+   "within_tolerance": true,
+   "tost_p_lower": 0.0047,
+   "tost_p_upper": 0.0005,
+   "tost_equivalent": true
+  },
+  "ttr_first150": {
+   "abs_diff": 0.611,
+   "tolerance": 8.0,
+   "within_tolerance": true,
+   "tost_p_lower": 0.0,
+   "tost_p_upper": 0.0,
+   "tost_equivalent": true
+  },
+  "word_count": {
+   "abs_diff": 1504.8
+  }
+ }
+}

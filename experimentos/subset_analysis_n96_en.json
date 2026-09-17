@@ -1,0 +1,900 @@
+{
+ "condition": "en",
+ "cells": {
+  "regex_baseline": {
+   "-": {
+    "f1": 0.6061,
+    "acc_original32": 0.625,
+    "acc_extension64": 0.5781,
+    "recall_typeC": 0.0,
+    "specificity_typeB": 0.0,
+    "recall_nonadv_pos": 0.9375,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.7,
+     "BACKUP": 0.5455,
+     "DOCUMENTATION": 0.6364,
+     "GOVERNANCE": 0.5455,
+     "INFRA": 0.6364,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.5455
+    }
+   }
+  },
+  "Gemma-2-9B-it": {
+   "1": {
+    "f1": 0.6897,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.5781,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.4286,
+    "recall_nonadv_pos": 0.8125,
+    "specificity_nonadv_neg": 0.4074,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.6,
+     "BACKUP": 0.8182,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.6364,
+     "INFRA": 0.8182,
+     "QUALITY": 0.6,
+     "SECURITY": 0.5455,
+     "TESTING": 0.5,
+     "TRACEABILITY": 0.5455
+    }
+   },
+   "2": {
+    "f1": 0.7957,
+    "acc_original32": 0.8438,
+    "acc_extension64": 0.7812,
+    "recall_typeC": 0.75,
+    "specificity_typeB": 0.619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.9091,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.7273,
+     "QUALITY": 0.8,
+     "SECURITY": 0.5455,
+     "TESTING": 0.9,
+     "TRACEABILITY": 0.7273
+    }
+   },
+   "3": {
+    "f1": 0.6197,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.7188,
+    "recall_typeC": 0.4375,
+    "specificity_typeB": 0.9524,
+    "recall_nonadv_pos": 0.4688,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.4545,
+     "QUALITY": 0.6,
+     "SECURITY": 0.5455,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.8182
+    }
+   },
+   "4": {
+    "f1": 0.8108,
+    "acc_original32": 0.75,
+    "acc_extension64": 0.7969,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.619,
+    "recall_nonadv_pos": 0.9375,
+    "specificity_nonadv_neg": 0.6296,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.7273,
+     "GOVERNANCE": 1.0,
+     "INFRA": 0.9091,
+     "QUALITY": 0.6,
+     "SECURITY": 0.5455,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.5455
+    }
+   },
+   "5": {
+    "f1": 0.8132,
+    "acc_original32": 0.875,
+    "acc_extension64": 0.7969,
+    "recall_typeC": 0.75,
+    "specificity_typeB": 0.7619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.963,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.9091,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.6364,
+     "QUALITY": 0.7,
+     "SECURITY": 0.5455,
+     "TESTING": 0.9,
+     "TRACEABILITY": 0.9091
+    }
+   },
+   "6": {
+    "f1": 0.8155,
+    "acc_original32": 0.8125,
+    "acc_extension64": 0.7969,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.5714,
+    "recall_nonadv_pos": 0.875,
+    "specificity_nonadv_neg": 0.8519,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.9091,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 1.0,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.9,
+     "TRACEABILITY": 0.6364
+    }
+   },
+   "7": {
+    "f1": 0.7629,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.75,
+    "recall_typeC": 0.75,
+    "specificity_typeB": 0.7619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.7407,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.4545,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.5455,
+     "QUALITY": 0.6,
+     "SECURITY": 0.6364,
+     "TESTING": 0.9,
+     "TRACEABILITY": 0.9091
+    }
+   },
+   "8": {
+    "f1": 0.7925,
+    "acc_original32": 0.8125,
+    "acc_extension64": 0.75,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.5238,
+    "recall_nonadv_pos": 0.875,
+    "specificity_nonadv_neg": 0.7778,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.7273,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 1.0,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.6364
+    }
+   }
+  },
+  "Mistral-7B-Instruct-v0.2": {
+   "1": {
+    "f1": 0.7477,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.6875,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.5714,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.6296,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.7273,
+     "QUALITY": 0.7,
+     "SECURITY": 0.6364,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.5455
+    }
+   },
+   "2": {
+    "f1": 0.7619,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.7188,
+    "recall_typeC": 0.8125,
+    "specificity_typeB": 0.5238,
+    "recall_nonadv_pos": 0.8438,
+    "specificity_nonadv_neg": 0.7407,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.6364,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.6,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.7273
+    }
+   },
+   "3": {
+    "f1": 0.78,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.7656,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.8148,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.6364,
+     "QUALITY": 0.7,
+     "SECURITY": 0.6364,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.8182
+    }
+   },
+   "4": {
+    "f1": 0.7244,
+    "acc_original32": 0.625,
+    "acc_extension64": 0.6406,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.3333,
+    "recall_nonadv_pos": 0.9375,
+    "specificity_nonadv_neg": 0.2963,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.7,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.5455,
+     "QUALITY": 0.5,
+     "SECURITY": 0.6364,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.4545
+    }
+   },
+   "5": {
+    "f1": 0.7677,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.75,
+    "recall_typeC": 0.75,
+    "specificity_typeB": 0.6667,
+    "recall_nonadv_pos": 0.8125,
+    "specificity_nonadv_neg": 0.7778,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.6364,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.6364,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 1.0
+    }
+   },
+   "6": {
+    "f1": 0.7304,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.6562,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.381,
+    "recall_nonadv_pos": 0.875,
+    "specificity_nonadv_neg": 0.5556,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 0.8182,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.6,
+     "SECURITY": 0.6364,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.4545
+    }
+   },
+   "7": {
+    "f1": 0.7928,
+    "acc_original32": 0.8125,
+    "acc_extension64": 0.7344,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.5714,
+    "recall_nonadv_pos": 0.9062,
+    "specificity_nonadv_neg": 0.6296,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.4545,
+     "QUALITY": 0.8,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.9091
+    }
+   },
+   "8": {
+    "f1": 0.7339,
+    "acc_original32": 0.75,
+    "acc_extension64": 0.6719,
+    "recall_typeC": 0.8125,
+    "specificity_typeB": 0.4762,
+    "recall_nonadv_pos": 0.8438,
+    "specificity_nonadv_neg": 0.6296,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.8182,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.5455
+    }
+   }
+  },
+  "Qwen2.5-7B-Instruct": {
+   "1": {
+    "f1": 0.729,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.6875,
+    "recall_typeC": 0.875,
+    "specificity_typeB": 0.5238,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.6296,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.8,
+     "BACKUP": 0.8182,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.8,
+     "SECURITY": 0.6364,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.5455
+    }
+   },
+   "2": {
+    "f1": 0.8155,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.8438,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.5238,
+    "recall_nonadv_pos": 0.8438,
+    "specificity_nonadv_neg": 0.8889,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 1.0,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.6,
+     "SECURITY": 0.7273,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.8182
+    }
+   },
+   "3": {
+    "f1": 0.6024,
+    "acc_original32": 0.6875,
+    "acc_extension64": 0.6406,
+    "recall_typeC": 0.5625,
+    "specificity_typeB": 0.6667,
+    "recall_nonadv_pos": 0.5,
+    "specificity_nonadv_neg": 0.8889,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.8,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.3636,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.4545,
+     "QUALITY": 0.4,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.7273
+    }
+   },
+   "4": {
+    "f1": 0.8,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.7969,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.8519,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.7273,
+     "QUALITY": 0.7,
+     "SECURITY": 0.7273,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.9091
+    }
+   },
+   "5": {
+    "f1": 0.8211,
+    "acc_original32": 0.7812,
+    "acc_extension64": 0.8438,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.6667,
+    "recall_nonadv_pos": 0.75,
+    "specificity_nonadv_neg": 0.963,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.9091,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.8182,
+     "QUALITY": 0.7,
+     "SECURITY": 0.7273,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.8182
+    }
+   },
+   "6": {
+    "f1": 0.8571,
+    "acc_original32": 0.75,
+    "acc_extension64": 0.9062,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.7143,
+    "recall_nonadv_pos": 0.8125,
+    "specificity_nonadv_neg": 0.9259,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 1.0,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.9091,
+     "QUALITY": 0.7,
+     "SECURITY": 0.7273,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.8182
+    }
+   },
+   "7": {
+    "f1": 0.5507,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.6562,
+    "recall_typeC": 0.4375,
+    "specificity_typeB": 0.9048,
+    "recall_nonadv_pos": 0.375,
+    "specificity_nonadv_neg": 1.0,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.7,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.5455,
+     "QUALITY": 0.4,
+     "SECURITY": 0.5455,
+     "TESTING": 0.9,
+     "TRACEABILITY": 0.7273
+    }
+   },
+   "8": {
+    "f1": 0.8602,
+    "acc_original32": 0.75,
+    "acc_extension64": 0.9219,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.8095,
+    "recall_nonadv_pos": 0.75,
+    "specificity_nonadv_neg": 0.963,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 1.0,
+     "GOVERNANCE": 0.9091,
+     "INFRA": 0.9091,
+     "QUALITY": 0.8,
+     "SECURITY": 0.6364,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.8182
+    }
+   }
+  },
+  "Phi-3.5-mini-instruct": {
+   "1": {
+    "f1": 0.7395,
+    "acc_original32": 0.6562,
+    "acc_extension64": 0.6875,
+    "recall_typeC": 0.9375,
+    "specificity_typeB": 0.3333,
+    "recall_nonadv_pos": 0.9062,
+    "specificity_nonadv_neg": 0.5185,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.6,
+     "BACKUP": 0.9091,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.6,
+     "SECURITY": 0.8182,
+     "TESTING": 0.4,
+     "TRACEABILITY": 0.6364
+    }
+   },
+   "2": {
+    "f1": 0.7294,
+    "acc_original32": 0.6875,
+    "acc_extension64": 0.7969,
+    "recall_typeC": 0.4375,
+    "specificity_typeB": 0.7619,
+    "recall_nonadv_pos": 0.75,
+    "specificity_nonadv_neg": 0.963,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 0.8182,
+     "DOCUMENTATION": 0.6364,
+     "GOVERNANCE": 0.7273,
+     "INFRA": 0.8182,
+     "QUALITY": 0.9,
+     "SECURITY": 0.5455,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.6364
+    }
+   },
+   "3": {
+    "f1": 0.7455,
+    "acc_original32": 0.7188,
+    "acc_extension64": 0.7031,
+    "recall_typeC": 0.8125,
+    "specificity_typeB": 0.619,
+    "recall_nonadv_pos": 0.875,
+    "specificity_nonadv_neg": 0.5185,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.4545,
+     "QUALITY": 0.6,
+     "SECURITY": 0.5455,
+     "TESTING": 0.7,
+     "TRACEABILITY": 0.7273
+    }
+   },
+   "4": {
+    "f1": 0.6957,
+    "acc_original32": 0.5938,
+    "acc_extension64": 0.5469,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.1905,
+    "recall_nonadv_pos": 1.0,
+    "specificity_nonadv_neg": 0.0741,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.6,
+     "BACKUP": 0.7273,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.5455,
+     "INFRA": 0.6364,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.5,
+     "TRACEABILITY": 0.4545
+    }
+   },
+   "5": {
+    "f1": 0.8043,
+    "acc_original32": 0.8125,
+    "acc_extension64": 0.8125,
+    "recall_typeC": 0.75,
+    "specificity_typeB": 0.7619,
+    "recall_nonadv_pos": 0.7812,
+    "specificity_nonadv_neg": 0.9259,
+    "acc_per_rule": {
+     "AGREEMENTS": 1.0,
+     "BACKUP": 1.0,
+     "DOCUMENTATION": 0.8182,
+     "GOVERNANCE": 0.8182,
+     "INFRA": 0.8182,
+     "QUALITY": 0.9,
+     "SECURITY": 0.5455,
+     "TESTING": 0.8,
+     "TRACEABILITY": 0.6364
+    }
+   },
+   "6": {
+    "f1": 0.7344,
+    "acc_original32": 0.6562,
+    "acc_extension64": 0.6406,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.1429,
+    "recall_nonadv_pos": 0.9688,
+    "specificity_nonadv_neg": 0.4444,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.9,
+     "BACKUP": 0.8182,
+     "DOCUMENTATION": 0.6364,
+     "GOVERNANCE": 0.6364,
+     "INFRA": 0.6364,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.5455
+    }
+   },
+   "7": {
+    "f1": 0.6857,
+    "acc_original32": 0.5625,
+    "acc_extension64": 0.5312,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.0952,
+    "recall_nonadv_pos": 1.0,
+    "specificity_nonadv_neg": 0.0741,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.5,
+     "BACKUP": 0.5455,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.5455,
+     "INFRA": 0.6364,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.6,
+     "TRACEABILITY": 0.4545
+    }
+   },
+   "8": {
+    "f1": 0.6906,
+    "acc_original32": 0.5938,
+    "acc_extension64": 0.5312,
+    "recall_typeC": 1.0,
+    "specificity_typeB": 0.0952,
+    "recall_nonadv_pos": 1.0,
+    "specificity_nonadv_neg": 0.1111,
+    "acc_per_rule": {
+     "AGREEMENTS": 0.7,
+     "BACKUP": 0.7273,
+     "DOCUMENTATION": 0.5455,
+     "GOVERNANCE": 0.4545,
+     "INFRA": 0.5455,
+     "QUALITY": 0.5,
+     "SECURITY": 0.5455,
+     "TESTING": 0.5,
+     "TRACEABILITY": 0.4545
+    }
+   }
+  }
+ },
+ "best_per_model": {
+  "Gemma-2-9B-it": {
+   "exp": "6",
+   "f1": 0.8155,
+   "errors": [
+    "SMP-CALIDAD-NEG",
+    "SMP-GOBERNANZA-SRC-POS",
+    "SMP-SEGURIDAD-POS",
+    "ADV-B-TRAZABILIDAD-NEG",
+    "ADV-B-RESPALDO-NEG",
+    "ADV-B-PRUEBAS-NEG",
+    "EXT-ADVB-DOCUMENTAL-03-NEG",
+    "EXT-CALIDAD-01-NEG",
+    "EXT-CALIDAD-02-NEG",
+    "EXT-ADVB-CALIDAD-03-NEG",
+    "EXT-ADVB-CALIDAD-04-NEG",
+    "EXT-ADVB-GOBERNANZA-02-NEG",
+    "EXT-SEGURIDAD-01-POS",
+    "EXT-ADVC-SEGURIDAD-02-POS",
+    "EXT-SEGURIDAD-03-POS",
+    "EXT-ADVC-SEGURIDAD-04-POS",
+    "EXT-TRAZABILIDAD-01-NEG",
+    "EXT-ADVB-TRAZABILIDAD-02-NEG",
+    "EXT-ADVB-TRAZABILIDAD-04-NEG"
+   ]
+  },
+  "Mistral-7B-Instruct-v0.2": {
+   "exp": "7",
+   "f1": 0.7928,
+   "errors": [
+    "SMP-DOCUMENTAL-NEG",
+    "SMP-GOBERNANZA-SRC-POS",
+    "SMP-SEGURIDAD-NEG",
+    "SMP-INFRA-NEG",
+    "ADV-B-SEGURIDAD-NEG",
+    "ADV-B-PRUEBAS-NEG",
+    "EXT-DOCUMENTAL-01-NEG",
+    "EXT-ADVB-DOCUMENTAL-02-NEG",
+    "EXT-ADVB-DOCUMENTAL-03-NEG",
+    "EXT-DOCUMENTAL-04-NEG",
+    "EXT-ADVB-CALIDAD-03-NEG",
+    "EXT-ADVB-CALIDAD-04-NEG",
+    "EXT-SEGURIDAD-01-NEG",
+    "EXT-SEGURIDAD-02-NEG",
+    "EXT-ADVB-SEGURIDAD-03-NEG",
+    "EXT-TRAZABILIDAD-01-NEG",
+    "EXT-PRUEBAS-02-NEG",
+    "EXT-ADVB-PRUEBAS-03-NEG",
+    "EXT-INFRA-01-POS",
+    "EXT-INFRA-01-NEG",
+    "EXT-INFRA-02-POS",
+    "EXT-ADVB-INFRA-03-NEG",
+    "EXT-ADVC-INFRA-03-POS"
+   ]
+  },
+  "Qwen2.5-7B-Instruct": {
+   "exp": "8",
+   "f1": 0.8602,
+   "errors": [
+    "SMP-GOBERNANZA-SRC-POS",
+    "SMP-SEGURIDAD-POS",
+    "SMP-PRUEBAS-POS",
+    "SMP-RESPALDO-POS",
+    "ADV-B-SEGURIDAD-NEG",
+    "ADV-B-TRAZABILIDAD-NEG",
+    "ADV-B-PRUEBAS-NEG",
+    "SMP-INFRA-POS",
+    "EXT-CALIDAD-01-NEG",
+    "EXT-CALIDAD-04-POS",
+    "EXT-SEGURIDAD-01-POS",
+    "EXT-SEGURIDAD-03-POS",
+    "EXT-ADVB-TRAZABILIDAD-04-NEG"
+   ]
+  },
+  "Phi-3.5-mini-instruct": {
+   "exp": "5",
+   "f1": 0.8043,
+   "errors": [
+    "SMP-GOBERNANZA-SRC-POS",
+    "SMP-SEGURIDAD-POS",
+    "SMP-TRAZABILIDAD-POS-A",
+    "SMP-TRAZABILIDAD-POS-B",
+    "ADV-B-PRUEBAS-NEG",
+    "SMP-INFRA-POS",
+    "EXT-DOCUMENTAL-01-NEG",
+    "EXT-ADVB-DOCUMENTAL-03-NEG",
+    "EXT-CALIDAD-02-NEG",
+    "EXT-ADVC-GOBERNANZA-03-POS",
+    "EXT-SEGURIDAD-01-POS",
+    "EXT-ADVC-SEGURIDAD-02-POS",
+    "EXT-SEGURIDAD-03-POS",
+    "EXT-ADVC-SEGURIDAD-04-POS",
+    "EXT-ADVC-TRAZABILIDAD-02-POS",
+    "EXT-ADVB-TRAZABILIDAD-04-NEG",
+    "EXT-ADVB-PRUEBAS-03-NEG",
+    "EXT-ADVB-INFRA-03-NEG"
+   ]
+  }
+ },
+ "common_best_config_errors": [
+  "ADV-B-PRUEBAS-NEG",
+  "SMP-GOBERNANZA-SRC-POS"
+ ],
+ "hardest": [
+  {
+   "id": "ADV-B-PRUEBAS-NEG",
+   "meta_rule": "TESTING",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 31,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVB-DOCUMENTAL-03-NEG",
+   "meta_rule": "DOCUMENTATION",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 28,
+   "cells": 32
+  },
+  {
+   "id": "SMP-GOBERNANZA-SRC-POS",
+   "meta_rule": "GOVERNANCE",
+   "label": 1,
+   "adversarial": null,
+   "errors": 27,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVB-CALIDAD-03-NEG",
+   "meta_rule": "QUALITY",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 24,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVB-TRAZABILIDAD-04-NEG",
+   "meta_rule": "TRACEABILITY",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 24,
+   "cells": 32
+  },
+  {
+   "id": "SMP-SEGURIDAD-POS",
+   "meta_rule": "SECURITY",
+   "label": 1,
+   "adversarial": null,
+   "errors": 23,
+   "cells": 32
+  },
+  {
+   "id": "EXT-DOCUMENTAL-01-NEG",
+   "meta_rule": "DOCUMENTATION",
+   "label": 0,
+   "adversarial": null,
+   "errors": 22,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVB-CALIDAD-04-NEG",
+   "meta_rule": "QUALITY",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 22,
+   "cells": 32
+  },
+  {
+   "id": "EXT-SEGURIDAD-01-POS",
+   "meta_rule": "SECURITY",
+   "label": 1,
+   "adversarial": null,
+   "errors": 22,
+   "cells": 32
+  },
+  {
+   "id": "EXT-SEGURIDAD-03-POS",
+   "meta_rule": "SECURITY",
+   "label": 1,
+   "adversarial": null,
+   "errors": 22,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVB-PRUEBAS-03-NEG",
+   "meta_rule": "TESTING",
+   "label": 0,
+   "adversarial": "tipo_b",
+   "errors": 22,
+   "cells": 32
+  },
+  {
+   "id": "EXT-CALIDAD-01-NEG",
+   "meta_rule": "QUALITY",
+   "label": 0,
+   "adversarial": null,
+   "errors": 21,
+   "cells": 32
+  },
+  {
+   "id": "EXT-CALIDAD-02-NEG",
+   "meta_rule": "QUALITY",
+   "label": 0,
+   "adversarial": null,
+   "errors": 21,
+   "cells": 32
+  },
+  {
+   "id": "SMP-DOCUMENTAL-NEG",
+   "meta_rule": "DOCUMENTATION",
+   "label": 0,
+   "adversarial": null,
+   "errors": 20,
+   "cells": 32
+  },
+  {
+   "id": "EXT-ADVC-SEGURIDAD-02-POS",
+   "meta_rule": "SECURITY",
+   "label": 1,
+   "adversarial": "tipo_c",
+   "errors": 18,
+   "cells": 32
+  }
+ ]
+}

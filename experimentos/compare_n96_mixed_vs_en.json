@@ -1,0 +1,558 @@
+{
+ "a": "mixed",
+ "b": "en",
+ "n_artifacts": 96,
+ "design": "paired; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip permutation over scenarios (Monte Carlo 100,000); Holm within family",
+ "summary": {
+  "cells": 32,
+  "mean_delta_f1": 0.0343,
+  "b_better": 23,
+  "b_worse": 9
+ },
+ "rows": [
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "1",
+   "f1_mixed": 0.7227,
+   "f1_en": 0.6897,
+   "mcc_mixed": 0.356,
+   "mcc_en": 0.275,
+   "delta_f1": -0.033,
+   "delta_f1_ci_scenario": [
+    -0.0851,
+    0.012
+   ],
+   "t_observed": -3,
+   "p_raw": 0.50639,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "2",
+   "f1_mixed": 0.7955,
+   "f1_en": 0.7957,
+   "mcc_mixed": 0.6339,
+   "mcc_en": 0.6054,
+   "delta_f1": 0.0002,
+   "delta_f1_ci_scenario": [
+    -0.0435,
+    0.0522
+   ],
+   "t_observed": -1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9479,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "3",
+   "f1_mixed": 0.4127,
+   "f1_en": 0.6197,
+   "mcc_mixed": 0.3156,
+   "mcc_en": 0.5125,
+   "delta_f1": 0.207,
+   "delta_f1_ci_scenario": [
+    0.0454,
+    0.3672
+   ],
+   "t_observed": 10,
+   "p_raw": 0.02103,
+   "prediction_agreement": 0.8333,
+   "p_holm": 0.60987
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "4",
+   "f1_mixed": 0.7719,
+   "f1_en": 0.8108,
+   "mcc_mixed": 0.4944,
+   "mcc_en": 0.5922,
+   "delta_f1": 0.0389,
+   "delta_f1_ci_scenario": [
+    0.0,
+    0.0803
+   ],
+   "t_observed": 5,
+   "p_raw": 0.12351,
+   "prediction_agreement": 0.9271,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "5",
+   "f1_mixed": 0.8315,
+   "f1_en": 0.8132,
+   "mcc_mixed": 0.6949,
+   "mcc_en": 0.6494,
+   "delta_f1": -0.0183,
+   "delta_f1_ci_scenario": [
+    -0.0678,
+    0.0328
+   ],
+   "t_observed": -2,
+   "p_raw": 0.68627,
+   "prediction_agreement": 0.9375,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "6",
+   "f1_mixed": 0.7767,
+   "f1_en": 0.8155,
+   "mcc_mixed": 0.5265,
+   "mcc_en": 0.6107,
+   "delta_f1": 0.0388,
+   "delta_f1_ci_scenario": [
+    0.0,
+    0.0861
+   ],
+   "t_observed": 4,
+   "p_raw": 0.21755,
+   "prediction_agreement": 0.9375,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "7",
+   "f1_mixed": 0.6875,
+   "f1_en": 0.7629,
+   "mcc_mixed": 0.375,
+   "mcc_en": 0.5209,
+   "delta_f1": 0.0754,
+   "delta_f1_ci_scenario": [
+    -0.0127,
+    0.1673
+   ],
+   "t_observed": 7,
+   "p_raw": 0.18911,
+   "prediction_agreement": 0.7812,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "8",
+   "f1_mixed": 0.7692,
+   "f1_en": 0.7925,
+   "mcc_mixed": 0.5071,
+   "mcc_en": 0.5538,
+   "delta_f1": 0.0232,
+   "delta_f1_ci_scenario": [
+    -0.0225,
+    0.074
+   ],
+   "t_observed": 2,
+   "p_raw": 0.72569,
+   "prediction_agreement": 0.9167,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "1",
+   "f1_mixed": 0.7107,
+   "f1_en": 0.7477,
+   "mcc_mixed": 0.3173,
+   "mcc_en": 0.4495,
+   "delta_f1": 0.0369,
+   "delta_f1_ci_scenario": [
+    -0.0231,
+    0.0976
+   ],
+   "t_observed": 8,
+   "p_raw": 0.05517,
+   "prediction_agreement": 0.8333,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "2",
+   "f1_mixed": 0.7048,
+   "f1_en": 0.7619,
+   "mcc_mixed": 0.3606,
+   "mcc_en": 0.4878,
+   "delta_f1": 0.0571,
+   "delta_f1_ci_scenario": [
+    0.0075,
+    0.1138
+   ],
+   "t_observed": 6,
+   "p_raw": 0.11038,
+   "prediction_agreement": 0.8958,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "3",
+   "f1_mixed": 0.701,
+   "f1_en": 0.78,
+   "mcc_mixed": 0.3959,
+   "mcc_en": 0.5436,
+   "delta_f1": 0.079,
+   "delta_f1_ci_scenario": [
+    -0.0237,
+    0.1868
+   ],
+   "t_observed": 7,
+   "p_raw": 0.22736,
+   "prediction_agreement": 0.7396,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "4",
+   "f1_mixed": 0.6984,
+   "f1_en": 0.7244,
+   "mcc_mixed": 0.2669,
+   "mcc_en": 0.3547,
+   "delta_f1": 0.026,
+   "delta_f1_ci_scenario": [
+    -0.0168,
+    0.0804
+   ],
+   "t_observed": 3,
+   "p_raw": 0.56377,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "5",
+   "f1_mixed": 0.7255,
+   "f1_en": 0.7677,
+   "mcc_mixed": 0.42,
+   "mcc_en": 0.5219,
+   "delta_f1": 0.0422,
+   "delta_f1_ci_scenario": [
+    -0.0116,
+    0.0996
+   ],
+   "t_observed": 5,
+   "p_raw": 0.17843,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "6",
+   "f1_mixed": 0.6981,
+   "f1_en": 0.7304,
+   "mcc_mixed": 0.3408,
+   "mcc_en": 0.3857,
+   "delta_f1": 0.0323,
+   "delta_f1_ci_scenario": [
+    -0.0259,
+    0.0943
+   ],
+   "t_observed": 1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.8438,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "7",
+   "f1_mixed": 0.7288,
+   "f1_en": 0.7928,
+   "mcc_mixed": 0.375,
+   "mcc_en": 0.5483,
+   "delta_f1": 0.064,
+   "delta_f1_ci_scenario": [
+    0.0119,
+    0.1194
+   ],
+   "t_observed": 9,
+   "p_raw": 0.02256,
+   "prediction_agreement": 0.8438,
+   "p_holm": 0.63168
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "8",
+   "f1_mixed": 0.6792,
+   "f1_en": 0.7339,
+   "mcc_mixed": 0.2982,
+   "mcc_en": 0.4112,
+   "delta_f1": 0.0547,
+   "delta_f1_ci_scenario": [
+    0.0044,
+    0.1091
+   ],
+   "t_observed": 5,
+   "p_raw": 0.22658,
+   "prediction_agreement": 0.8646,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "1",
+   "f1_mixed": 0.7387,
+   "f1_en": 0.729,
+   "mcc_mixed": 0.4167,
+   "mcc_en": 0.4067,
+   "delta_f1": -0.0098,
+   "delta_f1_ci_scenario": [
+    -0.0497,
+    0.0275
+   ],
+   "t_observed": 0,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9167,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "2",
+   "f1_mixed": 0.8462,
+   "f1_en": 0.8155,
+   "mcc_mixed": 0.6761,
+   "mcc_en": 0.6107,
+   "delta_f1": -0.0306,
+   "delta_f1_ci_scenario": [
+    -0.0923,
+    0.0239
+   ],
+   "t_observed": -3,
+   "p_raw": 0.50588,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "3",
+   "f1_mixed": 0.5432,
+   "f1_en": 0.6024,
+   "mcc_mixed": 0.2412,
+   "mcc_en": 0.3246,
+   "delta_f1": 0.0592,
+   "delta_f1_ci_scenario": [
+    -0.0897,
+    0.2084
+   ],
+   "t_observed": 4,
+   "p_raw": 0.54298,
+   "prediction_agreement": 0.7708,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "4",
+   "f1_mixed": 0.7069,
+   "f1_en": 0.8,
+   "mcc_mixed": 0.3208,
+   "mcc_en": 0.5854,
+   "delta_f1": 0.0931,
+   "delta_f1_ci_scenario": [
+    0.032,
+    0.1554
+   ],
+   "t_observed": 14,
+   "p_raw": 0.00154,
+   "prediction_agreement": 0.7917,
+   "p_holm": 0.04928
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "5",
+   "f1_mixed": 0.8077,
+   "f1_en": 0.8211,
+   "mcc_mixed": 0.5916,
+   "mcc_en": 0.646,
+   "delta_f1": 0.0134,
+   "delta_f1_ci_scenario": [
+    -0.0384,
+    0.062
+   ],
+   "t_observed": 3,
+   "p_raw": 0.451,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "6",
+   "f1_mixed": 0.7719,
+   "f1_en": 0.8571,
+   "mcc_mixed": 0.4944,
+   "mcc_en": 0.7089,
+   "delta_f1": 0.0852,
+   "delta_f1_ci_scenario": [
+    0.0235,
+    0.1422
+   ],
+   "t_observed": 12,
+   "p_raw": 0.00417,
+   "prediction_agreement": 0.8333,
+   "p_holm": 0.12927
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "7",
+   "f1_mixed": 0.4286,
+   "f1_en": 0.5507,
+   "mcc_mixed": 0.1983,
+   "mcc_en": 0.4284,
+   "delta_f1": 0.1222,
+   "delta_f1_ci_scenario": [
+    -0.0762,
+    0.3245
+   ],
+   "t_observed": 9,
+   "p_raw": 0.16387,
+   "prediction_agreement": 0.7188,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "8",
+   "f1_mixed": 0.7788,
+   "f1_en": 0.8602,
+   "mcc_mixed": 0.5124,
+   "mcc_en": 0.7306,
+   "delta_f1": 0.0815,
+   "delta_f1_ci_scenario": [
+    0.011,
+    0.1474
+   ],
+   "t_observed": 12,
+   "p_raw": 0.00728,
+   "prediction_agreement": 0.7917,
+   "p_holm": 0.2184
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "1",
+   "f1_mixed": 0.7327,
+   "f1_en": 0.7395,
+   "mcc_mixed": 0.4399,
+   "mcc_en": 0.4035,
+   "delta_f1": 0.0068,
+   "delta_f1_ci_scenario": [
+    -0.0649,
+    0.0824
+   ],
+   "t_observed": -4,
+   "p_raw": 0.45355,
+   "prediction_agreement": 0.8125,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "2",
+   "f1_mixed": 0.7586,
+   "f1_en": 0.7294,
+   "mcc_mixed": 0.5727,
+   "mcc_en": 0.5351,
+   "delta_f1": -0.0292,
+   "delta_f1_ci_scenario": [
+    -0.1226,
+    0.0668
+   ],
+   "t_observed": -2,
+   "p_raw": 0.79458,
+   "prediction_agreement": 0.875,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "3",
+   "f1_mixed": 0.7652,
+   "f1_en": 0.7455,
+   "mcc_mixed": 0.4764,
+   "mcc_en": 0.4356,
+   "delta_f1": -0.0198,
+   "delta_f1_ci_scenario": [
+    -0.0874,
+    0.0419
+   ],
+   "t_observed": -1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.8438,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "4",
+   "f1_mixed": 0.6906,
+   "f1_en": 0.6957,
+   "mcc_mixed": 0.2344,
+   "mcc_en": 0.2582,
+   "delta_f1": 0.005,
+   "delta_f1_ci_scenario": [
+    -0.017,
+    0.0273
+   ],
+   "t_observed": 1,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9479,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "5",
+   "f1_mixed": 0.7629,
+   "f1_en": 0.8043,
+   "mcc_mixed": 0.5209,
+   "mcc_en": 0.6272,
+   "delta_f1": 0.0415,
+   "delta_f1_ci_scenario": [
+    -0.029,
+    0.1109
+   ],
+   "t_observed": 5,
+   "p_raw": 0.26836,
+   "prediction_agreement": 0.8646,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "6",
+   "f1_mixed": 0.752,
+   "f1_en": 0.7344,
+   "mcc_mixed": 0.4445,
+   "mcc_en": 0.3913,
+   "delta_f1": -0.0176,
+   "delta_f1_ci_scenario": [
+    -0.0545,
+    0.0204
+   ],
+   "t_observed": -3,
+   "p_raw": 0.45165,
+   "prediction_agreement": 0.9271,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "7",
+   "f1_mixed": 0.6912,
+   "f1_en": 0.6857,
+   "mcc_mixed": 0.2261,
+   "mcc_en": 0.2085,
+   "delta_f1": -0.0055,
+   "delta_f1_ci_scenario": [
+    -0.034,
+    0.024
+   ],
+   "t_observed": -2,
+   "p_raw": 0.68934,
+   "prediction_agreement": 0.9375,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "8",
+   "f1_mixed": 0.7121,
+   "f1_en": 0.6906,
+   "mcc_mixed": 0.315,
+   "mcc_en": 0.2344,
+   "delta_f1": -0.0215,
+   "delta_f1_ci_scenario": [
+    -0.0555,
+    0.0142
+   ],
+   "t_observed": -5,
+   "p_raw": 0.17916,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  }
+ ]
+}

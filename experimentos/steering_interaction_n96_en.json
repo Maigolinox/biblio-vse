@@ -1,0 +1,677 @@
+{
+  "design": {
+    "condition": "en",
+    "n_artifacts": 96,
+    "bootstrap": "paired cluster bootstrap, k=10000, seed=42",
+    "clusterings": {
+      "scenario": 53,
+      "meta_rule": 9
+    }
+  },
+  "models": {
+    "Gemma-2-9B-it": {
+      "scenario": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.1013,
+              "ci_grouped_95": [
+                -0.1836,
+                -0.0133
+              ]
+            },
+            "mcc": {
+              "estimate": -0.3118,
+              "ci_grouped_95": [
+                -0.5145,
+                -0.1132
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.1563,
+              "ci_grouped_95": [
+                -0.2574,
+                -0.0534
+              ]
+            },
+            "precision": {
+              "estimate": -0.1846,
+              "ci_grouped_95": [
+                -0.2826,
+                -0.0906
+              ]
+            },
+            "recall": {
+              "estimate": 0.0,
+              "ci_grouped_95": [
+                -0.1154,
+                0.1154
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.1639,
+              "ci_grouped_95": [
+                -0.2966,
+                -0.0378
+              ]
+            },
+            "mcc": {
+              "estimate": -0.104,
+              "ci_grouped_95": [
+                -0.3286,
+                0.1197
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0938,
+              "ci_grouped_95": [
+                -0.2091,
+                0.0206
+              ]
+            },
+            "precision": {
+              "estimate": 0.0651,
+              "ci_grouped_95": [
+                -0.0776,
+                0.207
+              ]
+            },
+            "recall": {
+              "estimate": -0.2083,
+              "ci_grouped_95": [
+                -0.3696,
+                -0.0426
+              ]
+            }
+          }
+        }
+      },
+      "meta_rule": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.1013,
+              "ci_grouped_95": [
+                -0.1732,
+                -0.0043
+              ]
+            },
+            "mcc": {
+              "estimate": -0.3118,
+              "ci_grouped_95": [
+                -0.467,
+                -0.1148
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.1563,
+              "ci_grouped_95": [
+                -0.2449,
+                -0.0499
+              ]
+            },
+            "precision": {
+              "estimate": -0.1846,
+              "ci_grouped_95": [
+                -0.2751,
+                -0.0939
+              ]
+            },
+            "recall": {
+              "estimate": 0.0,
+              "ci_grouped_95": [
+                -0.1277,
+                0.125
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.1639,
+              "ci_grouped_95": [
+                -0.2861,
+                -0.0373
+              ]
+            },
+            "mcc": {
+              "estimate": -0.104,
+              "ci_grouped_95": [
+                -0.3385,
+                0.1507
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0938,
+              "ci_grouped_95": [
+                -0.2103,
+                0.0332
+              ]
+            },
+            "precision": {
+              "estimate": 0.0651,
+              "ci_grouped_95": [
+                -0.0927,
+                0.23
+              ]
+            },
+            "recall": {
+              "estimate": -0.2083,
+              "ci_grouped_95": [
+                -0.383,
+                -0.02
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Mistral-7B-Instruct-v0.2": {
+      "scenario": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0082,
+              "ci_grouped_95": [
+                -0.0887,
+                0.0719
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0074,
+              "ci_grouped_95": [
+                -0.2149,
+                0.2089
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0761,
+                0.1184
+              ]
+            },
+            "precision": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0637,
+                0.1082
+              ]
+            },
+            "recall": {
+              "estimate": -0.0833,
+              "ci_grouped_95": [
+                -0.2292,
+                0.06
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0465,
+              "ci_grouped_95": [
+                -0.1268,
+                0.029
+              ]
+            },
+            "mcc": {
+              "estimate": -0.1154,
+              "ci_grouped_95": [
+                -0.2978,
+                0.0621
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0521,
+              "ci_grouped_95": [
+                -0.1476,
+                0.0408
+              ]
+            },
+            "precision": {
+              "estimate": -0.0378,
+              "ci_grouped_95": [
+                -0.1292,
+                0.0567
+              ]
+            },
+            "recall": {
+              "estimate": -0.0625,
+              "ci_grouped_95": [
+                -0.1538,
+                0.0217
+              ]
+            }
+          }
+        }
+      },
+      "meta_rule": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0082,
+              "ci_grouped_95": [
+                -0.0644,
+                0.0549
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0074,
+              "ci_grouped_95": [
+                -0.1667,
+                0.1779
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0686,
+                0.1191
+              ]
+            },
+            "precision": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0632,
+                0.1464
+              ]
+            },
+            "recall": {
+              "estimate": -0.0833,
+              "ci_grouped_95": [
+                -0.24,
+                0.0851
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0465,
+              "ci_grouped_95": [
+                -0.1734,
+                0.0606
+              ]
+            },
+            "mcc": {
+              "estimate": -0.1154,
+              "ci_grouped_95": [
+                -0.4059,
+                0.1889
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0521,
+              "ci_grouped_95": [
+                -0.2103,
+                0.0996
+              ]
+            },
+            "precision": {
+              "estimate": -0.0378,
+              "ci_grouped_95": [
+                -0.183,
+                0.1272
+              ]
+            },
+            "recall": {
+              "estimate": -0.0625,
+              "ci_grouped_95": [
+                -0.1702,
+                0.04
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Qwen2.5-7B-Instruct": {
+      "scenario": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0294,
+              "ci_grouped_95": [
+                -0.1126,
+                0.0521
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0805,
+              "ci_grouped_95": [
+                -0.2738,
+                0.1184
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0417,
+              "ci_grouped_95": [
+                -0.143,
+                0.0634
+              ]
+            },
+            "precision": {
+              "estimate": -0.0319,
+              "ci_grouped_95": [
+                -0.155,
+                0.0956
+              ]
+            },
+            "recall": {
+              "estimate": -0.0208,
+              "ci_grouped_95": [
+                -0.098,
+                0.0444
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": 0.0908,
+              "ci_grouped_95": [
+                -0.0301,
+                0.2231
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0191,
+              "ci_grouped_95": [
+                -0.2165,
+                0.1753
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0742,
+                0.1146
+              ]
+            },
+            "precision": {
+              "estimate": -0.1314,
+              "ci_grouped_95": [
+                -0.2945,
+                0.0379
+              ]
+            },
+            "recall": {
+              "estimate": 0.1458,
+              "ci_grouped_95": [
+                0.0385,
+                0.2667
+              ]
+            }
+          }
+        }
+      },
+      "meta_rule": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.0294,
+              "ci_grouped_95": [
+                -0.1182,
+                0.0438
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0805,
+              "ci_grouped_95": [
+                -0.2868,
+                0.1161
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0417,
+              "ci_grouped_95": [
+                -0.1479,
+                0.0666
+              ]
+            },
+            "precision": {
+              "estimate": -0.0319,
+              "ci_grouped_95": [
+                -0.2026,
+                0.1106
+              ]
+            },
+            "recall": {
+              "estimate": -0.0208,
+              "ci_grouped_95": [
+                -0.0816,
+                0.0444
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": 0.0908,
+              "ci_grouped_95": [
+                0.008,
+                0.1687
+              ]
+            },
+            "mcc": {
+              "estimate": -0.0191,
+              "ci_grouped_95": [
+                -0.1933,
+                0.1618
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": 0.0208,
+              "ci_grouped_95": [
+                -0.0642,
+                0.1062
+              ]
+            },
+            "precision": {
+              "estimate": -0.1314,
+              "ci_grouped_95": [
+                -0.2658,
+                0.0236
+              ]
+            },
+            "recall": {
+              "estimate": 0.1458,
+              "ci_grouped_95": [
+                0.0638,
+                0.2292
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Phi-3.5-mini-instruct": {
+      "scenario": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": 0.0488,
+              "ci_grouped_95": [
+                -0.0608,
+                0.1656
+              ]
+            },
+            "mcc": {
+              "estimate": 0.0015,
+              "ci_grouped_95": [
+                -0.225,
+                0.2288
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0,
+              "ci_grouped_95": [
+                -0.1129,
+                0.11
+              ]
+            },
+            "precision": {
+              "estimate": -0.164,
+              "ci_grouped_95": [
+                -0.2669,
+                -0.0619
+              ]
+            },
+            "recall": {
+              "estimate": 0.25,
+              "ci_grouped_95": [
+                0.0926,
+                0.4043
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.054,
+              "ci_grouped_95": [
+                -0.1428,
+                0.0364
+              ]
+            },
+            "mcc": {
+              "estimate": -0.1657,
+              "ci_grouped_95": [
+                -0.3911,
+                0.0542
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0938,
+              "ci_grouped_95": [
+                -0.1964,
+                0.0057
+              ]
+            },
+            "precision": {
+              "estimate": -0.1739,
+              "ci_grouped_95": [
+                -0.2641,
+                -0.0873
+              ]
+            },
+            "recall": {
+              "estimate": 0.0833,
+              "ci_grouped_95": [
+                -0.0612,
+                0.22
+              ]
+            }
+          }
+        }
+      },
+      "meta_rule": {
+        "structured_prompting": {
+          "formula": "(Exp6-Exp2)-(Exp4-Exp1)",
+          "metrics": {
+            "f1": {
+              "estimate": 0.0488,
+              "ci_grouped_95": [
+                -0.0753,
+                0.2037
+              ]
+            },
+            "mcc": {
+              "estimate": 0.0015,
+              "ci_grouped_95": [
+                -0.2037,
+                0.1868
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0,
+              "ci_grouped_95": [
+                -0.1256,
+                0.1125
+              ]
+            },
+            "precision": {
+              "estimate": -0.164,
+              "ci_grouped_95": [
+                -0.2127,
+                -0.1054
+              ]
+            },
+            "recall": {
+              "estimate": 0.25,
+              "ci_grouped_95": [
+                0.0625,
+                0.44
+              ]
+            }
+          }
+        },
+        "rag": {
+          "formula": "(Exp8-Exp5)-(Exp7-Exp3)",
+          "metrics": {
+            "f1": {
+              "estimate": -0.054,
+              "ci_grouped_95": [
+                -0.1659,
+                0.0814
+              ]
+            },
+            "mcc": {
+              "estimate": -0.1657,
+              "ci_grouped_95": [
+                -0.5614,
+                0.1115
+              ]
+            },
+            "balanced_accuracy": {
+              "estimate": -0.0938,
+              "ci_grouped_95": [
+                -0.2434,
+                0.0499
+              ]
+            },
+            "precision": {
+              "estimate": -0.1739,
+              "ci_grouped_95": [
+                -0.2651,
+                -0.0619
+              ]
+            },
+            "recall": {
+              "estimate": 0.0833,
+              "ci_grouped_95": [
+                -0.102,
+                0.3333
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

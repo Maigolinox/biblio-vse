@@ -1,0 +1,286 @@
+{
+ "a": "mixed",
+ "b": "noisy",
+ "n_artifacts": 96,
+ "design": "paired; ΔF1 CI from scenario-cluster bootstrap (k=10,000); sign-flip permutation over scenarios (Monte Carlo 100,000); Holm within family",
+ "summary": {
+  "cells": 16,
+  "mean_delta_f1": -0.0452,
+  "b_better": 2,
+  "b_worse": 13
+ },
+ "rows": [
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "1",
+   "f1_mixed": 0.7227,
+   "f1_noisy": 0.6618,
+   "mcc_mixed": 0.356,
+   "mcc_noisy": 0.0754,
+   "delta_f1": -0.0609,
+   "delta_f1_ci_scenario": [
+    -0.1145,
+    -0.0086
+   ],
+   "t_observed": -13,
+   "p_raw": 0.00253,
+   "prediction_agreement": 0.7812,
+   "p_holm": 0.03795
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "2",
+   "f1_mixed": 0.7955,
+   "f1_noisy": 0.7955,
+   "mcc_mixed": 0.6339,
+   "mcc_noisy": 0.6339,
+   "delta_f1": 0.0,
+   "delta_f1_ci_scenario": [
+    -0.0264,
+    0.0265
+   ],
+   "t_observed": 0,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.9792,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "5",
+   "f1_mixed": 0.8315,
+   "f1_noisy": 0.7727,
+   "mcc_mixed": 0.6949,
+   "mcc_noisy": 0.5916,
+   "delta_f1": -0.0587,
+   "delta_f1_ci_scenario": [
+    -0.1139,
+    -0.014
+   ],
+   "t_observed": -5,
+   "p_raw": 0.06326,
+   "prediction_agreement": 0.9479,
+   "p_holm": 0.75912
+  },
+  {
+   "model": "Gemma-2-9B-it",
+   "exp": "6",
+   "f1_mixed": 0.7767,
+   "f1_noisy": 0.7593,
+   "mcc_mixed": 0.5265,
+   "mcc_noisy": 0.4734,
+   "delta_f1": -0.0174,
+   "delta_f1_ci_scenario": [
+    -0.0653,
+    0.0324
+   ],
+   "t_observed": -3,
+   "p_raw": 0.45418,
+   "prediction_agreement": 0.9271,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "1",
+   "f1_mixed": 0.7107,
+   "f1_noisy": 0.6857,
+   "mcc_mixed": 0.3173,
+   "mcc_noisy": 0.2085,
+   "delta_f1": -0.025,
+   "delta_f1_ci_scenario": [
+    -0.0808,
+    0.0321
+   ],
+   "t_observed": -9,
+   "p_raw": 0.04908,
+   "prediction_agreement": 0.7812,
+   "p_holm": 0.63804
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "2",
+   "f1_mixed": 0.7048,
+   "f1_noisy": 0.7207,
+   "mcc_mixed": 0.3606,
+   "mcc_noisy": 0.3728,
+   "delta_f1": 0.016,
+   "delta_f1_ci_scenario": [
+    -0.0351,
+    0.0728
+   ],
+   "t_observed": 0,
+   "p_raw": 1.0,
+   "prediction_agreement": 0.8958,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "5",
+   "f1_mixed": 0.7255,
+   "f1_noisy": 0.6972,
+   "mcc_mixed": 0.42,
+   "mcc_noisy": 0.3246,
+   "delta_f1": -0.0282,
+   "delta_f1_ci_scenario": [
+    -0.0728,
+    0.0179
+   ],
+   "t_observed": -5,
+   "p_raw": 0.17843,
+   "prediction_agreement": 0.9062,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "exp": "6",
+   "f1_mixed": 0.6981,
+   "f1_noisy": 0.6942,
+   "mcc_mixed": 0.3408,
+   "mcc_noisy": 0.2685,
+   "delta_f1": -0.0039,
+   "delta_f1_ci_scenario": [
+    -0.0635,
+    0.0636
+   ],
+   "t_observed": -5,
+   "p_raw": 0.30391,
+   "prediction_agreement": 0.8229,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "1",
+   "f1_mixed": 0.7387,
+   "f1_noisy": 0.6777,
+   "mcc_mixed": 0.4167,
+   "mcc_noisy": 0.2196,
+   "delta_f1": -0.0611,
+   "delta_f1_ci_scenario": [
+    -0.1324,
+    0.0065
+   ],
+   "t_observed": -10,
+   "p_raw": 0.02999,
+   "prediction_agreement": 0.7708,
+   "p_holm": 0.41986
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "2",
+   "f1_mixed": 0.8462,
+   "f1_noisy": 0.7925,
+   "mcc_mixed": 0.6761,
+   "mcc_noisy": 0.5538,
+   "delta_f1": -0.0537,
+   "delta_f1_ci_scenario": [
+    -0.1093,
+    -0.0045
+   ],
+   "t_observed": -6,
+   "p_raw": 0.06863,
+   "prediction_agreement": 0.9167,
+   "p_holm": 0.75912
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "5",
+   "f1_mixed": 0.8077,
+   "f1_noisy": 0.7885,
+   "mcc_mixed": 0.5916,
+   "mcc_noisy": 0.5494,
+   "delta_f1": -0.0192,
+   "delta_f1_ci_scenario": [
+    -0.0571,
+    0.0123
+   ],
+   "t_observed": -2,
+   "p_raw": 0.62586,
+   "prediction_agreement": 0.9583,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Qwen2.5-7B-Instruct",
+   "exp": "6",
+   "f1_mixed": 0.7719,
+   "f1_noisy": 0.7965,
+   "mcc_mixed": 0.4944,
+   "mcc_noisy": 0.5569,
+   "delta_f1": 0.0245,
+   "delta_f1_ci_scenario": [
+    -0.0136,
+    0.0657
+   ],
+   "t_observed": 3,
+   "p_raw": 0.45092,
+   "prediction_agreement": 0.9271,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "1",
+   "f1_mixed": 0.7327,
+   "f1_noisy": 0.4545,
+   "mcc_mixed": 0.4399,
+   "mcc_noisy": 0.3203,
+   "delta_f1": -0.2781,
+   "delta_f1_ci_scenario": [
+    -0.4307,
+    -0.1429
+   ],
+   "t_observed": -9,
+   "p_raw": 0.09246,
+   "prediction_agreement": 0.5938,
+   "p_holm": 0.9246
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "2",
+   "f1_mixed": 0.7586,
+   "f1_noisy": 0.7473,
+   "mcc_mixed": 0.5727,
+   "mcc_noisy": 0.5237,
+   "delta_f1": -0.0114,
+   "delta_f1_ci_scenario": [
+    -0.0833,
+    0.069
+   ],
+   "t_observed": -2,
+   "p_raw": 0.79502,
+   "prediction_agreement": 0.875,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "5",
+   "f1_mixed": 0.7629,
+   "f1_noisy": 0.6977,
+   "mcc_mixed": 0.5209,
+   "mcc_noisy": 0.4686,
+   "delta_f1": -0.0652,
+   "delta_f1_ci_scenario": [
+    -0.1544,
+    0.0142
+   ],
+   "t_observed": -3,
+   "p_raw": 0.60877,
+   "prediction_agreement": 0.8229,
+   "p_holm": 1.0
+  },
+  {
+   "model": "Phi-3.5-mini-instruct",
+   "exp": "6",
+   "f1_mixed": 0.752,
+   "f1_noisy": 0.6714,
+   "mcc_mixed": 0.4445,
+   "mcc_noisy": 0.1043,
+   "delta_f1": -0.0806,
+   "delta_f1_ci_scenario": [
+    -0.1206,
+    -0.0459
+   ],
+   "t_observed": -15,
+   "p_raw": 0.0001,
+   "prediction_agreement": 0.8438,
+   "p_holm": 0.0016
+  }
+ ]
+}
